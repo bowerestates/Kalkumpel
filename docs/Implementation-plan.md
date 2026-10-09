@@ -16,12 +16,11 @@
 
 ---
 
-## Phase 2: Knowledge Base & AI Edge Function Benchmark (Current)
+## Phase 2: Architecture Knowledge & Provider Contracts (Completed)
 - [x] Establish `docs/` repository knowledge base (`Masterplan.md`, `Implementation-plan.md`, `Design-guidelines.md`, `app-flow-pages-and-roles.md`).
-- [ ] **AI Edge Function Evaluation:**
-  - Benchmark Claude 3.5 Sonnet vs. GPT-4o vs. Gemini 1.5 Flash/Pro on a test set of 15 European/German meal images.
-  - Evaluate accuracy, portion estimation error, latency, and cost per scan.
-  - Finalize prompt formatting and JSON schema validation.
+- [x] Define hybrid data architecture: Claude Vision + BLS (Germany) + Open Food Facts (Barcodes) + USDA.
+- [x] Define billing stack: RevenueCat (iOS/Android IAP) + optional Stripe Checkout.
+- [x] Specify open data legal compliance (CC BY 4.0 for BLS, ODbL for Open Food Facts).
 
 ---
 
@@ -38,29 +37,39 @@
 
 ---
 
-## Phase 4: Full German Localization (UI)
+## Phase 4: Barcode Scanning & Hybrid Nutrition Data
+- [ ] Integrate camera barcode scanning via `expo-camera` or `expo-barcode-scanner`.
+- [ ] Connect Open Food Facts REST API (`https://world.openfoodfacts.org/api/v2/product/{barcode}.json`).
+- [ ] Build packaged product preview sheet (Brand, Product Name, Nutriscore, Macros per 100g, Portion Multiplier).
+- [ ] Add BLS (Bundeslebensmittelschlüssel) ingredient grounding table/cache for common German staples.
+- [ ] Add "Lizenzen & Datenquellen" attribution page in Profile/Settings (CC BY 4.0 & ODbL requirements).
+
+---
+
+## Phase 5: Full German Localization (UI)
 - [ ] Audit all strings in `app/`, `components/`, and `constants/`.
-- [ ] Extract UI strings into organized translation dictionaries or direct German copy.
 - [ ] Standardize terminology:
   - *Calories* -> *Kalorien (kcal)*
   - *Protein* -> *Eiweiß (g)*
   - *Carbohydrates* -> *Kohlenhydrate (g)*
   - *Fat* -> *Fett (g)*
   - *Streak* -> *Serie / Streak*
+  - *Scan Barcode* -> *Barcode scannen*
   - *Log Meal* -> *Mahlzeit erfassen*
 - [ ] Verify German date (`dd.mm.yyyy`) and number formatting (comma decimal separator).
 
 ---
 
-## Phase 5: Monetization & Paywall Integration
-- [ ] Implement subscription entitlement checking in Supabase (`subscriptions` table or metadata).
-- [ ] Add paywall screen when free daily scan limit is reached (`meal_analysis_usage` count >= daily limit).
-- [ ] Connect RevenueCat or Stripe checkout for subscriptions.
-- [ ] Add receipt validation webhook / edge function.
+## Phase 6: Subscriptions & Paywall (RevenueCat)
+- [ ] Install and configure `react-native-purchases` (RevenueCat SDK).
+- [ ] Define offerings: Monthly & Annual Kumpel+ subscriptions.
+- [ ] Implement paywall modal triggered when daily free scans exceed quota (`meal_analysis_usage` count >= 5).
+- [ ] Sync RevenueCat customer entitlement status with Supabase profile metadata / database table.
+- [ ] Add restore purchases button and terms of service / privacy links.
 
 ---
 
-## Phase 6: Production Polish & App Store Readiness
-- [ ] Add crash logging and performance tracing (Sentry / PostHog).
-- [ ] End-to-end testing of camera upload flow on real iOS and Android devices.
+## Phase 7: Production Polish & Store Submission
+- [ ] End-to-end testing of camera snap, barcode lookup, and offline sync.
+- [ ] Add crash logging and performance tracing.
 - [ ] Prepare App Store and Google Play assets, screenshots, and privacy manifests.
