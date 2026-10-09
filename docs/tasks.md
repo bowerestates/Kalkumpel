@@ -19,7 +19,7 @@
 - [x] Free AI scan quota: **3 scans/day** on the free tier.
 - [ ] Paid tier (Kumpel+ Pro) scan quota: PLACEHOLDER – amount to be decided by Gordon.
 - [ ] Background tone: current build uses dark teal, guidelines say slate `#0F172A` – **placeholder, revisit later** (see Phase 0 task).
-- [x] Accounts: **Lovable Cloud is ON HOLD** – no sign-up/sign-in, no Cloud enablement. Everything stays in browser storage until Gordon says go (see Phase 2).
+- [x] Accounts: hold lifted – use **Gordon's own Supabase project** (not Lovable Cloud) for sign-in, data and photos (see Phase 2).
 
 ---
 
@@ -53,15 +53,16 @@
 - [ ] ⏸ ON HOLD (accounts paused): Account creation wall (28) – Google, Apple, E-Mail + AGB/Datenschutz checkbox
 - [ ] ⏸ ON HOLD (accounts paused): Seed profile from onboarding answers after sign-up
 
-## Phase 2 – Backend & Accounts (Lovable Cloud) — ⏸ ON HOLD
-> **Gordon, 09 Oct 2026:** no Lovable Cloud for accounts for now. Do not enable Cloud, build sign-up/sign-in, or move data online until he lifts the hold. In the meantime all app data stays in browser storage (`src/lib/store.ts`) and the daily scan quota is counted there.
-- [ ] ⏸ Enable Lovable Cloud
-- [ ] ⏸ Tables per prompt.md: `profiles`, `entries`, `weights`, `meal_analysis_usage` (+ `preferred_language`, onboarding fields)
-- [ ] ⏸ Row-level security: users see only their own data
-- [ ] ⏸ Private `meal-photos` storage, per-user folders
-- [ ] ⏸ Sign-in / sign-up / password reset without revealing whether an email exists
-- [ ] ⏸ Move app data from browser storage to the cloud; keep offline cache (React Query)
-- [ ] ⏸ Roles: Anonymous · Free · Kumpel+ Pro
+## Phase 2 – Backend & Accounts (Gordon's own Supabase) — ACTIVE
+> **Gordon, 09 Oct 2026 (later):** hold lifted. Use Gordon's own Supabase project (not Lovable Cloud) for authentication, database and meal photos. See `docs/Provider-Recommendations.md`.
+- [x] Save provider recommendations to `docs/Provider-Recommendations.md`
+- [ ] Gordon connects his Supabase project to Lovable (Connectors → Supabase) — **waiting on Gordon**
+- [ ] Tables per prompt.md: `profiles`, `entries`, `weights`, `meal_analysis_usage` (+ `preferred_language`, onboarding fields)
+- [ ] Row-level security: users see only their own data
+- [ ] Private `meal-photos` storage, per-user folders
+- [ ] Sign-in / sign-up / password reset without revealing whether an email exists
+- [ ] Move app data from browser storage to the database on first sign-in; keep offline cache (React Query)
+- [ ] Roles: Anonymous · Free · Kumpel+ Pro
 
 ## Phase 3 – Core App: Dashboard & Logging
 - [x] Dashboard: remaining / eaten kcal, rings for kcal, Eiweiß, Kohlenhydrate, Fett
