@@ -78,11 +78,16 @@
 ## Phase 4 – AI Photo Scanner
 - [~] Photo upload UI + "analysing" state (currently simulated result)
 - [ ] Real AI meal analysis via Lovable AI (structured JSON: items, portions, kcal, macros)
-  - [ ] **Model choice pending (Gordon, 09 Oct 2026):** comparing per-scan cost. Cheapest
-    image-capable options on the Lovable AI Gateway per scan (≈1,400 tokens in / 250 out):
-    `openai/gpt-6-luna` ~0,00027 €, `google/gemini-3.1-flash-lite-image` ~0,00073 €,
-    `google/gemini-3.8-flash` ~0,00199 €, `anthropic/claude-haiku-4-5` ~0,00265 €,
-    `anthropic/claude-sonnet-5` ~0,00530 €. Masterplan §3 currently names Claude Vision.
+  - [ ] **Model choice pending (Gordon, 09 Oct 2026):** comparing per-scan cost before wiring.
+    Live Lovable AI Gateway price list (09 Oct 2026), per scan at ≈1,400 tokens in / 250 out,
+    in the gateway's own cost units (per token, currency not stated by the API):
+    `openai/gpt-6-luna` 0,00027 → 0,27 per 1,000 scans (zero retention);
+    `google/gemini-3.1-flash-lite-image` 0,00073 → 0,73 per 1,000 (zero retention);
+    `google/gemini-3.8-flash` 0,00199 → 1,99 per 1,000 (provider-retained);
+    `anthropic/claude-haiku-4-5` 0,00265 → 2,65 per 1,000 (provider-retained);
+    `anthropic/claude-sonnet-5` 0,00530 → 5,30 per 1,000 (provider-retained).
+    Cheaper entries exist (`openai/gpt-5-nano`, `google/gemini-2.5-flash-lite`) but are
+    flagged deprecated. Masterplan §3 currently names Claude Vision.
     Blocked: do not wire the scanner until Gordon picks the model.
 - [ ] Review screen: edit ingredients, portion slider / grams, add forgotten sides
 - [ ] Scan tips screen ("Kamera ruhig halten, viel Licht, alle Zutaten sichtbar")
