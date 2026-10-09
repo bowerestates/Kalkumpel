@@ -56,13 +56,14 @@
 ## Phase 2 – Backend & Accounts (Gordon's own Supabase) — ACTIVE
 > **Gordon, 09 Oct 2026 (later):** hold lifted. Use Gordon's own Supabase project (not Lovable Cloud) for authentication, database and meal photos. See `docs/Provider-Recommendations.md`.
 - [x] Save provider recommendations to `docs/Provider-Recommendations.md`
-- [ ] Gordon connects his Supabase project to Lovable (Connectors → Supabase) — **waiting on Gordon**
-- [ ] Tables per prompt.md: `profiles`, `entries`, `weights`, `meal_analysis_usage` (+ `preferred_language`, onboarding fields)
-- [ ] Row-level security: users see only their own data
-- [ ] Private `meal-photos` storage, per-user folders
-- [ ] Sign-in / sign-up / password reset without revealing whether an email exists
-- [ ] Move app data from browser storage to the database on first sign-in; keep offline cache (React Query)
-- [ ] Roles: Anonymous · Free · Kumpel+ Pro
+- [x] Gordon connects his Supabase project to Lovable (project `kalkumpel`, connected 09 Oct 2026)
+- [x] Tables per prompt.md: `profiles`, `entries`, `weights`, `meal_analysis_usage` (+ `preferred_language`, onboarding fields)
+- [x] Row-level security: users see only their own data (scan counts read-only for users)
+- [~] Private `meal-photos` storage, per-user folders — storage ready; photo upload wiring comes with the real AI scanner (Phase 4)
+- [x] Sign-in / sign-up / password reset (E-Mail + Passwort) without revealing whether an email exists
+- [x] Move app data from browser storage to the database on first sign-in; browser storage stays as the offline cache
+- [ ] Roles: Anonymous · Free · Kumpel+ Pro — upcoming (Pro status must be set server-side once Stripe exists)
+- [ ] Google / Apple sign-in — upcoming
 
 ## Phase 3 – Core App: Dashboard & Logging
 - [x] Dashboard: remaining / eaten kcal, rings for kcal, Eiweiß, Kohlenhydrate, Fett
