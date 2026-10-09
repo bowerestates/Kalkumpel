@@ -18,6 +18,7 @@
 - [x] Macro colours: **keep the current build colours** (do not switch to Design-guidelines palette).
 - [x] Free AI scan quota: **3 scans/day** on the free tier.
 - [ ] Paid tier (Kumpel+ Pro) scan quota: PLACEHOLDER – amount to be decided by Gordon.
+- [ ] AI scan model: PLACEHOLDER – Gordon is comparing per-scan cost before we pick (see Phase 4).
 - [ ] Background tone: current build uses dark teal, guidelines say slate `#0F172A` – **placeholder, revisit later** (see Phase 0 task).
 - [x] Accounts: hold lifted – use **Gordon's own Supabase project** (not Lovable Cloud) for sign-in, data and photos (see Phase 2).
 
@@ -77,6 +78,12 @@
 ## Phase 4 – AI Photo Scanner
 - [~] Photo upload UI + "analysing" state (currently simulated result)
 - [ ] Real AI meal analysis via Lovable AI (structured JSON: items, portions, kcal, macros)
+  - [ ] **Model choice pending (Gordon, 09 Oct 2026):** comparing per-scan cost. Cheapest
+    image-capable options on the Lovable AI Gateway per scan (≈1,400 tokens in / 250 out):
+    `openai/gpt-6-luna` ~0,00027 €, `google/gemini-3.1-flash-lite-image` ~0,00073 €,
+    `google/gemini-3.8-flash` ~0,00199 €, `anthropic/claude-haiku-4-5` ~0,00265 €,
+    `anthropic/claude-sonnet-5` ~0,00530 €. Masterplan §3 currently names Claude Vision.
+    Blocked: do not wire the scanner until Gordon picks the model.
 - [ ] Review screen: edit ingredients, portion slider / grams, add forgotten sides
 - [ ] Scan tips screen ("Kamera ruhig halten, viel Licht, alle Zutaten sichtbar")
 - [ ] Daily quota check counted in browser storage (free: 3/day; Pro: TBD); paywall when exceeded — server-side counter (`meal_analysis_usage`) waits for Phase 2
