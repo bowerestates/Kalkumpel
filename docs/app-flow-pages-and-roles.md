@@ -1,5 +1,6 @@
 # Kalkumpel - App Flow, Pages & Roles
 
+> **Status:** Living Document (Iterative until Onboarding Design Lock)  
 > **Navigation:** Expo Router v4 (file-based routing)  
 > **Auth State:** Managed by Supabase Auth session with secure storage token cache  
 
@@ -10,8 +11,8 @@
 | Role | Description | Access Level |
 |---|---|---|
 | **Anonymous (Unauthenticated)** | Guest visitor opening the app for the first time | Welcome screen, Onboarding flow, Login/Registration, Password reset |
-| **Authenticated (Free User)** | Standard registered user with email/password or OAuth | Dashboard, Camera (up to 5 scans/day), Manual log, Profile, 7d trends |
-| **Subscriber (Kumpel+ Pro)** | Paid user with active subscription | Unlimited scans, 90d analytics, PDF export, priority AI queue |
+| **Authenticated (Free User)** | Standard registered user with email/password or OAuth | Dashboard, Camera (up to 5 scans/day), Barcode scanner (unlimited), Manual log, Profile, 7d trends |
+| **Subscriber (Kumpel+ Pro)** | Paid user with active subscription (via RevenueCat or Stripe) | Unlimited AI scans, BLS micronutrient detail, 90d analytics, PDF export, priority AI queue |
 
 ---
 
@@ -19,7 +20,7 @@
 
 ```
 app/
-├── _layout.tsx                     # Global Root: Providers (QueryClient, Auth, Theme, Splash)
+├── _layout.tsx                     # Global Root: Providers (QueryClient, Auth, Theme, RevenueCat)
 │
 ├── auth/                           # Unauthenticated Routes
 │   ├── _layout.tsx
@@ -27,7 +28,7 @@ app/
 │   ├── sign-up.tsx                 # Account registration
 │   └── forgot-password.tsx         # Password recovery (rate-limited, no enumeration)
 │
-├── onboarding/                     # First-Time User Experience (Planned)
+├── onboarding/                     # First-Time User Experience (Living Draft)
 │   ├── _layout.tsx
 │   ├── welcome.tsx                 # Value proposition intro
 │   ├── goal.tsx                    # Select: Cut, Maintain, Bulk
@@ -36,26 +37,31 @@ app/
 │   └── summary.tsx                 # Calculated targets reveal + registration prompt
 │
 ├── (tabs)/                         # Main App Navigation (Authenticated)
-│   ├── _layout.tsx                 # Tab Bar (Today, Camera, Trends, Profile)
+│   ├── _layout.tsx                 # Tab Bar (Today, Camera/Barcode, Trends, Profile)
 │   ├── index.tsx                   # Today / Dashboard
 │   │                               #   - Calorie remaining ring
 │   │                               #   - Macro progress bars (P / C / F)
 │   │                               #   - Date jumper (yesterday, tomorrow)
 │   │                               #   - Meal list grouped by type
 │   │                               #   - Active streak banner
-│   ├── camera.tsx                  # Camera trigger / Viewfinder
+│   ├── camera.tsx                  # Capture Hub: Toggle between [Foto-Scan] and [Barcode]
 │   ├── analytics.tsx               # Weight progression graph & macro distributions
-│   └── profile.tsx                 # Personal settings, target overrides, app version
+│   └── profile.tsx                 # Personal settings, target overrides, app version, legal/licenses
 │
-└── meal/                           # Meal Sub-routes (Modals & Details)
-    ├── [id].tsx                    # Single meal detail, edit ingredients, delete
-    └── review.tsx                  # AI result review: detected items, grams slider, confirm
+├── meal/                           # Meal Sub-routes (Modals & Details)
+│   ├── [id].tsx                    # Single meal detail, edit ingredients, delete
+│   ├── review.tsx                  # AI result review: detected items, grams slider, confirm
+│   └── barcode-preview.tsx         # Open Food Facts product confirmation sheet
+│
+└── paywall/                        # Subscription Screen
+    └── index.tsx                   # Kumpel+ offerings (Monthly/Annual), Restore purchases
 ```
 
 ---
 
-## 3. Core State Machine: Photo-to-Log Meal Flow
+## 3. Meal Capture State Machines
 
+### Flow A: AI Photo Recognition Flow
 ```
 [Camera Snap] 
        │
@@ -65,16 +71,16 @@ app/
        ▼
 [Edge Function: analyze-meal] ◄─── Checks daily quota in meal_analysis_usage
        │
-       ├─► [Quota Exceeded] ──► [Show Paywall / Upgrade Screen]
+       ├─► [Quota Exceeded] ──► [Show Paywall: paywall/index.tsx]
        │
        ▼
-[Return JSON Breakdown] (Food items, portions, macros, confidence score)
+[Claude Vision + BLS Grounding]
        │
        ▼
 [Review Screen: meal/review.tsx]
        │
-       ├─► User can adjust portion slider (+/- grams)
-       ├─► User can add/remove detected ingredient items
+       ├─► User adjusts portion slider (+/- grams)
+       ├─► User adds/removes ingredients
        ├─► User selects meal type (Frühstück, Mittagessen, Abendessen, Snack)
        │
        ▼
@@ -86,3 +92,39 @@ app/
        ▼
 [Return to Dashboard] (Animated update of calorie ring & streak)
 ```
+
+### Flow B: Barcode Scanning Flow (Open Food Facts)
+```
+[Barcode Viewfinder]
+       │
+       ▼
+[Read EAN/UPC Code]
+       │
+       ▼
+[Fetch Open Food Facts API] (https://world.openfoodfacts.org/api/v2/product/{barcode}.json)
+       │
+       ├─► [Product Not Found] ──► [Fallback to Manual Entry or Photo Scan]
+       │
+       ▼
+[Barcode Preview Sheet: meal/barcode-preview.tsx]
+       │
+       ├── Display Brand, Product Title, Nutriscore
+       ├── Display Per 100g Values (Kcal, Protein, Carbs, Fat)
+       └── Input Serving Size (e.g. 1 Becher = 250g, or custom slider)
+       │
+       ▼
+[Commit to Supabase]
+       ├── Inserts row into `entries` table (with OFF product ID metadata)
+       └── Updates local React Query cache
+       │
+       ▼
+[Return to Dashboard]
+```
+
+---
+
+## 4. Legal & Open Data Attribution Matrix
+- Accessible via `app/(tabs)/profile.tsx` -> **Lizenzen & Datenquellen**:
+  - **BLS (Bundeslebensmittelschlüssel 4.0):** CC BY 4.0 attribution to Max Rubner-Institut (MRI).
+  - **Open Food Facts:** Open Database License (ODbL) attribution to Open Food Facts contributors.
+  - **USDA FoodData Central:** Public domain attribution.
