@@ -1,62 +1,74 @@
 # Kalkumpel - Design Guidelines
 
-> **Visual Identity:** Clean, modern, high-contrast, data-dense yet approachable. Inspired by Apple Health and modern Scandinavian utility apps.
+> **Visual Identity:** Clean, modern, high-contrast, data-dense yet approachable. Inspired by Apple Health, modern Scandinavian utility apps, and DACH health aesthetics.
 
 ---
 
-## 1. Brand Identity & Emblem
+## 1. Brand Identity & Logo Assets
 
-The official Kalkumpel emblem is located at `assets/logo.png`.
+The Kalkumpel repository contains two official logo assets under `assets/`:
 
-### Symbolism
-- **Outer Reticle Frame (#064E3B / Dark Emerald):** Represents camera focus, computer vision scanning, and barcode recognition.
-- **Inner Plate Rim:** Anchors the product to nutrition, meals, and balanced portioning.
-- **Center Flame (#10B981 / Mint Emerald):** Symbolizes metabolic energy burn, calorie consumption, and daily tracking streaks.
+### Variant A: Pure Emblem (`assets/logo.png`)
+- **Composition:** Mint-green flame inside a dark teal circular plate/camera reticle emblem with four dark teal corner framing marks on a clean background.
+- **Recommended Use:** App icon, favicon, compact navigation headers, camera viewfinder overlay, push notification icon, and subtle branding watermarks.
+- **Symbolism:**
+  - **Outer Reticle Frame (`#064E3B` / Dark Emerald Teal):** Represents precision computer-vision food scanning, barcode recognition, and macro detection.
+  - **Inner Circular Plate:** Anchors the product to nutrition, fresh meals, and balanced portion control.
+  - **Center Flame (`#10B981` / Mint Emerald):** Symbolizes metabolic energy expenditure, active calorie burn, and daily tracking streaks.
 
-### Color Tokens
-- **Brand Primary Accent:** `#10B981` (Mint / Emerald Flame)
-- **Brand Deep Teal:** `#064E3B` / `#0F2E2B` (Camera Reticle / Dark Frame)
+### Variant B: Full Scanner Plate Logo (`assets/logo-scanner-plate.png`)
+- **Composition:** The dark teal circular scanner plate with mint flame emblem centered directly above a bold, friendly, rounded wordmark **"KalKumpel"**.
+- **Recommended Use:** Onboarding Welcome Screen (`onboarding/welcome`), Splash Screen, Paywall Header, and marketing materials.
+- **Typography:** Custom rounded sans-serif font with soft curves, matching the approachable companion ("Kumpel") persona.
 
 ---
 
 ## 2. Color Palette & Semantic Tokens
 
-### Base System
-- **Background (Dark):** `#0F172A` (Slate 900)
-- **Surface / Card (Dark):** `#1E293B` (Slate 800)
-- **Border / Divider:** `#334155` (Slate 700)
-- **Text Primary:** `#F8FAFC` (Slate 50)
-- **Text Secondary / Muted:** `#94A3B8` (Slate 400)
-- **Accent / Primary Action:** `#10B981` (Brand Mint) or `#22C55E` (Emerald 500)
+### Primary Brand Accents
+- **Primary Brand Accent (Emerald / Mint):** `#10B981` (Tailwind Emerald 500)
+  - *Usage:* Primary call-to-action buttons (e.g. "Weiter", "Plan erstellen", "Kostenlos starten"), active tab icons, streak indicators, progress ring fills.
+- **Primary Pressed / Hover State:** `#059669` (Tailwind Emerald 600)
+- **Deep Emerald Teal:** `#064E3B` / `#022C22` (Tailwind Emerald 900/950)
+  - *Usage:* Scanner plate borders, high-contrast card borders, dark badge backgrounds.
 
-### Macronutrient Color Coding (Consistent across all screens)
-- **Calories (Kalorien):** `#F97316` (Vibrant Coral/Orange) - Represents overall energy.
-- **Protein (Eiweiß):** `#3B82F6` (Electric Blue) - Represents strength & muscle synthesis.
-- **Carbs (Kohlenhydrate):** `#10B981` (Emerald Green) - Represents plant energy & fuel.
-- **Fat (Fett):** `#F59E0B` (Warm Amber/Gold) - Represents essential fats & satiety.
+### Neutral Surface System (Dark Mode First)
+- **Background (Deep Slate):** `#0F172A` (Slate 900)
+- **Surface / Cards:** `#1E293B` (Slate 800)
+- **Card Sub-surface / Input:** `#334155` (Slate 700)
+- **Dividers & Subtle Borders:** `#1E293B` / `#334155`
+- **Text Primary:** `#F8FAFC` (Slate 50) - High contrast readability.
+- **Text Secondary / Muted:** `#94A3B8` (Slate 400) - Explanations, subtitles, helper text.
+- **Text Tertiary / Disabled:** `#64748B` (Slate 500)
 
----
+### Macronutrient Color Coding (Consistent Across All Screens)
+- **Kalorien (Calories):** `#F97316` (Vibrant Coral/Orange) - Represents overall daily energy.
+- **Eiweiß (Protein):** `#3B82F6` (Electric Blue) - Represents muscle synthesis & recovery.
+- **Kohlenhydrate (Carbs):** `#10B981` (Emerald Green) - Represents sustained energy & plant foods.
+- **Fett (Fat):** `#FACC15` (Warm Amber/Yellow) - Represents essential fatty acids & satiety.
 
-## 3. Typography Scale
-- **Display / Hero Numbers:** 36pt - 44pt, Bold (Daily calories remaining).
-- **Heading 1:** 28pt, SemiBold (Screen titles, e.g., *Heute*, *Profil*, *Dein Ziel*).
-- **Heading 2:** 20pt, Medium (Section titles, e.g., *Mahlzeiten*, *Nährwerte*).
-- **Body Regular:** 16pt, Regular (Standard copy, meal names).
-- **Caption / Meta:** 13pt, Medium (Grams, percentages, dates).
-
----
-
-## 4. UI Components & Layout Principles
-- **Touch Targets:** Minimum 44x44 pt for all interactive buttons and inputs.
-- **Cards & Elevating:** Rounded corners (`16px` border-radius), subtle 1px border (`#334155`) instead of heavy drop shadows.
-- **Feedback & Micro-interactions:**
-  - Haptic feedback on snap capture, slider adjustment, and meal logging.
-  - Progress rings with smooth spring animations using React Native Reanimated.
-- **Camera Viewfinder:** Full-screen edge-to-edge view with toggle tabs between `[Foto-Scan]` and `[Barcode]`.
+### Ring Colors Semantic System (from Screen IMG_3307)
+- **Grün (Green):** Within calorie goal / up to 100 kcal over deficit target.
+- **Gelb (Yellow):** 101 - 250 kcal over deficit target.
+- **Rot (Red):** > 250 kcal over deficit target.
+- **Grau (Grey):** Unlogged / in-progress day.
 
 ---
 
-## 5. German Copy & Tone of Voice
-- **Tone:** Encouraging, pragmatic, clear, never patronizing. Like a reliable gym buddy (*Kumpel*).
-- **Grammar & Address:** Direct "Du" form (*Erfasse deine Mahlzeit*, *Dein Tagesziel*).
-- **Units:** Metric system exclusively (`g`, `kg`, `cm`, `kcal`, `ml`).
+## 3. UI Components & Layout Principles
+
+### Onboarding Screen Standard Structure
+1. **Progress Bar:** Thin emerald line (`#10B981`) across top indicating progress (Steps 1–33).
+2. **Back Navigation:** Arrow left (`<`) at top left to review previous answers.
+3. **Question Heading:** Bold, large sans-serif (28-32px, `#F8FAFC`) centered or left-aligned.
+4. **Helper Subtitle:** Muted (14-16px, `#94A3B8`) explaining *why* this data matters.
+5. **Interactive Selection:**
+   - Single-choice vertical cards with checkmark / radio circle.
+   - Dual-unit toggle tabs (`kg / lbs`, `cm / ft, in`).
+   - Sliders with real-time feedback (e.g. pace calculation: "0,5 kg pro Woche - Ziel in 5 Monaten erreicht").
+6. **Primary Action Button:** Full-width rounded emerald button (`#10B981` background, `#FFFFFF` bold text, height 56px, rounded 16px).
+
+### Motion & Micro-interactions
+- Gentle spring transitions between onboarding steps (150ms).
+- Haptic feedback (`Haptics.impactAsync(ImpactFeedbackStyle.Light)`) on option selection and button press.
+- Smooth number animation on calorie budget and weight projection calculations.
