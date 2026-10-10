@@ -17,7 +17,7 @@
 - [x] Goal labels: **"Abnehmen / Muskeln aufbauen"** (keep current build).
 - [x] Macro colours: **keep the current build colours** (do not switch to Design-guidelines palette).
 - [x] Free AI scan quota: **3 scans/day** on the free tier.
-- [ ] Paid tier (Kumpel+ Pro) scan quota: PLACEHOLDER – amount to be decided by Gordon.
+- [x] Paid tier (Kumpel+ Pro) scan quota: **unlimited scans/day** (confirmed 10 Oct 2026). Enforcement starts once Stripe/Pro roles exist — until then everyone gets the free limit of 3/day.
 - [x] AI scan model: OpenAI `openai/gpt-6-luna` (chosen 10 Oct 2026, see Phase 4).
 - [ ] Background tone: current build uses dark teal, guidelines say slate `#0F172A` – **placeholder, revisit later** (see Phase 0 task).
 - [x] Accounts: hold lifted – use **Gordon's own Supabase project** (not Lovable Cloud) for sign-in, data and photos (see Phase 2).
@@ -81,16 +81,16 @@
   - [x] **Model chosen (Gordon, 10 Oct 2026): OpenAI `openai/gpt-6-luna`** — cheapest non-deprecated vision model, zero data retention.
     Model is one constant (`AI_VISION_MODEL`) so switching to Claude etc. later is a one-line change.
 - [x] Meal photos saved to the private `meal-photos` storage (signed-in users only) and linked to the entry
-- [ ] Review screen: edit ingredients, portion slider / grams, add forgotten sides
+- [x] Review screen: edit ingredients, portion slider / grams, add forgotten sides
 - [ ] Scan tips screen ("Kamera ruhig halten, viel Licht, alle Zutaten sichtbar")
 - [x] Daily quota 3/day free: signed-in users counted server-side (`meal_analysis_usage`), guests counted in browser storage; friendly "aufgebraucht" card links to paywall
-- [ ] Pro scan quota — PLACEHOLDER (amount TBD by Gordon; currently everyone gets 3/day until Stripe/Pro exists)
+- [x] Pro scan quota — unlimited scans/day (confirmed 10 Oct 2026; enforced once Stripe/Pro roles exist — until then everyone gets 3/day)
 - [ ] Ground AI results against BLS reference values
 
 ## Phase 5 – Barcode & Nutrition Data
 - [~] Barcode / product search (currently 12 sample foods)
-- [ ] Camera barcode scanning in browser
-- [ ] Open Food Facts lookup (`/api/v2/product/{barcode}.json`)
+- [x] Camera barcode scanning in browser
+- [x] Open Food Facts lookup (`/api/v2/product/{barcode}.json`)
 - [ ] Product sheet: brand, name, Nutri-Score, macros per 100 g, portion multiplier
 - [ ] BLS 4.0 staples table/cache (Magerquark, Vollkornbrot, Spätzle …)
 - [ ] USDA fallback
@@ -120,7 +120,7 @@
 - [ ] Stripe checkout for monthly & yearly with free trial
 - [ ] Save subscription status to the local profile (browser storage while Phase 2 is on hold); gate Pro features
 - [ ] Restore / manage subscription, terms links
-- [ ] Pro features: scan quota (PLACEHOLDER – amount TBD), micronutrients (BLS), 30/90-day analytics, PDF/CSV export, macro cycling
+- [ ] Pro features: unlimited scans/day (confirmed 10 Oct 2026), micronutrients (BLS), 30/90-day analytics, PDF/CSV export, macro cycling
 
 ## Phase 9 – Community (later)
 - [ ] Community rules page (7 Regeln)
