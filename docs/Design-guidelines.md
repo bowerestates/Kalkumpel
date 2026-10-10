@@ -4,6 +4,26 @@
 
 ---
 
+## 0. Theme Split (decided 10 Oct 2026 — overrides older dark-mode notes below)
+
+- **Welcome screen only:** near-black background, white "Kalkumpel" lettering, green scanner-plate logo (approved preview).
+- **Onboarding (after "Los geht's") and the whole day-to-day app:** white background, all copy and text in mint/emerald shades.
+  - Headings & body text: deep mint `#064E3B`-range; helper text: muted mint; buttons/active states: emerald `#059669`.
+  - Soft mint tints (`#ECFDF5`-range) for icon badges, selected cards and progress-bar tracks.
+- **Icons:** no full-colour icons or emojis — only line icons in mint shades, sitting in a soft mint circle.
+- **Macro colours** (protein/carbs/fat) stay as currently built; the only exception to the mint-only rule.
+- **Screen-by-screen mirroring:** Gordon attaches reference screenshots (English). Each app screen mirrors their layout, font weight and behaviour, with German "Du" copy.
+
+### Choice-screen pattern (reference IMG_3236, "Choose your sex")
+1. Round soft-mint back button (arrow) + thin progress bar at the top.
+2. Large bold heading, muted one-line subtitle underneath.
+3. Options vertically centred: white card, thin border, mint icon badge left, label, radio circle right.
+4. Selected card: mint tint + emerald border + filled radio.
+5. Full-width pill "Weiter" button at the bottom — grey and disabled until an option is chosen, then emerald.
+6. Gender screen copy: "Wähle Dein Geschlecht" / "So können wir Deinen Bedarf genauer berechnen." / Männlich, Weiblich, Divers.
+
+---
+
 ## 1. Brand Identity & Logo Assets
 
 The Kalkumpel repository contains two official logo assets under `assets/`:
