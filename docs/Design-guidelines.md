@@ -20,7 +20,8 @@
 3. Options vertically centred: white card, thin border, mint icon badge left, label, radio circle right.
 4. Selected card: mint tint + emerald border + filled radio.
 5. Full-width pill "Weiter" button at the bottom — grey and disabled until an option is chosen, then emerald.
-6. Gender screen copy: "Wähle Dein Geschlecht" / "So können wir Deinen Bedarf genauer berechnen." / Männlich, Weiblich, Divers.
+6. Options may have a second muted line (e.g. workouts screen IMG_3237: "0–2 / Ab und zu ein Training", "3–5 / Ein paar Trainings pro Woche", "6+ / Echte:r Sportler:in"; icons = 1, 3, 6 mint dots).
+7. Gender screen copy: "Wähle Dein Geschlecht" / "So können wir Deinen Bedarf genauer berechnen." / Männlich, Weiblich, Divers.
 
 ---
 
