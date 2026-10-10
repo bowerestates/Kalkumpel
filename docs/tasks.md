@@ -42,6 +42,7 @@
 - [x] Apply approved welcome-page revision (10 Oct 2026): green-gradient flame and three plate rings within white scan corners, black welcome-only background, original typography/copy colours, matching favicon. Verified compact and desktop layouts, both navigation buttons, and clean build.
 - [x] Switch onboarding + daily app to white background with mint copy and mint-only line icons; welcome stays black (10 Oct 2026, see Design-guidelines §0).
 - [x] Mirror reference screen IMG_3236 (gender): heading + subtitle, centred option cards with mint icon badges and radio, pill "Weiter" disabled until chosen.
+- [x] Mirror reference IMG_3237 (workouts per week): 0–2 / 3–5 / 6+ with dot icons; answer pre-sets the activity level (light / moderate / active).
 - [ ] Mirror the remaining onboarding screens one by one from Gordon's reference screenshots (next: send the next screen).
 - [ ] Replace remaining emoji icons (goal, diet, pace) with mint line icons when those screens are mirrored.
 - [x] Goal, gender, age, height, weight, target weight, activity, diet, pace
@@ -50,7 +51,7 @@
 - [x] Paywall preview: yearly plan 29,00 € + 3-day trial (29)
 - [ ] Expand to full 33-step flow:
   - [ ] Birth date picker instead of age (03)
-  - [ ] Workouts per week (02) feeding activity factor
+  - [x] Workouts per week (02) feeding activity factor
   - [ ] Referral channel (04), tracked before (05), has trainer (09)
   - [ ] Motivational interstitials: "Entwickelt, damit du dranbleibst" graph (06), milestone (12), "Du hast das Zeug dazu" (18), "Danke für dein Vertrauen" (19)
   - [ ] Pace slider 0,2–1,0 kg/Woche with live target date (13)
