@@ -44,8 +44,10 @@
 - [x] Mirror reference screen IMG_3236 (gender): heading + subtitle, centred option cards with mint icon badges and radio, pill "Weiter" disabled until chosen.
 - [x] Mirror reference IMG_3237 (workouts per week): 0–2 / 3–5 / 6+ with dot icons; answer pre-sets the activity level (light / moderate / active).
 - [ ] Mirror the remaining onboarding screens one by one from Gordon's reference screenshots (next: send the next screen).
-- [ ] Replace remaining emoji icons (goal, diet, pace) with mint line icons when those screens are mirrored.
-- [x] Goal, gender, age, height, weight, target weight, activity, diet, pace
+- [ ] Replace remaining emoji icons (diet, pace) with mint line icons when those screens are mirrored.
+- [x] Gender, age, height, weight, target weight, activity, diet, pace
+- [x] Remove the "Was ist Dein Ziel?" screen from onboarding (10 Oct 2026, Gordon's request) — step order and progress bar renumbered to 7 questions, goal stays "Abnehmen" by default so the calorie maths still works
+- [ ] Re-add the goal screen later (i18n keys `qGoal` / `goal_*` kept in place; restore as step 0 and set `QUESTIONS` back to 8)
 - [x] Calculation loader (26) + plan reveal with kcal & macro split (27)
 - [x] Feature highlights + review cards (06/14/23 condensed)
 - [x] Paywall preview: yearly plan 29,00 € + 3-day trial (29)
