@@ -3,9 +3,9 @@
 > Source of truth: `docs/Masterplan.md`, `docs/prompt.md` (Master Architecture Prompt), `docs/app-flow-pages-and-roles.md`, `docs/Design-guidelines.md`, `docs/Implementation-plan.md` – copied from `bowerestates/Kalkumpel`.
 >
 > **Stack translation:** The GitHub repo specifies Expo / React Native. This Lovable project is the **web version** (TanStack Start + Tailwind). Mapping used here:
-> Expo Router → TanStack file routes · Supabase → Lovable Cloud · `analyze-meal` Edge Function → server function via Lovable AI · RevenueCat → Stripe (web) · AsyncStorage → localStorage + profile sync.
+> Expo Router → TanStack file routes · Supabase → Gordon's own Supabase · `analyze-meal` Edge Function → server function via Lovable AI · RevenueCat → Stripe (web) · AsyncStorage → localStorage + profile sync.
 >
-> **Accounts on hold (Gordon, 09 Oct 2026):** Lovable Cloud is not to be enabled and no sign-up/sign-in is built for now. All data stays in browser storage (`src/lib/store.ts`).
+> **Current accounts status:** Email/password accounts, saved profiles, meals, weights and private meal photos use Gordon's connected Supabase project. Browser storage remains the guest/offline store; Lovable Cloud must not be enabled.
 >
 > Legend: `[x]` done · `[~]` partly done / placeholder · `[ ]` upcoming
 
@@ -19,7 +19,7 @@
 - [x] Free AI scan quota: **3 scans/day** on the free tier.
 - [x] Paid tier (Kumpel+ Pro) scan quota: **unlimited scans/day** (confirmed 10 Oct 2026). Enforcement starts once Stripe/Pro roles exist — until then everyone gets the free limit of 3/day.
 - [x] AI scan model: OpenAI `openai/gpt-6-luna` (chosen 10 Oct 2026, see Phase 4).
-- [ ] Background tone: current build uses dark teal, guidelines say slate `#0F172A` – **placeholder, revisit later** (see Phase 0 task).
+- [x] Background decision (10 Oct 2026): black Welcome only; white onboarding and daily app with readable mint/emerald copy and monochrome mint icons. Existing macro colours stay unchanged.
 - [x] Accounts: hold lifted – use **Gordon's own Supabase project** (not Lovable Cloud) for sign-in, data and photos (see Phase 2).
 
 ---
@@ -30,8 +30,8 @@
 - [x] German UI ("Du"), English code
 - [x] DE/EN dictionary + language toggle in Profil
 - [ ] Replace logo with official repo assets (`assets/logo.png`, `assets/logo-scanner-plate.png`)
-- [ ] Align colour tokens to Design-guidelines (slate surfaces, macro colour coding, emerald pressed `#059669`) — **PLACEHOLDER: macro colours stay as-is per decision; revisit background tone (dark teal vs. slate `#0F172A`) later.**
-- [ ] Rounded "Kumpel" wordmark font on Welcome / Paywall
+- [x] Apply the approved black-Welcome / white-and-mint app theme; preserve existing macro colours (Design-guidelines §0).
+- [x] Keep the approved original Plus Jakarta Sans font on Welcome; no replacement rounded wordmark.
 - [ ] German number & date formatting everywhere (`dd.mm.yyyy`, comma decimals, `2.150 kcal`)
 
 ## Phase 1 – Onboarding (app-flow screens 00–29)
@@ -43,27 +43,39 @@
 - [x] Switch onboarding + daily app to white background with mint copy and mint-only line icons; welcome stays black (10 Oct 2026, see Design-guidelines §0).
 - [x] Mirror reference screen IMG_3236 (gender): heading + subtitle, centred option cards with mint icon badges and radio, pill "Weiter" disabled until chosen.
 - [x] Mirror reference IMG_3237 (workouts per week): 0–2 / 3–5 / 6+ with dot icons; answer pre-sets the activity level (light / moderate / active).
-- [ ] Mirror the remaining onboarding screens one by one from Gordon's reference screenshots (next: send the next screen).
+- [x] Mirror IMG_3239 birthday: "Wann bist Du geboren?", month/day/year scrolling wheels; selected birth date feeds age into calorie calculations, replacing the separate age field.
+- [x] Mirror IMG_3240 source: "Wie hast Du von uns erfahren?"; Freunde oder Familie, Fernsehen, Facebook, TikTok, Instagram, Google, YouTube; mint line icons and required choice.
+- [x] Mirror IMG_3241 experience: "Hast Du schon andere Kalorien-Apps ausprobiert?"; Ja/Nein with mint thumbs icons and required choice.
+- [x] Mirror IMG_3242 interstitial: "Gemacht, damit Du dranbleibst"; illustrative "Gewichtsverlauf" comparison, Kalkumpel vs. Ohne Plan, Monat 1–6.
+- [x] Mirror IMG_3243 height: "Wie groß bist Du?"; cm / ft, in toggle and scrolling measurement wheels.
+- [x] Mirror IMG_3244 weight: "Wie viel wiegst Du?"; kg / lbs toggle, large changing value, horizontal scale with fixed centre marker.
+- [x] Add left/right weight-scale scrolling: touch swipe, mouse drag, wheel/trackpad and arrow keys; also used on the existing target-weight screen.
+- [x] Restore IMG_3246 goal immediately after current weight: "Was ist Dein Ziel?"; Abnehmen / Gewicht halten / Muskeln aufbauen, mint arrow/minus icons and required choice.
+- [x] Save this completed onboarding batch in design notes and tasks (10 Oct 2026; Gordon lifted the documentation hold).
+- [ ] Mirror the remaining onboarding screens from Gordon's next screenshots; target-weight screen is functional but its reference-specific redesign remains upcoming.
 - [ ] Replace remaining emoji icons (diet, pace) with mint line icons when those screens are mirrored.
 - [x] Gender, age, height, weight, target weight, activity, diet, pace
-- [x] Remove the "Was ist Dein Ziel?" screen from onboarding (10 Oct 2026, Gordon's request) — step order and progress bar renumbered to 7 questions, goal stays "Abnehmen" by default so the calorie maths still works
-- [ ] Re-add the goal screen later (i18n keys `qGoal` / `goal_*` kept in place; restore as step 0 and set `QUESTIONS` back to 8)
+- [x] Renumber current flow to 13 question/interstitial pages; goal is restored after weight, not at the start. See `docs/Onboarding-progress.md` for the exact sequence and limitations.
 - [x] Calculation loader (26) + plan reveal with kcal & macro split (27)
 - [x] Feature highlights + review cards (06/14/23 condensed)
 - [x] Paywall preview: yearly plan 29,00 € + 3-day trial (29)
 - [ ] Expand to full 33-step flow:
-  - [ ] Birth date picker instead of age (03)
+  - [x] Birth date picker instead of age (03); full-date profile persistence remains upcoming below.
   - [x] Workouts per week (02) feeding activity factor
-  - [ ] Referral channel (04), tracked before (05), has trainer (09)
-  - [ ] Motivational interstitials: "Entwickelt, damit du dranbleibst" graph (06), milestone (12), "Du hast das Zeug dazu" (18), "Danke für dein Vertrauen" (19)
+  - [x] Referral channel (04) and tracked-before question (05) UI
+  - [ ] Persist referral answer, tracking-experience answer and full birth date; currently temporary onboarding state (profile retains age only).
+  - [ ] Trainer question (09), if Gordon includes it in the revised flow; current goal follows weight directly.
+  - [x] Stay-on-track graph (06), titled "Gemacht, damit Du dranbleibst" in the current UI; illustrative, not a personal prediction.
+  - [ ] Remaining interstitials: milestone (12), "Du hast das Zeug dazu", "Danke für dein Vertrauen" (19)
   - [ ] Pace slider 0,2–1,0 kg/Woche with live target date (13)
   - [ ] Obstacles multi-select (15), secondary goals (17), Keto & Intervallfasten diets (16)
   - [ ] Add burned calories toggle (20), health sync card (21 – web: "später"), rollover up to 200 kcal (22)
   - [ ] Notifications opt-in (24), referral code (25)
-  - [ ] Unit toggles kg/lbs, cm/ft-in (07/08)
-  - [ ] Helper subtitles explaining *why* each answer matters
-- [ ] ⏸ ON HOLD (accounts paused): Account creation wall (28) – Google, Apple, E-Mail + AGB/Datenschutz checkbox
-- [ ] ⏸ ON HOLD (accounts paused): Seed profile from onboarding answers after sign-up
+  - [x] Onboarding unit toggles kg/lbs, cm/ft-in (07/08); stored measurements remain metric.
+  - [~] Helper subtitles on the mirrored biometric/goal screens; review remaining screens with the next batch.
+- [ ] Dedicated onboarding account creation wall (28) with legal consent; email/password auth already exists, Google/Apple remain upcoming.
+- [x] Save completed profile/targets and starting weight locally; account sync uploads guest profile/data on first sign-in.
+- [ ] Extend profile sync to newly added onboarding answers once those fields are persisted.
 
 ## Phase 2 – Backend & Accounts (Gordon's own Supabase) — ACTIVE
 > **Gordon, 09 Oct 2026 (later):** hold lifted. Use Gordon's own Supabase project (not Lovable Cloud) for authentication, database and meal photos. See `docs/Provider-Recommendations.md`.

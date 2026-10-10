@@ -23,6 +23,17 @@
 6. Options may have a second muted line (e.g. workouts screen IMG_3237: "0–2 / Ab und zu ein Training", "3–5 / Ein paar Trainings pro Woche", "6+ / Echte:r Sportler:in"; icons = 1, 3, 6 mint dots).
 7. Gender screen copy: "Wähle Dein Geschlecht" / "So können wir Deinen Bedarf genauer berechnen." / Männlich, Weiblich, Divers.
 
+### Saved onboarding checkpoint (10 Oct 2026)
+Gordon authorised saving the reviewed batch after the temporary documentation hold. The current implemented sequence, German headings, controls, screenshot references and remaining work are recorded in **[Onboarding-progress.md](Onboarding-progress.md)**. This checkpoint supersedes older screen-order, age-input and dark-theme examples below; the full screenshot audit is still a future target, not a claim that every screen is complete.
+
+- Keep Plus Jakarta Sans, matching the existing Welcome font; mirror the reference's size, weight and hierarchy without copying its English text.
+- Birthday uses month/day/year scrolling wheels and a soft mint centre-selection band; height uses cm or ft/in scrolling wheels.
+- Current weight uses a kg/lbs switch and a horizontally scrolling scale under a fixed mint centre marker. The large weight value updates when the scale moves left or right.
+- Source and prior-app questions use the same mint choice-card pattern; source logos remain monochrome line icons.
+- The stay-on-track comparison is an illustrative chart, not actual user history or a guaranteed result.
+- Goal sits directly after current weight: **Abnehmen / Gewicht halten / Muskeln aufbauen**; Weiter requires a selection.
+- Diet, pace and other unreviewed screens retain their existing controls until the next screenshot batches; remaining emoji replacement is tracked in tasks.md.
+
 ---
 
 ## 1. Brand Identity & Logo Assets
@@ -53,7 +64,7 @@ The Kalkumpel repository contains two official logo assets under `assets/`:
 - **Deep Emerald Teal:** `#064E3B` / `#022C22` (Tailwind Emerald 900/950)
   - *Usage:* Scanner plate borders, high-contrast card borders, dark badge backgrounds.
 
-### Neutral Surface System (Dark Mode First)
+### Historical Dark Surface Reference (not the current default; §0 overrides)
 - **Background (Deep Slate):** `#0F172A` (Slate 900)
 - **Surface / Cards:** `#1E293B` (Slate 800)
 - **Card Sub-surface / Input:** `#334155` (Slate 700)
@@ -62,7 +73,7 @@ The Kalkumpel repository contains two official logo assets under `assets/`:
 - **Text Secondary / Muted:** `#94A3B8` (Slate 400) - Explanations, subtitles, helper text.
 - **Text Tertiary / Disabled:** `#64748B` (Slate 500)
 
-### Macronutrient Color Coding (Consistent Across All Screens)
+### Historical Macronutrient Palette Proposal (not applied; keep current build colours)
 - **Kalorien (Calories):** `#F97316` (Vibrant Coral/Orange) - Represents overall daily energy.
 - **Eiweiß (Protein):** `#3B82F6` (Electric Blue) - Represents muscle synthesis & recovery.
 - **Kohlenhydrate (Carbs):** `#10B981` (Emerald Green) - Represents sustained energy & plant foods.
@@ -79,15 +90,15 @@ The Kalkumpel repository contains two official logo assets under `assets/`:
 ## 3. UI Components & Layout Principles
 
 ### Onboarding Screen Standard Structure
-1. **Progress Bar:** Thin emerald line (`#10B981`) across top indicating progress (Steps 1–33).
+1. **Progress Bar:** Thin emerald line across the top; uses the current 13 question/interstitial pages, not the entire planned screenshot audit.
 2. **Back Navigation:** Arrow left (`<`) at top left to review previous answers.
-3. **Question Heading:** Bold, large sans-serif (28-32px, `#F8FAFC`) centered or left-aligned.
-4. **Helper Subtitle:** Muted (14-16px, `#94A3B8`) explaining *why* this data matters.
+3. **Question Heading:** Bold Plus Jakarta Sans, 28–32px, readable deep mint on white.
+4. **Helper Subtitle:** Muted mint (14–16px), German "Du" copy explaining why the answer matters.
 5. **Interactive Selection:**
    - Single-choice vertical cards with checkmark / radio circle.
    - Dual-unit toggle tabs (`kg / lbs`, `cm / ft, in`).
    - Sliders with real-time feedback (e.g. pace calculation: "0,5 kg pro Woche - Ziel in 5 Monaten erreicht").
-6. **Primary Action Button:** Full-width rounded emerald button (`#10B981` background, `#FFFFFF` bold text, height 56px, rounded 16px).
+6. **Primary Action Button:** Full-width pill-shaped emerald "Weiter"; disabled until a required choice is made (see §0).
 
 ### Motion & Micro-interactions
 - Gentle spring transitions between onboarding steps (150ms).
