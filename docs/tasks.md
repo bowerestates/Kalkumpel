@@ -36,6 +36,14 @@
 
 ## Phase 1 – Onboarding (app-flow screens 00–29)
 - [x] Welcome screen (00)
+- [x] Prepare and visually inspect welcome-page logo preview: plate and green flame inside camera scan corners, white brand lettering, existing near-black palette.
+- [x] Revise welcome preview with matching mint-to-emerald gradient flame and plate rings, black background, white lettering, and clearer spacing inside white camera scan corners (10 Oct 2026).
+- [x] Refine preview with original Plus Jakarta Sans typography and original copy colour roles; remove two innermost plate rings. Await approval before applying or sending to GitHub.
+- [x] Apply approved welcome-page revision (10 Oct 2026): green-gradient flame and three plate rings within white scan corners, black welcome-only background, original typography/copy colours, matching favicon. Verified compact and desktop layouts, both navigation buttons, and clean build.
+- [x] Switch onboarding + daily app to white background with mint copy and mint-only line icons; welcome stays black (10 Oct 2026, see Design-guidelines §0).
+- [x] Mirror reference screen IMG_3236 (gender): heading + subtitle, centred option cards with mint icon badges and radio, pill "Weiter" disabled until chosen.
+- [ ] Mirror the remaining onboarding screens one by one from Gordon's reference screenshots (next: send the next screen).
+- [ ] Replace remaining emoji icons (goal, diet, pace) with mint line icons when those screens are mirrored.
 - [x] Goal, gender, age, height, weight, target weight, activity, diet, pace
 - [x] Calculation loader (26) + plan reveal with kcal & macro split (27)
 - [x] Feature highlights + review cards (06/14/23 condensed)
