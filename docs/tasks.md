@@ -13,7 +13,7 @@
 
 ## Decisions (confirmed by Gordon, 09 Oct 2026)
 - [x] Trial length: **3 days** free trial.
-- [x] Prices: **29,00 € / year** subscription (yearly only; no monthly plan for now).
+- [x] Prices: **9,99 € / month** or **29,00 € / year**; 3-day trial applies to both (decided 11 Oct 2026).
 - [x] Goal labels: **"Abnehmen / Muskeln aufbauen"** (keep current build).
 - [x] Macro colours: **keep the current build colours** (do not switch to Design-guidelines palette).
 - [x] Free AI scan quota: **3 scans/day** on the free tier.
@@ -65,7 +65,7 @@
 - [x] Pace slider with live time-to-goal and daily calories; obstacles, desired outcomes, potential chart, thank-you, setup progress and result screens.
 - [x] Calculation loader + plan reveal with kcal & macro split
 - [x] Feature highlights + review cards (condensed)
-- [x] Paywall preview: yearly plan 29,00 € + 3-day trial
+- [x] Paywall preview: selectable monthly 9,99 € and yearly 29,00 € plans, both with 3-day trial
 - [x] Onboarding unit toggles kg/lbs, cm/ft-in; stored measurements remain metric.
 - [x] Save completed profile/targets and starting weight locally; account sync uploads guest profile/data on first sign-in.
 
@@ -157,7 +157,7 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 
 ## Phase 8 – Subscriptions (Kumpel+)
 - [~] Paywall screen (no real payment)
-- [ ] Stripe checkout for yearly-only 29,00 € with a 3-day trial; server-verified entitlement. Premium button currently explains unavailability and never grants local paid status.
+- [ ] Stripe checkout for monthly 9,99 € and yearly 29,00 €, each with a 3-day trial; server-verified entitlement. Premium button currently explains unavailability and never grants local paid status.
 - [ ] Implement separate server-verified subscription roles/entitlements and mirror only verified access for display; editable profiles and local plan selection must not grant Pro. Accounts hold is lifted.
 - [ ] Restore / manage subscription, terms links
 - [ ] Pro features: unlimited scans/day (confirmed 10 Oct 2026), micronutrients (BLS), 30/90-day analytics, PDF/CSV export, macro cycling
@@ -213,7 +213,7 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [x] Upload latest documentation to GitHub and verify (11 Oct 2026): documentation commit `46ca996cea7eeb011e767f643706fdd1dbb427eb` saved all nine local `docs/*.md` files on `bowerestates/Kalkumpel` main, preserving unrelated repository files. A fresh GitHub read confirmed exact Git blob matches for `Design-guidelines.md`, `Implementation-plan.md`, `Masterplan.md`, `app-flow-pages-and-roles.md`, `Onboarding-progress.md`, `Meal-score-rubric.md`, `Provider-Recommendations.md`, `prompt.md` and `tasks.md`. This completion record is included in a follow-up documentation commit and checked again before reporting completion. Historical native reference files remain subordinate to the web contract; no app code changed or automatic Git sync claimed.
 
 ### Check this documentation update
-Read the four documents' matching web-feature checkpoints and compare them with this task list. Confirm the same logo, 23 screens plus account stage, current model constant, 3/day Free quota, yearly-only price/trial, locale rollout gaps and native/payment/legal deferrals. This documentation-only task does not change screens or deploy the app.
+Read the four documents' matching web-feature checkpoints and compare them with this task list. Confirm the same logo, 23 screens plus account stage, current model constant, 3/day Free quota, monthly/yearly prices with trial, locale rollout gaps and native/payment/legal deferrals. This documentation-only task does not change screens or deploy the app.
 
 ### Phase 0 locale completion delivery — 11 Oct 2026
 - [x] Fix calendar-date TypeScript narrowing, add locale-aware EUR formatting and reusable DecimalInput, and wire remaining web displays/inputs; no account, AI, quota or payment logic changed.

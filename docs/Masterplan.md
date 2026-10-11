@@ -16,7 +16,7 @@ Authoritative German/international nutrition grounding is a **future goal**. Cur
 - German UI with friendly “Du”; English optional in Settings. Code and schema names stay English. All app copy belongs in the DE/EN dictionaries.
 - Numbers/dates follow the selected language: German `2.150 kcal`, `75,5 kg`, `11.10.2026`; English `2,150 kcal`, `75.5 kg`, `11/10/2026` (`en-GB`). Formatting rollout is not yet complete everywhere.
 - Goals: **Abnehmen / Gewicht halten / Muskeln aufbauen**. Guided weekly pace and projected dates are estimates based on user inputs.
-- Free: **3 AI photo scans/day**, manual logging, barcode lookup and core tracking. Future Pro: **unlimited AI photo scans/day**, **29,00 €/year**, yearly only, **3-day trial**. Checkout/trial activation are not implemented.
+- Free: **3 AI photo scans/day**, manual logging, barcode lookup and core tracking. Future Pro: **unlimited AI photo scans/day**, **9,99 €/month** or **29,00 €/year**, **3-day trial on both plans**. Checkout/trial activation are not implemented.
 - Accounts, records and photos use Gordon’s own connected Supabase project `kalkumpel`; never enable Lovable Cloud for accounts.
 - Retain relevant provided onboarding details for future recipe/workout features with transparent purposes and separate optional personalisation consent. No marketing email permission is assumed. Legal review remains a launch requirement.
 - No invented community counts, ratings or testimonials. Apple sign-in and HealthKit/workout-calorie credit are native-iOS-only future work.
@@ -66,7 +66,7 @@ Legal-reviewed privacy/terms, sensitive-data lawful basis, retention, full conse
 | Meal score | Photo/barcode/manual evidence, versioned estimated 1–10 score or null, independent confidence, saved explanation and failure-tolerant logging | No personal health score; real photo/barcode examples and signed-in cross-device verification remain upcoming |
 | Daily app | Remaining/eaten calories, nutrient rings, grouped meals, manual logging, delete, saved meal-score review/edit, weight chart, seven-day bars and streak counter | Screen-by-screen logic review still upcoming; no claim that all screenshot features or streak grace rules are built |
 | Language/formatting | Complete Phase 0 web rollout: selected-language `Intl` numbers, dates and EUR prices across Today, Progress, Capture/review, onboarding and Settings; comma/dot weight, nutrition and portion input; profile language sync implemented | 11 regression tests pass; guest browser checks pass in DE/EN for Today, Progress, Settings, annual price and weight saving; authenticated cross-device checks remain separate |
-| Plans | Account precedes Free/Premium choice; preview shows 29,00 €/year and 3-day trial | No checkout or paid entitlement; everyone currently gets 3 photo scans/day; future verified Pro permits unlimited scans |
+| Plans | Account precedes Free/Premium choice; preview shows 9,99 €/month and 29,00 €/year (annual marked “Spare 76 %”), 3-day trial on both | No checkout or paid entitlement; everyone currently gets 3 photo scans/day; future verified Pro permits unlimited scans |
 | Native iOS | HealthKit, workout-calorie credit and Apple sign-in explicitly deferred | No web placeholders or simulated health sync |
 
 ## Documentation checkpoint — 11 Oct 2026
