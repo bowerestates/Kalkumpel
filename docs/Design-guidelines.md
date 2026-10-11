@@ -1,106 +1,88 @@
-# Kalkumpel - Design Guidelines
+# Kalkumpel — Design Guidelines (Web)
 
-> **Visual Identity:** Clean, modern, high-contrast, data-dense yet approachable. Inspired by Apple Health, modern Scandinavian utility apps, and DACH health aesthetics.
+> Updated: 11 Oct 2026. Approved design, not the older native dark-theme proposal.  
+> Clean, approachable, high-contrast nutrition tracking. Detailed screen checkpoint: [Onboarding-progress.md](Onboarding-progress.md).
 
----
+## 1. Brand and typography — approved
 
-## 0. Theme Split (decided 10 Oct 2026 — overrides older dark-mode notes below)
+- **Keep the existing scanner-plate/flame logo permanently** (Gordon, 11 Oct 2026). Welcome uses `src/assets/welcome-logo.png`; favicon uses `public/favicon.png`. Older native `assets/logo.png` and `assets/logo-scanner-plate.png` are not replacements to import.
+- Welcome alone is near-black with white **Kalkumpel** lettering and green branding. Plate/flame sit inside scan corners; the approved ring simplification and spacing remain.
+- Keep original **Plus Jakarta Sans** typography and approved copy colour roles; do not substitute a rounded wordmark or new font.
+- Every screen after Welcome uses white surfaces, readable deep mint/emerald text, muted mint helpers and emerald active states. Retain existing nutrient colours as the exception to monochrome mint.
+- Use mint line icons rather than emoji/full-colour icons. Do not copy unverified user counts, stars, reviews or named testimonials from references.
 
-- **Welcome screen only:** near-black background, white "Kalkumpel" lettering, green scanner-plate logo (approved preview).
-- **Onboarding (after "Los geht's") and the whole day-to-day app:** white background, all copy and text in mint/emerald shades.
-  - Headings & body text: deep mint `#064E3B`-range; helper text: muted mint; buttons/active states: emerald `#059669`.
-  - Soft mint tints (`#ECFDF5`-range) for icon badges, selected cards and progress-bar tracks.
-- **Icons:** no full-colour icons or emojis — only line icons in mint shades, sitting in a soft mint circle.
-- **Macro colours** (protein/carbs/fat) stay as currently built; the only exception to the mint-only rule.
-- **Screen-by-screen mirroring:** Gordon attaches reference screenshots (English). Each app screen mirrors their layout, font weight and behaviour, with German "Du" copy.
+## 2. Tokens and controls
 
-### Choice-screen pattern (reference IMG_3236, "Choose your sex")
-1. Round soft-mint back button (arrow) + thin progress bar at the top.
-2. Large bold heading, muted one-line subtitle underneath.
-3. Options vertically centred: white card, thin border, mint icon badge left, label, radio circle right.
-4. Selected card: mint tint + emerald border + filled radio.
-5. Full-width pill "Weiter" button at the bottom — grey and disabled until an option is chosen, then emerald.
-6. Options may have a second muted line (e.g. workouts screen IMG_3237: "0–2 / Ab und zu ein Training", "3–5 / Ein paar Trainings pro Woche", "6+ / Echte:r Sportler:in"; icons = 1, 3, 6 mint dots).
-7. Gender screen copy: "Wähle Dein Geschlecht" / "So können wir Deinen Bedarf genauer berechnen." / Männlich, Weiblich, Divers.
+Use semantic tokens in `src/styles.css` and existing UI components, not a second native theme or hardcoded colour palette. Emerald/mint brand references remain `#10B981`, pressed/active `#059669`, deep text around `#064E3B`, soft selection tints around `#ECFDF5`. These describe roles; the CSS tokens are the implementation authority. Do not replace current protein/carbohydrate/fat colours with the historical palette proposal.
 
-### Saved onboarding checkpoint (10 Oct 2026)
-Gordon authorised saving the reviewed batch after the temporary documentation hold. The current implemented sequence, German headings, controls, screenshot references and remaining work are recorded in **[Onboarding-progress.md](Onboarding-progress.md)**. This checkpoint supersedes older screen-order, age-input and dark-theme examples below; the full screenshot audit is still a future target, not a claim that every screen is complete.
+- Standard unselected choice: white, thin mint border, mint icon badge, label and radio.
+- Selected choice: soft mint tint, emerald border and filled radio.
+- Chart/comparison sections: white with thin mint border, **not filled green panels**. Chart-area shading can remain where approved.
+- Round soft-mint back arrow; thin progress line; large bold heading, muted subtitle and full-width pill CTA. Required answers keep Continue disabled until chosen.
+- Support touch, mouse and keyboard controls without unstable sizing or clipped German/English labels.
+- Gentle transitions, respecting reduced motion. Native haptics are future iOS work, not a web implementation requirement.
 
-- Keep Plus Jakarta Sans, matching the existing Welcome font; mirror the reference's size, weight and hierarchy without copying its English text.
-- Birthday uses month/day/year scrolling wheels and a soft mint centre-selection band; height uses cm or ft/in scrolling wheels.
-- Current weight uses a kg/lbs switch and a horizontally scrolling scale under a fixed mint centre marker. The large weight value updates when the scale moves left or right.
-- Source and prior-app questions use the same mint choice-card pattern; source logos remain monochrome line icons.
-- The stay-on-track comparison is an illustrative chart, not actual user history or a guaranteed result.
-- Goal sits directly after current weight: **Abnehmen / Gewicht halten / Muskeln aufbauen**; Weiter requires a selection.
-- Diet, pace and other unreviewed screens retain their existing controls until the next screenshot batches; remaining emoji replacement is tracked in tasks.md.
+## 3. Completed onboarding design
 
----
+There are **23 in-route screens plus the separate account stage**, not the old 13- or 33-screen sequence. Question/interstitial progress covers the first 20; setup, result and features follow. See the numbered list in Onboarding-progress.md.
 
-## 1. Brand Identity & Logo Assets
+- Screenshot layouts are adapted screen by screen into friendly German “Du” copy; explanations to Gordon remain English.
+- Birthday: month/day/year wheels with mint centre band. Height: cm/ft-in wheels. Current/target weight: kg/lbs switch and scrolling horizontal scale with fixed centre marker; swipe, drag, wheel and arrow keys adjust the value.
+- Goal immediately follows current weight: **Abnehmen / Gewicht halten / Muskeln aufbauen**.
+- Plan statement uses actual weight difference. Pace comes immediately after it with **Entspannt / Empfohlen / Ehrgeizig**, live timeline and daily calories. Values are estimates, not guaranteed outcomes.
+- Diet uses the matching mint choice-card pattern.
+- “Ohne / Mit Kalkumpel” figures are the same abstract solid person; the latter has a medal around the neck, not a trophy or a different person.
+- Potential/comparison charts are illustrative, not real user history. Community uses 21 mint avatars in three overlapping depth rows without counts, rating badges or “viele mehr”.
+- Setup: percentage, mint progress line, changing status and calorie/carbohydrate/protein/fat checklist. No personal health-score completion item.
+- Result: calculated goal/date, estimated curve, calories/macros in existing nutrient colours. Edit pencils remain upcoming; targets can currently be edited in Profile.
 
-The Kalkumpel repository contains two official logo assets under `assets/`:
+## 4. Account and plan screens
 
-### Variant A: Pure Emblem (`assets/logo.png`)
-- **Composition:** Mint-green flame inside a dark teal circular plate/camera reticle emblem with four dark teal corner framing marks on a clean background.
-- **Recommended Use:** App icon, favicon, compact navigation headers, camera viewfinder overlay, push notification icon, and subtle branding watermarks.
-- **Symbolism:**
-  - **Outer Reticle Frame (`#064E3B` / Dark Emerald Teal):** Represents precision computer-vision food scanning, barcode recognition, and macro detection.
-  - **Inner Circular Plate:** Anchors the product to nutrition, fresh meals, and balanced portion control.
-  - **Center Flame (`#10B981` / Mint Emerald):** Symbolizes metabolic energy expenditure, active calorie burn, and daily tracking streaks.
+“Sichere Deinen Fortschritt” follows plan/features and precedes Free/Premium choice. Use matching Plus Jakarta Sans heading, round back arrow, completed thin progress line, white surface and emerald pill CTA.
 
-### Variant B: Full Scanner Plate Logo (`assets/logo-scanner-plate.png`)
-- **Composition:** The dark teal circular scanner plate with mint flame emblem centered directly above a bold, friendly, rounded wordmark **"KalKumpel"**.
-- **Recommended Use:** Onboarding Welcome Screen (`onboarding/welcome`), Splash Screen, Paywall Header, and marketing materials.
-- **Typography:** Custom rounded sans-serif font with soft curves, matching the approachable companion ("Kumpel") persona.
+Web offers email/password plus existing-account sign-in only. No Apple/Google placeholder controls. Storage consent and optional future recipe/workout personalisation both start unchecked; only storage consent gates email signup. Do not imply marketing email permission, blanket legal approval or paid access. Profile permits optional personalisation withdrawal; approved legal notices, sensitive-data lawful basis, retention, full consent history and deletion/export remain launch prerequisites.
 
----
+Plan preview: **29,00 €/year**, yearly only, **3-day trial**, Free **3 AI photos/day**, future Pro **unlimited photos/day**. There is no implemented payment or active trial; Premium explains unavailability rather than granting local paid status.
 
-## 2. Color Palette & Semantic Tokens
+## 5. Capture, barcode and meal-score design
 
-### Primary Brand Accents
-- **Primary Brand Accent (Emerald / Mint):** `#10B981` (Tailwind Emerald 500)
-  - *Usage:* Primary call-to-action buttons (e.g. "Weiter", "Plan erstellen", "Kostenlos starten"), active tab icons, streak indicators, progress ring fills.
-- **Primary Pressed / Hover State:** `#059669` (Tailwind Emerald 600)
-- **Deep Emerald Teal:** `#064E3B` / `#022C22` (Tailwind Emerald 900/950)
-  - *Usage:* Scanner plate borders, high-contrast card borders, dark badge backgrounds.
+- Photo and barcode capture include German/English camera-access messages, loading/error states and usable fallbacks.
+- Photo results allow ingredient/portion edits before saving. Browser camera barcode scanning and typed-code Open Food Facts lookup are implemented, with gram-scaled nutrition review.
+- Fuller product/Nutri-Score layout and scan-tips screen remain future work; do not depict them as already delivered.
+- OpenAI is the current server provider via Lovable AI Gateway (`AI_VISION_MODEL = "openai/gpt-6-luna"`); this is not a visible provider badge or a claim of model availability/privacy certification.
+- Meal score: compact **Mahlzeiten-Score**, 1–10 or insufficient information, “Geschätzt”, expandable reasons, optional practical balance idea, confidence and non-medical disclaimer. Supportive mint styling; no shame, red failure indicator or calorie-based good/bad label.
+- Saved scores reopen without AI. Reassessment failure must still leave saving available. See Meal-score-rubric.md.
 
-### Historical Dark Surface Reference (not the current default; §0 overrides)
-- **Background (Deep Slate):** `#0F172A` (Slate 900)
-- **Surface / Cards:** `#1E293B` (Slate 800)
-- **Card Sub-surface / Input:** `#334155` (Slate 700)
-- **Dividers & Subtle Borders:** `#1E293B` / `#334155`
-- **Text Primary:** `#F8FAFC` (Slate 50) - High contrast readability.
-- **Text Secondary / Muted:** `#94A3B8` (Slate 400) - Explanations, subtitles, helper text.
-- **Text Tertiary / Disabled:** `#64748B` (Slate 500)
+## 6. Language-aware presentation (partially wired)
 
-### Historical Macronutrient Palette Proposal (not applied; keep current build colours)
-- **Kalorien (Calories):** `#F97316` (Vibrant Coral/Orange) - Represents overall daily energy.
-- **Eiweiß (Protein):** `#3B82F6` (Electric Blue) - Represents muscle synthesis & recovery.
-- **Kohlenhydrate (Carbs):** `#10B981` (Emerald Green) - Represents sustained energy & plant foods.
-- **Fett (Fat):** `#FACC15` (Warm Amber/Yellow) - Represents essential fatty acids & satiety.
+All text uses DE/EN dictionaries. Numbers/dates use the selected language through shared `Intl` helpers: German **2.150 kcal / 75,5 kg / 11.10.2026**; English (`en-GB`) **2,150 kcal / 75.5 kg / 11/10/2026**. Unit preferences are separate from language and stored measurements remain metric.
 
-### Ring Colors Semantic System (from Screen IMG_3307)
-- **Grün (Green):** Within calorie goal / up to 100 kcal over deficit target.
-- **Gelb (Yellow):** 101 - 250 kcal over deficit target.
-- **Rot (Red):** > 250 kcal over deficit target.
-- **Grau (Grey):** Unlogged / in-progress day.
+Today calories, progress weight input/values and selected onboarding dates/pace already use locale-aware formatting. Raw displays remain in capture/review, result calories and Profile target summary; nutrition/portion inputs do not all accept comma/dot yet. Finish this rollout and check both languages before closing Phase 0. Weight input already accepts either decimal separator.
 
----
+## 7. Deferred reference designs
 
-## 3. UI Components & Layout Principles
+Weekly green/yellow/red/grey day rings are a future calendar feature, not a replacement for existing nutrient colours. Ring reference thresholds: green within target or at most 100 kcal over; yellow 101–250 over; red more than 250 over; grey unlogged.
 
-### Onboarding Screen Standard Structure
-1. **Progress Bar:** Thin emerald line across the top; uses the current 13 question/interstitial pages, not the entire planned screenshot audit.
-2. **Back Navigation:** Arrow left (`<`) at top left to review previous answers.
-3. **Question Heading:** Bold Plus Jakarta Sans, 28–32px, readable deep mint on white.
-4. **Helper Subtitle:** Muted mint (14–16px), German "Du" copy explaining why the answer matters.
-5. **Interactive Selection:**
-   - Single-choice vertical cards with checkmark / radio circle.
-   - Dual-unit toggle tabs (`kg / lbs`, `cm / ft, in`).
-   - Sliders with real-time feedback (e.g. pace calculation: "0,5 kg pro Woche - Ziel in 5 Monaten erreicht").
-6. **Primary Action Button:** Full-width pill-shaped emerald "Weiter"; disabled until a required choice is made (see §0).
+Native iOS alone will add Apple sign-in, HealthKit, activity-calorie credit and haptics. Do not show fake Apple Health connections or placeholder workout screens in web. Remaining visual/reference polish and optional questions are tracked in tasks.md rather than claimed complete.
 
-### Motion & Micro-interactions
-- Gentle spring transitions between onboarding steps (150ms).
-- Haptic feedback (`Haptics.impactAsync(ImpactFeedbackStyle.Light)`) on option selection and button press.
-- Smooth number animation on calorie budget and weight projection calculations.
+## Current web feature checkpoint
+
+| Feature | Implemented now | Remaining / limitations |
+|---|---|---|
+| Branding | Approved scanner-plate/flame Welcome logo and favicon; Gordon confirmed keeping the existing logo permanently | No replacement with older `assets/` logos |
+| Onboarding | 23 in-route screens (20 questions/interstitials, setup, result, features), followed by the separate account stage | Full order in `Onboarding-progress.md`; remaining reference polish/options in `tasks.md` |
+| Targets | Mifflin-St Jeor-based calories/macros, goal-weight difference, guided pace and estimated target date | Estimates, not guaranteed outcomes; result-screen editing remains upcoming |
+| Accounts | Email/password signup/sign-in/reset, local plan draft, owner-scoped Supabase sync, unchecked storage and optional personalisation consent | Real confirmation delivery and cross-device checks still unverified; legal review, retention, export/deletion and complete consent history required |
+| Photo analysis | Server-side OpenAI via Lovable AI Gateway; configured `AI_VISION_MODEL = "openai/gpt-6-luna"`; ingredient/portion review before saving; signed-in private photos | Model availability/access depends on provider; BLS grounding and scan-tips screen upcoming; no independently verified zero-retention guarantee |
+| Barcode | Browser camera scanning with ZXing, permission messaging, typed-code fallback, Open Food Facts lookup, gram-based nutrient scaling and review | Product coverage varies; fuller product/Nutri-Score sheet, BLS/USDA and attribution page upcoming |
+| Meal score | Photo/barcode/manual evidence, versioned estimated 1–10 score or null, independent confidence, saved explanation and failure-tolerant logging | No personal health score; real photo/barcode examples and signed-in cross-device verification remain upcoming |
+| Daily app | Remaining/eaten calories, nutrient rings, grouped meals, manual logging, delete, saved meal-score review/edit, weight chart, seven-day bars and streak counter | Screen-by-screen logic review still upcoming; no claim that all screenshot features or streak grace rules are built |
+| Language/formatting | German default, English switch; shared `Intl` helpers for `de-DE` / `en-GB`; Today calorie displays, progress weight input/chart values and selected onboarding values use them; profile language sync implemented | **Partial rollout:** raw numbers still occur in capture/review, onboarding result calories and settings target summary; comma/dot parsing is implemented for weight, not all nutrition inputs |
+| Plans | Account precedes Free/Premium choice; preview shows 29,00 €/year and 3-day trial | No checkout or paid entitlement; everyone currently gets 3 photo scans/day; future verified Pro permits unlimited scans |
+| Native iOS | HealthKit, workout-calorie credit and Apple sign-in explicitly deferred | No web placeholders or simulated health sync |
+
+## Documentation checkpoint — 11 Oct 2026
+
+These documents describe the current **web app**, not an already-built native app. `Masterplan.md` defines product decisions, `tasks.md` tracks delivery and verification, `Implementation-plan.md` uses the same phase numbers, `app-flow-pages-and-roles.md` describes actual navigation, and `Design-guidelines.md` records approved visuals. `Onboarding-progress.md` preserves the detailed screen sequence; `Meal-score-rubric.md` defines scoring.
+
+For every agreed coding, behaviour or design change, save the corresponding documentation and task updates in the same delivery. Mark implemented, partial, upcoming and unverified work separately. Do not overwrite approved decisions, silently promote placeholders to completed features, or claim remote GitHub synchronization without checking it. Historical native specifications in `prompt.md` and `Provider-Recommendations.md` do not override this web checkpoint.

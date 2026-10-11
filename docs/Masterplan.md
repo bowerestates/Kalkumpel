@@ -1,73 +1,76 @@
-# Kalkumpel - Masterplan
+# Kalkumpel — Masterplan (Web)
 
-> **Product:** Kalkumpel (AI & Reference-Grounded Calorie and Macro Tracking)  
-> **Target Audience:** German-speaking fitness, health, and weight-loss enthusiasts (DACH region: Germany, Austria, Switzerland)  
-> **Status:** Active Architecture & Discovery  
-> **Repository:** bowerestates/Kalkumpel  
+> Product: German-first calorie and nutrition tracking for the DACH region.  
+> Repository: `bowerestates/Kalkumpel`. Current delivery: TanStack Start web app.  
+> Updated: 11 Oct 2026. Detailed status and blockers: [tasks.md](tasks.md).
 
----
+## 1. Product vision
 
-## 1. Executive Summary & Vision
-Traditional calorie tracking apps (MyFitnessPal, YAZIO, Lifesum) suffer from high user friction: weighing ingredients, searching ambiguous barcode databases, and manually guessing restaurant portions. This friction leads to abandoned tracking within the first 14 days.
+Reduce the friction of logging food through photo estimates, barcode nutrition and editable manual entries. Users remain in control of ingredients and portions. Weight trends and calculated targets support habits without promising a result or offering medical advice.
 
-**Kalkumpel** eliminates tracking friction through visual AI coupled with verified European and German reference databases:
-1. **Snap a photo or scan a barcode:** The user photographs a plate or scans a packaged grocery barcode.
-2. **Instant recognition & grounding:** An AI edge function identifies food items and cross-references them against official German and international food composition databases.
-3. **Confirm & adjust:** The user makes quick portion adjustments (slider or grams) and logs the meal in seconds.
-4. **Actionable habits:** Streaks, Mifflin-St Jeor target pacing, and daily summaries reinforce consistent nutrition.
+Authoritative German/international nutrition grounding is a **future goal**. Current photos use AI estimates; packaged products use Open Food Facts when available. The app does not yet cross-reference every photo against BLS or USDA.
 
----
+## 2. Approved product decisions
 
-## 2. Product Principles & Architecture Decisions
-- **German UI, English Codebase:** The user interface is strictly in modern, natural German. Schemas, migrations, edge functions, API routes, and source code are strictly English.
-- **Offline-First Resilience:** TanStack React Query v5 caches user records locally. Intermittent connectivity must never block viewing logs, streaks, or historical progress.
-- **Data Privacy & Security (GDPR):** All Supabase tables use strict Row Level Security (`auth.uid() = user_id`). Images in `meal-photos` storage are isolated to user folders. No email enumeration endpoints are exposed.
-- **Hybrid Grounding:** Combine AI vision estimates with authoritative databases (BLS, Open Food Facts, USDA) rather than relying exclusively on probabilistic AI outputs.
+- Keep the existing approved scanner-plate/flame logo permanently. Welcome is near-black with white Kalkumpel lettering; onboarding and daily screens are white with readable mint/emerald text and monochrome mint icons. Keep Plus Jakarta Sans and the existing nutrient colours.
+- German UI with friendly “Du”; English optional in Settings. Code and schema names stay English. All app copy belongs in the DE/EN dictionaries.
+- Numbers/dates follow the selected language: German `2.150 kcal`, `75,5 kg`, `11.10.2026`; English `2,150 kcal`, `75.5 kg`, `11/10/2026` (`en-GB`). Formatting rollout is not yet complete everywhere.
+- Goals: **Abnehmen / Gewicht halten / Muskeln aufbauen**. Guided weekly pace and projected dates are estimates based on user inputs.
+- Free: **3 AI photo scans/day**, manual logging, barcode lookup and core tracking. Future Pro: **unlimited AI photo scans/day**, **29,00 €/year**, yearly only, **3-day trial**. Checkout/trial activation are not implemented.
+- Accounts, records and photos use Gordon’s own connected Supabase project `kalkumpel`; never enable Lovable Cloud for accounts.
+- Retain relevant provided onboarding details for future recipe/workout features with transparent purposes and separate optional personalisation consent. No marketing email permission is assumed. Legal review remains a launch requirement.
+- No invented community counts, ratings or testimonials. Apple sign-in and HealthKit/workout-calorie credit are native-iOS-only future work.
 
----
+## 3. Current architecture
 
-## 3. Nutrition Data Sources & Hybrid Architecture
+| Layer | Web implementation |
+|---|---|
+| Framework/routing | React 19, TypeScript, TanStack Start v1 / TanStack file routes, Vite |
+| Styling | Tailwind v4, semantic tokens in `src/styles.css`, existing UI components |
+| Local state | `src/lib/store.ts` uses localStorage for guests and offline records |
+| Account sync | `src/lib/sync.ts` mirrors profiles, meals, weights and language to Supabase; guest upload on sign-in, local data cleared on sign-out |
+| Auth/storage | Supabase email/password; owner-only records and private per-user meal photos |
+| AI | `meal-ai.functions.ts` calls server-only `meal-ai.server.ts`; one `AI_VISION_MODEL` constant for photo analysis and meal scoring; secrets and signed-in quota writes stay server-side |
+| Localization | `src/lib/i18n.ts` dictionaries; `src/lib/format.ts` shared locale formatting and decimal parser |
+| Verification | Vitest tests and browser checks; an implemented mapping is not proof of cross-device behaviour |
 
-| Source | Role in Kalkumpel | Licensing & Attribution Requirements |
+TanStack server functions are used for internal web AI calls, not the original native Supabase Edge Function design. User tables have owner policies; profiles are keyed by owner ID. Scan usage is read-only to users. Future subscription roles must be separate from editable profiles and verified server-side; local plan selection cannot grant Pro.
+
+## 4. Nutrition sources and meal quality
+
+| Source | Current status | Requirements |
 |---|---|---|
-| **Anthropic Claude (Vision)** | Primary visual detection of cooked meals and restaurant plates | Proprietary API via Supabase Edge Function |
-| **Bundeslebensmittelschlüssel (BLS 4.0)** | Official German reference database for raw ingredients and traditional prepared dishes (*Magerquark*, *Vollkornbrot*, *Spätzle*) | **CC BY 4.0** (Attribution required: Max Rubner-Institut / BMEL in app settings & legal info) |
-| **Open Food Facts (OFF)** | Barcode lookups for packaged European/DACH grocery products (Aldi, Lidl, Rewe, Edeka) | **ODbL** (Open Database License; attribution and share-alike terms for database enhancements) |
-| **USDA FoodData Central** | Secondary fallback for generic international ingredients | Public Domain / US Gov (Attribution recommended) |
+| OpenAI via Lovable AI Gateway | Photo item/portion/calorie/macro estimates and shared meal scoring; configured model `openai/gpt-6-luna` | Model constant is the code checkpoint, not a claim of cheapest pricing or perpetual availability; provider privacy settings need verification |
+| Open Food Facts | Live barcode lookup and portion scaling implemented | Coverage varies; ODbL attribution/reuse review and in-app sources page upcoming |
+| BLS 4.0 | Planned ingredient grounding/staples cache, not integrated | CC BY 4.0 attribution when used |
+| USDA FoodData Central | Planned fallback, not integrated | Source attribution and integration review |
 
-### Attribution & Compliance Policy
-To strictly honor CC BY 4.0 and ODbL requirements, Kalkumpel includes an **"Open Data & Lizenzen"** view in `app/(tabs)/profile.tsx` displaying:
-- Max Rubner-Institut (BLS 4.0) attribution link.
-- Open Food Facts contributor acknowledgement and database link.
-- Clear disclaimer: *Photo-based nutrition estimates are AI-assisted calculations; users retain final control over portion sizes and ingredients.*
+Meal scoring uses `meal-quality-v1`, not a personal health score or calorie-based penalty. Evidence, confidence, explanation, rubric version and input fingerprint persist with each meal. Unknown nutrients stay unknown. Reopening a saved meal does not request AI; edits or explicit reassessment can recalculate. Failure must never block logging. See [Meal-score-rubric.md](Meal-score-rubric.md).
 
----
+## 5. Delivery boundaries
 
-## 4. Monetization Strategy & Payment Providers
+The paywall is a preview, not a purchase or active trial. Stripe checkout, verified subscription roles, cancellation/manage/restore flows and paid features remain upcoming. RevenueCat is a future native billing plan, not an installed web dependency. BLS micronutrients, extended analytics, reports/export, macro cycling, badges, reminders and community features must not be described as delivered.
 
-### Provider Architecture
-- **In-App Mobile Subscriptions:** [RevenueCat](https://www.revenuecat.com/) via `react-native-purchases`. Manages Apple App Store (In-App Purchases) and Google Play Billing, handles grace periods, family sharing, and syncs entitlements with Supabase user metadata.
-- **Web Subscriptions (Optional/Parallel):** [Stripe Checkout & Billing](https://stripe.com/payments/checkout) for web onboarding or direct-to-consumer lower-fee transactions (3% vs. 15-30%), granting app access via webhook.
+Legal-reviewed privacy/terms, sensitive-data lawful basis, retention, full consent withdrawal/history and deletion/export are required before launch. Existing optional personalisation withdrawal is not full account deletion. Real signup delivery and signed-in cross-device meal/profile checks remain unverified.
 
-### Tiers
+## Current web feature checkpoint
 
-#### Free Tier ("Kalkumpel Basis")
-- Up to 5 AI photo meal scans per day.
-- Unlimited barcode lookups via Open Food Facts.
-- Core calorie, macro, and weight tracking.
-- Daily streak tracker with 24h grace window.
-- Mifflin-St Jeor automatic target calculation.
+| Feature | Implemented now | Remaining / limitations |
+|---|---|---|
+| Branding | Approved scanner-plate/flame Welcome logo and favicon; Gordon confirmed keeping the existing logo permanently | No replacement with older `assets/` logos |
+| Onboarding | 23 in-route screens (20 questions/interstitials, setup, result, features), followed by the separate account stage | Full order in `Onboarding-progress.md`; remaining reference polish/options in `tasks.md` |
+| Targets | Mifflin-St Jeor-based calories/macros, goal-weight difference, guided pace and estimated target date | Estimates, not guaranteed outcomes; result-screen editing remains upcoming |
+| Accounts | Email/password signup/sign-in/reset, local plan draft, owner-scoped Supabase sync, unchecked storage and optional personalisation consent | Real confirmation delivery and cross-device checks still unverified; legal review, retention, export/deletion and complete consent history required |
+| Photo analysis | Server-side OpenAI via Lovable AI Gateway; configured `AI_VISION_MODEL = "openai/gpt-6-luna"`; ingredient/portion review before saving; signed-in private photos | Model availability/access depends on provider; BLS grounding and scan-tips screen upcoming; no independently verified zero-retention guarantee |
+| Barcode | Browser camera scanning with ZXing, permission messaging, typed-code fallback, Open Food Facts lookup, gram-based nutrient scaling and review | Product coverage varies; fuller product/Nutri-Score sheet, BLS/USDA and attribution page upcoming |
+| Meal score | Photo/barcode/manual evidence, versioned estimated 1–10 score or null, independent confidence, saved explanation and failure-tolerant logging | No personal health score; real photo/barcode examples and signed-in cross-device verification remain upcoming |
+| Daily app | Remaining/eaten calories, nutrient rings, grouped meals, manual logging, delete, saved meal-score review/edit, weight chart, seven-day bars and streak counter | Screen-by-screen logic review still upcoming; no claim that all screenshot features or streak grace rules are built |
+| Language/formatting | German default, English switch; shared `Intl` helpers for `de-DE` / `en-GB`; Today calorie displays, progress weight input/chart values and selected onboarding values use them; profile language sync implemented | **Partial rollout:** raw numbers still occur in capture/review, onboarding result calories and settings target summary; comma/dot parsing is implemented for weight, not all nutrition inputs |
+| Plans | Account precedes Free/Premium choice; preview shows 29,00 €/year and 3-day trial | No checkout or paid entitlement; everyone currently gets 3 photo scans/day; future verified Pro permits unlimited scans |
+| Native iOS | HealthKit, workout-calorie credit and Apple sign-in explicitly deferred | No web placeholders or simulated health sync |
 
-#### Paid Tier ("Kalkumpel Pro" / "Kumpel+")
-- Unlimited AI photo scans.
-- Detailed micronutrient breakdowns powered by BLS.
-- Historical trend analytics (30-day, 90-day macro distribution).
-- Export logs & nutritional reports (PDF / CSV for trainers & dietitians).
-- Flexible macro cycling (workout vs. rest days).
-- Pricing Model: Monthly (€4.99 - €6.99/mo) or Annual (€39.99 - €49.99/yr).
+## Documentation checkpoint — 11 Oct 2026
 
----
+These documents describe the current **web app**, not an already-built native app. `Masterplan.md` defines product decisions, `tasks.md` tracks delivery and verification, `Implementation-plan.md` uses the same phase numbers, `app-flow-pages-and-roles.md` describes actual navigation, and `Design-guidelines.md` records approved visuals. `Onboarding-progress.md` preserves the detailed screen sequence; `Meal-score-rubric.md` defines scoring.
 
-## 5. UI Layer & Component Standards
-- Existing custom React Native components (`components/ui/`, `components/dashboard/`) with dark mode tokens (`constants/theme.ts`).
-- [React Native Paper](https://oss.callstack.com/react-native-paper/) pulled in selectively for complex standard controls (segmented buttons, bottom sheets, snackbars, and accessible dialogs).
+For every agreed coding, behaviour or design change, update and save the corresponding documentation and task records, upload affected documents to `bowerestates/Kalkumpel`, and verify exact remote-file matches in the same delivery without Gordon needing to ask. If access, approval or synchronization blocks delivery, report it and leave the task open. A GitHub API connection alone is not proof of automatic Git sync. Mark implemented, partial, upcoming and unverified work separately. Do not overwrite approved decisions or silently promote placeholders to completed features. Historical native specifications in `prompt.md` and `Provider-Recommendations.md` do not override this web checkpoint.

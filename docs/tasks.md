@@ -1,6 +1,6 @@
 # Kalkumpel – Tasks (Web App)
 
-> Source of truth: `docs/Masterplan.md`, `docs/prompt.md` (Master Architecture Prompt), `docs/app-flow-pages-and-roles.md`, `docs/Design-guidelines.md`, `docs/Implementation-plan.md` – copied from `bowerestates/Kalkumpel`.
+> Source of truth: `docs/Masterplan.md` for current product decisions and this task list for completion/verification, supported by `app-flow-pages-and-roles.md`, `Design-guidelines.md` and `Implementation-plan.md`. Harmonized web checkpoint: 11 Oct 2026. `prompt.md` and `Provider-Recommendations.md` retain historical native proposals; they do not override current web decisions.
 >
 > **Stack translation:** The GitHub repo specifies Expo / React Native. This Lovable project is the **web version** (TanStack Start + Tailwind). Mapping used here:
 > Expo Router → TanStack file routes · Supabase → Gordon's own Supabase · `analyze-meal` Edge Function → server function via Lovable AI · RevenueCat → Stripe (web) · AsyncStorage → localStorage + profile sync.
@@ -29,16 +29,18 @@
 - [x] Brand logo (mint flame) + favicon
 - [x] German UI ("Du"), English code
 - [x] DE/EN dictionary + language toggle in Profil
-- [ ] Replace logo with official repo assets (`assets/logo.png`, `assets/logo-scanner-plate.png`)
+- [x] Logo: keep the approved scanner-plate logo permanently (Gordon, 11 Oct 2026) — no swap needed
 - [x] Apply the approved black-Welcome / white-and-mint app theme; preserve existing macro colours (Design-guidelines §0).
 - [x] Keep the approved original Plus Jakarta Sans font on Welcome; no replacement rounded wordmark.
-- [ ] German number & date formatting everywhere (`dd.mm.yyyy`, comma decimals, `2.150 kcal`)
+- [x] Language-aware number & date formatting (`src/lib/format.ts`): German `dd.mm.yyyy`, `75,5 kg`, `2.150 kcal`; English switches automatically; weight input accepts comma or dot (11 Oct 2026)
+- [~] Rollout audit (11 Oct 2026): shared helpers and Today calorie/progress weight/selected onboarding displays are implemented, but some capture/review values, result calories and Settings targets still render raw numbers. The earlier claim that Phase 0 was fully complete was premature.
+- [ ] Finish shared formatting across the remaining displays and comma/dot parsing in nutrition/portion inputs; check both German and English before closing Phase 0. Upcoming; no application code changed in this documentation task.
 
 ## Phase 1 – Onboarding (app-flow screens 00–29)
 - [x] Welcome screen (00)
 - [x] Prepare and visually inspect welcome-page logo preview: plate and green flame inside camera scan corners, white brand lettering, existing near-black palette.
 - [x] Revise welcome preview with matching mint-to-emerald gradient flame and plate rings, black background, white lettering, and clearer spacing inside white camera scan corners (10 Oct 2026).
-- [x] Refine preview with original Plus Jakarta Sans typography and original copy colour roles; remove two innermost plate rings. Await approval before applying or sending to GitHub.
+- [x] Refine preview with original Plus Jakarta Sans typography and original copy colour roles; remove two innermost plate rings. Approval received and applied; logo permanently retained on 11 Oct 2026.
 - [x] Apply approved welcome-page revision (10 Oct 2026): green-gradient flame and three plate rings within white scan corners, black welcome-only background, original typography/copy colours, matching favicon. Verified compact and desktop layouts, both navigation buttons, and clean build.
 - [x] Switch onboarding + daily app to white background with mint copy and mint-only line icons; welcome stays black (10 Oct 2026, see Design-guidelines §0).
 - [x] Mirror reference screen IMG_3236 (gender): heading + subtitle, centred option cards with mint icon badges and radio, pill "Weiter" disabled until chosen.
@@ -52,30 +54,45 @@
 - [x] Add left/right weight-scale scrolling: touch swipe, mouse drag, wheel/trackpad and arrow keys; also used on the existing target-weight screen.
 - [x] Restore IMG_3246 goal immediately after current weight: "Was ist Dein Ziel?"; Abnehmen / Gewicht halten / Muskeln aufbauen, mint arrow/minus icons and required choice.
 - [x] Save this completed onboarding batch in design notes and tasks (10 Oct 2026; Gordon lifted the documentation hold).
-- [ ] Mirror the remaining onboarding screens from Gordon's next screenshots; target-weight screen is functional but its reference-specific redesign remains upcoming.
-- [ ] Replace remaining emoji icons (diet, pace) with mint line icons when those screens are mirrored.
-- [x] Gender, age, height, weight, target weight, activity, diet, pace
-- [x] Renumber current flow to 13 question/interstitial pages; goal is restored after weight, not at the start. See `docs/Onboarding-progress.md` for the exact sequence and limitations.
-- [x] Calculation loader (26) + plan reveal with kcal & macro split (27)
-- [x] Feature highlights + review cards (06/14/23 condensed)
-- [x] Paywall preview: yearly plan 29,00 € + 3-day trial (29)
-- [ ] Expand to full 33-step flow:
-  - [x] Birth date picker instead of age (03); full-date profile persistence remains upcoming below.
-  - [x] Workouts per week (02) feeding activity factor
-  - [x] Referral channel (04) and tracked-before question (05) UI
-  - [ ] Persist referral answer, tracking-experience answer and full birth date; currently temporary onboarding state (profile retains age only).
-  - [ ] Trainer question (09), if Gordon includes it in the revised flow; current goal follows weight directly.
-  - [x] Stay-on-track graph (06), titled "Gemacht, damit Du dranbleibst" in the current UI; illustrative, not a personal prediction.
-  - [ ] Remaining interstitials: milestone (12), "Du hast das Zeug dazu", "Danke für dein Vertrauen" (19)
-  - [ ] Pace slider 0,2–1,0 kg/Woche with live target date (13)
-  - [ ] Obstacles multi-select (15), secondary goals (17), Keto & Intervallfasten diets (16)
-  - [ ] Add burned calories toggle (20), health sync card (21 – web: "später"), rollover up to 200 kcal (22)
-  - [ ] Notifications opt-in (24), referral code (25)
-  - [x] Onboarding unit toggles kg/lbs, cm/ft-in (07/08); stored measurements remain metric.
-  - [~] Helper subtitles on the mirrored biometric/goal screens; review remaining screens with the next batch.
-- [ ] Dedicated onboarding account creation wall (28) with legal consent; email/password auth already exists, Google/Apple remain upcoming.
+- [x] Mirror the plan statement screen: "Das Abnehmen von X beginnt mit einem Plan!" — the amount is the gap between current and target weight in the unit chosen on the scales, and the wording adapts to the selected goal (Abnehmen / Gewicht halten / Muskeln aufbauen).
+- [x] Mirror the pace screen: "Wie schnell möchtest Du Dein Ziel erreichen?" — slider with Entspannt / Empfohlen / Ehrgeizig, guided weekly amount from height, weight and goal, time-to-goal plus daily calorie goal; placed directly after the plan statement.
+- [x] Reformat "Wie isst Du am liebsten?" to the new card design: mint line icons replace the emoji and a German subtitle sits under the heading.
+- [x] Mirror the stay-on-track comparison screen: "Ein einfacherer Weg, dranzubleiben" with "Ohne Kalkumpel" and "Mit Kalkumpel" cards plus the caption "Kleine tägliche Schritte führen zu Fortschritt"; both cards show the same abstract person, the second wearing a medal around the neck.
+- [x] Mirror screens IMG_3251–3255: obstacles, desired outcome, illustrative potential chart and thank-you. Single obstacle/outcome answers now persist in validated onboarding profile details (11 Oct 2026).
+- [x] Mirror the community screen IMG_3261 (10 Oct 2026): „Werde Teil der Kalkumpel-Community“ with a crowd of 21 mint avatars in three rows (no „viele mehr“ pill). The reference's user counts, ratings and named reviews are deliberately **not** copied — no invented social proof.
+- [x] **Onboarding pages complete (Gordon, 11 Oct 2026).** 23 in-route screens plus the separate account stage; full order and what is saved: `docs/Onboarding-progress.md`. Remaining reference refinements below are not implied complete.
+- [x] Gender, age, height, weight, target weight, goal, activity, diet, pace
+- [x] Pace slider with live time-to-goal and daily calories; obstacles, desired outcomes, potential chart, thank-you, setup progress and result screens.
+- [x] Calculation loader + plan reveal with kcal & macro split
+- [x] Feature highlights + review cards (condensed)
+- [x] Paywall preview: yearly plan 29,00 € + 3-day trial
+- [x] Onboarding unit toggles kg/lbs, cm/ft-in; stored measurements remain metric.
 - [x] Save completed profile/targets and starting weight locally; account sync uploads guest profile/data on first sign-in.
-- [ ] Extend profile sync to newly added onboarding answers once those fields are persisted.
+
+### Onboarding placeholders to come back to
+- [ ] Layout polish for the comparison screen (block sits small; card titles tight to the top; dark-card icon contrast moderate).
+- [ ] Target-weight screen: reference-specific redesign (currently the shared weight scale).
+- [ ] Remove emoji from pace/any remaining screens if found during the in-app review.
+- [x] Save full birth date, workout frequency category, referral source, prior-app answer, single obstacle and desired outcome in owner-only profile details and sync them.
+- [x] Save weekly pace amount and weight-unit choice to the account; height display-unit preference remains upcoming.
+- [ ] Obstacles and desired outcomes as multi-select (currently one choice each).
+- [ ] Keto and Intervallfasten diet options.
+- [ ] Trainer question — only if Gordon wants it.
+- [ ] Rollover up to 200 kcal.
+- [ ] Notifications opt-in and referral code.
+- [x] IMG_3266 account stage: white/mint German design, working email/password signup with confirmation state and existing-account link, before free/Premium choice. Apple reserved for native iOS; no Google button.
+- [x] Separate unchecked storage consent and optional recipe/workout personalisation consent; save version/latest timestamp and allow optional consent withdrawal in Profil. No advertising emails enabled.
+- [ ] Legal review before launch: approved AGB/privacy notice, purpose and sensitive-data lawful basis, retention schedule, full storage-consent withdrawal, account deletion/export, and consent audit history. Draft screen wording is not legal certification.
+- [ ] Edit pencils on the result screen (editing currently in Profil).
+- [ ] Burned-calories toggle and Apple Health sync — **native iOS build only**, Phase 11.
+
+## Next focus – In-app logic review (starts after this save)
+Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen and Paywall; confirm each visible element uses real app logic, and build anything missing at that time.
+- [ ] Heute
+- [ ] Erfassen (photo, barcode, manual, meal score)
+- [ ] Fortschritt
+- [ ] Profil / Einstellungen
+- [ ] Paywall
 
 ## Phase 2 – Backend & Accounts (Gordon's own Supabase) — ACTIVE
 > **Gordon, 09 Oct 2026 (later):** hold lifted. Use Gordon's own Supabase project (not Lovable Cloud) for authentication, database and meal photos. See `docs/Provider-Recommendations.md`.
@@ -87,7 +104,7 @@
 - [x] Sign-in / sign-up / password reset (E-Mail + Passwort) without revealing whether an email exists
 - [x] Move app data from browser storage to the database on first sign-in; browser storage stays as the offline cache
 - [ ] Roles: Anonymous · Free · Kumpel+ Pro — upcoming (Pro status must be set server-side once Stripe exists)
-- [ ] Google / Apple sign-in — upcoming
+- [ ] Google sign-in — not implemented; Apple sign-in reserved for native iOS (Phase 11), no web placeholder.
 
 ## Phase 3 – Core App: Dashboard & Logging
 - [x] Dashboard: remaining / eaten kcal, rings for kcal, Eiweiß, Kohlenhydrate, Fett
@@ -101,7 +118,7 @@
 ## Phase 4 – AI Photo Scanner
 - [x] Photo upload UI + "analysing" state (photo shrunk to max 1024 px before sending)
 - [x] Real AI meal analysis via Lovable AI (structured JSON: items, grams, kcal, macros, confidence)
-  - [x] **Model chosen (Gordon, 10 Oct 2026): OpenAI `openai/gpt-6-luna`** — cheapest non-deprecated vision model, zero data retention.
+  - [x] **Current configured model: OpenAI `openai/gpt-6-luna`** via Lovable AI Gateway. This records the code checkpoint, not verified cheapest pricing, model availability or a zero-retention guarantee; provider access/privacy claims need separate verification.
     Model is one constant (`AI_VISION_MODEL`) so switching to Claude etc. later is a one-line change.
 - [x] Meal photos saved to the private `meal-photos` storage (signed-in users only) and linked to the entry
 - [x] Review screen: edit ingredients, portion slider / grams, add forgotten sides
@@ -111,7 +128,7 @@
 - [ ] Ground AI results against BLS reference values
 
 ## Phase 5 – Barcode & Nutrition Data
-- [~] Barcode / product search (currently 12 sample foods)
+- [~] General text product search uses a local sample catalogue; numeric barcode lookup uses live Open Food Facts. Comprehensive online food search remains upcoming.
 - [x] Camera barcode scanning in browser
 - [x] Open Food Facts lookup (`/api/v2/product/{barcode}.json`)
 - [ ] Product sheet: brand, name, Nutri-Score, macros per 100 g, portion multiplier
@@ -136,12 +153,12 @@
 - [ ] Units metric / imperial
 - [ ] Meal reminders (08:30, 12:30, 16:00, 19:00, 21:00)
 - [ ] AGB, Datenschutz, Konto löschen
-- [ ] Sync language to profile (`preferred_language`)
+- [x] Sync language to profile (`preferred_language`) through existing account sync; signed-in cross-device verification remains upcoming.
 
 ## Phase 8 – Subscriptions (Kumpel+)
 - [~] Paywall screen (no real payment)
-- [ ] Stripe checkout for monthly & yearly with free trial
-- [ ] Save subscription status to the local profile (browser storage while Phase 2 is on hold); gate Pro features
+- [ ] Stripe checkout for yearly-only 29,00 € with a 3-day trial; server-verified entitlement. Premium button currently explains unavailability and never grants local paid status.
+- [ ] Implement separate server-verified subscription roles/entitlements and mirror only verified access for display; editable profiles and local plan selection must not grant Pro. Accounts hold is lifted.
 - [ ] Restore / manage subscription, terms links
 - [ ] Pro features: unlimited scans/day (confirmed 10 Oct 2026), micronutrients (BLS), 30/90-day analytics, PDF/CSV export, macro cycling
 
@@ -153,3 +170,46 @@
 - [ ] End-to-end checks: onboarding, scan, barcode, offline
 - [ ] Error tracking
 - [ ] SEO / share images, publish
+
+## Phase 11 – Native iOS & Apple Health (deferred, not web)
+> **Gordon, 10 Oct 2026:** screens 20–21 belong to the Apple HealthKit exercise and are built **only once Kalkumpel runs as a native iOS app**; the native HealthKit access is written there. The web app shows nothing for these two questions — no placeholder, no simulated sync.
+- [x] Reference screens parked (10 Oct 2026): `IMG_3256.PNG`, `IMG_3258.PNG`, `IMG_3259.PNG`; German copy already specified in `docs/app-flow-pages-and-roles.md` screens 20–21.
+- [ ] HealthKit read access: workouts (type, duration, active energy burned) and daily step count.
+- [ ] Screen 20 „Aktivitätskalorien zum Tagesziel dazurechnen?“ — workout list (Morgenlauf 32 min +320 kcal, Yoga 20 min +90 kcal, Schritte 12.430 +80 kcal), badge „Heute zum Budget addiert +490 kcal“, budget line 2.500 → 2.990 kcal, Ja / Nein.
+- [ ] Screen 21 „Aktivitäten mit Apple Health synchronisieren?“ — photo card with today's goal (flame 2.500 kcal, Running +250 kcal) and the connection screen „Verbindung mit Apple Health herstellen“ (Apple + Health icons joined by a checkmark, pills Gehen / Laufen / Yoga / Schlaf, CTA „Apple Health verbinden“).
+- [ ] Save the answers as `profile.add_burned_calories` and `profile.health_sync_enabled` through the existing profile sync.
+- [ ] Add credited activity calories to the daily budget on the dashboard and to the energy-balance chart (Phase 6).
+
+## Onboarding end screens
+- [x] IMG_3266 save-progress/email account stage added; account required when continuing into free or paid plan choice. Apple native iOS later.
+- [x] Verified unchecked consent defaults, storage-gated email form and existing-account destination in the browser; routing/meal-score regression tests pass and preview builds cleanly.
+- [ ] Verify real signup/email confirmation and profile details across devices with Gordon's external Supabase account; provider settings and delivery were not inspected or changed.
+- [x] Setup progress screen (IMG_3264): "Wir richten alles für Dich ein" — % counter, mint progress bar, rotating status line, checklist (Kalorien, Kohlenhydrate, Protein, Fett); meal scores are calculated only after a meal is logged.
+- [x] Plan result screen (IMG_3265): "Ziel: X kg abnehmen bis <Datum>", estimated progress curve, daily kcal + macros, "Los geht's!". Values come from calcTargets/paceGuide; saved to profile and synced to Supabase when signed in.
+- [ ] Edit pencils on the result screen — tracked under "Onboarding placeholders".
+
+## Meal-quality score (Gordon, 11 Oct 2026)
+- [x] Define the requested score: per-meal “Mahlzeiten-Score” (1–10 or null), not a personal health score calculated during onboarding. Requirements recorded from Gordon's uploaded brief.
+- [x] Document one versioned rubric: ingredient balance/variety, protein, plant foods and reliable fiber; sugar/saturated fat/salt only with evidence. Unknown nutrients remain unknown, calories alone do not lower the score, and confidence is independent. Evaluate snacks in context.
+- [x] Reuse the current AI integration for photo, barcode and manual meals; validate score, confidence, short explanation, up to two positives, optional suggestion and rubric version.
+- [x] Add compact review and saved-detail cards with German/English copy, estimated label, expandable explanation, optional balance suggestion and non-medical disclaimer. No unrelated redesign.
+- [x] Persist score and supporting ingredient/nutrition information through the existing local store and user-owned Supabase entries. Reopening must not request AI again.
+- [x] Mark scores outdated after relevant edits and recalculate; scoring failure must never block saving. Preserve server-only credentials and per-user access controls.
+- [x] Remove the misleading onboarding health-score completion item: no meal exists to score during profile setup.
+- [x] Verify unknown nutrients, independent confidence, reopening without AI, editing/recalculation, and failure-tolerant meal logging.
+
+### Verification notes
+- Live manual-entry scoring returned a validated German 8/10 result; ingredient edits produced a new assessment. Reopening made zero AI requests. Simulated connection failure still allowed meal logging.
+- Schema and RLS linter: clean. Evidence/score sync mappings are implemented; authenticated cross-device verification remains upcoming (external Supabase sign-in not available to automated checks).
+- [ ] Upcoming: signed-in cross-device score persistence check and real photo/barcode end-to-end checks with Gordon’s examples.
+
+## Documentation delivery checkpoint — 11 Oct 2026
+- [x] Harmonize `Design-guidelines.md`, `Implementation-plan.md`, `app-flow-pages-and-roles.md` and `Masterplan.md` with current web onboarding/account order, barcode scanning, approved permanent logo, configured OpenAI model, language-aware formatting status and remaining work.
+- [x] Reconcile task claims: formatting rollout is partial, profile language sync is implemented, extra onboarding answers are saved, and paid access/native features are not delivered.
+- [x] Record standing rule: update and save relevant documentation/task records, upload affected documents to `bowerestates/Kalkumpel` and verify exact remote matches with every agreed coding, behaviour or design delivery, without Gordon having to ask; report blockers and distinguish implementation from unverified checks and placeholders.
+- [ ] Finish Phase 0 locale rollout, then continue the agreed screen-by-screen in-app logic review.
+- [x] Check GitHub synchronization (11 Oct 2026, 15:45 UTC): read `bowerestates/Kalkumpel` main using Gordon's GitHub API and compare Git blob fingerprints with saved project files. Verification completed; synchronization is **not complete**.
+- [ ] Upload the latest documentation to GitHub and verify again. `Design-guidelines.md`, `Implementation-plan.md`, `Masterplan.md`, `app-flow-pages-and-roles.md`, `Onboarding-progress.md` and `tasks.md` exist remotely but differ from saved project versions; `Meal-score-rubric.md` and `prompt.md` are absent from the remote docs folder. Only unchanged historical `Provider-Recommendations.md` matches exactly. Remote main was at `a6c9769c8f44181a10a839e850c3a0d31cc1a314`; this verification task did not modify GitHub or establish automatic Git sync.
+
+### Check this documentation update
+Read the four documents' matching web-feature checkpoints and compare them with this task list. Confirm the same logo, 23 screens plus account stage, current model constant, 3/day Free quota, yearly-only price/trial, locale rollout gaps and native/payment/legal deferrals. This documentation-only task does not change screens or deploy the app.

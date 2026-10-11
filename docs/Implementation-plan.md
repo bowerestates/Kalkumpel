@@ -1,75 +1,96 @@
-# Kalkumpel - Implementation Plan
+# Kalkumpel — Implementation Plan (Web)
 
-> **Strategy:** Phased delivery with automated regression testing and living documentation.  
-> **Base Version:** Expo SDK 54 / React Native / Supabase / Claude 3.5 Sonnet Vision  
+> Updated: 11 Oct 2026. Phase numbering matches [tasks.md](tasks.md).  
+> Current stack: TanStack Start / React / TypeScript / Tailwind v4 / Gordon’s Supabase / OpenAI through Lovable AI Gateway.  
+> Legend: `[x]` implemented/documented · `[~]` partial · `[ ]` upcoming or unverified. Historical native work is not a web completion claim.
 
----
+## Phase 0 — Foundation (partial formatting follow-up)
+- [x] App shell, daily tabs, German/English dictionaries and language switch.
+- [x] Approved scanner-plate Welcome logo and favicon retained permanently; black Welcome, white/mint app, Plus Jakarta Sans and unchanged nutrient colours.
+- [x] Shared language-aware `Intl` formatting helpers (`de-DE` / `en-GB`) and comma/dot weight parser.
+- [~] Formatting wired to Today calorie displays, progress weight values and selected onboarding values.
+- [ ] Finish remaining raw number displays in capture/review, onboarding result and Settings; apply decimal parsing to nutrition/portion inputs and check both languages. Phase 0 cannot be called fully closed until this is done.
 
-## Phase 1: Security Hardening & Rebranding (Completed)
-- [x] Security audit of base repository.
-- [x] Drop vulnerable `public.account_exists(text)` function to prevent email enumeration.
-- [x] Update `app/auth/forgot-password.tsx` to handle password resets without revealing account existence.
-- [x] Rebrand application from MacroLens to Kalkumpel across bundle identifiers, configs, and assets.
-- [x] Upgrade edge function model to `claude-3-5-sonnet-latest`.
-- [x] Initialize clean repository at `bowerestates/Kalkumpel`.
-- [x] Commit `prompt.md` master specification.
+## Phase 1 — Onboarding
+- [x] 23 in-route screens plus separate account stage; full order and save boundaries in [Onboarding-progress.md](Onboarding-progress.md).
+- [x] Weight/height controls, goal-weight difference, pace guidance, target calculations, setup animation and result curve.
+- [x] White/mint reference adaptations, matching person/medal figures, community crowd without invented claims.
+- [x] Save base profile, targets, starting weight and validated additional answers locally; sync through owner-only account records.
+- [x] Email account stage before plan choice, unchecked required storage consent and optional future recipe/workout personalisation; optional withdrawal in Profile.
+- [ ] Reference polish, result edit controls, height display-unit persistence and optional extra questions/options listed in tasks.md. HealthKit screens remain native only.
 
----
+## Phase 2 — Accounts and security
+- [x] Gordon’s own connected Supabase, email/password signup/sign-in/reset, private photos and owner-only records.
+- [x] Guest-data upload and account sync of profile details, versioned latest consent, meals, weights and preferred language.
+- [x] Server-only signed-in scan usage writes; users cannot edit quotas.
+- [ ] Verify real email confirmation and cross-device profile/meal persistence; hosted auth settings/delivery are not certified by source review.
+- [ ] Legal-reviewed notices, lawful basis, retention, consent history/full withdrawal and deletion/export.
+- [ ] Separate server-verified subscription roles. Apple sign-in belongs to native iOS; Google is not implemented.
 
-## Phase 2: Architecture Knowledge & Provider Contracts (Completed)
-- [x] Establish `docs/` repository knowledge base (`Masterplan.md`, `Implementation-plan.md`, `Design-guidelines.md`, `app-flow-pages-and-roles.md`).
-- [x] Define hybrid data architecture: Claude Vision + BLS (Germany) + Open Food Facts (Barcodes) + USDA.
-- [x] Define billing stack: RevenueCat (iOS/Android IAP) + optional Stripe Checkout.
-- [x] Specify open data legal compliance (CC BY 4.0 for BLS, ODbL for Open Food Facts).
+## Phase 3 — Daily app and logging
+- [x] Today calories/macros, grouped daily meals, manual logging and deletion.
+- [x] Saved meal-score review and relevant evidence edits inside Today; no separate `/meal/[id]` page yet.
+- [ ] Review Today, Capture, Progress, Profile and Paywall screen by screen; build missing real behaviour as agreed.
+- [ ] Weekly coloured day rings, dedicated meal-detail route and quick calorie correction.
 
----
+## Phase 4 — AI photos and meal score
+- [x] Real image upload/analysis, resized image, structured items/grams/calories/macros/confidence.
+- [x] OpenAI via Lovable AI Gateway; single server `AI_VISION_MODEL = "openai/gpt-6-luna"` constant. No model change in this documentation task.
+- [x] Camera permission messaging, ingredient/portion edits and private signed-in photo storage.
+- [x] Free photo quota: 3/day; account counts server-side, guests local. Unlimited Pro waits for verified payment access.
+- [x] `meal-quality-v1` for photo/barcode/manual meals, saved evidence/results, no request on reopening, safe reassessment and save-on-failure.
+- [ ] Scan-tips screen, BLS grounding, real photo/barcode example checks and signed-in score sync verification. Provider retention/access claims need independent verification.
 
-## Phase 3: Interactive Multi-Step Onboarding
-- [ ] Ingest user design screenshots into structured UI components.
-- [ ] Build multi-step onboarding wizard:
-  1. Welcome / Value proposition screen.
-  2. Primary goal selection (Fettabbau / Gewicht halten / Muskelaufbau).
-  3. Biometrics input (Gender, Birth date, Height, Current weight, Goal weight).
-  4. Activity level evaluation (Sedentary to Very Active).
-  5. Calorie & macro calculation reveal (animated Mifflin-St Jeor summary).
-  6. Account creation / sign-up wall.
-- [ ] Seed newly created user profile directly from onboarding inputs.
+## Phase 5 — Barcode and reference data
+- [x] Browser camera barcode detection via ZXing; typed-code fallback and access/error messages.
+- [x] Open Food Facts product lookup, name/brand, per-100-g nutrients, gram portion scaling and review before logging.
+- [~] General text product search is a local sample catalogue, not a comprehensive online food search.
+- [ ] Fuller product/Nutri-Score sheet, BLS staples, USDA fallback and Open Data & Licenses view.
 
----
+## Phase 6 — Progress and streaks
+- [x] Weight logging/chart, start/current/goal, seven-day calorie bars and streak counter.
+- [ ] Verify nutrition/streak calculations; grace window, extended trend ranges, badges and progress-photo diary.
+- [ ] Workout-energy balance depends on future native activity integration; no simulated web sync.
 
-## Phase 4: Barcode Scanning & Hybrid Nutrition Data
-- [ ] Integrate camera barcode scanning via `expo-camera` or `expo-barcode-scanner`.
-- [ ] Connect Open Food Facts REST API (`https://world.openfoodfacts.org/api/v2/product/{barcode}.json`).
-- [ ] Build packaged product preview sheet (Brand, Product Name, Nutriscore, Macros per 100g, Portion Multiplier).
-- [ ] Add BLS (Bundeslebensmittelschlüssel) ingredient grounding table/cache for common German staples.
-- [ ] Add "Lizenzen & Datenquellen" attribution page in Profile/Settings (CC BY 4.0 & ODbL requirements).
+## Phase 7 — Settings
+- [x] Language change and profile language sync, profile editing/recalculated targets, local reset and optional personalisation withdrawal.
+- [ ] App-wide metric/imperial preference, real reminders, approved legal pages and account deletion/export. Local reset is not server account deletion.
 
----
+## Phase 8 — Subscriptions
+- [~] Account-gated Free/Premium preview at 29,00 €/year with a proposed 3-day trial.
+- [ ] Stripe checkout, verified entitlement in separate roles, subscription management and restore flow. Local selection never grants Pro.
+- [ ] Pro micronutrients, extended analytics, PDF/CSV, macro cycling and unlimited photo scans after entitlement is live.
 
-## Phase 5: Full German Localization (UI)
-- [ ] Audit all strings in `app/`, `components/`, and `constants/`.
-- [ ] Standardize terminology:
-  - *Calories* -> *Kalorien (kcal)*
-  - *Protein* -> *Eiweiß (g)*
-  - *Carbohydrates* -> *Kohlenhydrate (g)*
-  - *Fat* -> *Fett (g)*
-  - *Streak* -> *Serie / Streak*
-  - *Scan Barcode* -> *Barcode scannen*
-  - *Log Meal* -> *Mahlzeit erfassen*
-- [ ] Verify German date (`dd.mm.yyyy`) and number formatting (comma decimal separator).
+## Phase 9 — Community
+- [ ] Community rules/features; onboarding avatars are illustration, not a live community or user count.
 
----
+## Phase 10 — Verification and launch
+- [x] Existing routing, profile-schema and meal-score tests; earlier browser checks documented in tasks.md.
+- [ ] Finish locale checks and end-to-end camera, barcode, email confirmation, offline/account sync and nutrition/streak coverage.
+- [ ] Legal/data-source readiness, operational checks and publishing. This checkpoint does not deploy the app.
 
-## Phase 6: Subscriptions & Paywall (RevenueCat)
-- [ ] Install and configure `react-native-purchases` (RevenueCat SDK).
-- [ ] Define offerings: Monthly & Annual Kumpel+ subscriptions.
-- [ ] Implement paywall modal triggered when daily free scans exceed quota (`meal_analysis_usage` count >= 5).
-- [ ] Sync RevenueCat customer entitlement status with Supabase profile metadata / database table.
-- [ ] Add restore purchases button and terms of service / privacy links.
+## Phase 11 — Native iOS (deferred)
+- [ ] Native app, Apple sign-in, RevenueCat/App Store billing, HealthKit permissions, workout/active-energy import and optional calorie-budget credit.
+- [x] Native-only reference screens parked; never add placeholder Apple Health or burned-calorie onboarding screens to web.
 
----
+## Current web feature checkpoint
 
-## Phase 7: Production Polish & Store Submission
-- [ ] End-to-end testing of camera snap, barcode lookup, and offline sync.
-- [ ] Add crash logging and performance tracing.
-- [ ] Prepare App Store and Google Play assets, screenshots, and privacy manifests.
+| Feature | Implemented now | Remaining / limitations |
+|---|---|---|
+| Branding | Approved scanner-plate/flame Welcome logo and favicon; Gordon confirmed keeping the existing logo permanently | No replacement with older `assets/` logos |
+| Onboarding | 23 in-route screens (20 questions/interstitials, setup, result, features), followed by the separate account stage | Full order in `Onboarding-progress.md`; remaining reference polish/options in `tasks.md` |
+| Targets | Mifflin-St Jeor-based calories/macros, goal-weight difference, guided pace and estimated target date | Estimates, not guaranteed outcomes; result-screen editing remains upcoming |
+| Accounts | Email/password signup/sign-in/reset, local plan draft, owner-scoped Supabase sync, unchecked storage and optional personalisation consent | Real confirmation delivery and cross-device checks still unverified; legal review, retention, export/deletion and complete consent history required |
+| Photo analysis | Server-side OpenAI via Lovable AI Gateway; configured `AI_VISION_MODEL = "openai/gpt-6-luna"`; ingredient/portion review before saving; signed-in private photos | Model availability/access depends on provider; BLS grounding and scan-tips screen upcoming; no independently verified zero-retention guarantee |
+| Barcode | Browser camera scanning with ZXing, permission messaging, typed-code fallback, Open Food Facts lookup, gram-based nutrient scaling and review | Product coverage varies; fuller product/Nutri-Score sheet, BLS/USDA and attribution page upcoming |
+| Meal score | Photo/barcode/manual evidence, versioned estimated 1–10 score or null, independent confidence, saved explanation and failure-tolerant logging | No personal health score; real photo/barcode examples and signed-in cross-device verification remain upcoming |
+| Daily app | Remaining/eaten calories, nutrient rings, grouped meals, manual logging, delete, saved meal-score review/edit, weight chart, seven-day bars and streak counter | Screen-by-screen logic review still upcoming; no claim that all screenshot features or streak grace rules are built |
+| Language/formatting | German default, English switch; shared `Intl` helpers for `de-DE` / `en-GB`; Today calorie displays, progress weight input/chart values and selected onboarding values use them; profile language sync implemented | **Partial rollout:** raw numbers still occur in capture/review, onboarding result calories and settings target summary; comma/dot parsing is implemented for weight, not all nutrition inputs |
+| Plans | Account precedes Free/Premium choice; preview shows 29,00 €/year and 3-day trial | No checkout or paid entitlement; everyone currently gets 3 photo scans/day; future verified Pro permits unlimited scans |
+| Native iOS | HealthKit, workout-calorie credit and Apple sign-in explicitly deferred | No web placeholders or simulated health sync |
+
+## Documentation checkpoint — 11 Oct 2026
+
+These documents describe the current **web app**, not an already-built native app. `Masterplan.md` defines product decisions, `tasks.md` tracks delivery and verification, `Implementation-plan.md` uses the same phase numbers, `app-flow-pages-and-roles.md` describes actual navigation, and `Design-guidelines.md` records approved visuals. `Onboarding-progress.md` preserves the detailed screen sequence; `Meal-score-rubric.md` defines scoring.
+
+For every agreed coding, behaviour or design change, save the corresponding documentation and task updates in the same delivery. Mark implemented, partial, upcoming and unverified work separately. Do not overwrite approved decisions, silently promote placeholders to completed features, or claim remote GitHub synchronization without checking it. Historical native specifications in `prompt.md` and `Provider-Recommendations.md` do not override this web checkpoint.

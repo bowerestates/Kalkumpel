@@ -1,63 +1,63 @@
 # Kalkumpel – Onboarding checkpoint
 
-**Saved:** 10 Oct 2026, at Gordon's request after reviewing the completed screen batch.
+**Saved:** 11 Oct 2026. Gordon has confirmed that all onboarding pages are in place. This replaces the 13-page checkpoint from 10 Oct 2026.
 
-This is the current **web app** checkpoint. Read alongside `Masterplan.md`, `Design-guidelines.md` and `tasks.md`. The full screenshot audit in `app-flow-pages-and-roles.md` remains the planned journey; its original numbering is not the current app order. No app screens changed during this documentation save.
+Read alongside `Masterplan.md`, `Design-guidelines.md` and `tasks.md`. The screenshot audit in `app-flow-pages-and-roles.md` is the original reference. Its numbering does not match the current app order.
 
 ## Design and language
 
 - Welcome stays near-black with white Kalkumpel lettering and the approved green scanner-plate/flame logo.
-- Onboarding after Welcome and daily use have white backgrounds, readable mint/emerald copy, soft mint selection surfaces and monochrome mint line icons. Existing nutrient colours are preserved.
-- Use the existing Plus Jakarta Sans font and mirror the reference layout, font hierarchy and interaction, not its English copy.
-- App UI remains friendly German by default; English remains available through settings. Explanations to Gordon stay English.
-- Gordon approved this documentation checkpoint; the remaining onboarding pages will be reviewed using further screenshots.
+- Every page after Welcome is white, with mint/emerald copy and monochrome mint line icons. No emoji. The nutrient colours stay as they are.
+- Font: Plus Jakarta Sans. Layout, font hierarchy and interaction follow the references; the copy is friendly German ("Du"), not the references' English.
+- No invented social proof: no user counts, ratings or named testimonials.
 
-## Current implemented order
+## Implemented order (24 screens including account stage)
 
-| Page | Reference | German heading / content | Current function |
-|---|---|---|---|
-| Welcome | Approved logo preview | Kalkumpel | Start onboarding or open sign-in; separate from the question count. |
-| 1 | IMG_3236 | Wähle Dein Geschlecht | Männlich / Weiblich / Divers, mint line icons and radio selection; Weiter disabled until chosen. |
-| 2 | IMG_3237 | Wie oft trainierst Du pro Woche? | 0–2 / 3–5 / 6+, mint dot icons and descriptions; required choice sets light / moderate / active activity level. |
-| 3 | IMG_3239 | Wann bist Du geboren? | Month, day and year scrolling wheels; helper: „Das berücksichtigen wir bei der Berechnung Deiner täglichen Nährwertziele.“ Selected date supplies age for calorie calculations; separate age field removed. |
-| 4 | IMG_3240 | Wie hast Du von uns erfahren? | Freunde oder Familie, Fernsehen, Facebook, TikTok, Instagram, Google, YouTube; mint line icons, required choice. |
-| 5 | IMG_3241 | Hast Du schon andere Kalorien-Apps ausprobiert? | Ja / Nein with mint thumbs-up/down icons; required choice. |
-| 6 | IMG_3242 | Gemacht, damit Du dranbleibst | Illustrative Gewichtsverlauf chart: Kalkumpel vs. Ohne Plan, Monat 1–6; Weiter. |
-| 7 | IMG_3243 | Wie groß bist Du? | cm / ft, in toggle and scrolling measurement wheels; metric height feeds calculations. |
-| 8 | IMG_3244 | Wie viel wiegst Du? | kg / lbs toggle, large changing value and horizontal scale under a fixed mint centre marker. |
-| 9 | IMG_3246 | Was ist Dein Ziel? | Abnehmen / Gewicht halten / Muskeln aufbauen with mint down/minus/up icons; required selection. Immediately follows current weight. |
-| 10 | Awaiting reference review | Wunschgewicht | Existing target-weight page uses the same kg/lbs horizontal ruler; screenshot-specific redesign still upcoming. |
-| 11 | Awaiting reference review | Activity level | Existing five-choice activity question; can override the earlier workout-based activity value. |
-| 12 | Awaiting reference review | Dietary preference | Existing balanced / vegetarian / vegan / pescetarian / low-carb choices; emoji replacement and further choices remain upcoming. |
-| 13 | Awaiting reference review | Pace | Existing slow / normal / fast choices, not yet the reference pace slider. |
-| After questions | Existing | Calculation → plan reveal → features/reviews | Animated calculation, calorie/macro targets and projected goal date; completing this flow saves the profile/targets and starting weight, then opens the paywall. |
+The progress bar covers steps 1–20; the setup animation, plan result and feature pages come after it.
 
-There are **13 question/interstitial pages**, followed by calculation, reveal and features/reviews. The progress bar uses those 13 pages. Welcome and paywall are separate routes.
+| # | German heading | Function |
+|---|---|---|
+| 1 | Wähle Dein Geschlecht | Männlich / Weiblich / Divers; required. |
+| 2 | Wie oft trainierst Du pro Woche? | 0–2 / 3–5 / 6+; sets the activity level. |
+| 3 | Wann bist Du geboren? | Month/day/year wheels; works out age for calculations. |
+| 4 | Wie hast Du von uns erfahren? | 7 sources; required. |
+| 5 | Hast Du schon andere Kalorien-Apps ausprobiert? | Ja / Nein; required. |
+| 6 | Gemacht, damit Du dranbleibst | Illustrative weight-trend chart (not a forecast). |
+| 7 | Wie groß bist Du? | cm or ft/in wheels. |
+| 8 | Wie viel wiegst Du? | kg/lbs, horizontally scrolling scale (swipe, drag, wheel, arrow keys). |
+| 9 | Was ist Dein Ziel? | Abnehmen / Gewicht halten / Muskeln aufbauen; required. |
+| 10 | Wunschgewicht | Same scale as current weight. |
+| 11 | Plan statement | "Das Abnehmen von X beginnt mit einem Plan!" — X = gap between current and target weight; wording follows the goal. |
+| 12 | Wie schnell möchtest Du Dein Ziel erreichen? | Slider (Entspannt / Empfohlen / Ehrgeizig) guided by weight, height, target BMI and goal; shows time to goal and daily calories. |
+| 13 | Activity level | Five choices; can override step 2. |
+| 14 | Wie isst Du am liebsten? | Ausgewogen, Vegetarisch, Vegan, Pescetarisch, Low Carb; mint line icons. |
+| 15 | Ein einfacherer Weg, dranzubleiben | "Ohne / Mit Kalkumpel" cards; same abstract figure, the second wears a medal. |
+| 16 | Was hält Dich davon ab …? | Obstacles; one choice, required. |
+| 17 | Was möchtest Du erreichen? | Desired outcomes; one choice, required. |
+| 18 | Du hast großes Potenzial … | Illustrative 3/7/30-day chart. |
+| 19 | Werde Teil der Kalkumpel-Community | Crowd of 21 mint avatars in three rows; no counts or ratings. |
+| 20 | Danke für Dein Vertrauen! | Handshake icon. |
+| 21 | Wir richten alles für Dich ein | % counter, progress bar, rotating status line, checklist: Kalorien, Kohlenhydrate, Protein, Fett. |
+| 22 | Ziel: X kg abnehmen bis [Datum] | Progress curve, daily kcal and macros; values come from the real calculation. |
+| 23 | Features / reviews | Completing saves the local plan draft, targets and starting weight, then opens the account stage. |
+| 24 | Sichere Deinen Fortschritt | Email/password signup or existing-account sign-in, required storage consent, separate optional future recipe/workout personalisation; then plan selection. Apple is native iOS only. |
 
-## Weight-scale behaviour
+## What is saved
 
-- Move the scale left or right to change the displayed weight.
-- Supports touch swipe, mouse drag, mouse wheel/trackpad and left/right arrow keys when focused.
-- Fixed centre marker indicates the selected value; changing units converts the displayed measurement. Stored weight remains kilograms.
-- Current and target weight share the same control. Physical phone interaction remains part of final end-to-end testing.
+- **Saved (on the device, and to Gordon's Supabase when signed in):** gender, age, height, weight, target weight, goal, activity, diet, pace class, calorie/macro targets, starting weight.
+- **Added to device and account sync:** full birth date, workout frequency category, referral source, prior-app answer, single obstacle/desired outcome, kg/lbs choice, weekly pace amount, versioned storage/personalisation consent and latest timestamp.
+- **Not saved yet:** cm/ft display preference (measurements remain cm).
 
-## Completion and limitations
+## Deliberately not in the web onboarding
 
-**Completed:** approved Welcome branding, white/mint theme, gender, workouts, birthday, referral source, prior tracking, illustrative chart, height picker, horizontally scrolling current weight and restored goal screen.
-
-**Not claimed complete:** the full 33-screen reference journey, trainer question, target-weight reference redesign, remaining interstitials, pace slider/live date, obstacles, secondary goals, extra diets, activity/health/rollover toggles, notifications, referral code and dedicated onboarding account wall.
-
-**Persistence:** birth wheels, referral source and prior-tracking answers are temporary onboarding state. Only derived age is part of the saved profile; full birth date and those extra answers are not yet persisted. Workout selection sets the profile activity level but is not stored as a separate frequency field. Measurement-unit choices are local to the pickers, not global settings. Do not describe these as cross-device saved answers yet.
-
-**Chart:** illustrative comparison only, not real user history or a guaranteed forecast. Existing review cards are prototype content, not verified testimonials.
+- Burned-calorie credit and Apple Health sync (reference screens 20–21): native iOS build only. No placeholder in the web app.
+- Trainer question, rollover calories, notifications and referral code: upcoming, see `tasks.md`.
 
 ## How to check
 
-1. Open Welcome and select „Los geht's“; confirm the black screen changes to white/mint onboarding.
-2. Choose gender and workout frequency; confirm Weiter is disabled before required choices.
-3. Review birthday, source, tracking experience, chart and height in the order above; try the birthday/height wheels and unit switches.
-4. On „Wie viel wiegst Du?“, move the scale left and right and confirm the number changes; repeat with lbs.
-5. Continue to „Was ist Dein Ziel?“; confirm the three German options and required selection. Next is the existing target-weight ruler.
-6. Continue through the remaining existing screens to the plan and paywall; inspect targets and profile after completion.
-
-**Next step:** Gordon supplies the next screenshots, starting with the target-weight reference if desired. Update remaining pages in agreed order; retain the upcoming items in `tasks.md` until implemented and checked.
+1. Welcome → „Los geht's“; the screen changes from black to white/mint.
+2. Go through all 20 question pages; required choices keep „Weiter“ disabled until answered.
+3. Change current and target weight and check the plan statement and pace slider update.
+4. Confirm the setup animation, result values, features and „Sichere Deinen Fortschritt“ page. Both consent boxes start unchecked; only storage consent is required.
+5. Continue with email, create an account and confirm the email before choosing a plan. Premium is not activated until real checkout exists; free continuation is available after sign-in.
+5. Open Heute and Profil and confirm the targets match the result page.
