@@ -88,7 +88,7 @@
 
 ## Next focus – In-app logic review (starts after this save)
 Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen and Paywall; confirm each visible element uses real app logic, and build anything missing at that time.
-- [ ] Heute
+- [x] Heute — reviewed 11 Oct 2026: totals, rings, meal groups, delete and saved-meal edit use real store/sync logic; fixed "today" to use the local calendar day instead of UTC (meals logged after midnight in Germany were filed under the previous day). Weekly calendar strip and quick calorie correction remain open in Phase 3.
 - [ ] Erfassen (photo, barcode, manual, meal score)
 - [ ] Fortschritt
 - [ ] Profil / Einstellungen
