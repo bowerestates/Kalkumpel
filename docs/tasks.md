@@ -33,8 +33,8 @@
 - [x] Apply the approved black-Welcome / white-and-mint app theme; preserve existing macro colours (Design-guidelines §0).
 - [x] Keep the approved original Plus Jakarta Sans font on Welcome; no replacement rounded wordmark.
 - [x] Language-aware number & date formatting (`src/lib/format.ts`): German `dd.mm.yyyy`, `75,5 kg`, `2.150 kcal`; English switches automatically; weight input accepts comma or dot (11 Oct 2026)
-- [~] Rollout audit (11 Oct 2026): shared helpers and Today calorie/progress weight/selected onboarding displays are implemented, but some capture/review values, result calories and Settings targets still render raw numbers. The earlier claim that Phase 0 was fully complete was premature.
-- [ ] Finish shared formatting across the remaining displays and comma/dot parsing in nutrition/portion inputs; check both German and English before closing Phase 0. Upcoming; no application code changed in this documentation task.
+- [x] Rollout completed (11 Oct 2026): Today calories/macros/streak, Progress weights/day labels, Capture/review values, onboarding result/pace/calendar widgets, Settings targets and annual EUR price all use selected-language helpers. Earlier partial audit is resolved.
+- [x] Shared decimal drafts/parser support comma/dot weights, nutrition and portions; calendar-only dates retain their day; invalid edits preserve valid values. 11 regression tests pass and live guest DE/EN Today, Progress, Settings, price and comma/dot weight-save checks pass; latest preview build is clean. Phase 0 complete.
 
 ## Phase 1 – Onboarding (app-flow screens 00–29)
 - [x] Welcome screen (00)
@@ -207,9 +207,15 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [x] Harmonize `Design-guidelines.md`, `Implementation-plan.md`, `app-flow-pages-and-roles.md` and `Masterplan.md` with current web onboarding/account order, barcode scanning, approved permanent logo, configured OpenAI model, language-aware formatting status and remaining work.
 - [x] Reconcile task claims: formatting rollout is partial, profile language sync is implemented, extra onboarding answers are saved, and paid access/native features are not delivered.
 - [x] Record standing rule: update and save relevant documentation/task records, upload affected documents to `bowerestates/Kalkumpel` and verify exact remote matches with every agreed coding, behaviour or design delivery, without Gordon having to ask; report blockers and distinguish implementation from unverified checks and placeholders.
-- [ ] Finish Phase 0 locale rollout, then continue the agreed screen-by-screen in-app logic review.
+- [x] Finish Phase 0 locale rollout and regression checks (11 Oct 2026).
+- [ ] Continue the agreed screen-by-screen in-app logic review, starting with Today.
 - [x] Check GitHub synchronization (11 Oct 2026, 15:45 UTC): read `bowerestates/Kalkumpel` main using Gordon's GitHub API and compare Git blob fingerprints with saved project files. Verification completed; synchronization is **not complete**.
 - [x] Upload latest documentation to GitHub and verify (11 Oct 2026): documentation commit `46ca996cea7eeb011e767f643706fdd1dbb427eb` saved all nine local `docs/*.md` files on `bowerestates/Kalkumpel` main, preserving unrelated repository files. A fresh GitHub read confirmed exact Git blob matches for `Design-guidelines.md`, `Implementation-plan.md`, `Masterplan.md`, `app-flow-pages-and-roles.md`, `Onboarding-progress.md`, `Meal-score-rubric.md`, `Provider-Recommendations.md`, `prompt.md` and `tasks.md`. This completion record is included in a follow-up documentation commit and checked again before reporting completion. Historical native reference files remain subordinate to the web contract; no app code changed or automatic Git sync claimed.
 
 ### Check this documentation update
 Read the four documents' matching web-feature checkpoints and compare them with this task list. Confirm the same logo, 23 screens plus account stage, current model constant, 3/day Free quota, yearly-only price/trial, locale rollout gaps and native/payment/legal deferrals. This documentation-only task does not change screens or deploy the app.
+
+### Phase 0 locale completion delivery — 11 Oct 2026
+- [x] Fix calendar-date TypeScript narrowing, add locale-aware EUR formatting and reusable DecimalInput, and wire remaining web displays/inputs; no account, AI, quota or payment logic changed.
+- [x] Full suite: 11 tests passing; preview build clean; guest DE/EN browser display and weight-saving checks passed without page errors. Capture/review decimal behaviour has automated coverage; real photo/barcode and authenticated sync checks remain open above.
+- [x] Upload these documentation updates to Kalkumpel main and verify all nine docs plus AGENTS.md and roadmap.md against remote Git blob fingerprints (Phase 0 completion delivery, 11 Oct 2026).

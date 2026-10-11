@@ -72,7 +72,7 @@ Copy comes from `src/lib/i18n.ts`. The local selected language mirrors to `profi
 | Weight | 75,5 kg | 75.5 kg |
 | Short date | 11.10.2026 | 11/10/2026 |
 
-Today calories, progress weight values/input and selected onboarding dates/pace are wired. Capture/review raw numbers, onboarding result calories and Settings target summary still need the shared helpers. Weight accepts `75,5` or `75.5`; not every nutrition/portion input does. Phase 0 formatting is therefore partial, despite the earlier completion message.
+Phase 0 rollout is complete throughout Today, Progress, Capture/review, onboarding and Settings, including EUR price formatting (`29,00 €` / `€29.00`). Weight, nutrition and portion drafts accept comma/dot; blur renders the active locale without changing numeric storage. Date-only keys are parsed as local calendar days; CSS/SVG numeric values and birth-year identifiers are not thousands-formatted. 11 regression tests pass; live guest DE/EN Today/Progress/Settings/price and weight-saving checks pass with no page errors. Real account sync checks remain a separate task.
 
 ## 6. Screens not yet implemented
 
@@ -96,7 +96,7 @@ Today calories, progress weight values/input and selected onboarding dates/pace 
 | Barcode | Browser camera scanning with ZXing, permission messaging, typed-code fallback, Open Food Facts lookup, gram-based nutrient scaling and review | Product coverage varies; fuller product/Nutri-Score sheet, BLS/USDA and attribution page upcoming |
 | Meal score | Photo/barcode/manual evidence, versioned estimated 1–10 score or null, independent confidence, saved explanation and failure-tolerant logging | No personal health score; real photo/barcode examples and signed-in cross-device verification remain upcoming |
 | Daily app | Remaining/eaten calories, nutrient rings, grouped meals, manual logging, delete, saved meal-score review/edit, weight chart, seven-day bars and streak counter | Screen-by-screen logic review still upcoming; no claim that all screenshot features or streak grace rules are built |
-| Language/formatting | German default, English switch; shared `Intl` helpers for `de-DE` / `en-GB`; Today calorie displays, progress weight input/chart values and selected onboarding values use them; profile language sync implemented | **Partial rollout:** raw numbers still occur in capture/review, onboarding result calories and settings target summary; comma/dot parsing is implemented for weight, not all nutrition inputs |
+| Language/formatting | Complete Phase 0 web rollout: selected-language `Intl` numbers, dates and EUR prices across Today, Progress, Capture/review, onboarding and Settings; comma/dot weight, nutrition and portion input; profile language sync implemented | 11 regression tests pass; guest browser checks pass in DE/EN for Today, Progress, Settings, annual price and weight saving; authenticated cross-device checks remain separate |
 | Plans | Account precedes Free/Premium choice; preview shows 29,00 €/year and 3-day trial | No checkout or paid entitlement; everyone currently gets 3 photo scans/day; future verified Pro permits unlimited scans |
 | Native iOS | HealthKit, workout-calorie credit and Apple sign-in explicitly deferred | No web placeholders or simulated health sync |
 

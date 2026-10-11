@@ -53,11 +53,11 @@ Plan preview: **29,00 €/year**, yearly only, **3-day trial**, Free **3 AI phot
 - Meal score: compact **Mahlzeiten-Score**, 1–10 or insufficient information, “Geschätzt”, expandable reasons, optional practical balance idea, confidence and non-medical disclaimer. Supportive mint styling; no shame, red failure indicator or calorie-based good/bad label.
 - Saved scores reopen without AI. Reassessment failure must still leave saving available. See Meal-score-rubric.md.
 
-## 6. Language-aware presentation (partially wired)
+## 6. Language-aware presentation (complete web rollout)
 
 All text uses DE/EN dictionaries. Numbers/dates use the selected language through shared `Intl` helpers: German **2.150 kcal / 75,5 kg / 11.10.2026**; English (`en-GB`) **2,150 kcal / 75.5 kg / 11/10/2026**. Unit preferences are separate from language and stored measurements remain metric.
 
-Today calories, progress weight input/values and selected onboarding dates/pace already use locale-aware formatting. Raw displays remain in capture/review, result calories and Profile target summary; nutrition/portion inputs do not all accept comma/dot yet. Finish this rollout and check both languages before closing Phase 0. Weight input already accepts either decimal separator.
+All existing web number/date displays now share the selected-language helpers: Today calorie/macro totals, Progress weights/streaks/day labels, photo/barcode/manual capture and saved meal review, onboarding pace/result/month and height/weight controls, Settings values/targets and the annual EUR price. Shared decimal drafts accept comma or dot, preserve valid numeric values after invalid edits, and format on blur. German price: **29,00 €**; English: **€29.00**. Stored data remains numeric, CSS percentages remain unlocalized, and date-only keys stay calendar days. Birth years are identifiers displayed without thousands grouping. Regression suite: 11 passing tests; live guest DE/EN checks passed on Today, Progress, Settings, Paywall and weight saving, with no page errors. Authenticated cross-device verification remains separate.
 
 ## 7. Deferred reference designs
 
@@ -77,7 +77,7 @@ Native iOS alone will add Apple sign-in, HealthKit, activity-calorie credit and 
 | Barcode | Browser camera scanning with ZXing, permission messaging, typed-code fallback, Open Food Facts lookup, gram-based nutrient scaling and review | Product coverage varies; fuller product/Nutri-Score sheet, BLS/USDA and attribution page upcoming |
 | Meal score | Photo/barcode/manual evidence, versioned estimated 1–10 score or null, independent confidence, saved explanation and failure-tolerant logging | No personal health score; real photo/barcode examples and signed-in cross-device verification remain upcoming |
 | Daily app | Remaining/eaten calories, nutrient rings, grouped meals, manual logging, delete, saved meal-score review/edit, weight chart, seven-day bars and streak counter | Screen-by-screen logic review still upcoming; no claim that all screenshot features or streak grace rules are built |
-| Language/formatting | German default, English switch; shared `Intl` helpers for `de-DE` / `en-GB`; Today calorie displays, progress weight input/chart values and selected onboarding values use them; profile language sync implemented | **Partial rollout:** raw numbers still occur in capture/review, onboarding result calories and settings target summary; comma/dot parsing is implemented for weight, not all nutrition inputs |
+| Language/formatting | Complete Phase 0 web rollout: selected-language `Intl` numbers, dates and EUR prices across Today, Progress, Capture/review, onboarding and Settings; comma/dot weight, nutrition and portion input; profile language sync implemented | 11 regression tests pass; guest browser checks pass in DE/EN for Today, Progress, Settings, annual price and weight saving; authenticated cross-device checks remain separate |
 | Plans | Account precedes Free/Premium choice; preview shows 29,00 €/year and 3-day trial | No checkout or paid entitlement; everyone currently gets 3 photo scans/day; future verified Pro permits unlimited scans |
 | Native iOS | HealthKit, workout-calorie credit and Apple sign-in explicitly deferred | No web placeholders or simulated health sync |
 

@@ -61,3 +61,6 @@ The progress bar covers steps 1–20; the setup animation, plan result and featu
 4. Confirm the setup animation, result values, features and „Sichere Deinen Fortschritt“ page. Both consent boxes start unchecked; only storage consent is required.
 5. Continue with email, create an account and confirm the email before choosing a plan. Premium is not activated until real checkout exists; free continuation is available after sign-in.
 5. Open Heute and Profil and confirm the targets match the result page.
+
+## Phase 0 locale follow-up — 11 Oct 2026
+Onboarding result calories/macros, plan weight differences, pace/timeline labels, birthday month names and height/weight widgets now use shared selected-language helpers. Decimal weight drafts accept comma or dot. Stored measurements and CSS/SVG percentages remain numeric; birth-year identifiers are not thousands-grouped. Automated locale/decimal tests pass as part of the 11-test suite; live guest DE/EN app display and weight-save checks passed. This does not claim fresh real-account onboarding sync or result-edit controls are complete.

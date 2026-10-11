@@ -4,12 +4,12 @@
 > Current stack: TanStack Start / React / TypeScript / Tailwind v4 / Gordon’s Supabase / OpenAI through Lovable AI Gateway.  
 > Legend: `[x]` implemented/documented · `[~]` partial · `[ ]` upcoming or unverified. Historical native work is not a web completion claim.
 
-## Phase 0 — Foundation (partial formatting follow-up)
+## Phase 0 — Foundation (complete)
 - [x] App shell, daily tabs, German/English dictionaries and language switch.
 - [x] Approved scanner-plate Welcome logo and favicon retained permanently; black Welcome, white/mint app, Plus Jakarta Sans and unchanged nutrient colours.
 - [x] Shared language-aware `Intl` formatting helpers (`de-DE` / `en-GB`) and comma/dot weight parser.
-- [~] Formatting wired to Today calorie displays, progress weight values and selected onboarding values.
-- [ ] Finish remaining raw number displays in capture/review, onboarding result and Settings; apply decimal parsing to nutrition/portion inputs and check both languages. Phase 0 cannot be called fully closed until this is done.
+- [x] Formatting wired throughout Today, Progress, Capture/review, onboarding result/pace/calendar controls, Settings and annual price.
+- [x] Shared decimal inputs/parser accept comma or dot for nutrition, portions and weights; calendar-only keys render as local dates. Full suite: 11 tests pass; live guest DE/EN display and weight-save checks pass; preview build clean. Phase 0 is closed.
 
 ## Phase 1 — Onboarding
 - [x] 23 in-route screens plus separate account stage; full order and save boundaries in [Onboarding-progress.md](Onboarding-progress.md).
@@ -85,7 +85,7 @@
 | Barcode | Browser camera scanning with ZXing, permission messaging, typed-code fallback, Open Food Facts lookup, gram-based nutrient scaling and review | Product coverage varies; fuller product/Nutri-Score sheet, BLS/USDA and attribution page upcoming |
 | Meal score | Photo/barcode/manual evidence, versioned estimated 1–10 score or null, independent confidence, saved explanation and failure-tolerant logging | No personal health score; real photo/barcode examples and signed-in cross-device verification remain upcoming |
 | Daily app | Remaining/eaten calories, nutrient rings, grouped meals, manual logging, delete, saved meal-score review/edit, weight chart, seven-day bars and streak counter | Screen-by-screen logic review still upcoming; no claim that all screenshot features or streak grace rules are built |
-| Language/formatting | German default, English switch; shared `Intl` helpers for `de-DE` / `en-GB`; Today calorie displays, progress weight input/chart values and selected onboarding values use them; profile language sync implemented | **Partial rollout:** raw numbers still occur in capture/review, onboarding result calories and settings target summary; comma/dot parsing is implemented for weight, not all nutrition inputs |
+| Language/formatting | Complete Phase 0 web rollout: selected-language `Intl` numbers, dates and EUR prices across Today, Progress, Capture/review, onboarding and Settings; comma/dot weight, nutrition and portion input; profile language sync implemented | 11 regression tests pass; guest browser checks pass in DE/EN for Today, Progress, Settings, annual price and weight saving; authenticated cross-device checks remain separate |
 | Plans | Account precedes Free/Premium choice; preview shows 29,00 €/year and 3-day trial | No checkout or paid entitlement; everyone currently gets 3 photo scans/day; future verified Pro permits unlimited scans |
 | Native iOS | HealthKit, workout-calorie credit and Apple sign-in explicitly deferred | No web placeholders or simulated health sync |
 
