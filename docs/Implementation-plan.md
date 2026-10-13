@@ -31,7 +31,7 @@
 - [x] Today calories/macros, grouped daily meals, manual logging and deletion.
 - [x] Saved meal-score review and relevant evidence edits inside Today; no separate `/meal/[id]` page yet.
 - [ ] Review Today, Capture, Progress, Profile and Paywall screen by screen; build missing real behaviour as agreed.
-- [ ] Weekly coloured day rings, dedicated meal-detail route and quick calorie correction.
+- [x] Weekly coloured day rings and quick calorie correction (one correction entry per day, server-synced `is_correction`); meal-detail route still open.
 
 ## Phase 4 — AI photos and meal score
 - [x] Real image upload/analysis, resized image, structured items/grams/calories/macros/confidence.

@@ -76,7 +76,7 @@ Phase 0 rollout is complete throughout Today, Progress, Capture/review, onboardi
 
 ## 6. Screens not yet implemented
 
-- Weekly coloured day-ring calendar and dedicated meal-detail/quick correction page.
+- Dedicated meal-detail page (the weekly day-ring strip and quick correction are built; `/meal/[id]` navigation remains open).
 - Extended trend periods, streak grace window, badges and progress-photo diary.
 - Live reminders, rollover, referral/trainer questions, broader diet/multi-select answers and result edit pencils.
 - BLS/USDA grounding, fuller product sheet and in-app license/source page.

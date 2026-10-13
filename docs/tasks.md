@@ -88,7 +88,7 @@
 
 ## Next focus – In-app logic review (starts after this save)
 Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen and Paywall; confirm each visible element uses real app logic, and build anything missing at that time.
-- [x] Heute — reviewed 11 Oct 2026: totals, rings, meal groups, delete and saved-meal edit use real store/sync logic; fixed "today" to use the local calendar day instead of UTC (meals logged after midnight in Germany were filed under the previous day). Weekly calendar strip and quick calorie correction remain open in Phase 3.
+- [x] Heute — reviewed 11 Oct 2026: totals, rings, meal groups, delete and saved-meal edit use real store/sync logic; fixed "today" to use the local calendar day instead of UTC (meals logged after midnight in Germany were filed under the previous day). Weekly calendar strip and quick calorie correction built and verified 13 Oct 2026.
 - [ ] Erfassen (photo, barcode, manual, meal score)
 - [ ] Fortschritt
 - [ ] Profil / Einstellungen
@@ -111,9 +111,9 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [x] Daily log grouped by Frühstück, Mittagessen, Abendessen, Snacks
 - [x] Manual entry
 - [x] Delete entries
-- [ ] Weekly calendar strip with coloured day rings (Grün / Gelb / Rot / Grau rules)
+- [x] Weekly calendar strip with coloured day rings (Grün / Gelb / Rot / Grau rules) — `src/components/week-strip.tsx`, `src/lib/day-ring.ts`; guest-verified 13 Oct 2026
 - [ ] Meal detail & edit screen (`meal/[id]`)
-- [ ] Quick calorie correction
+- [x] Quick calorie correction — "Schnell korrigieren" card on Heute with +/- and kcal input, one correction per day, synced via `entries.is_correction`; guest-verified 13 Oct 2026
 
 ## Phase 4 – AI Photo Scanner
 - [x] Photo upload UI + "analysing" state (photo shrunk to max 1024 px before sending)
