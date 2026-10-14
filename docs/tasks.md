@@ -89,7 +89,7 @@
 ## Next focus – In-app logic review (starts after this save)
 Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen and Paywall; confirm each visible element uses real app logic, and build anything missing at that time.
 - [x] Heute — reviewed 11 Oct 2026: totals, rings, meal groups, delete and saved-meal edit use real store/sync logic; fixed "today" to use the local calendar day instead of UTC (meals logged after midnight in Germany were filed under the previous day). Weekly calendar strip and quick calorie correction built and verified 13 Oct 2026.
-- [ ] Erfassen (photo, barcode, manual, meal score)
+- [x] Erfassen (photo, barcode, manual, meal score) — reviewed 14 Oct 2026: all three paths save real entries via review/score step; fixed raw technical error text in photo/score failures (friendly DE/EN copy, expired sign-in message), barcode camera no longer restarts on re-render, sample food list labelled as estimates and scored as manual (not barcode) evidence. Remaining: photo-upload failure is silent (meal still saves without photo); real photo/barcode examples still unverified.
 - [ ] Fortschritt
 - [ ] Profil / Einstellungen
 - [ ] Paywall
