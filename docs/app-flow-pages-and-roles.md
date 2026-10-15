@@ -29,7 +29,7 @@ Apple sign-in is reserved for native iOS. Google is not implemented. Consent/pro
 | `/fortschritt` | Weight log/chart, start/current/goal, seven-day calorie bars and streak |
 | `/einstellungen` | Profile editing/target calculation, language, account controls, optional personalisation withdrawal and local reset |
 
-There is no implemented `/meal/[id]` detail route. Existing saved meal review lives within Today; additional reference features remain in tasks.md.
+`/mahlzeit/$id` is the meal detail page: tapping a meal on Today opens it to view meal type/date, edit evidence and nutrients, reassess the score on request, save or delete. Unknown or deleted meals show a friendly message with a way back to Today.
 
 ## 3. Onboarding and account journey
 
@@ -76,7 +76,7 @@ Phase 0 rollout is complete throughout Today, Progress, Capture/review, onboardi
 
 ## 6. Screens not yet implemented
 
-- Dedicated meal-detail page (the weekly day-ring strip and quick correction are built; `/meal/[id]` navigation remains open).
+- Meal-detail page `/mahlzeit/$id`, weekly day-ring strip and quick correction are built.
 - Extended trend periods, streak grace window, badges and progress-photo diary.
 - Live reminders, rollover, referral/trainer questions, broader diet/multi-select answers and result edit pencils.
 - BLS/USDA grounding, fuller product sheet and in-app license/source page.

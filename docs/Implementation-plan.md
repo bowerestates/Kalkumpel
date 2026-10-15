@@ -29,9 +29,9 @@
 
 ## Phase 3 — Daily app and logging
 - [x] Today calories/macros, grouped daily meals, manual logging and deletion.
-- [x] Saved meal-score review and relevant evidence edits inside Today; no separate `/meal/[id]` page yet.
+- [x] Saved meal-score review and evidence edits on the dedicated meal detail page `/mahlzeit/$id` (opened from Today; save, delete, not-found state).
 - [ ] Review Today, Capture, Progress, Profile and Paywall screen by screen; build missing real behaviour as agreed.
-- [x] Weekly coloured day rings and quick calorie correction (one correction entry per day, server-synced `is_correction`); meal-detail route still open.
+- [x] Weekly coloured day rings and quick calorie correction (one correction entry per day, server-synced `is_correction`); meal-detail route `/mahlzeit/$id` built.
 
 ## Phase 4 — AI photos and meal score
 - [x] Real image upload/analysis, resized image, structured items/grams/calories/macros/confidence.

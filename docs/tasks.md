@@ -112,7 +112,7 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [x] Manual entry
 - [x] Delete entries
 - [x] Weekly calendar strip with coloured day rings (Grün / Gelb / Rot / Grau rules) — `src/components/week-strip.tsx`, `src/lib/day-ring.ts`; guest-verified 13 Oct 2026
-- [ ] Meal detail & edit screen (`meal/[id]`)
+- [x] Meal detail & edit screen (`/mahlzeit/$id`): opened from Heute meal names; shows meal type and date, edits name/ingredients/portion/nutrients, keeps saved score read-only until edits or explicit reassessment, deletes the meal, and shows a friendly message for unknown meals (browser-verified 14.10.2026)
 - [x] Quick calorie correction — "Schnell korrigieren" card on Heute with +/- and kcal input, one correction per day, synced via `entries.is_correction`; guest-verified 13 Oct 2026
 
 ## Phase 4 – AI Photo Scanner
