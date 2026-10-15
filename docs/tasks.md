@@ -90,7 +90,7 @@
 Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen and Paywall; confirm each visible element uses real app logic, and build anything missing at that time.
 - [x] Heute — reviewed 11 Oct 2026: totals, rings, meal groups, delete and saved-meal edit use real store/sync logic; fixed "today" to use the local calendar day instead of UTC (meals logged after midnight in Germany were filed under the previous day). Weekly calendar strip and quick calorie correction built and verified 13 Oct 2026.
 - [x] Erfassen (photo, barcode, manual, meal score) — reviewed 14 Oct 2026: all three paths save real entries via review/score step; fixed raw technical error text in photo/score failures (friendly DE/EN copy, expired sign-in message), barcode camera no longer restarts on re-render, sample food list labelled as estimates and scored as manual (not barcode) evidence. Remaining: photo-upload failure is silent (meal still saves without photo); real photo/barcode examples still unverified.
-- [ ] Fortschritt
+- [x] Fortschritt — reviewed 15 Oct 2026: streak, last-7-days bars, start/current/goal weights, chart and weigh-in all use real store/sync data (local calendar day). Fixed: invalid weights were silently ignored (now a friendly message), a negative quick correction could draw a broken bar (now clamped), and passing the goal weight showed "x kg noch" instead of "Ziel erreicht". Upcoming (Phase 6): weigh-ins cannot be edited/deleted yet, chart spacing ignores gaps between dates, and a new weigh-in updates profile weight without recalculating calorie targets (needs Gordon decision).
 - [ ] Profil / Einstellungen
 - [ ] Paywall
 
