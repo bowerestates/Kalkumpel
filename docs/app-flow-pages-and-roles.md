@@ -10,7 +10,7 @@
 |---|---|---|
 | Guest | Welcome and onboarding, local plan/records; existing local app behaviour remains guest/offline capable | Normal completed onboarding leads to account stage before plan choice; local photo quota 3/day |
 | Signed-in Free | Email/password account, own profile/meals/weights/photos, Today, Capture, Progress and Settings | 3 AI photos/day, server-counted; barcode/manual logging has no photo quota |
-| Future Kumpel+ Pro | Preview only, not a delivered paid role | 9,99 €/month or 29,00 €/year, 3-day trial on both plans, unlimited photos after server-verified checkout; advanced paid features upcoming |
+| Future Kumpel+ Pro | Preview only, not a delivered paid role | 6,99 €/week, 11,99 €/month or 34,99 €/year, 3-day trial on all plans, unlimited photos after server-verified checkout; advanced paid features upcoming |
 
 Apple sign-in is reserved for native iOS. Google is not implemented. Consent/profile fields and local `plan` values do not grant subscription entitlements. Future roles live separately from editable profiles.
 
@@ -72,7 +72,7 @@ Copy comes from `src/lib/i18n.ts`. The local selected language mirrors to `profi
 | Weight | 75,5 kg | 75.5 kg |
 | Short date | 11.10.2026 | 11/10/2026 |
 
-Phase 0 rollout is complete throughout Today, Progress, Capture/review, onboarding and Settings, including EUR price formatting (`29,00 €` / `€29.00`). Weight, nutrition and portion drafts accept comma/dot; blur renders the active locale without changing numeric storage. Date-only keys are parsed as local calendar days; CSS/SVG numeric values and birth-year identifiers are not thousands-formatted. 11 regression tests pass; live guest DE/EN Today/Progress/Settings/price and weight-saving checks pass with no page errors. Real account sync checks remain a separate task.
+Phase 0 rollout is complete throughout Today, Progress, Capture/review, onboarding and Settings, including EUR price formatting (`34,99 €` / `€34.99`). Weight, nutrition and portion drafts accept comma/dot; blur renders the active locale without changing numeric storage. Date-only keys are parsed as local calendar days; CSS/SVG numeric values and birth-year identifiers are not thousands-formatted. 11 regression tests pass; live guest DE/EN Today/Progress/Settings/price and weight-saving checks pass with no page errors. Real account sync checks remain a separate task.
 
 ## 6. Screens not yet implemented
 
@@ -97,7 +97,7 @@ Phase 0 rollout is complete throughout Today, Progress, Capture/review, onboardi
 | Meal score | Photo/barcode/manual evidence, versioned estimated 1–10 score or null, independent confidence, saved explanation and failure-tolerant logging | No personal health score; real photo/barcode examples and signed-in cross-device verification remain upcoming |
 | Daily app | Remaining/eaten calories, nutrient rings, grouped meals, manual logging, delete, saved meal-score review/edit, weight chart, seven-day bars and streak counter | Screen-by-screen logic review still upcoming; no claim that all screenshot features or streak grace rules are built |
 | Language/formatting | Complete Phase 0 web rollout: selected-language `Intl` numbers, dates and EUR prices across Today, Progress, Capture/review, onboarding and Settings; comma/dot weight, nutrition and portion input; profile language sync implemented | 11 regression tests pass; guest browser checks pass in DE/EN for Today, Progress, Settings, annual price and weight saving; authenticated cross-device checks remain separate |
-| Plans | Account precedes Free/Premium choice; preview shows 9,99 €/month and 29,00 €/year (annual marked “Spare 76 %”), 3-day trial on both | No checkout or paid entitlement; everyone currently gets 3 photo scans/day; future verified Pro permits unlimited scans |
+| Plans | Account precedes Free/Premium choice; preview shows 6,99 €/week, 11,99 €/month and 34,99 €/year (annual marked “Spare 76 %”), 3-day trial on all plans | No checkout or paid entitlement; everyone currently gets 3 photo scans/day; future verified Pro permits unlimited scans |
 | Native iOS | HealthKit, workout-calorie credit and Apple sign-in explicitly deferred | No web placeholders or simulated health sync |
 
 ## Documentation checkpoint — 11 Oct 2026
