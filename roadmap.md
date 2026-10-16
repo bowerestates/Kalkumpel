@@ -11,7 +11,7 @@
 - [x] Onboarding pages complete; documentation, design notes and task list updated (11 Oct 2026).
 
 ## Next: in-app logic review
-- [ ] Review Heute, Erfassen, Fortschritt, Profil/Einstellungen and Paywall screen by screen; build missing functionality as found.
+- [ ] Review (Heute, Erfassen, Fortschritt, Profil done) Heute, Erfassen, Fortschritt, Profil/Einstellungen and Paywall screen by screen; build missing functionality as found.
 
 ## Waiting on Gordon
 - [x] Verify external Kalkumpel GitHub documentation against saved project files (11 Oct 2026): checked main; harmonized files differ, so synchronization is not complete.
