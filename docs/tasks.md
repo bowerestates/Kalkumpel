@@ -90,7 +90,7 @@
 Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen and Paywall; confirm each visible element uses real app logic, and build anything missing at that time.
 - [x] Heute — reviewed 11 Oct 2026: totals, rings, meal groups, delete and saved-meal edit use real store/sync logic; fixed "today" to use the local calendar day instead of UTC (meals logged after midnight in Germany were filed under the previous day). Weekly calendar strip and quick calorie correction built and verified 13 Oct 2026.
 - [x] Erfassen (photo, barcode, manual, meal score) — reviewed 14 Oct 2026: all three paths save real entries via review/score step; fixed raw technical error text in photo/score failures (friendly DE/EN copy, expired sign-in message), barcode camera no longer restarts on re-render, sample food list labelled as estimates and scored as manual (not barcode) evidence. Remaining: photo-upload failure is silent (meal still saves without photo); real photo/barcode examples still unverified.
-- [x] Fortschritt — reviewed 15 Oct 2026: streak, last-7-days bars, start/current/goal weights, chart and weigh-in all use real store/sync data (local calendar day). Fixed: invalid weights were silently ignored (now a friendly message), a negative quick correction could draw a broken bar (now clamped), and passing the goal weight showed "x kg noch" instead of "Ziel erreicht". Upcoming (Phase 6): weigh-ins cannot be edited/deleted yet, chart spacing ignores gaps between dates, and chart spacing. Decision (16 Oct 2026, Gordon): a new weigh-in updates profile weight only and never changes the calorie goal; goals change only via "Ziele neu berechnen" in Profil.
+- [x] Fortschritt — reviewed 15 Oct 2026: streak, last-7-days bars, start/current/goal weights, chart and weigh-in all use real store/sync data (local calendar day). Fixed: invalid weights were silently ignored (now a friendly message), a negative quick correction could draw a broken bar (now clamped), and passing the goal weight showed "x kg noch" instead of "Ziel erreicht". Phase 6 follow-ups (weigh-in edit/delete, date-spaced chart) built 16 Oct 2026. Decision (16 Oct 2026, Gordon): a new weigh-in updates profile weight only and never changes the calorie goal; goals change only via "Ziele neu berechnen" in Profil.
 - [x] Profil / Einstellungen — reviewed 16 Oct 2026: account, language, profile, subscription, consent withdrawal and reset use real store/sync data. Fixed: impossible values (e.g. age 0) could produce nonsense goals (now validated with a friendly message); Geschlecht and Ernährung affect the goal but were not editable (now editable); the goal box showed old goals while editing (now previews new goals); recalculate button active with no changes (now disabled until something changes).
 - [ ] Paywall
 
@@ -140,11 +140,13 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [x] Streak counter
 - [x] Last-7-days calorie bars
 - [x] Weight logging + start / current / goal + chart
-- [ ] Streak 24 h grace window
-- [ ] Trend periods 3 / 7 / 14 / 30 / 90 days / total
+- [x] Streak 24 h grace window (16 Oct 2026): one missed day between logged days is bridged (not counted); two missed days in a row end the streak; unlogged today never breaks it. Tests in src/test/progress-rules.test.ts.
+- [x] Weight trend periods 7 / 14 / 30 / 90 days / Alles on Fortschritt (default 30); 3-day period dropped as too short for weight trends.
+- [x] Weigh-ins editable and deletable in "Deine Einträge" list; profile weight follows the latest weigh-in, calorie goal never changes; edits/deletes sync to the account.
+- [x] Weight chart spaces points by real calendar dates.
 - [ ] Energy balance chart (burned vs. eaten)
 - [ ] Private progress photo diary (Pro)
-- [ ] 36-badge system (Bronze/Silber/Gold) + unlock pop-up
+- [ ] 36-badge system (Bronze/Silber/Gold) + unlock pop-up — badge list proposed to Gordon 16 Oct 2026, awaiting approval before building
 
 ## Phase 7 – Settings & Profile
 - [x] Language toggle (Deutsch default / English)
