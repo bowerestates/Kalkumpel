@@ -13,7 +13,7 @@
 
 ## Decisions (confirmed by Gordon, 09 Oct 2026)
 - [x] Trial length: **3 days** free trial.
-- [x] Prices: **6,99 € / week**, **11,99 € / month** or **34,99 € / year**; 3-day trial applies to all plans (updated 16 Oct 2026).
+- [x] Prices: **5,99 € / week**, **11,99 € / month** or **34,99 € / year**; 3-day trial applies to all plans (updated 16 Oct 2026; weekly 5,99 €).
 - [x] Goal labels: **"Abnehmen / Muskeln aufbauen"** (keep current build).
 - [x] Macro colours: **keep the current build colours** (do not switch to Design-guidelines palette).
 - [x] Free AI scan quota: **3 scans/day** on the free tier.
@@ -65,7 +65,7 @@
 - [x] Pace slider with live time-to-goal and daily calories; obstacles, desired outcomes, potential chart, thank-you, setup progress and result screens.
 - [x] Calculation loader + plan reveal with kcal & macro split
 - [x] Feature highlights + review cards (condensed)
-- [x] Paywall preview: selectable weekly 6,99 €, monthly 11,99 € and yearly 34,99 € plans, all with 3-day trial (updated 16 Oct 2026)
+- [x] Paywall preview: selectable weekly 5,99 €, monthly 11,99 € and yearly 34,99 € plans, all with 3-day trial (updated 16 Oct 2026; weekly 5,99 €)
 - [x] Onboarding unit toggles kg/lbs, cm/ft-in; stored measurements remain metric.
 - [x] Save completed profile/targets and starting weight locally; account sync uploads guest profile/data on first sign-in.
 
@@ -157,7 +157,7 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 
 ## Phase 8 – Subscriptions (Kumpel+)
 - [~] Paywall screen (no real payment)
-- [ ] Stripe checkout for weekly 6,99 €, monthly 11,99 € and yearly 34,99 €, each with a 3-day trial; server-verified entitlement. Premium button currently explains unavailability and never grants local paid status.
+- [ ] Stripe checkout for weekly 5,99 €, monthly 11,99 € and yearly 34,99 €, each with a 3-day trial; server-verified entitlement. Premium button currently explains unavailability and never grants local paid status.
 - [ ] Implement separate server-verified subscription roles/entitlements and mirror only verified access for display; editable profiles and local plan selection must not grant Pro. Accounts hold is lifted.
 - [ ] Restore / manage subscription, terms links
 - [ ] Pro features: unlimited scans/day (confirmed 10 Oct 2026), micronutrients (BLS), 30/90-day analytics, PDF/CSV export, macro cycling

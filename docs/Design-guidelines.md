@@ -42,7 +42,7 @@ There are **23 in-route screens plus the separate account stage**, not the old 1
 
 Web offers email/password plus existing-account sign-in only. No Apple/Google placeholder controls. Storage consent and optional future recipe/workout personalisation both start unchecked; only storage consent gates email signup. Do not imply marketing email permission, blanket legal approval or paid access. Profile permits optional personalisation withdrawal; approved legal notices, sensitive-data lawful basis, retention, full consent history and deletion/export remain launch prerequisites.
 
-Plan preview: **6,99 €/week**, **11,99 €/month** or **34,99 €/year**, **3-day trial on all plans**, Free **3 AI photos/day**, future Pro **unlimited photos/day**. There is no implemented payment or active trial; Premium explains unavailability rather than granting local paid status.
+Plan preview: **5,99 €/week**, **11,99 €/month** or **34,99 €/year**, **3-day trial on all plans**, Free **3 AI photos/day**, future Pro **unlimited photos/day**. There is no implemented payment or active trial; Premium explains unavailability rather than granting local paid status.
 
 ## 5. Capture, barcode and meal-score design
 
@@ -78,7 +78,7 @@ Native iOS alone will add Apple sign-in, HealthKit, activity-calorie credit and 
 | Meal score | Photo/barcode/manual evidence, versioned estimated 1–10 score or null, independent confidence, saved explanation and failure-tolerant logging | No personal health score; real photo/barcode examples and signed-in cross-device verification remain upcoming |
 | Daily app | Remaining/eaten calories, nutrient rings, grouped meals, manual logging, delete, saved meal-score review/edit on the meal detail page (`/mahlzeit/$id`: meal type · date caption, editor, score card, save, back, red text "Mahlzeit löschen"), weight chart, seven-day bars and streak counter, weekly day-ring strip (Mon–Sun, green ≤ target+100 / yellow ≤ +250 / red beyond / grey empty) and "Schnell korrigieren" correction card (+/− kcal, one correction per day, synced) | Screen-by-screen logic review still upcoming; streak grace rules and remaining screenshot features not built |
 | Language/formatting | Complete Phase 0 web rollout: selected-language `Intl` numbers, dates and EUR prices across Today, Progress, Capture/review, onboarding and Settings; comma/dot weight, nutrition and portion input; profile language sync implemented | 11 regression tests pass; guest browser checks pass in DE/EN for Today, Progress, Settings, annual price and weight saving; authenticated cross-device checks remain separate |
-| Plans | Account precedes Free/Premium choice; preview shows 6,99 €/week, 11,99 €/month and 34,99 €/year (annual marked “Spare 76 %”), 3-day trial on all plans | No checkout or paid entitlement; everyone currently gets 3 photo scans/day; future verified Pro permits unlimited scans |
+| Plans | Account precedes Free/Premium choice; preview shows 5,99 €/week, 11,99 €/month and 34,99 €/year (annual marked “Spare 76 %”), 3-day trial on all plans | No checkout or paid entitlement; everyone currently gets 3 photo scans/day; future verified Pro permits unlimited scans |
 | Native iOS | HealthKit, workout-calorie credit and Apple sign-in explicitly deferred | No web placeholders or simulated health sync |
 
 ## Documentation checkpoint — 11 Oct 2026

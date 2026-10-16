@@ -57,7 +57,7 @@
 - [ ] App-wide metric/imperial preference, real reminders, approved legal pages and account deletion/export. Local reset is not server account deletion.
 
 ## Phase 8 — Subscriptions
-- [~] Account-gated Free/Premium preview at 6,99 €/week, 11,99 €/month or 34,99 €/year with a proposed 3-day trial on all plans.
+- [~] Account-gated Free/Premium preview at 5,99 €/week, 11,99 €/month or 34,99 €/year with a proposed 3-day trial on all plans.
 - [ ] Stripe checkout, verified entitlement in separate roles, subscription management and restore flow. Local selection never grants Pro.
 - [ ] Pro micronutrients, extended analytics, PDF/CSV, macro cycling and unlimited photo scans after entitlement is live.
 
@@ -86,7 +86,7 @@
 | Meal score | Photo/barcode/manual evidence, versioned estimated 1–10 score or null, independent confidence, saved explanation and failure-tolerant logging | No personal health score; real photo/barcode examples and signed-in cross-device verification remain upcoming |
 | Daily app | Remaining/eaten calories, nutrient rings, grouped meals, manual logging, delete, saved meal-score review/edit, weight chart, seven-day bars and streak counter | Screen-by-screen logic review still upcoming; no claim that all screenshot features or streak grace rules are built |
 | Language/formatting | Complete Phase 0 web rollout: selected-language `Intl` numbers, dates and EUR prices across Today, Progress, Capture/review, onboarding and Settings; comma/dot weight, nutrition and portion input; profile language sync implemented | 11 regression tests pass; guest browser checks pass in DE/EN for Today, Progress, Settings, annual price and weight saving; authenticated cross-device checks remain separate |
-| Plans | Account precedes Free/Premium choice; preview shows 6,99 €/week, 11,99 €/month and 34,99 €/year (annual marked “Spare 76 %”), 3-day trial on all plans | No checkout or paid entitlement; everyone currently gets 3 photo scans/day; future verified Pro permits unlimited scans |
+| Plans | Account precedes Free/Premium choice; preview shows 5,99 €/week, 11,99 €/month and 34,99 €/year (annual marked “Spare 76 %”), 3-day trial on all plans | No checkout or paid entitlement; everyone currently gets 3 photo scans/day; future verified Pro permits unlimited scans |
 | Native iOS | HealthKit, workout-calorie credit and Apple sign-in explicitly deferred | No web placeholders or simulated health sync |
 
 ## Documentation checkpoint — 11 Oct 2026
