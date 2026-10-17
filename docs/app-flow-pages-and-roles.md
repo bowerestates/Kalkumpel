@@ -30,8 +30,9 @@ Apple sign-in is reserved for native iOS. Google is not implemented. Consent/pro
 | `/ringfarben` | Ring-colour guide: the current Mon–Sun week with real dates in coloured rings (own days once logged, otherwise a sample week showing all four colours) plus a sample date and kcal example per colour; linked from Heute and Fortschritt |
 | `/mahlzeit/$id` | Saved meal detail page: view, edit and delete a meal with its meal score; opening it never reruns AI scoring |
 | `/einladen` | Personal invite link with copy/share and friends-joined count; guests are asked to create an account first |
+| `/erinnerungen` | Five independent meal/end-of-day time inputs and switches; immediate device-only saving, all off by default; notifications deferred to native iOS/Android |
 
-| `/einstellungen` | Profile editing/target calculation, language, account controls, optional personalisation withdrawal and local reset |
+| `/einstellungen` | Profile editing/target calculation, language, account controls, link to reminder settings, optional personalisation withdrawal and local reset |
 
 `/mahlzeit/$id` is the meal detail page: tapping a meal on Today opens it to view meal type/date, edit evidence and nutrients, reassess the score on request, save or delete. Unknown or deleted meals show a friendly message with a way back to Today.
 
@@ -82,7 +83,7 @@ Phase 0 rollout is complete throughout Today, Progress, Capture/review, onboardi
 
 - Meal-detail page `/mahlzeit/$id`, weekly day-ring strip and quick correction are built.
 - Extended trend periods, streak grace window, badges and progress-photo diary.
-- Live reminders, rollover, referral/trainer questions, broader diet/multi-select answers and result edit pencils.
+- Reminder times and switches are built at `/erinnerungen`; notification delivery is reserved for native iOS/Android (Gordon, 17 Oct 2026), with no web delivery or account preference sync. Rollover, referral/trainer questions, broader diet/multi-select answers and result edit pencils remain upcoming.
 - BLS/USDA grounding, fuller product sheet and in-app license/source page.
 - Real checkout/trial, separate verified Pro roles, paid reports/micronutrients/macro cycling.
 - Reviewed terms/privacy, retention, full consent records/withdrawal and account deletion/export.

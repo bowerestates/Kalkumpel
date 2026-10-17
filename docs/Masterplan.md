@@ -49,7 +49,9 @@ Meal scoring uses `meal-quality-v1`, not a personal health score or calorie-base
 
 ## 5. Delivery boundaries
 
-The paywall is a preview, not a purchase or active trial. Stripe checkout, verified subscription roles, cancellation/manage/restore flows and paid features remain upcoming. RevenueCat is a future native billing plan, not an installed web dependency. BLS micronutrients, extended analytics, reports/export, macro cycling, badges, reminders and community features must not be described as delivered.
+Meal-reminder settings are implemented (17 Oct 2026) at `/erinnerungen`, reached from Profil: five independent local times and on/off preferences, persisted on this device only. Gordon explicitly deferred notifications to native iOS and Android. The web app sends no reminders, requests no notification permission and does not sync these preferences to accounts. Native scheduling must use local wall-clock times and handle time-zone changes and cancellation. These settings are not proof of native delivery.
+
+The paywall is a preview, not a purchase or active trial. Stripe checkout, verified subscription roles, cancellation/manage/restore flows and paid features remain upcoming. RevenueCat is a future native billing plan, not an installed web dependency. BLS micronutrients, extended analytics, reports/export, macro cycling, reminder notification delivery and community features must not be described as delivered. Badge delivery status is tracked in tasks.md.
 
 Legal-reviewed privacy/terms, sensitive-data lawful basis, retention, full consent withdrawal/history and deletion/export are required before launch. Existing optional personalisation withdrawal is not full account deletion. Real signup delivery and signed-in cross-device meal/profile checks remain unverified.
 

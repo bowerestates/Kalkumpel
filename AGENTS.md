@@ -20,3 +20,4 @@
 - Treat docs/Masterplan.md as the current web product contract and docs/tasks.md as the delivery/verification ledger; update affected design, flow and implementation documents, upload them to the documented GitHub repository and verify exact remote-file matches in the same delivery as agreed changes without a separate user request; keep historical native proposals subordinate and report blocked delivery, because documentation must accurately track the running app locally and remotely.
 
 - Invite referrals are written only by a server function (service role, caller verified from their token) via redeem_invite; users can read referrals they made but never write them; why: prevents faking friend badges.
+- Meal-reminder preferences use a validated local-store record of independent wall-clock times and switches, not timestamps or notification scheduling; why: native scheduling can adopt them later without claiming web delivery or account sync.

@@ -159,7 +159,9 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [x] Edit profile + recalculate targets
 - [x] Reset all data
 - [ ] Units metric / imperial
-- [ ] Meal reminders (08:30, 12:30, 16:00, 19:00, 21:00)
+- [x] Meal-reminder preferences (17 Oct 2026): `/erinnerungen` from Profil, independent time inputs and switches for breakfast, lunch, snacks, dinner and end of day; defaults 08:30 / 12:30 / 16:00 / 19:00 / 21:00, all off. Saved immediately on this device, validated on reload; no account sync or web notification delivery.
+- [x] Reminder verification: 4 new rule tests; full 36-test suite passes, preview build clean; browser verifies time/switch persistence after reload, DE/EN, navigation from Profil and mobile fit. Times display through selected-language formatting; browser time picker remains native.
+- [ ] Native iOS/Android reminder delivery (Gordon deferred 17 Oct 2026): implement permission request, recurring local notifications in the device time zone, rescheduling after time/zone changes, disabling/cancellation, and tap-to-log; notification permission remains separate from saved preferences.
 - [ ] AGB, Datenschutz, Konto löschen
 - [x] Sync language to profile (`preferred_language`) through existing account sync; signed-in cross-device verification remains upcoming.
 
@@ -212,6 +214,7 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [ ] Upcoming: signed-in cross-device score persistence check and real photo/barcode end-to-end checks with Gordon’s examples.
 
 ## Documentation delivery checkpoint — 11 Oct 2026
+- [ ] Reminder delivery checkpoint (17 Oct 2026): upload affected docs, AGENTS.md and roadmap.md to Kalkumpel main and verify exact remote matches.
 - [x] Harmonize `Design-guidelines.md`, `Implementation-plan.md`, `app-flow-pages-and-roles.md` and `Masterplan.md` with current web onboarding/account order, barcode scanning, approved permanent logo, configured OpenAI model, language-aware formatting status and remaining work.
 - [x] Reconcile task claims: formatting rollout is partial, profile language sync is implemented, extra onboarding answers are saved, and paid access/native features are not delivered.
 - [x] Record standing rule: update and save relevant documentation/task records, upload affected documents to `bowerestates/Kalkumpel` and verify exact remote matches with every agreed coding, behaviour or design delivery, without Gordon having to ask; report blockers and distinguish implementation from unverified checks and placeholders.

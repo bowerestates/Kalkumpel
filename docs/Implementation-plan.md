@@ -55,7 +55,9 @@
 
 ## Phase 7 — Settings
 - [x] Language change and profile language sync, profile editing/recalculated targets, local reset and optional personalisation withdrawal.
-- [ ] App-wide metric/imperial preference, real reminders, approved legal pages and account deletion/export. Local reset is not server account deletion.
+- [x] Meal-reminder preference page `/erinnerungen` (17 Oct 2026): independently editable local times and switches for four meals and end of day; immediate device-only persistence, validated reload and reset; DE/EN copy. No timers, push services, account sync or permission requests.
+- [ ] Native iOS/Android notification delivery explicitly deferred by Gordon; add permission, device-local recurring scheduling, time-zone rescheduling and cancellation in native apps.
+- [ ] App-wide metric/imperial preference, approved legal pages and account deletion/export. Local reset is not server account deletion.
 
 ## Phase 8 — Subscriptions
 - [~] Account-gated Free/Premium preview at 5,99 €/week, 11,99 €/month or 34,99 €/year with a proposed 3-day trial on all plans.

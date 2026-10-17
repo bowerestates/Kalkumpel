@@ -1,5 +1,8 @@
 # Current task
 
+- [x] Build local reminder time settings and switches; notifications deferred to native apps.
+- [ ] Verify reminder persistence and sync matching documentation to GitHub.
+
 - [x] Harmonize Design-guidelines, Implementation-plan, app-flow-pages-and-roles and Masterplan with verified web features and remaining work.
 - [x] Record the ongoing documentation checkpoint rule and reconcile tasks.md.
 - [x] Complete remaining Phase 0 locale displays and decimal inputs; 11 tests pass, guest DE/EN browser display/weight checks pass and preview build is clean.
@@ -9,6 +12,8 @@
 - [x] Save provided onboarding details for future personalised recipes/workouts with separate optional consent; record legal-review and payment blockers in tasks.md.
 
 - [x] Onboarding pages complete; documentation, design notes and task list updated (11 Oct 2026).
+- [x] Ringfarben erklärt guide shows sample dates: current week with real dated rings plus a sample date and kcal example per colour; docs synced and blob-verified on Kalkumpel main (17 Oct 2026).
+
 
 ## Next: in-app logic review
 - [ ] Review (Heute, Erfassen, Fortschritt, Profil done) Heute, Erfassen, Fortschritt, Profil/Einstellungen and Paywall screen by screen; build missing functionality as found.

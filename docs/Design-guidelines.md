@@ -61,6 +61,8 @@ All existing web number/date displays now share the selected-language helpers: T
 
 ## 7. Deferred reference designs
 
+Meal reminders (IMG_3305, 17 Oct 2026): separate screen from Profil with a round mint back arrow, large heading, four meal rows with thin separators, stable time inputs and emerald switches, followed by a separate end-of-day section. White/mint styling adapts the reference without importing its black controls. All switches start off, each time remains editable independently, and a clear note states device-only saving and native-only notification delivery. No web permission prompt or fake success notification.
+
 Weekly green/yellow/red/grey day rings are live on Heute and Fortschritt (Mon–Sun strip, seven-day bars). Ring reference thresholds: green within target or at most 100 kcal over; yellow 101–250 over; red more than 250 over; grey unlogged. The "Ringfarben erklärt" guide (`/ringfarben`, linked from both screens) shows the current Mon–Sun week with real dates in the rings — the person's own days once anything is logged, otherwise a target-relative sample week that always shows all four colours — plus a matching sample date and kcal example on every colour row, so it is clear where the rings are seen.
 
 Native iOS alone will add Apple sign-in, HealthKit, activity-calorie credit and haptics. Do not show fake Apple Health connections or placeholder workout screens in web. Remaining visual/reference polish and optional questions are tracked in tasks.md rather than claimed complete.
