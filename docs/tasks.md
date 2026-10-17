@@ -214,7 +214,7 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [ ] Upcoming: signed-in cross-device score persistence check and real photo/barcode end-to-end checks with Gordon’s examples.
 
 ## Documentation delivery checkpoint — 11 Oct 2026
-- [ ] Reminder delivery checkpoint (17 Oct 2026): upload affected docs, AGENTS.md and roadmap.md to Kalkumpel main and verify exact remote matches.
+- [x] Reminder documentation checkpoint (17 Oct 2026): all nine docs, AGENTS.md and roadmap.md uploaded to Kalkumpel main and verified as exact Git blob matches; native notification delivery remains upcoming.
 - [x] Harmonize `Design-guidelines.md`, `Implementation-plan.md`, `app-flow-pages-and-roles.md` and `Masterplan.md` with current web onboarding/account order, barcode scanning, approved permanent logo, configured OpenAI model, language-aware formatting status and remaining work.
 - [x] Reconcile task claims: formatting rollout is partial, profile language sync is implemented, extra onboarding answers are saved, and paid access/native features are not delivered.
 - [x] Record standing rule: update and save relevant documentation/task records, upload affected documents to `bowerestates/Kalkumpel` and verify exact remote matches with every agreed coding, behaviour or design delivery, without Gordon having to ask; report blockers and distinguish implementation from unverified checks and placeholders.

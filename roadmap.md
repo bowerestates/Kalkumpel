@@ -1,7 +1,7 @@
 # Current task
 
 - [x] Build local reminder time settings and switches; notifications deferred to native apps.
-- [ ] Verify reminder persistence and sync matching documentation to GitHub.
+- [x] Verify reminder persistence and sync matching documentation to GitHub (all nine docs plus AGENTS.md and roadmap.md match; 36 tests pass).
 
 - [x] Harmonize Design-guidelines, Implementation-plan, app-flow-pages-and-roles and Masterplan with verified web features and remaining work.
 - [x] Record the ongoing documentation checkpoint rule and reconcile tasks.md.
