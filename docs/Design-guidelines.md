@@ -88,5 +88,8 @@ These documents describe the current **web app**, not an already-built native ap
 For every agreed coding, behaviour or design change, save the corresponding documentation and task updates in the same delivery. Mark implemented, partial, upcoming and unverified work separately. Do not overwrite approved decisions, silently promote placeholders to completed features, or claim remote GitHub synchronization without checking it. Historical native specifications in `prompt.md` and `Provider-Recommendations.md` do not override this web checkpoint.
 
 
+## Water card (17 Oct 2026)
+The Wasser card on Heute sits below the macro rings and uses the Wasser badge blue (not mint) for its icon, progress bar and filled drops, so it reads as water at a glance. It shows today's amount against the personal goal, one drop per 250 ml glass, and "Ziel erreicht – stark!" once reached.
+
 ## Badges (16 Oct 2026)
 Badges are the one exception to mint-only icons: each group has a soft accent token in src/styles.css — Serien amber, Mahlzeiten emerald, Kalorienziel sky, Wasser blue, Gewicht gold, Gewohnheiten & Spaß violet, Freunde rose. Every badge uses Gordon's flame-shield emblem (metal shield, concentric rings, flame; approved 17 Oct 2026). Earned badges tint the rings and flame to the group colour with a soft glow and stars for higher tiers; locked badges show the same shield in faded grey with a small lock. The unlock pop-up uses the group colour for the label and the "Weiter so!" button (dark text for contrast).
