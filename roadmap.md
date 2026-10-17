@@ -1,5 +1,8 @@
 # Current task
 
+- [x] Build four optional platform-aware health onboarding holders after Thanks, with safe skipping and saved preferences.
+- [x] Verify phone/desktop health onboarding flows and preference reload, reconcile documents, upload and verify exact GitHub matches (all nine docs plus AGENTS.md and roadmap.md; 41 regression tests pass). Real native health access and cross-device account readback remain upcoming.
+
 - [x] Build local reminder time settings and switches; notifications deferred to native apps.
 - [x] Verify reminder persistence and sync matching documentation to GitHub (all nine docs plus AGENTS.md and roadmap.md match; 36 tests pass).
 

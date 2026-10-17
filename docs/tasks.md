@@ -60,7 +60,7 @@
 - [x] Mirror the stay-on-track comparison screen: "Ein einfacherer Weg, dranzubleiben" with "Ohne Kalkumpel" and "Mit Kalkumpel" cards plus the caption "Kleine tägliche Schritte führen zu Fortschritt"; both cards show the same abstract person, the second wearing a medal around the neck.
 - [x] Mirror screens IMG_3251–3255: obstacles, desired outcome, illustrative potential chart and thank-you. Single obstacle/outcome answers now persist in validated onboarding profile details (11 Oct 2026).
 - [x] Mirror the community screen IMG_3261 (10 Oct 2026): „Werde Teil der Kalkumpel-Community“ with a crowd of 21 mint avatars in three rows (no „viele mehr“ pill). The reference's user counts, ratings and named reviews are deliberately **not** copied — no invented social proof.
-- [x] **Onboarding pages complete (Gordon, 11 Oct 2026).** 23 in-route screens plus the separate account stage; full order and what is saved: `docs/Onboarding-progress.md`. Remaining reference refinements below are not implied complete.
+- [x] **Onboarding pages complete (Gordon, 11 Oct 2026).** 23 base in-route screens plus up to four optional health-preparation pages and the separate account stage; full order and what is saved: `docs/Onboarding-progress.md`. Remaining reference refinements below are not implied complete.
 - [x] Gender, age, height, weight, target weight, goal, activity, diet, pace
 - [x] Pace slider with live time-to-goal and daily calories; obstacles, desired outcomes, potential chart, thank-you, setup progress and result screens.
 - [x] Calculation loader + plan reveal with kcal & macro split
@@ -78,13 +78,13 @@
 - [ ] Obstacles and desired outcomes as multi-select (currently one choice each).
 - [ ] Keto and Intervallfasten diet options.
 - [ ] Trainer question — only if Gordon wants it.
-- [ ] Rollover up to 200 kcal.
+- [x] Rollover preference holder (future maximum 200 kcal); actual budget carryover remains upcoming.
 - [ ] Notifications opt-in and referral code.
 - [x] IMG_3266 account stage: white/mint German design, working email/password signup with confirmation state and existing-account link, before free/Premium choice. Apple reserved for native iOS; no Google button.
 - [x] Separate unchecked storage consent and optional recipe/workout personalisation consent; save version/latest timestamp and allow optional consent withdrawal in Profil. No advertising emails enabled.
 - [ ] Legal review before launch: approved AGB/privacy notice, purpose and sensitive-data lawful basis, retention schedule, full storage-consent withdrawal, account deletion/export, and consent audit history. Draft screen wording is not legal certification.
 - [ ] Edit pencils on the result screen (editing currently in Profil).
-- [ ] Burned-calories toggle and Apple Health sync — **native iOS build only**, Phase 11.
+- [x] Optional burned-calorie / workout-sync / connection / rollover preference pages after Thanks (17 Oct 2026); actual native integrations remain Phase 11.
 
 ## Next focus – In-app logic review (starts after this save)
 Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen and Paywall; confirm each visible element uses real app logic, and build anything missing at that time.
@@ -181,14 +181,16 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [ ] Error tracking
 - [ ] SEO / share images, publish
 
-## Phase 11 – Native iOS & Apple Health (deferred, not web)
-> **Gordon, 10 Oct 2026:** screens 20–21 belong to the Apple HealthKit exercise and are built **only once Kalkumpel runs as a native iOS app**; the native HealthKit access is written there. The web app shows nothing for these two questions — no placeholder, no simulated sync.
-- [x] Reference screens parked (10 Oct 2026): `IMG_3256.PNG`, `IMG_3258.PNG`, `IMG_3259.PNG`; German copy already specified in `docs/app-flow-pages-and-roles.md` screens 20–21.
-- [ ] HealthKit read access: workouts (type, duration, active energy burned) and daily step count.
-- [ ] Screen 20 „Aktivitätskalorien zum Tagesziel dazurechnen?“ — workout list (Morgenlauf 32 min +320 kcal, Yoga 20 min +90 kcal, Schritte 12.430 +80 kcal), badge „Heute zum Budget addiert +490 kcal“, budget line 2.500 → 2.990 kcal, Ja / Nein.
-- [ ] Screen 21 „Aktivitäten mit Apple Health synchronisieren?“ — photo card with today's goal (flame 2.500 kcal, Running +250 kcal) and the connection screen „Verbindung mit Apple Health herstellen“ (Apple + Health icons joined by a checkmark, pills Gehen / Laufen / Yoga / Schlaf, CTA „Apple Health verbinden“).
-- [ ] Save the answers as `profile.add_burned_calories` and `profile.health_sync_enabled` through the existing profile sync.
-- [ ] Add credited activity calories to the daily budget on the dashboard and to the energy-balance chart (Phase 6).
+## Phase 11 – Native iOS / Android health integration (deferred)
+> **Updated decision, Gordon, 17 Oct 2026:** the earlier no-web-placeholder rule is superseded. Four optional health preparation pages are implemented after Thanks, for Apple Health and Android Health Connect. All real OS permissions, health reads, calorie credits and carryover remain deferred.
+- [x] Reference-inspired burned-calorie, workout-sync, connection-preparation and rollover holders in white/mint DE/EN; detected iOS/Android platform, selectable desktop preview, back navigation and a full-stage skip from every page.
+- [x] Save versioned wishes within validated onboarding details through existing local/owner-only profile sync; `connectedPlatform` must remain null. No new tables or permissions.
+- [x] Verification: all 41 regression tests pass; preview builds cleanly. Browser checks cover iPhone and Android through setup/result/account and saved preferences after reload, desktop platform switching, back navigation, No bypassing connection, and full-stage skip. Screens visually inspected; actual health reads and signed-in account sync remain unverified/deferred.
+- [x] Documentation delivery: updated health order/design/architecture and task records; all nine docs plus AGENTS.md and roadmap.md uploaded and verified against fresh Kalkumpel main Git blob fingerprints in this delivery.
+- [ ] Native HealthKit / Android Health Connect permission requests and workout/active-energy import, with OS availability checks, revocation and duplicate prevention.
+- [ ] Add verified activity energy to daily budget and energy-balance chart without double-counting activity already used in target calculations.
+- [ ] Execute optional rollover capped at 200 kcal with safe daily accounting; preference alone changes nothing in web.
+- [ ] Signed-in cross-device health preference readback (external Supabase account verification unavailable here).
 
 ## Onboarding end screens
 - [x] IMG_3266 save-progress/email account stage added; account required when continuing into free or paid plan choice. Apple native iOS later.
@@ -230,3 +232,13 @@ Read the four documents' matching web-feature checkpoints and compare them with 
 - [x] Fix calendar-date TypeScript narrowing, add locale-aware EUR formatting and reusable DecimalInput, and wire remaining web displays/inputs; no account, AI, quota or payment logic changed.
 - [x] Full suite: 11 tests passing; preview build clean; guest DE/EN browser display and weight-saving checks passed without page errors. Capture/review decimal behaviour has automated coverage; real photo/barcode and authenticated sync checks remain open above.
 - [x] Upload these documentation updates to Kalkumpel main and verify all nine docs plus AGENTS.md and roadmap.md against remote Git blob fingerprints (Phase 0 completion delivery, 11 Oct 2026).
+
+## Optional health onboarding — 17 Oct 2026
+
+After „Danke für Dein Vertrauen!“ and before calculation setup, up to four optional pages appear: (1) burned-calorie preference, (2) sync workouts with Apple Health / Health Connect, (3) connection preparation, (4) rollover preference (future maximum 200 kcal). The original 20-step progress remains unchanged; the optional stage has its own four-segment progress. iPhone/iPad and Android are detected after hydration; desktop offers an explicit platform choice. Platform detection is presentation only, never proof that a native service exists.
+
+Every page has „Überspringen“, which resets all optional wishes and goes directly to setup. „Nein“ declines the current preference; declining workout sync bypasses the connection page and opens rollover. Back returns through the optional pages or to Thanks. Preparing a connection saves only a request and shows that permissions/connection come later in the native app; no connected checkmark, OS permissions or fake success. Example workout/budget numbers and rollover visuals are labelled examples and never become meal/activity data.
+
+On feature completion, `onboardingDetails.healthSetup` saves version, platform, addBurnedCalories, syncWorkouts, connectionRequested, connectedPlatform (always null), and rolloverCalories locally. Existing owner-only profile JSON sync carries these validated wishes when signed in; no migration is required. Native apps must request real consent separately. Targets and all current calorie calculations are unchanged. Real account cross-device readback remains unverified.
+
+Testing: complete onboarding through Thanks, exercise Yes/No, switch Apple Health/Health Connect, prepare then continue, or skip any page; verify setup/result/account continue normally and saved wishes survive reload. Native integration is the next step, not delivered by these holders.

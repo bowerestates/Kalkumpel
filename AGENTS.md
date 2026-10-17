@@ -21,3 +21,4 @@
 
 - Invite referrals are written only by a server function (service role, caller verified from their token) via redeem_invite; users can read referrals they made but never write them; why: prevents faking friend badges.
 - Meal-reminder preferences use a validated local-store record of independent wall-clock times and switches, not timestamps or notification scheduling; why: native scheduling can adopt them later without claiming web delivery or account sync.
+- Optional health onboarding uses a validated versioned record within onboarding details and an isolated stage before calculation; connection requests are not permissions or connected status, and no preferences affect web targets, because native OS authorization and energy accounting must be implemented separately.

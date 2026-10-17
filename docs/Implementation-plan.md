@@ -12,12 +12,12 @@
 - [x] Shared decimal inputs/parser accept comma or dot for nutrition, portions and weights; calendar-only keys render as local dates. Full suite: 11 tests pass; live guest DE/EN display and weight-save checks pass; preview build clean. Phase 0 is closed.
 
 ## Phase 1 — Onboarding
-- [x] 23 in-route screens plus separate account stage; full order and save boundaries in [Onboarding-progress.md](Onboarding-progress.md).
+- [x] 23 base in-route screens plus up to four optional health-preparation pages and the separate account stage; full order and save boundaries in [Onboarding-progress.md](Onboarding-progress.md).
 - [x] Weight/height controls, goal-weight difference, pace guidance, target calculations, setup animation and result curve.
 - [x] White/mint reference adaptations, matching person/medal figures, community crowd without invented claims.
 - [x] Save base profile, targets, starting weight and validated additional answers locally; sync through owner-only account records.
 - [x] Email account stage before plan choice, unchecked required storage consent and optional future recipe/workout personalisation; optional withdrawal in Profile.
-- [ ] Reference polish, result edit controls, height display-unit persistence and optional extra questions/options listed in tasks.md. HealthKit screens remain native only.
+- [ ] Reference polish, result edit controls, height display-unit persistence and optional extra questions/options listed in tasks.md. Optional health-preparation pages are built; actual HealthKit/Health Connect access remains native-only.
 
 ## Phase 2 — Accounts and security
 - [x] Gordon’s own connected Supabase, email/password signup/sign-in/reset, private photos and owner-only records.
@@ -74,14 +74,14 @@
 
 ## Phase 11 — Native iOS (deferred)
 - [ ] Native app, Apple sign-in, RevenueCat/App Store billing, HealthKit permissions, workout/active-energy import and optional calorie-budget credit.
-- [x] Native-only reference screens parked; never add placeholder Apple Health or burned-calorie onboarding screens to web.
+- [x] Optional reference-inspired health onboarding holders are built on web (17 Oct 2026); native permissions/import and calorie accounting remain deferred.
 
 ## Current web feature checkpoint
 
 | Feature | Implemented now | Remaining / limitations |
 |---|---|---|
 | Branding | Approved scanner-plate/flame Welcome logo and favicon; Gordon confirmed keeping the existing logo permanently | No replacement with older `assets/` logos |
-| Onboarding | 23 in-route screens (20 questions/interstitials, setup, result, features), followed by the separate account stage | Full order in `Onboarding-progress.md`; remaining reference polish/options in `tasks.md` |
+| Onboarding | 23 base in-route screens plus up to four optional health-preparation pages after Thanks, followed by the separate account stage | Full order in `Onboarding-progress.md`; remaining reference polish/options in `tasks.md` |
 | Targets | Mifflin-St Jeor-based calories/macros, goal-weight difference, guided pace and estimated target date | Estimates, not guaranteed outcomes; result-screen editing remains upcoming |
 | Accounts | Email/password signup/sign-in/reset, local plan draft, owner-scoped Supabase sync, unchecked storage and optional personalisation consent | Real confirmation delivery and cross-device checks still unverified; legal review, retention, export/deletion and complete consent history required |
 | Photo analysis | Server-side OpenAI via Lovable AI Gateway; configured `AI_VISION_MODEL = "openai/gpt-6-luna"`; ingredient/portion review before saving; signed-in private photos | Model availability/access depends on provider; BLS grounding and scan-tips screen upcoming; no independently verified zero-retention guarantee |
@@ -90,10 +90,20 @@
 | Daily app | Remaining/eaten calories, nutrient rings, grouped meals, manual logging, delete, saved meal-score review/edit, weight chart, seven-day bars and streak counter | Screen-by-screen logic review still upcoming; streak grace, weight periods and weigh-in edit/delete built; badges upcoming |
 | Language/formatting | Complete Phase 0 web rollout: selected-language `Intl` numbers, dates and EUR prices across Today, Progress, Capture/review, onboarding and Settings; comma/dot weight, nutrition and portion input; profile language sync implemented | 11 regression tests pass; guest browser checks pass in DE/EN for Today, Progress, Settings, annual price and weight saving; authenticated cross-device checks remain separate |
 | Plans | Account precedes Free/Premium choice; preview shows 5,99 €/week, 11,99 €/month and 34,99 €/year (annual marked “Spare 76 %”), 3-day trial on all plans | No checkout or paid entitlement; everyone currently gets 3 photo scans/day; future verified Pro permits unlimited scans |
-| Native iOS | HealthKit, workout-calorie credit and Apple sign-in explicitly deferred | No web placeholders or simulated health sync |
+| Native iOS | HealthKit, workout-calorie credit and Apple sign-in explicitly deferred | Optional iOS/Android onboarding holders built; no live health sync or budget changes |
 
 ## Documentation checkpoint — 11 Oct 2026
 
 These documents describe the current **web app**, not an already-built native app. `Masterplan.md` defines product decisions, `tasks.md` tracks delivery and verification, `Implementation-plan.md` uses the same phase numbers, `app-flow-pages-and-roles.md` describes actual navigation, and `Design-guidelines.md` records approved visuals. `Onboarding-progress.md` preserves the detailed screen sequence; `Meal-score-rubric.md` defines scoring.
 
 For every agreed coding, behaviour or design change, save the corresponding documentation and task updates in the same delivery. Mark implemented, partial, upcoming and unverified work separately. Do not overwrite approved decisions, silently promote placeholders to completed features, or claim remote GitHub synchronization without checking it. Historical native specifications in `prompt.md` and `Provider-Recommendations.md` do not override this web checkpoint.
+
+## Optional health onboarding — 17 Oct 2026
+
+After „Danke für Dein Vertrauen!“ and before calculation setup, up to four optional pages appear: (1) burned-calorie preference, (2) sync workouts with Apple Health / Health Connect, (3) connection preparation, (4) rollover preference (future maximum 200 kcal). The original 20-step progress remains unchanged; the optional stage has its own four-segment progress. iPhone/iPad and Android are detected after hydration; desktop offers an explicit platform choice. Platform detection is presentation only, never proof that a native service exists.
+
+Every page has „Überspringen“, which resets all optional wishes and goes directly to setup. „Nein“ declines the current preference; declining workout sync bypasses the connection page and opens rollover. Back returns through the optional pages or to Thanks. Preparing a connection saves only a request and shows that permissions/connection come later in the native app; no connected checkmark, OS permissions or fake success. Example workout/budget numbers and rollover visuals are labelled examples and never become meal/activity data.
+
+On feature completion, `onboardingDetails.healthSetup` saves version, platform, addBurnedCalories, syncWorkouts, connectionRequested, connectedPlatform (always null), and rolloverCalories locally. Existing owner-only profile JSON sync carries these validated wishes when signed in; no migration is required. Native apps must request real consent separately. Targets and all current calorie calculations are unchanged. Real account cross-device readback remains unverified.
+
+Testing: complete onboarding through Thanks, exercise Yes/No, switch Apple Health/Health Connect, prepare then continue, or skip any page; verify setup/result/account continue normally and saved wishes survive reload. Native integration is the next step, not delivered by these holders.

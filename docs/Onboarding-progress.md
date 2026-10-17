@@ -11,7 +11,7 @@ Read alongside `Masterplan.md`, `Design-guidelines.md` and `tasks.md`. The scree
 - Font: Plus Jakarta Sans. Layout, font hierarchy and interaction follow the references; the copy is friendly German ("Du"), not the references' English.
 - No invented social proof: no user counts, ratings or named testimonials.
 
-## Implemented order (24 screens including account stage)
+## Implemented order (24 base screens including account, plus four optional health pages)
 
 The progress bar covers steps 1–20; the setup animation, plan result and feature pages come after it.
 
@@ -37,6 +37,7 @@ The progress bar covers steps 1–20; the setup animation, plan result and featu
 | 18 | Du hast großes Potenzial … | Illustrative 3/7/30-day chart. |
 | 19 | Werde Teil der Kalkumpel-Community | Crowd of 21 mint avatars in three rows; no counts or ratings. |
 | 20 | Danke für Dein Vertrauen! | Handshake icon. |
+| 20a–20d (optional) | Health preparation | Burned calories → workout sync → connection preparation → rollover; full-stage skip to setup. |
 | 21 | Wir richten alles für Dich ein | % counter, progress bar, rotating status line, checklist: Kalorien, Kohlenhydrate, Protein, Fett. |
 | 22 | Ziel: X kg abnehmen bis [Datum] | Progress curve, daily kcal and macros; values come from the real calculation. |
 | 23 | Features / reviews | Completing saves the local plan draft, targets and starting weight, then opens the account stage. |
@@ -50,8 +51,8 @@ The progress bar covers steps 1–20; the setup animation, plan result and featu
 
 ## Deliberately not in the web onboarding
 
-- Burned-calorie credit and Apple Health sync (reference screens 20–21): native iOS build only. No placeholder in the web app.
-- Trainer question, rollover calories, notifications and referral code: upcoming, see `tasks.md`.
+- Actual burned-calorie credit, Apple Health/HealthKit and Android Health Connect import/permission remain native-only. Optional preparation pages are now built after Thanks (17 Oct 2026).
+- Trainer question, rollover execution, notifications and referral code: upcoming, see `tasks.md`.
 
 ## How to check
 
@@ -64,3 +65,13 @@ The progress bar covers steps 1–20; the setup animation, plan result and featu
 
 ## Phase 0 locale follow-up — 11 Oct 2026
 Onboarding result calories/macros, plan weight differences, pace/timeline labels, birthday month names and height/weight widgets now use shared selected-language helpers. Decimal weight drafts accept comma or dot. Stored measurements and CSS/SVG percentages remain numeric; birth-year identifiers are not thousands-grouped. Automated locale/decimal tests pass as part of the 11-test suite; live guest DE/EN app display and weight-save checks passed. This does not claim fresh real-account onboarding sync or result-edit controls are complete.
+
+## Optional health onboarding — 17 Oct 2026
+
+After „Danke für Dein Vertrauen!“ and before calculation setup, up to four optional pages appear: (1) burned-calorie preference, (2) sync workouts with Apple Health / Health Connect, (3) connection preparation, (4) rollover preference (future maximum 200 kcal). The original 20-step progress remains unchanged; the optional stage has its own four-segment progress. iPhone/iPad and Android are detected after hydration; desktop offers an explicit platform choice. Platform detection is presentation only, never proof that a native service exists.
+
+Every page has „Überspringen“, which resets all optional wishes and goes directly to setup. „Nein“ declines the current preference; declining workout sync bypasses the connection page and opens rollover. Back returns through the optional pages or to Thanks. Preparing a connection saves only a request and shows that permissions/connection come later in the native app; no connected checkmark, OS permissions or fake success. Example workout/budget numbers and rollover visuals are labelled examples and never become meal/activity data.
+
+On feature completion, `onboardingDetails.healthSetup` saves version, platform, addBurnedCalories, syncWorkouts, connectionRequested, connectedPlatform (always null), and rolloverCalories locally. Existing owner-only profile JSON sync carries these validated wishes when signed in; no migration is required. Native apps must request real consent separately. Targets and all current calorie calculations are unchanged. Real account cross-device readback remains unverified.
+
+Testing: complete onboarding through Thanks, exercise Yes/No, switch Apple Health/Health Connect, prepare then continue, or skip any page; verify setup/result/account continue normally and saved wishes survive reload. Native integration is the next step, not delivered by these holders.
