@@ -86,3 +86,7 @@ Native iOS alone will add Apple sign-in, HealthKit, activity-calorie credit and 
 These documents describe the current **web app**, not an already-built native app. `Masterplan.md` defines product decisions, `tasks.md` tracks delivery and verification, `Implementation-plan.md` uses the same phase numbers, `app-flow-pages-and-roles.md` describes actual navigation, and `Design-guidelines.md` records approved visuals. `Onboarding-progress.md` preserves the detailed screen sequence; `Meal-score-rubric.md` defines scoring.
 
 For every agreed coding, behaviour or design change, save the corresponding documentation and task updates in the same delivery. Mark implemented, partial, upcoming and unverified work separately. Do not overwrite approved decisions, silently promote placeholders to completed features, or claim remote GitHub synchronization without checking it. Historical native specifications in `prompt.md` and `Provider-Recommendations.md` do not override this web checkpoint.
+
+
+## Badges (16 Oct 2026)
+Badges are the one exception to mint-only icons: each group has a soft accent token in src/styles.css — Serien amber, Mahlzeiten emerald, Kalorienziel sky, Wasser blue, Gewicht gold, Gewohnheiten & Spaß violet, Freunde rose. Earned badges show a tinted round medal with a coloured ring and stars for higher tiers; locked badges are grey with a lock. The unlock pop-up uses the group colour for the label and the "Weiter so!" button (dark text for contrast).

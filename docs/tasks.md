@@ -146,7 +146,9 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [x] Weight chart spaces points by real calendar dates.
 - [ ] Energy balance chart (burned vs. eaten)
 - [ ] Private progress photo diary (Pro)
-- [ ] 36-badge system (Bronze/Silber/Gold) + unlock pop-up — badge list proposed to Gordon 16 Oct 2026, awaiting approval before building
+- [x] Badge system (approved by Gordon 16 Oct 2026, replaces earlier 12- and 36-badge proposals): 28 badges in 7 groups (Serien, Mahlzeiten, Kalorienziel, Wasser, Gewicht, Gewohnheiten & Spaß, Freunde), each group with its own accent colour; unlock pop-up queue; "Erfolge" section on Fortschritt with tap-for-details and progress. Logic in src/lib/badges.ts, tests in src/test/badges.test.ts. Omega Log, Time Traveler, Dumpster Diver, Sweat Equity, Speed Logger, Nut Case, Berry Suspicious dropped. Earned badges are stored on the device only.
+- [ ] Water tracking widget on Heute (target ≈35 ml per kg body weight, minimum 2,0 L) — unlocks the 3 water badges (next task)
+- [ ] Invite friends feature (personal invite link + counter) — unlocks the 3 friend badges (upcoming)
 
 ## Phase 7 – Settings & Profile
 - [x] Language toggle (Deutsch default / English)
