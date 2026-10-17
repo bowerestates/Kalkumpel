@@ -18,3 +18,5 @@
 - Welcome branding uses a dedicated image and page-scoped surface token rather than changing the shared Logo or background; why: approved welcome revisions must not alter the rest of the app.
 - Meal scoring uses the existing server-side model and a shared versioned rubric; evidence and validated results are stored with each entry, and saved-meal views never call AI until edits or an explicit reassessment because reopening must be free and offline-safe.
 - Treat docs/Masterplan.md as the current web product contract and docs/tasks.md as the delivery/verification ledger; update affected design, flow and implementation documents, upload them to the documented GitHub repository and verify exact remote-file matches in the same delivery as agreed changes without a separate user request; keep historical native proposals subordinate and report blocked delivery, because documentation must accurately track the running app locally and remotely.
+
+- Invite referrals are written only by a server function (service role, caller verified from their token) via redeem_invite; users can read referrals they made but never write them; why: prevents faking friend badges.
