@@ -27,7 +27,7 @@ Apple sign-in is reserved for native iOS. Google is not implemented. Consent/pro
 | `/heute` | Daily calories/macros and grouped meals; delete and saved meal-score review/edit |
 | `/erfassen` | Photo/camera upload, barcode camera or typed lookup, local food search and manual input; editable meal review/score before logging |
 | `/fortschritt` | Weight log/chart with period filters, start/current/goal, seven-day calorie bars whose days show real dates in coloured rings, streak, badges ("Erfolge") and weigh-in edit/delete |
-| `/ringfarben` | Ring-colour guide: the current Mon–Sun week with real dates in coloured rings (own days once logged, otherwise a sample week showing all four colours) plus a sample date and kcal example per colour; linked from Heute and Fortschritt |
+| `/ringfarben` | Ring-colour guide: the current Mon–Sun week with real dates in coloured rings (own days once logged, otherwise a sample week showing all four colours) plus a sample date and kcal example per colour; linked from Fortschritt (the Heute strip shows the rings without a link) |
 | `/mahlzeit/$id` | Saved meal detail page: view, edit and delete a meal with its meal score; opening it never reruns AI scoring |
 | `/einladen` | Personal invite link with copy/share and friends-joined count; guests are asked to create an account first |
 | `/erinnerungen` | Five independent meal/end-of-day time inputs and switches; immediate device-only saving, all off by default; notifications deferred to native iOS/Android |
