@@ -80,7 +80,7 @@
 - [ ] Trainer question — only if Gordon wants it.
 - [x] Rollover preference holder (future maximum 200 kcal); actual budget carryover remains upcoming.
 - [ ] Notifications opt-in and referral code.
-- [x] IMG_3266 account stage: white/mint German design, working email/password signup with confirmation state and existing-account link, before free/Premium choice. Apple reserved for native iOS; no Google button.
+- [x] IMG_3266 account stage: white/mint German design, working email/password signup with confirmation state and existing-account link, before free/Premium choice. Google OAuth and an Apple placeholder added 19 Oct 2026; live Apple sign-in remains native iOS only.
 - [x] Separate unchecked storage consent and optional recipe/workout personalisation consent; save version/latest timestamp and allow optional consent withdrawal in Profil. No advertising emails enabled.
 - [ ] Legal review before launch: approved AGB/privacy notice, purpose and sensitive-data lawful basis, retention schedule, full storage-consent withdrawal, account deletion/export, and consent audit history. Draft screen wording is not legal certification.
 - [ ] Edit pencils on the result screen (editing currently in Profil).
@@ -106,7 +106,8 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [x] Sign-in / sign-up / password reset (E-Mail + Passwort) without revealing whether an email exists
 - [x] Move app data from browser storage to the database on first sign-in; browser storage stays as the offline cache
 - [ ] Roles: Anonymous · Free · Kumpel+ Pro — upcoming (Pro status must be set server-side once Stripe exists)
-- [ ] Google sign-in — not implemented; Apple sign-in reserved for native iOS (Phase 11), no web placeholder.
+- [x] Google OAuth wired on `/konto` and `/auth` with a same-origin public return and a disabled native Apple placeholder (19 Oct 2026).
+- [ ] Activate Google in Gordon’s Supabase/Google Cloud settings and verify real Google sign-in, cancellation and account sync; Apple OAuth remains native-only.
 
 ## Phase 3 – Core App: Dashboard & Logging
 - [x] Dashboard: remaining / eaten kcal, rings for kcal, Eiweiß, Kohlenhydrate, Fett
@@ -193,7 +194,7 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [ ] Signed-in cross-device health preference readback (external Supabase account verification unavailable here).
 
 ## Onboarding end screens
-- [x] IMG_3266 save-progress/email account stage added; account required when continuing into free or paid plan choice. Apple native iOS later.
+- [x] IMG_3266 save-progress Google/email account stage and disabled Apple placeholder added; account required when continuing into free or paid plan choice. Apple native iOS later.
 - [x] Verified unchecked consent defaults, storage-gated email form and existing-account destination in the browser; routing/meal-score regression tests pass and preview builds cleanly.
 - [ ] Verify real signup/email confirmation and profile details across devices with Gordon's external Supabase account; provider settings and delivery were not inspected or changed.
 - [x] Setup progress screen (IMG_3264): "Wir richten alles für Dich ein" — % counter, mint progress bar, rotating status line, checklist (Kalorien, Kohlenhydrate, Protein, Fett); meal scores are calculated only after a meal is logged.
@@ -242,3 +243,19 @@ Every page has „Überspringen“, which resets all optional wishes and goes di
 On feature completion, `onboardingDetails.healthSetup` saves version, platform, addBurnedCalories, syncWorkouts, connectionRequested, connectedPlatform (always null), and rolloverCalories locally. Existing owner-only profile JSON sync carries these validated wishes when signed in; no migration is required. Native apps must request real consent separately. Targets and all current calorie calculations are unchanged. Real account cross-device readback remains unverified.
 
 Testing: complete onboarding through Thanks, exercise Yes/No, switch Apple Health/Health Connect, prepare then continue, or skip any page; verify setup/result/account continue normally and saved wishes survive reload. Native integration is the next step, not delivered by these holders.
+
+
+## Google account layout — 19 Oct 2026
+
+Implemented: `/konto` and `/auth` show Apple (disabled, future iOS label), Google and email, preserving the white/mint design. On `/konto`, required storage consent gates Google/email and optional personalisation stays separate; choices are saved before leaving for Google. Google uses Gordon’s existing Supabase Auth, not a workspace Google connector. The callback is the same-origin public `/auth?oauth=google`, with `&next=paywall` for onboarding. The SDK establishes its session and `getUser()` validates it; onboarding returns to `/konto` to confirm consent before plan choice, while other accounts continue to Today or onboarding. No paid entitlement is granted and no second auth listener was added.
+
+Upcoming setup: create a Web application OAuth client in Google Cloud; register the callback URL shown in Supabase’s Google provider panel, configure the email/profile/openid scopes and enable Google in Supabase with the client ID/secret. Allow the exact app return URLs for each origin in Supabase Authentication → URL Configuration. Test Google in the published app or preview opened in a new tab, not the editor frame. Real Google login/account sync requires that provider setup; Apple is not a working web sign-in method.
+
+
+## Google account delivery — 19 Oct 2026
+- [x] Add shared Apple (disabled native placeholder), Google and email choices to `/konto` and `/auth`; preserve storage-gated onboarding and independent optional consent.
+- [x] Validate public same-origin Google returns and check public provider availability before redirecting, leaving email usable when Google is off.
+- [x] Verification: 45 regression tests pass; browser checks consent gating, disabled Apple, real Google-unavailable feedback, email fallback, reset form and mobile fit with no page errors; preview build clean.
+- [x] Hosted auth settings read successfully: email enabled, Google disabled. No provider configuration changed.
+- [ ] Gordon: enable Google in Supabase with a Google Cloud Web OAuth client and allow the documented return URLs; then verify real Google sign-in/account readback in a new-tab preview or published app.
+- [x] Reconcile and save account design/flow/masterplan/implementation/onboarding documentation; upload and verify all nine docs plus AGENTS.md and roadmap.md as exact GitHub matches in this delivery.

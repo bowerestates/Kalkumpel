@@ -1,5 +1,9 @@
 # Current task
 
+- [x] Add Google sign-in alongside email and a native Apple placeholder on both account pages; consent rules, public-return wiring and disabled-provider fallback verified (45 tests).
+- [x] Update account-flow documentation, upload to GitHub and verify exact matching files.
+- [ ] Google provider activation and real sign-in/account verification: hosted settings confirm Google is off; waits on Gordon’s Supabase/Google Cloud setup.
+
 - [x] Build four optional platform-aware health onboarding holders after Thanks, with safe skipping and saved preferences.
 - [x] Verify phone/desktop health onboarding flows and preference reload, reconcile documents, upload and verify exact GitHub matches (all nine docs plus AGENTS.md and roadmap.md; 41 regression tests pass). Real native health access and cross-device account readback remain upcoming.
 

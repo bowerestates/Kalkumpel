@@ -41,7 +41,7 @@ The progress bar covers steps 1–20; the setup animation, plan result and featu
 | 21 | Wir richten alles für Dich ein | % counter, progress bar, rotating status line, checklist: Kalorien, Kohlenhydrate, Protein, Fett. |
 | 22 | Ziel: X kg abnehmen bis [Datum] | Progress curve, daily kcal and macros; values come from the real calculation. |
 | 23 | Features / reviews | Completing saves the local plan draft, targets and starting weight, then opens the account stage. |
-| 24 | Sichere Deinen Fortschritt | Email/password signup or existing-account sign-in, required storage consent, separate optional future recipe/workout personalisation; then plan selection. Apple is native iOS only. |
+| 24 | Sichere Deinen Fortschritt | Google/email signup or existing-account sign-in, disabled Apple placeholder, required storage consent, separate optional future recipe/workout personalisation; then plan selection. Live Apple sign-in is native iOS only. |
 
 ## What is saved
 
@@ -75,3 +75,10 @@ Every page has „Überspringen“, which resets all optional wishes and goes di
 On feature completion, `onboardingDetails.healthSetup` saves version, platform, addBurnedCalories, syncWorkouts, connectionRequested, connectedPlatform (always null), and rolloverCalories locally. Existing owner-only profile JSON sync carries these validated wishes when signed in; no migration is required. Native apps must request real consent separately. Targets and all current calorie calculations are unchanged. Real account cross-device readback remains unverified.
 
 Testing: complete onboarding through Thanks, exercise Yes/No, switch Apple Health/Health Connect, prepare then continue, or skip any page; verify setup/result/account continue normally and saved wishes survive reload. Native integration is the next step, not delivered by these holders.
+
+
+## Google account layout — 19 Oct 2026
+
+Implemented: `/konto` and `/auth` show Apple (disabled, future iOS label), Google and email, preserving the white/mint design. On `/konto`, required storage consent gates Google/email and optional personalisation stays separate; choices are saved before leaving for Google. Google uses Gordon’s existing Supabase Auth, not a workspace Google connector. The callback is the same-origin public `/auth?oauth=google`, with `&next=paywall` for onboarding. The SDK establishes its session and `getUser()` validates it; onboarding returns to `/konto` to confirm consent before plan choice, while other accounts continue to Today or onboarding. No paid entitlement is granted and no second auth listener was added.
+
+Upcoming setup: create a Web application OAuth client in Google Cloud; register the callback URL shown in Supabase’s Google provider panel, configure the email/profile/openid scopes and enable Google in Supabase with the client ID/secret. Allow the exact app return URLs for each origin in Supabase Authentication → URL Configuration. Test Google in the published app or preview opened in a new tab, not the editor frame. Real Google login/account sync requires that provider setup; Apple is not a working web sign-in method.

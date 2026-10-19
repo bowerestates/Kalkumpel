@@ -9,10 +9,10 @@
 | State | Implemented access | Limits / future work |
 |---|---|---|
 | Guest | Welcome and onboarding, local plan/records; existing local app behaviour remains guest/offline capable | Normal completed onboarding leads to account stage before plan choice; local photo quota 3/day |
-| Signed-in Free | Email/password account, own profile/meals/weights/photos, Today, Capture, Progress and Settings | 3 AI photos/day, server-counted; barcode/manual logging has no photo quota |
+| Signed-in Free | Email/password or configured Google account, own profile/meals/weights/photos, Today, Capture, Progress and Settings | 3 AI photos/day, server-counted; barcode/manual logging has no photo quota |
 | Future Kumpel+ Pro | Preview only, not a delivered paid role | 5,99 €/week, 11,99 €/month or 34,99 €/year, 3-day trial on all plans, unlimited photos after server-verified checkout; advanced paid features upcoming |
 
-Apple sign-in is reserved for native iOS. Google is not implemented. Consent/profile fields and local `plan` values do not grant subscription entitlements. Future roles live separately from editable profiles.
+Apple sign-in is reserved for native iOS. Google OAuth is wired through Supabase; provider activation and real Google sign-in verification remain upcoming. Consent/profile fields and local `plan` values do not grant subscription entitlements. Future roles live separately from editable profiles.
 
 ## 2. Actual route map
 
@@ -20,8 +20,8 @@ Apple sign-in is reserved for native iOS. Google is not implemented. Consent/pro
 |---|---|
 | `/` | Approved black Welcome, existing logo, start and existing-account links |
 | `/onboarding` | 23 base screens plus up to four optional health-preparation pages; questions, setup, result and features |
-| `/konto` | White/mint save-progress account screen, consent, email signup/confirmation state or existing-account continuation |
-| `/auth` | Email/password sign-in/signup/reset request; validated plan continuation |
+| `/konto` | White/mint save-progress account screen, consent, Google/email signup and disabled Apple placeholder, confirmation state or existing-account continuation |
+| `/auth` | Google/email sign-in/signup, disabled Apple placeholder, email reset request and public Google return; validated plan continuation |
 | `/reset-password` | Password reset completion |
 | `/paywall` | Signed-out visitors return to account stage; Free continuation to Today; Premium explains unavailability |
 | `/heute` | Daily calories/macros and grouped meals; delete and saved meal-score review/edit |
@@ -49,7 +49,7 @@ The first 20 base screens use the question/interstitial progress bar. Optional p
 - Setup animation presents calculation progress, not proof of account creation in the background. There is no personal health score before logging a meal.
 - Comparison/potential/community art is illustrative. No invented ratings, counts, guaranteed results or testimonials.
 - Completing features writes the local profile/targets/starting weight and validated extra answers, then opens `/konto`.
-- Storage and optional recipe/workout personalisation consent begin unchecked; storage consent gates the email form. Email confirmation may be required; the local plan draft remains. Real delivery/settings/cross-device verification is still upcoming.
+- Storage and optional recipe/workout personalisation consent begin unchecked; storage consent gates Google and the email form. Email confirmation may be required; the local plan draft remains. Real delivery/settings/cross-device verification is still upcoming.
 - Existing-account sign-in returns through the account/plan continuation. Free starts the app; Premium cannot create an entitlement or start a real trial yet.
 
 Saved extra profile details include full birth date, workout bucket, source, prior-app answer, single obstacle/outcome, kg/lbs choice and weekly pace. Consent stores a version and latest timestamp; optional personalisation can be withdrawn in Profile. Height display preference and full consent history/withdrawal/deletion/export are not yet delivered. Legal review is required before launch or future reuse of sensitive information; no marketing email permission is assumed.
@@ -96,7 +96,7 @@ Phase 0 rollout is complete throughout Today, Progress, Capture/review, onboardi
 | Branding | Approved scanner-plate/flame Welcome logo and favicon; Gordon confirmed keeping the existing logo permanently | No replacement with older `assets/` logos |
 | Onboarding | 23 base in-route screens plus up to four optional health-preparation pages after Thanks, followed by the separate account stage | Full order in `Onboarding-progress.md`; remaining reference polish/options in `tasks.md` |
 | Targets | Mifflin-St Jeor-based calories/macros, goal-weight difference, guided pace and estimated target date | Estimates, not guaranteed outcomes; result-screen editing remains upcoming |
-| Accounts | Email/password signup/sign-in/reset, local plan draft, owner-scoped Supabase sync, unchecked storage and optional personalisation consent | Real confirmation delivery and cross-device checks still unverified; legal review, retention, export/deletion and complete consent history required |
+| Accounts | Email/password signup/sign-in/reset plus Google OAuth wiring and a disabled native Apple placeholder, local plan draft, owner-scoped Supabase sync, unchecked storage and optional personalisation consent | Real confirmation delivery and cross-device checks still unverified; legal review, retention, export/deletion and complete consent history required |
 | Photo analysis | Server-side OpenAI via Lovable AI Gateway; configured `AI_VISION_MODEL = "openai/gpt-6-luna"`; ingredient/portion review before saving; signed-in private photos | Model availability/access depends on provider; BLS grounding and scan-tips screen upcoming; no independently verified zero-retention guarantee |
 | Barcode | Browser camera scanning with ZXing, permission messaging, typed-code fallback, Open Food Facts lookup, gram-based nutrient scaling and review | Product coverage varies; fuller product/Nutri-Score sheet, BLS/USDA and attribution page upcoming |
 | Meal score | Photo/barcode/manual evidence, versioned estimated 1–10 score or null, independent confidence, saved explanation and failure-tolerant logging | No personal health score; real photo/barcode examples and signed-in cross-device verification remain upcoming |
@@ -120,3 +120,10 @@ Every page has „Überspringen“, which resets all optional wishes and goes di
 On feature completion, `onboardingDetails.healthSetup` saves version, platform, addBurnedCalories, syncWorkouts, connectionRequested, connectedPlatform (always null), and rolloverCalories locally. Existing owner-only profile JSON sync carries these validated wishes when signed in; no migration is required. Native apps must request real consent separately. Targets and all current calorie calculations are unchanged. Real account cross-device readback remains unverified.
 
 Testing: complete onboarding through Thanks, exercise Yes/No, switch Apple Health/Health Connect, prepare then continue, or skip any page; verify setup/result/account continue normally and saved wishes survive reload. Native integration is the next step, not delivered by these holders.
+
+
+## Google account layout — 19 Oct 2026
+
+Implemented: `/konto` and `/auth` show Apple (disabled, future iOS label), Google and email, preserving the white/mint design. On `/konto`, required storage consent gates Google/email and optional personalisation stays separate; choices are saved before leaving for Google. Google uses Gordon’s existing Supabase Auth, not a workspace Google connector. The callback is the same-origin public `/auth?oauth=google`, with `&next=paywall` for onboarding. The SDK establishes its session and `getUser()` validates it; onboarding returns to `/konto` to confirm consent before plan choice, while other accounts continue to Today or onboarding. No paid entitlement is granted and no second auth listener was added.
+
+Upcoming setup: create a Web application OAuth client in Google Cloud; register the callback URL shown in Supabase’s Google provider panel, configure the email/profile/openid scopes and enable Google in Supabase with the client ID/secret. Allow the exact app return URLs for each origin in Supabase Authentication → URL Configuration. Test Google in the published app or preview opened in a new tab, not the editor frame. Real Google login/account sync requires that provider setup; Apple is not a working web sign-in method.
