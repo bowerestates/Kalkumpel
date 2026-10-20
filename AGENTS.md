@@ -14,6 +14,7 @@
 - Scan counts (meal_analysis_usage) are read-only to users and must only be written server-side; why: prevents users bypassing the daily quota.
 - All UI copy goes through the de/en dictionaries in src/lib/i18n.ts (German default); why: language toggle in settings.
 - Render numeric/date/currency values through src/lib/format.ts and use DecimalInput for controlled numeric drafts, leaving stored values numeric and calendar keys unchanged; why: selected-language display stays consistent and comma/dot input never corrupts evidence or calculations.
+- Gate anything that reads the device clock, time zone or browser storage behind `useMounted()` (src/lib/utils.ts) so server-rendered markup and hydration agree; why: the server runs UTC and the user's device does not — unguarded dates broke interactivity when the local day differed from the UTC day.
 - AI meal analysis runs server-side via src/lib/meal-ai.server.ts (single AI_VISION_MODEL constant) called from analyzeMeal in meal-ai.functions.ts; why: model can be swapped in one place and the API key/quota writes stay on the server.
 - Welcome branding uses a dedicated image and page-scoped surface token rather than changing the shared Logo or background; why: approved welcome revisions must not alter the rest of the app.
 - Meal scoring uses the existing server-side model and a shared versioned rubric; evidence and validated results are stored with each entry, and saved-meal views never call AI until edits or an explicit reassessment because reopening must be free and offline-safe.
