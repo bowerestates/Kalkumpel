@@ -107,7 +107,10 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [x] Move app data from browser storage to the database on first sign-in; browser storage stays as the offline cache
 - [ ] Roles: Anonymous · Free · Kumpel+ Pro — upcoming (Pro status must be set server-side once Stripe exists)
 - [x] Google OAuth wired on `/konto` and `/auth` with a same-origin public return and a disabled native Apple placeholder (19 Oct 2026).
-- [ ] Activate Google in Gordon’s Supabase/Google Cloud settings and verify real Google sign-in, cancellation and account sync; Apple OAuth remains native-only.
+- [x] Activate Google in Gordon’s Supabase/Google Cloud settings (Testing mode) and verify real Google sign-in — confirmed by Gordon 21 Oct 2026; Apple OAuth remains native-only.
+- [ ] Google OAuth production (upcoming): publish legal privacy policy + terms URLs, add support email/logo/authorised domain, switch the Google Cloud consent screen from "Testing" to "In production", complete Google brand verification, then re-test with a non-test Google account.
+- [ ] Android (upcoming, native build): create an Android OAuth client in Google Cloud (package name + SHA-1 signing fingerprint) and register its client ID in Supabase's Google provider.
+- [ ] iOS (upcoming, native build): add an iOS OAuth client for Google; configure Sign in with Apple (Apple Developer Services ID, key, Bundle ID) in Supabase Auth — mandatory on the App Store when Google sign-in is offered.
 
 ## Phase 3 – Core App: Dashboard & Logging
 - [x] Dashboard: remaining / eaten kcal, rings for kcal, Eiweiß, Kohlenhydrate, Fett
