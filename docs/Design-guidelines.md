@@ -1,10 +1,12 @@
 # Kalkumpel — Design Guidelines (Web)
 
-## Profile reference enhancement design — 22 Oct 2026 (planned, not built)
+## Profile reference enhancement design — 22 Oct 2026 (Batch A built, remainder planned)
 
-The approved 15-screenshot review keeps its original 1–41 IDs, fully listed in [tasks.md](tasks.md). The following is the design brief for upcoming work, not a description of new running screens. Retain Plus Jakarta Sans, existing semantic tokens, white/mint default, nutrient colours and DE/EN formatting. Reuse familiar edit, back, share and delete icons, accessible labels and stable controls; all detail views return to their parent.
+The approved 15-screenshot review keeps its original 1–41 IDs, fully listed in [tasks.md](tasks.md). Personal Details (3/18/19) is built; other entries below remain the upcoming design brief. Retain Plus Jakarta Sans, existing semantic tokens, white/mint default, nutrient colours and DE/EN formatting. Reuse familiar edit, back, share and delete icons, accessible labels and stable controls; all detail views return to their parent.
 
 - **Personal Details (3, 18, 19a–19e):** Profile drill-down with prominent real goal-weight summary/„Zielgewicht ändern“, pencil-edit rows for current weight, height, birth date/derived age, gender and daily step target. Step goal is a preference, not tracked steps; 10.000 is an illustrative screenshot value. Weight edits preserve the rule that weighing never recalculates calorie goals.
+
+  Implemented `/profil/daten`: round mint back arrow to Profil, unframed goal summary with large weight, five divided icon/pencil rows and individual save/cancel dialogs. Birthday is a real date picker with derived age, not an age-only field or invented birthday. Missing birthday/step target shows „Noch nicht angegeben“. Numeric fields accept comma/dot and keep DE/EN display; current-weight history updates without changing targets. Existing Profile keeps name/goal/activity/diet and explicit recalculation, while these personal fields move to the new page. Desktop and English 390 px layouts/browser saving are checked; signed-in cross-device readback is not verified.
 - **Preferences (4, 7, 20, 21, 23–26):** dedicated page; three appearance previews (System/Hell/Dunkel), switches for badge celebrations, future burned-calorie credit, future rollover and opt-in macro rebalance. Health row opens preparation wishes only, never fake connected status. Theme variants must keep text/control contrast and Welcome branding; disabling celebrations must not disable badge earning. Marketing opt-in/withdrawal must be visibly independent of existing recipe/workout personalisation and default unchecked. No marketing delivery is implied.
 - **Nutrition Goals (8, 27, reuse 28):** vertical four-item calorie/protein/carbohydrate/fat editor with real target rings, validated decimal drafts and current nutrient colours (calorie dark/flame, protein red, carbohydrate amber, fat blue). Reuse explicit „Ziele neu berechnen“; do not make weigh-ins auto-recalculate targets. Auto-adjust macros (25) applies only after intentional calorie-target edits with opt-in.
 - **Weight History (11, 29–31):** „Letztes Wiegen“, large real weight, real ± change since baseline month, date/weight rows and sticky „Gewicht eintragen“. Retain add/edit/delete and no target recalculation. Show photo markers only for actual associated pictures from 38.
@@ -16,13 +18,13 @@ The approved 15-screenshot review keeps its original 1–41 IDs, fully listed in
 - **Weekly calories (39):** segmented choices „Diese Woche“, „Letzte Woche“, „Vor 2 Wochen“, „Vor 3 Wochen“ controlling real bars/average. Missing-day denominator, corrections and local week boundaries need a documented rule before implementation; no invented averages.
 - **BMI (41):** real BMI/status, four-segment spectrum and accurately placed indicator, informational tooltip/dialog. Adult bands blue <18.5, green 18.5–<25, amber 25–<30, red ≥30 (include exactly 30.0). Locale-aware values, non-diagnostic explanation, adult applicability and appropriate limitations; no personal health score or judgement.
 
-**Keep unchanged:** 1 header (no new avatar/username functionality implied), 2 invites (no cash reward), 5 language, 10 reminders (native notifications still deferred), 28 explicit recalculation and 34 Today macros. Item 19 is alignment/new editing work, not wholly complete.
+**Keep unchanged:** 1 header (no new avatar/username functionality implied), 2 invites (no cash reward), 5 language, 10 reminders (native notifications still deferred), 28 explicit recalculation and 34 Today macros. Item 19's local editing is now complete; account readback remains separate.
 
 **Ignore:** 6 family plan, 9 duplicate goals row, 12 extra Profile ring guide row (keep guide via Fortschritt), 13 native widget carousel on web, 16 logout redesign (keep working logout).
 
 **Park:** 14a–14h support/legal section content/presentation, 22 Live Activities, 32 PDF explainer/generator, 37 weight interval comparisons and 40 expenditure comparisons. Parking AGB/privacy rows does not waive launch legal obligations. Burned-calorie/carryover switches are web preparation only; real OS access and budget changes remain native work.
 
-**Acceptance:** verify detail/back navigation, input save/reload, empty/error states, real calculations, DE/EN, phone/desktop fit and owner-only photo/account actions as each batch is built. No such new-feature verification is claimed by this documentation update.
+**Acceptance:** Batch A detail/back, all field saves/reload, invalid weight and phone/desktop layouts pass with no page errors and 54 passing tests. Remaining batches require their own checks; owner-only photo/account actions and Batch A account readback are not certified here.
 
 > Updated: 11 Oct 2026. Approved design, not the older native dark-theme proposal.  
 > Clean, approachable, high-contrast nutrition tracking. Detailed screen checkpoint: [Onboarding-progress.md](Onboarding-progress.md).

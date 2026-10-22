@@ -1,12 +1,12 @@
 # Kalkumpel — Implementation Plan (Web)
 
-## Profile review build batches — 22 Oct 2026 (upcoming)
+## Profile review build batches — 22 Oct 2026 (A built, remainder upcoming)
 
-This documentation delivery records the approved 41-item review; it implements no application changes. Full numbered decisions/acceptance checks are in [tasks.md](tasks.md), planned design in [Design-guidelines.md](Design-guidelines.md), product boundaries in [Masterplan.md](Masterplan.md). Existing phase completion history is not proof that these enhancements are built.
+This ledger tracks the approved 41-item review. Batch A is implemented; remaining rows are upcoming. Full numbered decisions/acceptance checks are in [tasks.md](tasks.md), design in [Design-guidelines.md](Design-guidelines.md), product boundaries in [Masterplan.md](Masterplan.md).
 
 | Order | IDs / phase | Upcoming delivery and verification |
 |---|---|---|
-| A | 3, 18, 19a–19e / Phase 7 | Personal Details page with goal-weight summary, validated weight/height/birth-date/gender/step-target editing and parent back navigation. Save/reload and real-account readback; weighing never recalculates targets. |
+| A — implemented | 3, 18, 19a–19e / Phase 7 | `/profil/daten`, real goal summary, six fields, pencil dialogs/save/cancel/back; 54 tests pass and local browser all-field save/reload/invalid/back plus EN phone pass. Existing JSON/weight sync reused, no migration. Account readback remains unverified. |
 | B | 4, 7, 20, 21, 23–26 / Phase 7; native dependencies Phase 11 | Preferences page: theme, celebration presentation, saved health wishes, opt-in macro adjustment, independent marketing consent/withdrawal. Verify theme contrast/persistence, earning with celebrations off, consent isolation and no fake connection/web credit. |
 | C | 8, 27; reuse 28 / Phase 7 | Four-card manual calorie/macro target editor and explicit recalculation. Validate numeric edits, macro opt-in off/on, no weigh-in-triggered changes, save/reload. |
 | D | 11, 29–31 / Phases 6–7 | Dedicated weight history with real latest date/change, sticky add and existing edit/delete; no target changes. Photo association depends on 38. |
@@ -20,7 +20,7 @@ Before relevant builds: define weekly-average denominator/missing-day/correction
 
 **Excluded/new build not required:** 6, 9, 12, 13, 16. **Parked:** 14a–14h, 22, 32, 37, 40; launch terms/privacy obligations still apply. **Keep current:** 1, 2, 5, 10, 28, 34. Do not claim that unchanged header has new avatar/username editing or that existing personalisation grants marketing permission.
 
-First implementation task is Batch A; all batches remain unchecked in tasks.md. Each future delivery needs rule tests and central-flow browser verification where applicable, matching documentation and exact GitHub verification.
+Next implementation task is Batch B; Batch A implementation/local verification is checked in tasks.md, account verification stays open. `personalDetailsPatch` validates one-field edits and preserves targets; birth date and step goal use optional keys in validated onboarding-details JSON, with null legacy answers and no invented birthday. Settings exposes explicit recalculation when saved profile inputs yield different targets. Each future delivery needs rule tests and central-flow browser verification, matching documentation and exact GitHub verification.
 
 > Updated: 11 Oct 2026. Phase numbering matches [tasks.md](tasks.md).  
 > Current stack: TanStack Start / React / TypeScript / Tailwind v4 / Gordon’s Supabase / OpenAI through Lovable AI Gateway.  

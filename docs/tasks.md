@@ -9,17 +9,17 @@
 >
 > Legend: `[x]` done · `[~]` partly done / placeholder · `[ ]` upcoming
 
-## Profile reference review — 22 Oct 2026 (approved documentation, builds upcoming)
+## Profile reference review — 22 Oct 2026 (Batch A implemented; other builds upcoming)
 
-Gordon's annotated 15-screenshot review is catalogued below with the original **1–41 IDs**. Quote an ID to change scope. This delivery updates documents only; it does not build new screens or mark a reference feature as implemented. This ledger governs the new enhancement queue; existing phase records remain delivery history.
+Gordon's annotated 15-screenshot review is catalogued below with the original **1–41 IDs**. Quote an ID to change scope. Batch A (3/18/19) is now implemented and locally verified; the other enhancement batches remain upcoming. This ledger governs the enhancement queue; existing phase records remain delivery history.
 
-**Status groups:** Ignore: 6, 9, 12, 13, 16. Park: 14a–14h, 22, 32, 37, 40. Keep existing: 1, 2, 5, 10, 28, 34. Build/modify/align: all other IDs, with the dependencies below. Item 19 remains active: several attributes already exist, but its dedicated presentation, birth-date editing and step-goal field are not thereby complete.
+**Status groups:** Ignore: 6, 9, 12, 13, 16. Park: 14a–14h, 22, 32, 37, 40. Keep existing: 1, 2, 5, 10, 28, 34. Implemented/local checks pass: 3, 18, 19a–19e; real account readback remains unverified. Build/modify/align: other IDs, with the dependencies below.
 
 | ID | Item | Decision and required work |
 |---|---|---|
 | 1 | Header / avatar / name / username reference | Keep current header unchanged; no new avatar/username capability claimed. |
 | 2 | Referral banner | Keep existing invite flow and friend badges; no cash reward or promo redesign. |
-| 3 | Personal details row | Build dedicated details page, preserving validated editing. |
+| 3 | Personal details row | Implemented `/profil/daten`, reached from Profil with a back arrow and validated edit dialogs. |
 | 4 | Preferences row | Build dedicated preferences page. |
 | 5 | Language | Keep current DE/EN control. |
 | 6 | Family plan | Ignore; no family tier. |
@@ -41,12 +41,12 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 | 15 | Follow Us | Build Instagram and TikTok links supplied by Gordon; omit X without a supplied address. |
 | 16 | Logout redesign | Ignore redesign; preserve sign-out and local clearing. |
 | 17 | Delete account | Build verified account deletion, not local reset; owner data/photos/auth user, confirmation, failure handling and re-sign-in verification required. No GDPR-compliance certification without legal review. |
-| 18 | Goal-weight summary | Build prominent real goal weight and „Zielgewicht ändern“ action. |
-| 19a | Current weight | Align editable real weight with existing weight history; never auto-change calorie target. |
-| 19b | Height | Align validated height editing with selected-language values. |
-| 19c | Birth date / age | Build full birth-date editing; preserve stored date and derive displayed age. |
-| 19d | Gender | Align existing gender editing. |
-| 19e | Daily step goal | Build a saved editable target, not measured steps or health connection. Screenshot 10.000 is an example, not a decided default. |
+| 18 | Goal-weight summary | Implemented prominent real goal weight and „Zielgewicht ändern“; saving does not change current weight or targets. |
+| 19a | Current weight | Implemented edit/upsert of today's local-date weigh-in (20–400 kg), preserving history and all nutrition targets. |
+| 19b | Height | Implemented validated 100–250 cm editing with comma/dot drafts and selected-language display. |
+| 19c | Birth date / age | Implemented real calendar-date validation and full-date editing; displayed age is derived, accepted ages 13–100, old missing birthdays are not guessed. |
+| 19d | Gender | Implemented three existing gender choices with explicit save/cancel; targets remain unchanged. |
+| 19e | Daily step goal | Implemented optional saved whole-number target (0–100.000, technical input guard, no chosen default), not measured steps or health connection. |
 | 20 | System / Light / Dark appearance | Build theme preference and readable full-app presentation; preserve approved Welcome branding and nutrient colours. |
 | 21 | Badge celebrations switch | Build switch controlling unlock presentation only; earning/count/sync unchanged. |
 | 22 | Live Activities | Park for native iOS Lock Screen / Dynamic Island. |
@@ -71,7 +71,8 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 | 41 | BMI view | Build real BMI, category, segmented bar/indicator and info explanation on Progress. Adult bands: <18.5, 18.5–<25, 25–<30, ≥30 (30.0 included). Informational, non-diagnostic; appropriate caveats and handling for unsupported profiles. |
 
 ### Upcoming build batches and acceptance checks
-- [ ] **Batch A — Personal details (3, 18, 19):** dedicated page/back, validated edits and save/reload; current weight updates history without changing calorie target; step goal never masquerades as observed activity.
+- [x] **Batch A — Personal details (3, 18, 19):** `/profil/daten`, prominent goal weight, five pencil-edit rows, save/cancel/invalid states and Profile back arrow. All six fields browser-saved and reload-checked, weight history upsert and unchanged calorie/macro goals tested. 54 tests pass; DE desktop and EN phone checked, no page errors; preview build clean. JSON schema preserves optional step goal and supports legacy missing birthdays; no migration or permission changes.
+- [ ] **Batch A account verification:** real signed-in save/readback on another device remains unverified; external unmanaged Supabase does not provide an authenticated browser session for automated checks. Existing owner-only profile/weight sync is reused unchanged.
 - [ ] **Batch B — Preferences (4, 7, 20, 21, 23–26):** theme persistence/contrast, celebrations off without disabling unlocks, independent consent switches/withdrawal, safe health wishes; no OS permissions, connected status or new web credit.
 - [ ] **Batch C — Nutrition goals (8, 27; reuse 28):** validated manual values and explicit recalculation; confirm auto-adjust off/on behaviour and no automatic recalculation after weighing.
 - [ ] **Batch D — Weight history (11, 29–31):** real date/weight/change summary, add/edit/delete/reload and back navigation; associate photos only after 38.
@@ -86,9 +87,14 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 - [x] Update design, masterplan, implementation and flow documents with the same scope and safety boundaries; no application changes in this delivery.
 - [x] Upload affected documents and roadmap to `bowerestates/Kalkumpel` main and verify exact remote-file matches (22 Oct 2026): all six files passed Git blob fingerprint and decoded-content comparisons in commit `6208a0739f1e85b253d7327f472861923c600d24`; completion record synchronized and checked again before delivery.
 
-**How to check now:** read this ledger alongside Design-guidelines' “Profile reference enhancement design”, Masterplan's review scope, Implementation-plan's build batches and App Flow's planned destinations. Every ID must appear; ignored/parked work must not be marked built. Screens remain unchanged.
+**How to check now:** Profil → Persönliche Daten; edit goal weight and each pencil row, save, reload and return using the back arrow. Check the current weight in Fortschritt and confirm calories/macros did not change. Enter an invalid weight/date/step count and verify rejection; cancel leaves data unchanged. Switch English and repeat. „Ziele neu berechnen“ in Profil remains explicit and becomes available when saved details produce a different target.
 
-**Next step:** Batch A, the Personal Details page (3/18/19), followed by preferences and nutrition goals. All feature work above remains upcoming; this request authorises document updates only.
+**Next step:** Batch B, Preferences (4/7/20/21/23–26), then nutrition goals. Batch A account readback remains a separate open check; other features remain upcoming.
+
+### Personal Details delivery — 22 Oct 2026
+- [x] Build and locally verify items 3, 18 and 19a–19e; preserve consent, health wishes, existing answers, pace and nutrition targets.
+- [x] Update affected masterplan/design/implementation/flow and architecture notes; onboarding order and other feature scope unchanged.
+- [ ] Upload Personal Details documentation and verify exact GitHub matches before completion.
 
 ---
 

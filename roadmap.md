@@ -1,10 +1,14 @@
 # Current task
 
+- [x] Build and locally verify Personal Details (3, 18, 19): six fields, save/cancel/back/reload, invalid-weight rejection, DE desktop/EN phone; targets unchanged, 54 tests pass, clean preview. Account readback remains unverified (external unmanaged Supabase).
+- [ ] Update affected product/architecture documents, upload to GitHub and verify exact matches for the Personal Details delivery.
+
 - [x] Record the agreed 41-item Profile/Heute/Fortschritt review in tasks, design, masterplan, implementation and flow documents; feature builds remain upcoming.
 - [x] Upload this review documentation to Kalkumpel main and verify exact remote matches; six files passed fingerprint and decoded-content comparisons (22 Oct 2026), including a follow-up completion-record delivery.
 
 ## Profile review build queue (22 Oct 2026)
-- [ ] Personal details and goal-weight editing (3, 18, 19); preferences and safe health-preparation settings (4, 7, 20, 21, 23–26).
+- [x] Personal details and goal-weight editing (3, 18, 19).
+- [ ] Preferences and safe health-preparation settings (4, 7, 20, 21, 23–26).
 - [ ] Nutrition-goal page (8, 27), weight-history page (11, 29–31), Instagram/TikTok links (15), real account deletion (17).
 - [ ] Heute empty state (35); rollover indicator (33) waits for native accounting (24), not a fabricated web credit.
 - [ ] Progress goal-date estimate (36), private photos/history (38, 30), historical weekly calorie averages (39), BMI view (41).
