@@ -372,7 +372,7 @@ Upcoming setup: create a Web application OAuth client in Google Cloud; register 
 - [x] Build items 8/27, reuse 28 and activate the saved item 25 opt-in for intentional calorie-target edits only.
 - [x] Verify guest UI save/cancel/reload, real meal rings, comma/dot values, invalid rejection, ratio-preserving rebalance, confirmed recalculation and English phone fit; 67 tests pass with no browser page errors and a clean preview build.
 - [x] Update affected design, masterplan, implementation, flow and architecture documents.
-- [ ] Upload updated documents to GitHub and verify exact remote-file matches.
+- [x] Upload updated documents to GitHub and verify exact remote-file matches; all seven affected files matched decoded remote contents on Kalkumpel main (22 Oct 2026).
 
 **Validation:** technical input guards are 1,200–10,000 kcal and 0–2,500 g per macro; finite decimals, stored to two decimals. They are not personalised dietary advice. The calorie floor follows existing calculation behaviour; upper limits are technical safeguards, not user-selected recommendations. Rebalance preserves existing macro energy proportions using 4/4/9 kcal per gram and rounds to two decimals; if all macros are zero, reject rebalance rather than inventing shares. Calorie edits with opt-in off change only calories; direct macro edits change only that macro. Weigh-ins and personal edits remain unchanged.
 
