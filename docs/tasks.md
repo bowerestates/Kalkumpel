@@ -128,7 +128,8 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
     Model is one constant (`AI_VISION_MODEL`) so switching to Claude etc. later is a one-line change.
 - [x] Meal photos saved to the private `meal-photos` storage (signed-in users only) and linked to the entry
 - [x] Review screen: edit ingredients, portion slider / grams, add forgotten sides
-- [x] Scan tips screen — built 21 Oct 2026 as the 4-step „So funktioniert's“ guide on Heute (best scan, AI analysis, adjust results, barcode/label/manual for accuracy; final „Jetzt scannen“ opens Erfassen). Opens automatically on the first Heute visit after onboarding, then via the floating button. Step-1 photo matches the onboarding gender: sporty woman, fit gym man, or both together for divers.
+- [x] Scan tips screen — built 21 Oct 2026 as the 4-step „So funktioniert's“ guide on Heute (best scan, AI analysis, adjust results, barcode/label/manual for accuracy; final „Jetzt scannen“ opens Erfassen). Opens automatically on the first Heute visit after onboarding, then via its own button. Step-1 photo matches the onboarding gender: sporty woman, fit gym man, or both together for divers.
+- [x] Guide button placement (22 Oct 2026): the „So funktioniert's“ trigger is no longer a floating badge — it is a full-width card-style button placed directly above the „Schnell korrigieren“ card on Heute, sharing that card's exact width and left edge (verified byte-aligned at preview and 390 px phone widths).
 - [x] Daily quota 3/day free: signed-in users counted server-side (`meal_analysis_usage`), guests counted in browser storage; friendly "aufgebraucht" card links to paywall
 - [x] Pro scan quota — unlimited scans/day (confirmed 10 Oct 2026; enforced once Stripe/Pro roles exist — until then everyone gets 3/day)
 - [ ] Ground AI results against BLS reference values
