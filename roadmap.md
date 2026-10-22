@@ -1,5 +1,7 @@
 # Current task
 
+- [x] Use the red Kalkumpel flame for Tage in Folge; desktop/phone appearance and badge navigation verified; documentation synchronized and exact GitHub matches verified.
+
 - [x] Open all 28 achievable badges immediately from the single progress icon; hover, detail, back and mobile checks pass; 12 badge tests pass; documentation synchronized and verified.
 
 - [x] Compact Fortschritt streak summary and move badges behind one icon to a dedicated page, preserving explanations and back navigation.
