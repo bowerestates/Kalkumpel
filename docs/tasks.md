@@ -9,11 +9,11 @@
 >
 > Legend: `[x]` done · `[~]` partly done / placeholder · `[ ]` upcoming
 
-## Profile reference review — 22 Oct 2026 (Batches A and B implemented; other builds upcoming)
+## Profile reference review — 22 Oct 2026 (Batches A–C implemented; later builds upcoming)
 
-Gordon's annotated 15-screenshot review is catalogued below with the original **1–41 IDs**. Quote an ID to change scope. Batch A (3/18/19) and Preferences Batch B are implemented and locally verified; Batch C and later enhancements remain upcoming. This ledger governs the enhancement queue; existing phase records remain delivery history.
+Gordon's annotated 15-screenshot review is catalogued below with the original **1–41 IDs**. Quote an ID to change scope. Personal Details, Preferences and Nutrition Goals (Batches A–C) are implemented and locally verified; later enhancements remain upcoming. This ledger governs the enhancement queue; existing phase records remain delivery history.
 
-**Status groups:** Ignore: 6, 9, 12, 13, 16. Park: 14a–14h, 22, 32, 37, 40. Keep existing: 1, 2, 5, 10, 28, 34. Implemented/local checks pass: 3, 4, 7, 18, 19a–19e, 20, 21, 23, 24 and 26; item 25 has its saved opt-in but awaits the Batch C editor; real account readback remains unverified. Build/modify/align: other IDs, with the dependencies below.
+**Status groups:** Ignore: 6, 9, 12, 13, 16. Park: 14a–14h, 22, 32, 37, 40. Keep existing: 1, 2, 5, 10, 28, 34. Implemented/local checks pass: 3, 4, 7, 18, 19a–19e, 20, 21, 23, 24, 25, 26, 8 and 27; item 28 is reused with confirmation; real account readback remains unverified. Build/modify/align: other IDs, with the dependencies below.
 
 | ID | Item | Decision and required work |
 |---|---|---|
@@ -24,7 +24,7 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 | 5 | Language | Keep current DE/EN control. |
 | 6 | Family plan | Ignore; no family tier. |
 | 7 | Apple Health / Health Connect management | Implemented editable saved platform/workout/connection-request wishes; always shows not connected and requests no OS permission. |
-| 8 | Nutrition goals row | Build dedicated calorie/macro editor. |
+| 8 | Nutrition goals row | Implemented `/profil/ziele`, linked from Profil with back arrow and individual calorie/macro edits. |
 | 9 | Duplicate goals/current-weight row | Ignore duplicate; use 3/18/19 and 8/27. |
 | 10 | Tracking reminders | Keep `/erinnerungen`; local preferences only, native notification delivery deferred. |
 | 11 | Weight history row | Build Profile drill-down, reusing existing real weight history/edit/delete. |
@@ -52,10 +52,10 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 | 22 | Live Activities | Park for native iOS Lock Screen / Dynamic Island. |
 | 23 | Add burned calories switch | Implemented preference editing only; native verified activity credit remains deferred. |
 | 24 | Rollover switch | Implemented saved-wish editing; carryover up to 200 kcal remains native/deferred and current budgets are unchanged. |
-| 25 | Auto-adjust macros | Implemented default-off opt-in preference. Actual rebalance belongs to the upcoming manual calorie editor (Batch C); no current targets or weigh-ins change. |
+| 25 | Auto-adjust macros | Implemented default-off preference and rebalance on intentional calorie edits in `/profil/ziele`: preserve current macro energy shares (4/4/9 kcal per gram), preview and save. Other edits/weigh-ins do not rebalance. Empty macro ratios reject instead of inventing values. |
 | 26 | Marketing emails | Implemented separate unchecked opt-in/withdrawal with timestamp; personalisation remains independent. No email delivery service is connected. |
-| 27 | Four nutrition-goal cards | Build calorie/protein/carbohydrate/fat rings and validated manual inputs using current nutrient colours. |
-| 28 | Auto-generate goals | Keep existing explicit „Ziele neu berechnen“ calculation; reuse on new goals page. |
+| 27 | Four nutrition-goal cards | Implemented four vertical cards, real today-consumed/target rings, existing nutrient colours, pencil dialogs, comma/dot decimal input and explicit save/cancel. |
+| 28 | Auto-generate goals | Existing explicit calculation retained; new goals page previews all four calculated targets and requires confirmation before replacing manual goals. |
 | 29 | Weight-history header | Build latest weigh-in date, current weight and real change since baseline month. |
 | 30 | Weigh-in/photo history | Build history presentation and photo association; retain existing edit/delete. Photo indicators require real saved photos (38). |
 | 31 | Fixed log-weight action | Align sticky „Gewicht eintragen“ action and existing validation; no calorie-target changes. |
@@ -75,7 +75,8 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 - [ ] **Batch A account verification:** real signed-in save/readback on another device remains unverified; external unmanaged Supabase does not provide an authenticated browser session for automated checks. Existing owner-only profile/weight sync is reused unchanged.
 - [x] **Batch B — Preferences (4, 7, 20, 21, 23–26):** `/profil/einstellungen`; theme persistence/system response, celebration suppression with unlocks retained, independent consent withdrawal and health wishes with no connection/permission/web credit. 59 tests pass; DE desktop dark and EN phone light/dark checked, all switches reload, no page errors, preview build clean.
 - [ ] **Batch B account verification:** signed-in cross-device readback of preferences/marketing consent remains unverified because this external Supabase project cannot provide an automated session.
-- [ ] **Batch C — Nutrition goals (8, 27; reuse 28):** validated manual values and explicit recalculation; confirm auto-adjust off/on behaviour and no automatic recalculation after weighing.
+- [x] **Batch C — Nutrition goals (8, 27; reuse 28, complete 25):** `/profil/ziele` built; all four manual saves, comma/dot input, invalid rejection, cancel/reload, opt-in off/on rebalance, confirmed recalculation and back navigation browser-checked; actual meal totals populate rings. English 390 px layout checked; 67 tests pass; preview build clean. Existing owner-only target sync reused; no migration.
+- [ ] **Batch C account verification:** signed-in cross-device target readback remains unverified (external unmanaged Supabase).
 - [ ] **Batch D — Weight history (11, 29–31):** real date/weight/change summary, add/edit/delete/reload and back navigation; associate photos only after 38.
 - [ ] **Batch E — Social links (15):** Instagram `https://www.instagram.com/kalkumpel/` and TikTok `https://www.tiktok.com/@kalkumpel_ki`; verify safe external opening; no invented X link.
 - [ ] **Batch F — Account deletion (17):** verified signed-in owner deletion, confirmation/cancel, retry/error handling, local cache clearing and hosted readback for data/photo/auth removal; legal review remains separate.
@@ -92,7 +93,7 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 
 **How to check Preferences:** Profil → Einstellungen; choose Hell/Dunkel/System, toggle each switch, reload and return. Turn celebrations off and confirm earned badges still increase. Withdraw marketing and confirm recommendations remain unchanged.
 
-**Next step:** Batch C, nutrition goals (8/27/28), including the actual opt-in macro rebalance. Batch A/B account readback remains open; other features remain upcoming.
+**Next step:** Batch D, Weight History (11/29–31). Batches A–C signed-in cross-device readback remain unverified; later features remain upcoming.
 
 ### Preferences delivery — 22 Oct 2026
 - [x] Build and locally verify items 4, 7, 20, 21 and 23–26, with item 25 preference saved for Batch C.
@@ -365,3 +366,16 @@ Upcoming setup: create a Web application OAuth client in Google Cloud; register 
 - [x] Hosted auth settings read successfully: email enabled, Google disabled. No provider configuration changed.
 - [ ] Gordon: enable Google in Supabase with a Google Cloud Web OAuth client and allow the documented return URLs; then verify real Google sign-in/account readback in a new-tab preview or published app.
 - [x] Reconcile and save account design/flow/masterplan/implementation/onboarding documentation; upload and verify all nine docs plus AGENTS.md and roadmap.md as exact GitHub matches in this delivery.
+
+
+### Nutrition Goals delivery — 22 Oct 2026
+- [x] Build items 8/27, reuse 28 and activate the saved item 25 opt-in for intentional calorie-target edits only.
+- [x] Verify guest UI save/cancel/reload, real meal rings, comma/dot values, invalid rejection, ratio-preserving rebalance, confirmed recalculation and English phone fit; 67 tests pass with no browser page errors and a clean preview build.
+- [x] Update affected design, masterplan, implementation, flow and architecture documents.
+- [ ] Upload updated documents to GitHub and verify exact remote-file matches.
+
+**Validation:** technical input guards are 1,200–10,000 kcal and 0–2,500 g per macro; finite decimals, stored to two decimals. They are not personalised dietary advice. The calorie floor follows existing calculation behaviour; upper limits are technical safeguards, not user-selected recommendations. Rebalance preserves existing macro energy proportions using 4/4/9 kcal per gram and rounds to two decimals; if all macros are zero, reject rebalance rather than inventing shares. Calorie edits with opt-in off change only calories; direct macro edits change only that macro. Weigh-ins and personal edits remain unchanged.
+
+**How to test:** Profil → Ernährungsziele → pencil; edit each target, save and reload. Cancel an edit or enter invalid text and confirm saved values are unchanged. Enable „Makros automatisch anpassen“ in Preferences, deliberately edit calories, review the three adjusted values and save. „Ziele neu berechnen“ previews all four estimates and changes nothing until confirmed. Back arrow returns to Profil.
+
+**Not verified:** authenticated cross-device target readback is unavailable for this external Supabase project. Existing owner-only target sync is reused unchanged.
