@@ -387,4 +387,4 @@ Gordon selected “Update calorie total”. Macro edits now recalculate calories
 Verified: all four real UI edits, dependent previews, invalid rejection, cancel and reload; no browser page errors, 69 tests pass, preview build clean. Authenticated cross-device readback remains unverified. How to test: Ernährungsziele → edit Eiweiß/Fett/Kohlenhydrate and confirm calories update; edit Kalorien and confirm all three macros scale; save and reload. Next: Weight History (11/29–31).
 - [x] Implement and verify linked manual nutrition target edits.
 - [x] Update documentation and remove the obsolete manual-adjustment switch.
-- [ ] Upload and verify exact GitHub copies for linked manual nutrition edits.
+- [x] Upload and verify exact GitHub copies for linked manual nutrition edits; all seven affected documents matched remote decoded contents on Kalkumpel main.
