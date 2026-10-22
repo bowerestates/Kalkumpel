@@ -9,9 +9,9 @@
 >
 > Legend: `[x]` done · `[~]` partly done / placeholder · `[ ]` upcoming
 
-## Profile reference review — 22 Oct 2026 (Batches A–C implemented; later builds upcoming)
+## Profile reference review — 22 Oct 2026 (Batches A–C and 39/41 implemented; later builds upcoming)
 
-Gordon's annotated 15-screenshot review is catalogued below with the original **1–41 IDs**. Quote an ID to change scope. Personal Details, Preferences and Nutrition Goals (Batches A–C) are implemented and locally verified; later enhancements remain upcoming. This ledger governs the enhancement queue; existing phase records remain delivery history.
+Gordon's annotated 15-screenshot review is catalogued below with the original **1–41 IDs**. Quote an ID to change scope. Personal Details, Preferences, Nutrition Goals (Batches A–C) and Progress insights (39/41) are implemented and locally verified; other enhancements remain upcoming. This ledger governs the enhancement queue; existing phase records remain delivery history.
 
 **Status groups:** Ignore: 6, 9, 12, 13, 16. Park: 14a–14h, 22, 32, 37, 40. Keep existing: 1, 2, 5, 10, 28, 34. Implemented/local checks pass: 3, 4, 7, 18, 19a–19e, 20, 21, 23, 24, 25, 26, 8, 27, 39 and 41; item 28 is reused with confirmation; real account readback remains unverified. Build/modify/align: other IDs, with the dependencies below.
 
@@ -81,7 +81,7 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 - [ ] **Batch E — Social links (15):** Instagram `https://www.instagram.com/kalkumpel/` and TikTok `https://www.tiktok.com/@kalkumpel_ki`; verify safe external opening; no invented X link.
 - [ ] **Batch F — Account deletion (17):** verified signed-in owner deletion, confirmation/cancel, retry/error handling, local cache clearing and hosted readback for data/photo/auth removal; legal review remains separate.
 - [ ] **Batch G — Heute (35; dependency 33):** verify illustrated empty state opens Erfassen; do not render rollover credit until 24 has real native accounting.
-- [x] **Batch H subset — 39/41:** weekly calories and adult informational BMI implemented; 78 tests pass (including 9 new insight tests); German desktop and English 390 px browser checks verified all four averages, info dialogs, empty/minor states, weight edit → BMI 25.0 to 30.0, reload and unchanged targets, with no page errors. Existing local/account data paths are reused; authenticated cross-device checks remain unverified (external unmanaged Supabase).
+- [x] **Batch H subset — 39/41:** weekly calories and adult informational BMI implemented; 82 tests pass (including 13 new insight tests; local DST week checked in Europe/Berlin); German desktop and English 390 px browser checks verified all four averages, info dialogs, empty/minor states, weight edit → BMI 25.0 to 30.0, reload and unchanged targets, with no page errors. Existing local/account data paths are reused; authenticated cross-device checks remain unverified (external unmanaged Supabase).
 - [ ] **Batch H remainder — 36/38:** estimated goal arrival and private progress-photo lifecycle/history association remain upcoming.
 - [ ] **Native dependency — 24/33 and 23:** verified energy/carryover accounting with 200 kcal maximum, local dates, no double-counting; web switches alone do not implement this.
 
@@ -395,7 +395,7 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 
 - **Weekly calculation:** Local Monday–Sunday weeks; average over days with finite calorie entries only (including correction-only days). Signed corrections are included once, daily totals clamp at zero, missing/future days are excluded, and no data shows an unknown average rather than zero. Partly logged days may understate intake. Four selectors cover this week and the preceding three weeks; current targets colour rings only, not historical target evidence.
 - **BMI calculation and presentation:** Read-only BMI uses current saved profile weight / height²; valid ranges reuse 20–400 kg and 100–250 cm. Adult age 18–100 is derived from a real birthday when available, otherwise stored age; invalid/minor profiles show an unavailable explanation with no adult category. Unrounded BMI determines <18.5 / 18.5–<25 / 25–<30 / ≥30 bands (blue/green/amber/red). Equal-width segments map 10/18.5/25/30/40 to 0/25/50/75/100%, clamping outside 10–40; outer limits are visual only, not eligibility/category boundaries. The information dialog explains formula, non-diagnostic limits, muscle mass/body build and pregnancy/breastfeeding applicability. No profile or nutrition-target writes.
-- **Verification:** 78 tests pass (including 9 new insight tests); German desktop and English 390 px browser checks verified all four averages, info dialogs, empty/minor states, weight edit → BMI 25.0 to 30.0, reload and unchanged targets, with no page errors. Existing local/account data paths are reused; authenticated cross-device checks remain unverified (external unmanaged Supabase).
+- **Verification:** 82 tests pass (including 13 new insight tests; local DST week checked in Europe/Berlin); German desktop and English 390 px browser checks verified all four averages, info dialogs, empty/minor states, weight edit → BMI 25.0 to 30.0, reload and unchanged targets, with no page errors. Existing local/account data paths are reused; authenticated cross-device checks remain unverified (external unmanaged Supabase).
 - **How to test:** Fortschritt → select each historical week, check dates/average and open its information icon. Check BMI and its information icon; edit weight under Profil → Persönliche Daten, return/reload, and confirm BMI changes but calorie/macronutrient targets do not. Switch English to verify numbers/dates.
 - **Next:** Weight History (11/29–31); 36/38 remain upcoming. Documentation GitHub delivery is tracked in tasks/roadmap.
-- [ ] Upload items 39/41 documentation to GitHub and verify exact matching contents.
+- [x] Upload items 39/41 documentation to GitHub and verify exact matching contents; all seven product/architecture/roadmap files verified, including the completion record.
