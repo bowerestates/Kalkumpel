@@ -13,7 +13,7 @@
 
 Gordon's annotated 15-screenshot review is catalogued below with the original **1–41 IDs**. Quote an ID to change scope. Personal Details, Preferences and Nutrition Goals (Batches A–C) are implemented and locally verified; later enhancements remain upcoming. This ledger governs the enhancement queue; existing phase records remain delivery history.
 
-**Status groups:** Ignore: 6, 9, 12, 13, 16. Park: 14a–14h, 22, 32, 37, 40. Keep existing: 1, 2, 5, 10, 28, 34. Implemented/local checks pass: 3, 4, 7, 18, 19a–19e, 20, 21, 23, 24, 25, 26, 8 and 27; item 28 is reused with confirmation; real account readback remains unverified. Build/modify/align: other IDs, with the dependencies below.
+**Status groups:** Ignore: 6, 9, 12, 13, 16. Park: 14a–14h, 22, 32, 37, 40. Keep existing: 1, 2, 5, 10, 28, 34. Implemented/local checks pass: 3, 4, 7, 18, 19a–19e, 20, 21, 23, 24, 25, 26, 8, 27, 39 and 41; item 28 is reused with confirmation; real account readback remains unverified. Build/modify/align: other IDs, with the dependencies below.
 
 | ID | Item | Decision and required work |
 |---|---|---|
@@ -66,9 +66,9 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 | 36 | Estimated goal arrival | Build estimate on Progress from real weight/goal/selected pace; handle maintenance, goal reached and insufficient pace without a fake date or promise. |
 | 37 | Weight interval table | Park 3/7/14/30/90/all-time comparisons; existing weight-chart periods remain. |
 | 38 | Progress photos | Build private owner-only upload/view/delete and weight-history association; guest/offline handling, consent/retention and entitlement policy must be resolved before delivery. Existing meal photos are not a progress diary. |
-| 39 | Weekly average calories | Build four historical week choices and real daily averages; specify missing-day/correction handling and local calendar boundaries before implementing. |
+| 39 | Weekly average calories | Implemented on `/fortschritt`: four local Monday–Sunday weeks, daily bars and logged-day average. Missing/future days excluded; signed corrections included once and negative daily totals clamp to zero; information dialog and empty state. |
 | 40 | Expenditure interval table | Park until verified native HealthKit/Health Connect energy data. |
-| 41 | BMI view | Build real BMI, category, segmented bar/indicator and info explanation on Progress. Adult bands: <18.5, 18.5–<25, 25–<30, ≥30 (30.0 included). Informational, non-diagnostic; appropriate caveats and handling for unsupported profiles. |
+| 41 | BMI view | Implemented on `/fortschritt`: adult BMI/category, four-segment spectrum/indicator and non-diagnostic information dialog. Exact 18.5/25/30 boundaries; unsupported/minor profiles receive explanation, no adult category. |
 
 ### Upcoming build batches and acceptance checks
 - [x] **Batch A — Personal details (3, 18, 19):** `/profil/daten`, prominent goal weight, five pencil-edit rows, save/cancel/invalid states and Profile back arrow. All six fields browser-saved and reload-checked, weight history upsert and unchanged calorie/macro goals tested. 54 tests pass; DE desktop and EN phone checked, no page errors; preview build clean. JSON schema preserves optional step goal and supports legacy missing birthdays; no migration or permission changes.
@@ -81,7 +81,8 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 - [ ] **Batch E — Social links (15):** Instagram `https://www.instagram.com/kalkumpel/` and TikTok `https://www.tiktok.com/@kalkumpel_ki`; verify safe external opening; no invented X link.
 - [ ] **Batch F — Account deletion (17):** verified signed-in owner deletion, confirmation/cancel, retry/error handling, local cache clearing and hosted readback for data/photo/auth removal; legal review remains separate.
 - [ ] **Batch G — Heute (35; dependency 33):** verify illustrated empty state opens Erfassen; do not render rollover credit until 24 has real native accounting.
-- [ ] **Batch H — Progress (36, 38, 39, 41):** goal-date edge cases, owner-only photo lifecycle, historical week/average correctness and BMI boundaries/indicator; verify DE/EN and phone/desktop fit.
+- [x] **Batch H subset — 39/41:** weekly calories and adult informational BMI implemented; 78 tests pass (including 9 new insight tests); German desktop and English 390 px browser checks verified all four averages, info dialogs, empty/minor states, weight edit → BMI 25.0 to 30.0, reload and unchanged targets, with no page errors. Existing local/account data paths are reused; authenticated cross-device checks remain unverified (external unmanaged Supabase).
+- [ ] **Batch H remainder — 36/38:** estimated goal arrival and private progress-photo lifecycle/history association remain upcoming.
 - [ ] **Native dependency — 24/33 and 23:** verified energy/carryover accounting with 200 kcal maximum, local dates, no double-counting; web switches alone do not implement this.
 
 ### Documentation-only delivery and review
@@ -93,7 +94,7 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 
 **How to check Preferences:** Profil → Einstellungen; choose Hell/Dunkel/System, toggle each switch, reload and return. Turn celebrations off and confirm earned badges still increase. Withdraw marketing and confirm recommendations remain unchanged.
 
-**Next step:** Batch D, Weight History (11/29–31). Batches A–C signed-in cross-device readback remain unverified; later features remain upcoming.
+**Next step:** Items 39/41 delivered first as requested; return to Batch D, Weight History (11/29–31). Batches A–C signed-in cross-device readback remain unverified; later features remain upcoming.
 
 ### Preferences delivery — 22 Oct 2026
 - [x] Build and locally verify items 4, 7, 20, 21 and 23–26, with item 25 preference saved for Batch C.
@@ -388,3 +389,13 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - [x] Implement and verify linked manual nutrition target edits.
 - [x] Update documentation and remove the obsolete manual-adjustment switch.
 - [x] Upload and verify exact GitHub copies for linked manual nutrition edits; all seven affected documents matched remote decoded contents on Kalkumpel main.
+
+
+## Progress insights delivery — items 39/41, 22 Oct 2026
+
+- **Weekly calculation:** Local Monday–Sunday weeks; average over days with finite calorie entries only (including correction-only days). Signed corrections are included once, daily totals clamp at zero, missing/future days are excluded, and no data shows an unknown average rather than zero. Partly logged days may understate intake. Four selectors cover this week and the preceding three weeks; current targets colour rings only, not historical target evidence.
+- **BMI calculation and presentation:** Read-only BMI uses current saved profile weight / height²; valid ranges reuse 20–400 kg and 100–250 cm. Adult age 18–100 is derived from a real birthday when available, otherwise stored age; invalid/minor profiles show an unavailable explanation with no adult category. Unrounded BMI determines <18.5 / 18.5–<25 / 25–<30 / ≥30 bands (blue/green/amber/red). Equal-width segments map 10/18.5/25/30/40 to 0/25/50/75/100%, clamping outside 10–40; outer limits are visual only, not eligibility/category boundaries. The information dialog explains formula, non-diagnostic limits, muscle mass/body build and pregnancy/breastfeeding applicability. No profile or nutrition-target writes.
+- **Verification:** 78 tests pass (including 9 new insight tests); German desktop and English 390 px browser checks verified all four averages, info dialogs, empty/minor states, weight edit → BMI 25.0 to 30.0, reload and unchanged targets, with no page errors. Existing local/account data paths are reused; authenticated cross-device checks remain unverified (external unmanaged Supabase).
+- **How to test:** Fortschritt → select each historical week, check dates/average and open its information icon. Check BMI and its information icon; edit weight under Profil → Persönliche Daten, return/reload, and confirm BMI changes but calorie/macronutrient targets do not. Switch English to verify numbers/dates.
+- **Next:** Weight History (11/29–31); 36/38 remain upcoming. Documentation GitHub delivery is tracked in tasks/roadmap.
+- [ ] Upload items 39/41 documentation to GitHub and verify exact matching contents.
