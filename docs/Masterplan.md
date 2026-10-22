@@ -1,5 +1,20 @@
 # Kalkumpel — Masterplan (Web)
 
+## Approved Profile / Heute / Fortschritt enhancement scope — 22 Oct 2026
+
+Gordon approved documenting the annotated 15-screenshot review. The stable **1–41 IDs and sub-items** are the decision ledger in [tasks.md](tasks.md); [Design-guidelines.md](Design-guidelines.md) supplies the planned visuals, [Implementation-plan.md](Implementation-plan.md) the build batches, and [app-flow-pages-and-roles.md](app-flow-pages-and-roles.md) planned navigation. This is documentation approval, not completed feature delivery; current routes and stored behaviour stay unchanged.
+
+- **Keep current:** 1 header, 2 referrals (no cash rewards), 5 language, 10 reminders, 28 explicit goal recalculation, 34 Today macro presentation. Existing attributes in 19 do not mean the new details page/birth-date/step-goal editing is built.
+- **Ignore:** 6 family plan, 9 duplicate goal/weight row, 12 extra Profile ring-guide link, 13 native home-widget carousel on web, 16 logout redesign. Existing guide and sign-out remain.
+- **Park:** support/legal section investigation/content (14a–14h), native Live Activities (22), PDF report (32), weight interval comparison table (37), expenditure comparison table (40). Terms/privacy/retention/lawful basis remain launch requirements even with section presentation parked.
+- **Upcoming Profile work:** dedicated personal details/goal-weight editor (3, 18, 19a–19e), preferences and safe health-wish access (4, 7, 20, 21, 23–26), nutrition targets (8, 27; reuse 28), weight history (11, 29–31), Instagram/TikTok links (15) and genuine owner account/data/photo deletion (17), not local reset or a legal-compliance claim.
+- **Upcoming Heute work:** illustrated empty meal state (35); real rollover indicator (33) depends on native carryover accounting (24), not a fixed +200 example.
+- **Upcoming Progress work:** estimated goal arrival (36), private progress pictures and history association (38/30), four historical week calorie averages (39), informational adult BMI value/category/spectrum (41).
+
+**Boundaries:** preference toggles do not grant HealthKit/Health Connect permission, assert connection or change current web budgets. Actual burned-calorie credit and rollover up to 200 kcal remain native/deferred. Weigh-ins never change calorie targets; explicit goal recalculation remains. Macro rebalance (25) requires an explicit opt-in and intentional calorie-target edit. Marketing emails (26) need separate unchecked consent/withdrawal; existing recipe/workout personalisation is not marketing permission. Step targets are not measured activity; screenshot 10.000 is not a selected default. Photos need owner-only storage, consent/retention and resolved guest/offline/Pro policy before delivery. BMI adult boundaries are <18.5, 18.5–<25, 25–<30 and ≥30; display is non-diagnostic, with applicability caveats. Forecast dates must not promise results, and weekly-average missing-data rules must be defined before build.
+
+Only supplied social destinations are approved: Instagram `https://www.instagram.com/kalkumpel/`, TikTok `https://www.tiktok.com/@kalkumpel_ki`; no X link supplied. First planned batch is Personal Details (3/18/19). All new builds remain upcoming in tasks.md; this update does not activate subscriptions, upload photos, delete accounts or publish the app.
+
 > Product: German-first calorie and nutrition tracking for the DACH region.  
 > Repository: `bowerestates/Kalkumpel`. Current delivery: TanStack Start web app.  
 > Updated: 11 Oct 2026. Detailed status and blockers: [tasks.md](tasks.md).

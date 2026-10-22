@@ -1,5 +1,25 @@
 # Kalkumpel — App Flow, Pages & Roles (Web)
 
+## Planned Profile review navigation — 22 Oct 2026 (not implemented)
+
+Original **1–41 IDs** and statuses live in [tasks.md](tasks.md); design and implementation briefs share that scope. The actual route map below remains the running app. These destinations are proposed detail views, not live links/routes created by this documentation delivery.
+
+| Planned entry | IDs | Planned destination / return |
+|---|---|---|
+| Profil → Persönliche Daten | 3, 18, 19a–19e | Dedicated detail page (proposed `/profil/daten`): goal weight, current weight, height, birth date/age, gender and step preference; back → Profil. |
+| Profil → Einstellungen / health wishes | 4, 7, 20, 21, 23–26 | Dedicated preferences page (proposed `/profil/einstellungen`): theme, celebration and independent consent switches, saved health wishes, opt-in macro rebalance; back → Profil. No connected status or web energy credit. |
+| Profil → Ernährungsziele | 8, 27, reuse 28 | Dedicated goals page (proposed `/profil/ziele`): validated calorie/macro edits and explicit recalculation; back → Profil. Weighing never changes targets. |
+| Profil → Gewichtsverlauf | 11, 29–31 | Dedicated weight-history detail view, final path to be set when built; latest weight/date/change and add/edit/delete; back → Profil. Existing Fortschritt history remains available until migration is verified. |
+| Profil → Follow Us | 15 | External Instagram `https://www.instagram.com/kalkumpel/` and TikTok `https://www.tiktok.com/@kalkumpel_ki`; no supplied X destination. |
+| Profil → Konto löschen | 17 | Destructive confirmation/cancel, verified owner deletion of account/data/photos, failure handling; successful cleanup returns to Welcome. Local reset is not deletion. |
+| Heute → empty meal action | 35 | Friendly illustrated real empty state → existing Erfassen; preserve existing macro rings/bars (34). |
+| Heute → carryover amount | 33, dependency 24 | Real amount up to 200 kcal only after native carryover execution; not a new web credit or constant example. |
+| Fortschritt → new insights/photos | 36, 38, 39, 41 | Estimated goal date, private photo upload/view/delete with optional weight association (30), historical week calorie average selector, informational BMI explanation. No new insight/photo page is claimed live. |
+
+All proposed routes must be created alongside their links during implementation, with their own head metadata and working back navigation. All copy uses DE/EN and locale formatting; date/clock/storage reads retain mounted guards. Step goal is saved intent, not health telemetry. Photo guest/offline/retention/Pro policy and weekly-average missing-day rules must be settled before build. BMI uses adult <18.5 / 18.5–<25 / 25–<30 / ≥30 bands with applicability caveats; forecasts are estimates, not medical or outcome promises.
+
+Keep unchanged: 1 header, 2 invites (no money reward), 5 language, 10 reminder page (native notifications deferred), 28 explicit recalculation, 34 Today macros. Ignore 6 family plan, 9 duplicate row, 12 extra Profile ring-guide row (existing guide stays on Fortschritt), 13 native widget carousel on web and 16 logout redesign. Park 14a–14h support/legal presentation/content, 22 Live Activities, 32 PDF, 37 weight interval table, 40 expenditure table. Reviewed privacy/terms remain required before launch. Marketing (26) requires independent opt-in/withdrawal, never inferred from personalisation. Actual health access, burned-calorie credit and rollover execution remain native/deferred (23/24/33).
+
 > Updated: 11 Oct 2026. German “Du” default; English selected in Profile.  
 > TanStack Start file routes; local-first state and Gordon’s own Supabase.  
 > This is the current web flow. The original native screenshot numbering is not the implemented screen order.

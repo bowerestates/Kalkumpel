@@ -9,6 +9,87 @@
 >
 > Legend: `[x]` done · `[~]` partly done / placeholder · `[ ]` upcoming
 
+## Profile reference review — 22 Oct 2026 (approved documentation, builds upcoming)
+
+Gordon's annotated 15-screenshot review is catalogued below with the original **1–41 IDs**. Quote an ID to change scope. This delivery updates documents only; it does not build new screens or mark a reference feature as implemented. This ledger governs the new enhancement queue; existing phase records remain delivery history.
+
+**Status groups:** Ignore: 6, 9, 12, 13, 16. Park: 14a–14h, 22, 32, 37, 40. Keep existing: 1, 2, 5, 10, 28, 34. Build/modify/align: all other IDs, with the dependencies below. Item 19 remains active: several attributes already exist, but its dedicated presentation, birth-date editing and step-goal field are not thereby complete.
+
+| ID | Item | Decision and required work |
+|---|---|---|
+| 1 | Header / avatar / name / username reference | Keep current header unchanged; no new avatar/username capability claimed. |
+| 2 | Referral banner | Keep existing invite flow and friend badges; no cash reward or promo redesign. |
+| 3 | Personal details row | Build dedicated details page, preserving validated editing. |
+| 4 | Preferences row | Build dedicated preferences page. |
+| 5 | Language | Keep current DE/EN control. |
+| 6 | Family plan | Ignore; no family tier. |
+| 7 | Apple Health / Health Connect management | Align Profile access to saved preparation wishes; native connection/permission remains deferred. |
+| 8 | Nutrition goals row | Build dedicated calorie/macro editor. |
+| 9 | Duplicate goals/current-weight row | Ignore duplicate; use 3/18/19 and 8/27. |
+| 10 | Tracking reminders | Keep `/erinnerungen`; local preferences only, native notification delivery deferred. |
+| 11 | Weight history row | Build Profile drill-down, reusing existing real weight history/edit/delete. |
+| 12 | Ring-colour row on Profile | Ignore extra row; retain `/ringfarben` via Fortschritt. |
+| 13 | Native home widgets carousel | Ignore on web; no functioning iOS widgets or teaser added. |
+| 14a | Request a feature | Park pending feedback channel/content investigation. |
+| 14b | Support email | Park pending real support address. |
+| 14c | FAQ | Park pending content. |
+| 14d | PDF export row | Park with 32. |
+| 14e | Manual sync / last synced | Park; existing automatic account sync remains unchanged. No invented successful timestamp. |
+| 14f | Community guidelines | Park presentation/content. |
+| 14g | Terms / AGB | Park section presentation; reviewed legal terms remain a launch prerequisite. |
+| 14h | Privacy / Datenschutz | Park section presentation; privacy/lawful basis/retention remain launch prerequisites. |
+| 15 | Follow Us | Build Instagram and TikTok links supplied by Gordon; omit X without a supplied address. |
+| 16 | Logout redesign | Ignore redesign; preserve sign-out and local clearing. |
+| 17 | Delete account | Build verified account deletion, not local reset; owner data/photos/auth user, confirmation, failure handling and re-sign-in verification required. No GDPR-compliance certification without legal review. |
+| 18 | Goal-weight summary | Build prominent real goal weight and „Zielgewicht ändern“ action. |
+| 19a | Current weight | Align editable real weight with existing weight history; never auto-change calorie target. |
+| 19b | Height | Align validated height editing with selected-language values. |
+| 19c | Birth date / age | Build full birth-date editing; preserve stored date and derive displayed age. |
+| 19d | Gender | Align existing gender editing. |
+| 19e | Daily step goal | Build a saved editable target, not measured steps or health connection. Screenshot 10.000 is an example, not a decided default. |
+| 20 | System / Light / Dark appearance | Build theme preference and readable full-app presentation; preserve approved Welcome branding and nutrient colours. |
+| 21 | Badge celebrations switch | Build switch controlling unlock presentation only; earning/count/sync unchanged. |
+| 22 | Live Activities | Park for native iOS Lock Screen / Dynamic Island. |
+| 23 | Add burned calories switch | Build safe preference editing only on web; verified activity credit waits for native integration. |
+| 24 | Rollover switch | Build editing of saved wish; actual carryover up to 200 kcal remains native/deferred and changes no current web budget. |
+| 25 | Auto-adjust macros | Build explicit opt-in rebalance after intentional calorie-target edits, with validation/tests; no weigh-in-triggered recalculation. |
+| 26 | Marketing emails | Align consent presentation, but marketing requires its own unchecked opt-in/withdrawal. Existing recipe/workout personalisation is not marketing permission; no email delivery service claimed. |
+| 27 | Four nutrition-goal cards | Build calorie/protein/carbohydrate/fat rings and validated manual inputs using current nutrient colours. |
+| 28 | Auto-generate goals | Keep existing explicit „Ziele neu berechnen“ calculation; reuse on new goals page. |
+| 29 | Weight-history header | Build latest weigh-in date, current weight and real change since baseline month. |
+| 30 | Weigh-in/photo history | Build history presentation and photo association; retain existing edit/delete. Photo indicators require real saved photos (38). |
+| 31 | Fixed log-weight action | Align sticky „Gewicht eintragen“ action and existing validation; no calorie-target changes. |
+| 32 | PDF explainer / generator | Park including report contents, date-range selection and download; no report/workout placeholders claimed delivered. |
+| 33 | Rollover pill on Heute | Align only after real carryover accounting (24); show actual credited amount, not a permanent +200 example. Native/deferred dependency. |
+| 34 | Macro carousel reference | Keep approved Today rings/bars; do not replace with carousel. |
+| 35 | Empty meal state | Modify Heute with relevant food illustration, friendly DE/EN empty-state copy and working meal-add action. |
+| 36 | Estimated goal arrival | Build estimate on Progress from real weight/goal/selected pace; handle maintenance, goal reached and insufficient pace without a fake date or promise. |
+| 37 | Weight interval table | Park 3/7/14/30/90/all-time comparisons; existing weight-chart periods remain. |
+| 38 | Progress photos | Build private owner-only upload/view/delete and weight-history association; guest/offline handling, consent/retention and entitlement policy must be resolved before delivery. Existing meal photos are not a progress diary. |
+| 39 | Weekly average calories | Build four historical week choices and real daily averages; specify missing-day/correction handling and local calendar boundaries before implementing. |
+| 40 | Expenditure interval table | Park until verified native HealthKit/Health Connect energy data. |
+| 41 | BMI view | Build real BMI, category, segmented bar/indicator and info explanation on Progress. Adult bands: <18.5, 18.5–<25, 25–<30, ≥30 (30.0 included). Informational, non-diagnostic; appropriate caveats and handling for unsupported profiles. |
+
+### Upcoming build batches and acceptance checks
+- [ ] **Batch A — Personal details (3, 18, 19):** dedicated page/back, validated edits and save/reload; current weight updates history without changing calorie target; step goal never masquerades as observed activity.
+- [ ] **Batch B — Preferences (4, 7, 20, 21, 23–26):** theme persistence/contrast, celebrations off without disabling unlocks, independent consent switches/withdrawal, safe health wishes; no OS permissions, connected status or new web credit.
+- [ ] **Batch C — Nutrition goals (8, 27; reuse 28):** validated manual values and explicit recalculation; confirm auto-adjust off/on behaviour and no automatic recalculation after weighing.
+- [ ] **Batch D — Weight history (11, 29–31):** real date/weight/change summary, add/edit/delete/reload and back navigation; associate photos only after 38.
+- [ ] **Batch E — Social links (15):** Instagram `https://www.instagram.com/kalkumpel/` and TikTok `https://www.tiktok.com/@kalkumpel_ki`; verify safe external opening; no invented X link.
+- [ ] **Batch F — Account deletion (17):** verified signed-in owner deletion, confirmation/cancel, retry/error handling, local cache clearing and hosted readback for data/photo/auth removal; legal review remains separate.
+- [ ] **Batch G — Heute (35; dependency 33):** verify illustrated empty state opens Erfassen; do not render rollover credit until 24 has real native accounting.
+- [ ] **Batch H — Progress (36, 38, 39, 41):** goal-date edge cases, owner-only photo lifecycle, historical week/average correctness and BMI boundaries/indicator; verify DE/EN and phone/desktop fit.
+- [ ] **Native dependency — 24/33 and 23:** verified energy/carryover accounting with 200 kcal maximum, local dates, no double-counting; web switches alone do not implement this.
+
+### Documentation-only delivery and review
+- [x] Recover Gordon's annotated source and preserve all 41 IDs/sub-items; reconcile keep/ignore/park/build decisions and record upcoming batches.
+- [x] Update design, masterplan, implementation and flow documents with the same scope and safety boundaries; no application changes in this delivery.
+- [ ] Upload affected documents and roadmap to `bowerestates/Kalkumpel` main and verify exact remote-file matches.
+
+**How to check now:** read this ledger alongside Design-guidelines' “Profile reference enhancement design”, Masterplan's review scope, Implementation-plan's build batches and App Flow's planned destinations. Every ID must appear; ignored/parked work must not be marked built. Screens remain unchanged.
+
+**Next step:** Batch A, the Personal Details page (3/18/19), followed by preferences and nutrition goals. All feature work above remains upcoming; this request authorises document updates only.
+
 ---
 
 ## Decisions (confirmed by Gordon, 09 Oct 2026)

@@ -1,5 +1,27 @@
 # Kalkumpel — Implementation Plan (Web)
 
+## Profile review build batches — 22 Oct 2026 (upcoming)
+
+This documentation delivery records the approved 41-item review; it implements no application changes. Full numbered decisions/acceptance checks are in [tasks.md](tasks.md), planned design in [Design-guidelines.md](Design-guidelines.md), product boundaries in [Masterplan.md](Masterplan.md). Existing phase completion history is not proof that these enhancements are built.
+
+| Order | IDs / phase | Upcoming delivery and verification |
+|---|---|---|
+| A | 3, 18, 19a–19e / Phase 7 | Personal Details page with goal-weight summary, validated weight/height/birth-date/gender/step-target editing and parent back navigation. Save/reload and real-account readback; weighing never recalculates targets. |
+| B | 4, 7, 20, 21, 23–26 / Phase 7; native dependencies Phase 11 | Preferences page: theme, celebration presentation, saved health wishes, opt-in macro adjustment, independent marketing consent/withdrawal. Verify theme contrast/persistence, earning with celebrations off, consent isolation and no fake connection/web credit. |
+| C | 8, 27; reuse 28 / Phase 7 | Four-card manual calorie/macro target editor and explicit recalculation. Validate numeric edits, macro opt-in off/on, no weigh-in-triggered changes, save/reload. |
+| D | 11, 29–31 / Phases 6–7 | Dedicated weight history with real latest date/change, sticky add and existing edit/delete; no target changes. Photo association depends on 38. |
+| E | 15 / Phase 7 | Supplied Instagram/TikTok links only; safe external opening. X omitted without supplied URL. |
+| F | 17 / Phases 2/7/10 | Verified owner account deletion with data/photos/auth cleanup, confirmation/cancel, errors/retries and local sign-out/reset. Hosted readback and legal review, not simulated success. |
+| G | 35 / Phase 3 | Illustrated empty meal state and working meal-add action; check only when the real daily meal list is empty. |
+| H | 36, 38, 39, 41 / Phase 6 | Estimated goal date, private progress-photo lifecycle/history association, four historical-week calorie averages, adult informational BMI spectrum. Verify calculation/date boundaries, photo ownership and reload, DE/EN and device layouts. |
+| Dependency | 23, 24, 33 / Phase 11 | Real native workout-energy and rollover accounting (maximum 200 kcal), no double-counting; only then show an actual carryover pill. Web preference alone changes nothing. |
+
+Before relevant builds: define weekly-average denominator/missing-day/correction rules; resolve progress-photo guest/offline, retention/consent and proposed Pro entitlement policy; do not grant Pro locally. Daily step target is a preference, not health telemetry; no default inferred from screenshots. Marketing consent is separate from personalisation. BMI adult ranges: <18.5, 18.5–<25, 25–<30, ≥30, with non-diagnostic/applicability explanation. Goal date is an estimate and must handle maintenance, missing pace and goal reached.
+
+**Excluded/new build not required:** 6, 9, 12, 13, 16. **Parked:** 14a–14h, 22, 32, 37, 40; launch terms/privacy obligations still apply. **Keep current:** 1, 2, 5, 10, 28, 34. Do not claim that unchanged header has new avatar/username editing or that existing personalisation grants marketing permission.
+
+First implementation task is Batch A; all batches remain unchecked in tasks.md. Each future delivery needs rule tests and central-flow browser verification where applicable, matching documentation and exact GitHub verification.
+
 > Updated: 11 Oct 2026. Phase numbering matches [tasks.md](tasks.md).  
 > Current stack: TanStack Start / React / TypeScript / Tailwind v4 / Gordon’s Supabase / OpenAI through Lovable AI Gateway.  
 > Legend: `[x]` implemented/documented · `[~]` partial · `[ ]` upcoming or unverified. Historical native work is not a web completion claim.

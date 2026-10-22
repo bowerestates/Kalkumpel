@@ -1,5 +1,29 @@
 # Kalkumpel — Design Guidelines (Web)
 
+## Profile reference enhancement design — 22 Oct 2026 (planned, not built)
+
+The approved 15-screenshot review keeps its original 1–41 IDs, fully listed in [tasks.md](tasks.md). The following is the design brief for upcoming work, not a description of new running screens. Retain Plus Jakarta Sans, existing semantic tokens, white/mint default, nutrient colours and DE/EN formatting. Reuse familiar edit, back, share and delete icons, accessible labels and stable controls; all detail views return to their parent.
+
+- **Personal Details (3, 18, 19a–19e):** Profile drill-down with prominent real goal-weight summary/„Zielgewicht ändern“, pencil-edit rows for current weight, height, birth date/derived age, gender and daily step target. Step goal is a preference, not tracked steps; 10.000 is an illustrative screenshot value. Weight edits preserve the rule that weighing never recalculates calorie goals.
+- **Preferences (4, 7, 20, 21, 23–26):** dedicated page; three appearance previews (System/Hell/Dunkel), switches for badge celebrations, future burned-calorie credit, future rollover and opt-in macro rebalance. Health row opens preparation wishes only, never fake connected status. Theme variants must keep text/control contrast and Welcome branding; disabling celebrations must not disable badge earning. Marketing opt-in/withdrawal must be visibly independent of existing recipe/workout personalisation and default unchecked. No marketing delivery is implied.
+- **Nutrition Goals (8, 27, reuse 28):** vertical four-item calorie/protein/carbohydrate/fat editor with real target rings, validated decimal drafts and current nutrient colours (calorie dark/flame, protein red, carbohydrate amber, fat blue). Reuse explicit „Ziele neu berechnen“; do not make weigh-ins auto-recalculate targets. Auto-adjust macros (25) applies only after intentional calorie-target edits with opt-in.
+- **Weight History (11, 29–31):** „Letztes Wiegen“, large real weight, real ± change since baseline month, date/weight rows and sticky „Gewicht eintragen“. Retain add/edit/delete and no target recalculation. Show photo markers only for actual associated pictures from 38.
+- **Follow Us (15):** icon links to Gordon's Instagram `https://www.instagram.com/kalkumpel/` and TikTok `https://www.tiktok.com/@kalkumpel_ki`. Omit X: no address supplied.
+- **Account deletion (17):** clearly destructive action, confirmation/cancel and pending/error/success states; distinguish permanent account/data/photo removal from local reset. Legal review, verified owner deletion and hosted readback are required, not presumed compliance.
+- **Heute (35):** relevant salad/food illustration and friendly German „Tippe auf +, um Deine erste Mahlzeit einzutragen“, with English equivalent and working add action. Existing macro presentation (34) stays. **Rollover pill (33):** small history-clock amount by remaining calories only after verified carryover; use actual amount up to 200 kcal, never fixed +200. Execution remains native/deferred with 24; no current web budget change.
+- **Progress date (36):** estimate below weight progress, based on saved goal and selected pace; localised real date, no guaranteed outcome, no fabricated forecast for maintenance/missing pace/reached goal.
+- **Progress photos (38, association 30):** relevant photo/mirror icon and „+ Foto hinzufügen“, real private images with view/delete and meaningful empty/loading/error states. No stock selfie as user evidence. Photo consent, retention, guest/offline handling and existing proposed Pro restriction must be resolved before build.
+- **Weekly calories (39):** segmented choices „Diese Woche“, „Letzte Woche“, „Vor 2 Wochen“, „Vor 3 Wochen“ controlling real bars/average. Missing-day denominator, corrections and local week boundaries need a documented rule before implementation; no invented averages.
+- **BMI (41):** real BMI/status, four-segment spectrum and accurately placed indicator, informational tooltip/dialog. Adult bands blue <18.5, green 18.5–<25, amber 25–<30, red ≥30 (include exactly 30.0). Locale-aware values, non-diagnostic explanation, adult applicability and appropriate limitations; no personal health score or judgement.
+
+**Keep unchanged:** 1 header (no new avatar/username functionality implied), 2 invites (no cash reward), 5 language, 10 reminders (native notifications still deferred), 28 explicit recalculation and 34 Today macros. Item 19 is alignment/new editing work, not wholly complete.
+
+**Ignore:** 6 family plan, 9 duplicate goals row, 12 extra Profile ring guide row (keep guide via Fortschritt), 13 native widget carousel on web, 16 logout redesign (keep working logout).
+
+**Park:** 14a–14h support/legal section content/presentation, 22 Live Activities, 32 PDF explainer/generator, 37 weight interval comparisons and 40 expenditure comparisons. Parking AGB/privacy rows does not waive launch legal obligations. Burned-calorie/carryover switches are web preparation only; real OS access and budget changes remain native work.
+
+**Acceptance:** verify detail/back navigation, input save/reload, empty/error states, real calculations, DE/EN, phone/desktop fit and owner-only photo/account actions as each batch is built. No such new-feature verification is claimed by this documentation update.
+
 > Updated: 11 Oct 2026. Approved design, not the older native dark-theme proposal.  
 > Clean, approachable, high-contrast nutrition tracking. Detailed screen checkpoint: [Onboarding-progress.md](Onboarding-progress.md).
 
