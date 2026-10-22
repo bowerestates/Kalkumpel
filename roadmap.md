@@ -21,6 +21,7 @@
 - [x] Onboarding pages complete; documentation, design notes and task list updated (11 Oct 2026).
 - [x] Ringfarben erklärt guide shows sample dates: current week with real dated rings plus a sample date and kcal example per colour; docs synced and blob-verified on Kalkumpel main (17 Oct 2026).
 - [x] Remove the "Ringfarben erklärt" link from the Heute week strip while keeping the coloured day rings; the guide stays reachable from Fortschritt (18 Oct 2026).
+- [x] Move the „So funktioniert's“ guide trigger from a floating badge to a full-width card button directly above „Schnell korrigieren“ on Heute, edge-aligned with that card; docs synced and blob-verified (22 Oct 2026).
 
 
 ## Next: in-app logic review
