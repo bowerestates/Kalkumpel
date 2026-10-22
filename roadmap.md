@@ -1,7 +1,7 @@
 # Current task
 
-- [x] Build and verify historical weekly calorie averages (39) and informational adult BMI (41) before Weight History; 78 tests, DE/EN browser/reload/weight-edit checks pass, targets unchanged.
-- [ ] Update affected documents, upload to GitHub and verify exact remote matches for items 39/41.
+- [x] Build and verify historical weekly calorie averages (39) and informational adult BMI (41) before Weight History; 82 tests, DE/EN browser/reload/weight-edit checks pass, targets unchanged.
+- [x] Update affected documents, upload to GitHub and verify exact remote matches for items 39/41; all seven files verified including the completion record.
 
 - [x] Link manual nutrition edits: nutrient edits update calorie total; calorie edits scale all nutrients; preview, 69 tests and browser save/reload/invalid checks pass; documentation updated.
 - [x] Upload and verify linked-edit documentation on GitHub; all seven files matched.
