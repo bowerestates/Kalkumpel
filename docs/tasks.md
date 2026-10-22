@@ -94,7 +94,7 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 ### Personal Details delivery — 22 Oct 2026
 - [x] Build and locally verify items 3, 18 and 19a–19e; preserve consent, health wishes, existing answers, pace and nutrition targets.
 - [x] Update affected masterplan/design/implementation/flow and architecture notes; onboarding order and other feature scope unchanged.
-- [ ] Upload Personal Details documentation and verify exact GitHub matches before completion.
+- [x] Upload Personal Details documentation and verify exact GitHub matches (22 Oct 2026): five product documents, roadmap and AGENTS.md passed fingerprint and decoded-content comparisons on Kalkumpel main (`21751b0f74ae215769d2dba12d1b3d2d1127344d`); completion records synchronized and verified again before delivery.
 
 ---
 

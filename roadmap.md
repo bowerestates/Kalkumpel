@@ -1,7 +1,7 @@
 # Current task
 
 - [x] Build and locally verify Personal Details (3, 18, 19): six fields, save/cancel/back/reload, invalid-weight rejection, DE desktop/EN phone; targets unchanged, 54 tests pass, clean preview. Account readback remains unverified (external unmanaged Supabase).
-- [ ] Update affected product/architecture documents, upload to GitHub and verify exact matches for the Personal Details delivery.
+- [x] Update affected product/architecture documents, upload to GitHub and verify exact matches for Personal Details; all seven files match, including follow-up completion records.
 
 - [x] Record the agreed 41-item Profile/Heute/Fortschritt review in tasks, design, masterplan, implementation and flow documents; feature builds remain upcoming.
 - [x] Upload this review documentation to Kalkumpel main and verify exact remote matches; six files passed fingerprint and decoded-content comparisons (22 Oct 2026), including a follow-up completion-record delivery.
