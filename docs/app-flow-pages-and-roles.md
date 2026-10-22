@@ -2,7 +2,7 @@
 
 ## Profile review navigation — 22 Oct 2026 (Personal Details live, remainder planned)
 
-Original **1–41 IDs** and statuses live in [tasks.md](tasks.md); design and implementation briefs share that scope. Personal Details, Preferences and Nutrition Goals are live; the other destinations are planned, not existing routes.
+Original **1–41 IDs** and statuses live in [tasks.md](tasks.md); design and implementation briefs share that scope. Personal Details, Preferences, Nutrition Goals and Progress insights (39/41) are live; other destinations are planned, not existing routes.
 
 | Planned entry | IDs | Planned destination / return |
 |---|---|---|
@@ -174,6 +174,6 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 
 - **Weekly calculation:** Local Monday–Sunday weeks; average over days with finite calorie entries only (including correction-only days). Signed corrections are included once, daily totals clamp at zero, missing/future days are excluded, and no data shows an unknown average rather than zero. Partly logged days may understate intake. Four selectors cover this week and the preceding three weeks; current targets colour rings only, not historical target evidence.
 - **BMI calculation and presentation:** Read-only BMI uses current saved profile weight / height²; valid ranges reuse 20–400 kg and 100–250 cm. Adult age 18–100 is derived from a real birthday when available, otherwise stored age; invalid/minor profiles show an unavailable explanation with no adult category. Unrounded BMI determines <18.5 / 18.5–<25 / 25–<30 / ≥30 bands (blue/green/amber/red). Equal-width segments map 10/18.5/25/30/40 to 0/25/50/75/100%, clamping outside 10–40; outer limits are visual only, not eligibility/category boundaries. The information dialog explains formula, non-diagnostic limits, muscle mass/body build and pregnancy/breastfeeding applicability. No profile or nutrition-target writes.
-- **Verification:** 78 tests pass (including 9 new insight tests); German desktop and English 390 px browser checks verified all four averages, info dialogs, empty/minor states, weight edit → BMI 25.0 to 30.0, reload and unchanged targets, with no page errors. Existing local/account data paths are reused; authenticated cross-device checks remain unverified (external unmanaged Supabase).
+- **Verification:** 82 tests pass (including 13 new insight tests; local DST week checked in Europe/Berlin); German desktop and English 390 px browser checks verified all four averages, info dialogs, empty/minor states, weight edit → BMI 25.0 to 30.0, reload and unchanged targets, with no page errors. Existing local/account data paths are reused; authenticated cross-device checks remain unverified (external unmanaged Supabase).
 - **How to test:** Fortschritt → select each historical week, check dates/average and open its information icon. Check BMI and its information icon; edit weight under Profil → Persönliche Daten, return/reload, and confirm BMI changes but calorie/macronutrient targets do not. Switch English to verify numbers/dates.
 - **Next:** Weight History (11/29–31); 36/38 remain upcoming. Documentation GitHub delivery is tracked in tasks/roadmap.
