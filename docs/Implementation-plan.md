@@ -2,13 +2,13 @@
 
 ## Profile review build batches — 22 Oct 2026 (A built, remainder upcoming)
 
-This ledger tracks the approved 41-item review. Batches A and B are implemented; Batch C and later rows are upcoming. Full numbered decisions/acceptance checks are in [tasks.md](tasks.md), design in [Design-guidelines.md](Design-guidelines.md), product boundaries in [Masterplan.md](Masterplan.md).
+This ledger tracks the approved 41-item review. Batches A–C are implemented; later rows are upcoming. Full numbered decisions/acceptance checks are in [tasks.md](tasks.md), design in [Design-guidelines.md](Design-guidelines.md), product boundaries in [Masterplan.md](Masterplan.md).
 
 | Order | IDs / phase | Upcoming delivery and verification |
 |---|---|---|
 | A — implemented | 3, 18, 19a–19e / Phase 7 | `/profil/daten`, real goal summary, six fields, pencil dialogs/save/cancel/back; 54 tests pass and local browser all-field save/reload/invalid/back plus EN phone pass. Existing JSON/weight sync reused, no migration. Account readback remains unverified. |
 | B — implemented | 4, 7, 20, 21, 23–26 / Phase 7; native dependencies Phase 11 | `/profil/einstellungen` built; 59 tests, local persistence/theme/consent/badge checks pass, account readback unverified. Preferences page: theme, celebration presentation, saved health wishes, opt-in macro adjustment, independent marketing consent/withdrawal. Verify theme contrast/persistence, earning with celebrations off, consent isolation and no fake connection/web credit. |
-| C | 8, 27; reuse 28 / Phase 7 | Four-card manual calorie/macro target editor and explicit recalculation. Validate numeric edits, macro opt-in off/on, no weigh-in-triggered changes, save/reload. |
+| C — implemented | 8, 27; reuse 28, complete 25 / Phase 7 | `/profil/ziele`: four real daily progress/target rings, manual decimal saves and confirmed recalculation; opt-in ratio rebalance on calorie edits only. 67 tests and guest browser save/reload/invalid/cancel/back/EN phone checks pass; cross-device account readback unverified. |
 | D | 11, 29–31 / Phases 6–7 | Dedicated weight history with real latest date/change, sticky add and existing edit/delete; no target changes. Photo association depends on 38. |
 | E | 15 / Phase 7 | Supplied Instagram/TikTok links only; safe external opening. X omitted without supplied URL. |
 | F | 17 / Phases 2/7/10 | Verified owner account deletion with data/photos/auth cleanup, confirmation/cancel, errors/retries and local sign-out/reset. Hosted readback and legal review, not simulated success. |
@@ -20,7 +20,7 @@ Before relevant builds: define weekly-average denominator/missing-day/correction
 
 **Excluded/new build not required:** 6, 9, 12, 13, 16. **Parked:** 14a–14h, 22, 32, 37, 40; launch terms/privacy obligations still apply. **Keep current:** 1, 2, 5, 10, 28, 34. Do not claim that unchanged header has new avatar/username editing or that existing personalisation grants marketing permission.
 
-Next implementation task is Batch C; Batch B preferences reuse validated profile JSON; Batch A implementation/local verification is checked in tasks.md, account verification stays open. `personalDetailsPatch` validates one-field edits and preserves targets; birth date and step goal use optional keys in validated onboarding-details JSON, with null legacy answers and no invented birthday. Settings exposes explicit recalculation when saved profile inputs yield different targets. Each future delivery needs rule tests and central-flow browser verification, matching documentation and exact GitHub verification.
+Next implementation task is Batch D (Weight History); Batch B preferences reuse validated profile JSON; Batch A implementation/local verification is checked in tasks.md, account verification stays open. `personalDetailsPatch` validates one-field edits and preserves targets; birth date and step goal use optional keys in validated onboarding-details JSON, with null legacy answers and no invented birthday. Settings exposes explicit recalculation when saved profile inputs yield different targets. Each future delivery needs rule tests and central-flow browser verification, matching documentation and exact GitHub verification.
 
 > Updated: 11 Oct 2026. Phase numbering matches [tasks.md](tasks.md).  
 > Current stack: TanStack Start / React / TypeScript / Tailwind v4 / Gordon’s Supabase / OpenAI through Lovable AI Gateway.  
@@ -137,3 +137,12 @@ Testing: complete onboarding through Thanks, exercise Yes/No, switch Apple Healt
 Implemented: `/konto` and `/auth` show Apple (disabled, future iOS label), Google and email, preserving the white/mint design. On `/konto`, required storage consent gates Google/email and optional personalisation stays separate; choices are saved before leaving for Google. Google uses Gordon’s existing Supabase Auth, not a workspace Google connector. The callback is the same-origin public `/auth?oauth=google`, with `&next=paywall` for onboarding. The SDK establishes its session and `getUser()` validates it; onboarding returns to `/konto` to confirm consent before plan choice, while other accounts continue to Today or onboarding. No paid entitlement is granted and no second auth listener was added.
 
 Upcoming setup: create a Web application OAuth client in Google Cloud; register the callback URL shown in Supabase’s Google provider panel, configure the email/profile/openid scopes and enable Google in Supabase with the client ID/secret. Allow the exact app return URLs for each origin in Supabase Authentication → URL Configuration. Test Google in the published app or preview opened in a new tab, not the editor frame. Real Google login/account sync requires that provider setup; Apple is not a working web sign-in method.
+
+
+## Nutrition Goals checkpoint — 22 Oct 2026
+
+Implemented items 8/27 at `/profil/ziele`, reached from Profil, with a back arrow, four vertical cards, real local-day consumed-to-target rings, existing calorie/protein/carbohydrate/fat tokens, pencil dialogs and explicit save/cancel. Values use selected-language formatting and comma/dot decimal drafts. Technical guards: 1,200–10,000 kcal, 0–2,500 g per macro, finite values stored to two decimals; these are input safeguards, not personalised dietary advice.
+
+Only an intentional calorie edit with the default-off item 25 opt-in adjusts macros: preserve current energy proportions (protein/carbohydrate 4 kcal/g, fat 9 kcal/g) and preview rounded results before save. All-zero macro ratios reject rather than guessing. Direct macro edits leave all other targets unchanged. „Ziele neu berechnen“ reuses existing `calcTargets`, previews all four estimates and requires confirmation before replacing manual values. No profile, meal, weight or health behaviour changed; existing owner-only target sync is reused, no migration or entitlement change.
+
+Verification: 67 tests pass; guest browser all-field saves, invalid rejection, cancellation, reload, opt-in rebalance, confirmed recalculation, back navigation, actual meal ring totals and English phone fit pass, with no page errors and a clean preview build. Signed-in cross-device readback remains unverified (external unmanaged Supabase). Next: Weight History (11/29–31).
