@@ -50,7 +50,8 @@
 ## Phase 6 — Progress and streaks
 - [x] Weight logging/chart, start/current/goal, seven-day calorie bars and streak counter.
 - [x] Streak 24 h grace (one missed day bridged), weight periods 7/14/30/90/Alles, date-spaced chart, weigh-in edit/delete (16 Oct 2026).
-- [ ] 36 badges (list awaiting Gordon's approval) and progress-photo diary (needs verified Pro).
+- [x] Approved 28 badges, grouped flame-shield visuals, unlock celebrations and account sync. Fortschritt has compact streak/earned-count summaries; the badge icon opens `/erfolge` (earned/all views, hover/focus explanations, tap details and back arrow), updated 22 Oct 2026.
+- [ ] Progress-photo diary (needs verified Pro).
 - [ ] Workout-energy balance depends on future native activity integration; no simulated web sync.
 
 ## Phase 7 — Settings
@@ -87,7 +88,7 @@
 | Photo analysis | Server-side OpenAI via Lovable AI Gateway; configured `AI_VISION_MODEL = "openai/gpt-6-luna"`; ingredient/portion review before saving; signed-in private photos | Model availability/access depends on provider; BLS grounding and scan-tips screen upcoming; no independently verified zero-retention guarantee |
 | Barcode | Browser camera scanning with ZXing, permission messaging, typed-code fallback, Open Food Facts lookup, gram-based nutrient scaling and review | Product coverage varies; fuller product/Nutri-Score sheet, BLS/USDA and attribution page upcoming |
 | Meal score | Photo/barcode/manual evidence, versioned estimated 1–10 score or null, independent confidence, saved explanation and failure-tolerant logging | No personal health score; real photo/barcode examples and signed-in cross-device verification remain upcoming |
-| Daily app | Remaining/eaten calories, nutrient rings, grouped meals, manual logging, delete, saved meal-score review/edit, weight chart, seven-day bars and streak counter | Screen-by-screen logic review still upcoming; streak grace, weight periods and weigh-in edit/delete built; badges upcoming |
+| Daily app | Remaining/eaten calories, nutrient rings, grouped meals, manual logging, delete, saved meal-score review/edit, weight chart, seven-day bars, compact streak and earned-badge count linking to `/erfolge` | Paywall audit remains; streak grace, weight periods, weigh-in edit/delete and 28 badges built; cross-device checks remain separate |
 | Language/formatting | Complete Phase 0 web rollout: selected-language `Intl` numbers, dates and EUR prices across Today, Progress, Capture/review, onboarding and Settings; comma/dot weight, nutrition and portion input; profile language sync implemented | 11 regression tests pass; guest browser checks pass in DE/EN for Today, Progress, Settings, annual price and weight saving; authenticated cross-device checks remain separate |
 | Plans | Account precedes Free/Premium choice; preview shows 5,99 €/week, 11,99 €/month and 34,99 €/year (annual marked “Spare 76 %”), 3-day trial on all plans | No checkout or paid entitlement; everyone currently gets 3 photo scans/day; future verified Pro permits unlimited scans |
 | Native iOS | HealthKit, workout-calorie credit and Apple sign-in explicitly deferred | Optional iOS/Android onboarding holders built; no live health sync or budget changes |

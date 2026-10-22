@@ -1,5 +1,8 @@
 # Current task
 
+- [x] Compact Fortschritt streak summary and move badges behind one icon to a dedicated page, preserving explanations and back navigation.
+- [x] Verify badge navigation, earned/empty views and phone layout; 18 badge/streak tests pass. Update documents, upload and verify exact GitHub matches (22 Oct 2026).
+
 - [x] Add Google sign-in alongside email and a native Apple placeholder on both account pages; consent rules, public-return wiring and disabled-provider fallback verified (45 tests).
 - [x] Update account-flow documentation, upload to GitHub and verify exact matching files.
 - [ ] Google provider activation and real sign-in/account verification: hosted settings confirm Google is off; waits on Gordon’s Supabase/Google Cloud setup.
