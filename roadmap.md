@@ -1,5 +1,8 @@
 # Current task
 
+- [x] Build and verify Nutrition Goals (8/27, reuse 28 and saved opt-in 25): manual edits, validation, off/on rebalance, confirmed recalculation, rings, persistence and back navigation.
+- [ ] Update affected documentation, upload to GitHub and verify exact remote matches for Nutrition Goals.
+
 - [x] Build and locally verify item 4 Preferences with 7/20/21/23–26: 59 tests, persistence, consent withdrawal, unlocks with celebrations off, DE/EN light/dark. Account readback remains unverified.
 - [x] Update documents, upload them to GitHub and verify exact matches.
 
@@ -12,7 +15,8 @@
 ## Profile review build queue (22 Oct 2026)
 - [x] Personal details and goal-weight editing (3, 18, 19).
 - [x] Preferences and safe health-preparation settings (4, 7, 20, 21, 23–26).
-- [ ] Nutrition-goal page (8, 27), weight-history page (11, 29–31), Instagram/TikTok links (15), real account deletion (17).
+- [x] Nutrition-goal page (8, 27), confirmed recalculation (28) and opted-in calorie-triggered macro rebalance (25); 67 tests and guest UI checks pass, cross-device readback unverified.
+- [ ] Weight-history page (11, 29–31), Instagram/TikTok links (15), real account deletion (17).
 - [ ] Heute empty state (35); rollover indicator (33) waits for native accounting (24), not a fabricated web credit.
 - [ ] Progress goal-date estimate (36), private photos/history (38, 30), historical weekly calorie averages (39), BMI view (41).
 
