@@ -1,7 +1,7 @@
 # Current task
 
 - [x] Link manual nutrition edits: nutrient edits update calorie total; calorie edits scale all nutrients; preview, 69 tests and browser save/reload/invalid checks pass; documentation updated.
-- [ ] Upload and verify linked-edit documentation on GitHub.
+- [x] Upload and verify linked-edit documentation on GitHub; all seven files matched.
 
 - [x] Build and verify Nutrition Goals (8/27, reuse 28 and saved opt-in 25): manual edits, validation, off/on rebalance, confirmed recalculation, rings, persistence and back navigation.
 - [x] Update affected documentation, upload to GitHub and verify exact remote matches for Nutrition Goals; all seven files verified.
