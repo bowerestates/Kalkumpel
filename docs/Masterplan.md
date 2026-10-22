@@ -49,7 +49,7 @@ Meal scoring uses `meal-quality-v1`, not a personal health score or calorie-base
 
 ## 5. Delivery boundaries
 
-Progress presentation (22 Oct 2026): compact „Tage in Folge“ and a single earned-badge shield/count sit side by side on Fortschritt. The shield opens `/erfolge` with earned badges by default and an all-badges view; hover/focus explanations, tap details and a back arrow to Fortschritt are retained. The approved 28 badges, unlock rules and account sync are unchanged. Seven-day calorie bars and dated rings remain on Fortschritt.
+Progress presentation (22 Oct 2026): compact „Tage in Folge“ and a single earned-badge shield/count sit side by side on Fortschritt. The shield opens `/erfolge` with all 28 achievable badges immediately visible, earned or locked, without an earned-only filter; hover/focus explanations above each badge, tap details and a back arrow to Fortschritt are retained. Badge unlock rules and account sync are unchanged. Seven-day calorie bars and dated rings remain on Fortschritt.
 
 Meal-reminder settings are implemented (17 Oct 2026) at `/erinnerungen`, reached from Profil: five independent local times and on/off preferences, persisted on this device only. Gordon explicitly deferred notifications to native iOS and Android. The web app sends no reminders, requests no notification permission and does not sync these preferences to accounts. Native scheduling must use local wall-clock times and handle time-zone changes and cancellation. These settings are not proof of native delivery.
 

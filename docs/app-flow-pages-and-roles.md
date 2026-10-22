@@ -27,7 +27,7 @@ Apple sign-in is reserved for native iOS. Google OAuth is wired through Supabase
 | `/heute` | Daily calories/macros and grouped meals; delete and saved meal-score review/edit |
 | `/erfassen` | Photo/camera upload, barcode camera or typed lookup, local food search and manual input; editable meal review/score before logging |
 | `/fortschritt` | Compact streak and earned-badge shield/count side by side; shield links to `/erfolge`. Weight log/chart, period filters, start/current/goal, dated coloured rings, seven-day calorie bars and weigh-in edit/delete remain |
-| `/erfolge` | Earned badges by default, optional all-badges view, grouped flame shields with hover/focus explanations and tap details; back arrow returns to Fortschritt |
+| `/erfolge` | All 28 achievable badges immediately visible, earned or locked; grouped flame shields with hover/focus explanations above each badge and tap details; back arrow returns to Fortschritt |
 | `/ringfarben` | Ring-colour guide: the current Mon–Sun week with real dates in coloured rings (own days once logged, otherwise a sample week showing all four colours) plus a sample date and kcal example per colour; linked from Fortschritt (the Heute strip shows the rings without a link) |
 | `/mahlzeit/$id` | Saved meal detail page: view, edit and delete a meal with its meal score; opening it never reruns AI scoring |
 | `/einladen` | Personal invite link with copy/share and friends-joined count; guests are asked to create an account first |

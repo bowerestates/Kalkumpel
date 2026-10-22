@@ -50,7 +50,7 @@
 ## Phase 6 — Progress and streaks
 - [x] Weight logging/chart, start/current/goal, seven-day calorie bars and streak counter.
 - [x] Streak 24 h grace (one missed day bridged), weight periods 7/14/30/90/Alles, date-spaced chart, weigh-in edit/delete (16 Oct 2026).
-- [x] Approved 28 badges, grouped flame-shield visuals, unlock celebrations and account sync. Fortschritt has compact streak/earned-count summaries; the badge icon opens `/erfolge` (earned/all views, hover/focus explanations, tap details and back arrow), updated 22 Oct 2026.
+- [x] Approved 28 badges, grouped flame-shield visuals, unlock celebrations and account sync. Fortschritt has compact streak/earned-count summaries; the badge icon opens all 28 achievable badges immediately on `/erfolge` (earned and locked, hover/focus explanations, tap details and back arrow), updated 22 Oct 2026.
 - [ ] Progress-photo diary (needs verified Pro).
 - [ ] Workout-energy balance depends on future native activity integration; no simulated web sync.
 

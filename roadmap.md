@@ -1,5 +1,7 @@
 # Current task
 
+- [x] Open all 28 achievable badges immediately from the single progress icon; hover, detail, back and mobile checks pass; 12 badge tests pass; documentation synchronized and verified.
+
 - [x] Compact Fortschritt streak summary and move badges behind one icon to a dedicated page, preserving explanations and back navigation.
 - [x] Verify badge navigation, earned/empty views and phone layout; 18 badge/streak tests pass. Update documents, upload and verify exact GitHub matches (22 Oct 2026).
 
