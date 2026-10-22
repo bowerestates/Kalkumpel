@@ -2,13 +2,13 @@
 
 ## Profile review navigation — 22 Oct 2026 (Personal Details live, remainder planned)
 
-Original **1–41 IDs** and statuses live in [tasks.md](tasks.md); design and implementation briefs share that scope. Personal Details and Preferences are live; the other destinations are planned, not existing routes.
+Original **1–41 IDs** and statuses live in [tasks.md](tasks.md); design and implementation briefs share that scope. Personal Details, Preferences and Nutrition Goals are live; the other destinations are planned, not existing routes.
 
 | Planned entry | IDs | Planned destination / return |
 |---|---|---|
 | Profil → Persönliche Daten — implemented | 3, 18, 19a–19e | `/profil/daten`: goal weight, current weight, height, birth date/derived age, gender and optional step preference, individual edit/save/cancel; back → `/einstellungen`. All edits preserve targets; weighing upserts today's history. |
 | Profil → Einstellungen / health wishes — implemented | 4, 7, 20, 21, 23–26 | `/profil/einstellungen`: theme, celebration and independent consent switches, saved health wishes, opt-in macro rebalance; back → Profil. No connected status or web energy credit. |
-| Profil → Ernährungsziele | 8, 27, reuse 28 | Dedicated goals page (proposed `/profil/ziele`): validated calorie/macro edits and explicit recalculation; back → Profil. Weighing never changes targets. |
+| Profil → Ernährungsziele — implemented | 8, 27, reuse 28 | `/profil/ziele`: four real daily progress/target rings, validated individual edits, optional calorie-triggered macro rebalance and confirmed recalculation; back → `/einstellungen`. Weighing never changes targets. |
 | Profil → Gewichtsverlauf | 11, 29–31 | Dedicated weight-history detail view, final path to be set when built; latest weight/date/change and add/edit/delete; back → Profil. Existing Fortschritt history remains available until migration is verified. |
 | Profil → Follow Us | 15 | External Instagram `https://www.instagram.com/kalkumpel/` and TikTok `https://www.tiktok.com/@kalkumpel_ki`; no supplied X destination. |
 | Profil → Konto löschen | 17 | Destructive confirmation/cancel, verified owner deletion of account/data/photos, failure handling; successful cleanup returns to Welcome. Local reset is not deletion. |
@@ -44,7 +44,8 @@ Apple sign-in is reserved for native iOS. Google OAuth is wired through Supabase
 | `/auth` | Google/email sign-in/signup, disabled Apple placeholder, email reset request and public Google return; validated plan continuation |
 | `/reset-password` | Password reset completion |
 | `/profil/daten` | Personal Details (3/18/19): real goal-weight summary, five pencil-edit rows, validated save/cancel dialogs and back arrow to Profil; local save/reload verified, account readback remains separate |
-| `/profil/einstellungen` | Preferences: appearance, celebrations, macro opt-in for the upcoming editor, saved health wishes and independent personalisation/marketing consent; back to Profil |
+| `/profil/einstellungen` | Preferences: appearance, celebrations, macro opt-in used by Nutrition Goals, saved health wishes and independent personalisation/marketing consent; back to Profil |
+| `/profil/ziele` | Nutrition Goals: real daily rings, four manual targets, pencil/save/cancel, opt-in calorie rebalance and confirmed all-target recalculation; back to Profil |
 | `/paywall` | Signed-out visitors return to account stage; Free continuation to Today; Premium explains unavailability |
 | `/heute` | Daily calories/macros and grouped meals; delete and saved meal-score review/edit; compact „Wasserkonsum“ tab links to `/wasser` |
 | `/wasser` | Detailed water page: big blue ring, glass drops, goal explanation, −/+250/+500/+1.000 ml buttons and „Letzte 7 Tage“ with real local dates; back arrow returns to Heute |
@@ -151,3 +152,12 @@ Testing: complete onboarding through Thanks, exercise Yes/No, switch Apple Healt
 Implemented: `/konto` and `/auth` show Apple (disabled, future iOS label), Google and email, preserving the white/mint design. On `/konto`, required storage consent gates Google/email and optional personalisation stays separate; choices are saved before leaving for Google. Google uses Gordon’s existing Supabase Auth, not a workspace Google connector. The callback is the same-origin public `/auth?oauth=google`, with `&next=paywall` for onboarding. The SDK establishes its session and `getUser()` validates it; onboarding returns to `/konto` to confirm consent before plan choice, while other accounts continue to Today or onboarding. No paid entitlement is granted and no second auth listener was added.
 
 Upcoming setup: create a Web application OAuth client in Google Cloud; register the callback URL shown in Supabase’s Google provider panel, configure the email/profile/openid scopes and enable Google in Supabase with the client ID/secret. Allow the exact app return URLs for each origin in Supabase Authentication → URL Configuration. Test Google in the published app or preview opened in a new tab, not the editor frame. Real Google login/account sync requires that provider setup; Apple is not a working web sign-in method.
+
+
+## Nutrition Goals checkpoint — 22 Oct 2026
+
+Implemented items 8/27 at `/profil/ziele`, reached from Profil, with a back arrow, four vertical cards, real local-day consumed-to-target rings, existing calorie/protein/carbohydrate/fat tokens, pencil dialogs and explicit save/cancel. Values use selected-language formatting and comma/dot decimal drafts. Technical guards: 1,200–10,000 kcal, 0–2,500 g per macro, finite values stored to two decimals; these are input safeguards, not personalised dietary advice.
+
+Only an intentional calorie edit with the default-off item 25 opt-in adjusts macros: preserve current energy proportions (protein/carbohydrate 4 kcal/g, fat 9 kcal/g) and preview rounded results before save. All-zero macro ratios reject rather than guessing. Direct macro edits leave all other targets unchanged. „Ziele neu berechnen“ reuses existing `calcTargets`, previews all four estimates and requires confirmation before replacing manual values. No profile, meal, weight or health behaviour changed; existing owner-only target sync is reused, no migration or entitlement change.
+
+Verification: 67 tests pass; guest browser all-field saves, invalid rejection, cancellation, reload, opt-in rebalance, confirmed recalculation, back navigation, actual meal ring totals and English phone fit pass, with no page errors and a clean preview build. Signed-in cross-device readback remains unverified (external unmanaged Supabase). Next: Weight History (11/29–31).
