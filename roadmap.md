@@ -1,7 +1,7 @@
 # Current task
 
 - [x] Build and verify Nutrition Goals (8/27, reuse 28 and saved opt-in 25): manual edits, validation, off/on rebalance, confirmed recalculation, rings, persistence and back navigation.
-- [ ] Update affected documentation, upload to GitHub and verify exact remote matches for Nutrition Goals.
+- [x] Update affected documentation, upload to GitHub and verify exact remote matches for Nutrition Goals; all seven files verified.
 
 - [x] Build and locally verify item 4 Preferences with 7/20/21/23–26: 59 tests, persistence, consent withdrawal, unlocks with celebrations off, DE/EN light/dark. Account readback remains unverified.
 - [x] Update documents, upload them to GitHub and verify exact matches.
