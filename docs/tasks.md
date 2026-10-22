@@ -11,9 +11,9 @@
 
 ## Profile reference review — 22 Oct 2026 (Batches A and B implemented; other builds upcoming)
 
-Gordon's annotated 15-screenshot review is catalogued below with the original **1–41 IDs**. Quote an ID to change scope. Batch A (3/18/19) is now implemented and locally verified; the other enhancement batches remain upcoming. This ledger governs the enhancement queue; existing phase records remain delivery history.
+Gordon's annotated 15-screenshot review is catalogued below with the original **1–41 IDs**. Quote an ID to change scope. Batch A (3/18/19) and Preferences Batch B are implemented and locally verified; Batch C and later enhancements remain upcoming. This ledger governs the enhancement queue; existing phase records remain delivery history.
 
-**Status groups:** Ignore: 6, 9, 12, 13, 16. Park: 14a–14h, 22, 32, 37, 40. Keep existing: 1, 2, 5, 10, 28, 34. Implemented/local checks pass: 3, 18, 19a–19e; real account readback remains unverified. Build/modify/align: other IDs, with the dependencies below.
+**Status groups:** Ignore: 6, 9, 12, 13, 16. Park: 14a–14h, 22, 32, 37, 40. Keep existing: 1, 2, 5, 10, 28, 34. Implemented/local checks pass: 3, 4, 7, 18, 19a–19e, 20, 21, 23, 24 and 26; item 25 has its saved opt-in but awaits the Batch C editor; real account readback remains unverified. Build/modify/align: other IDs, with the dependencies below.
 
 | ID | Item | Decision and required work |
 |---|---|---|

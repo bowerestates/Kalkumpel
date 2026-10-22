@@ -2,7 +2,7 @@
 
 ## Profile review navigation — 22 Oct 2026 (Personal Details live, remainder planned)
 
-Original **1–41 IDs** and statuses live in [tasks.md](tasks.md); design and implementation briefs share that scope. Personal Details is now live; the other destinations are planned, not existing routes.
+Original **1–41 IDs** and statuses live in [tasks.md](tasks.md); design and implementation briefs share that scope. Personal Details and Preferences are live; the other destinations are planned, not existing routes.
 
 | Planned entry | IDs | Planned destination / return |
 |---|---|---|

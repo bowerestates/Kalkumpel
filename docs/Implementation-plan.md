@@ -2,7 +2,7 @@
 
 ## Profile review build batches — 22 Oct 2026 (A built, remainder upcoming)
 
-This ledger tracks the approved 41-item review. Batch A is implemented; remaining rows are upcoming. Full numbered decisions/acceptance checks are in [tasks.md](tasks.md), design in [Design-guidelines.md](Design-guidelines.md), product boundaries in [Masterplan.md](Masterplan.md).
+This ledger tracks the approved 41-item review. Batches A and B are implemented; Batch C and later rows are upcoming. Full numbered decisions/acceptance checks are in [tasks.md](tasks.md), design in [Design-guidelines.md](Design-guidelines.md), product boundaries in [Masterplan.md](Masterplan.md).
 
 | Order | IDs / phase | Upcoming delivery and verification |
 |---|---|---|

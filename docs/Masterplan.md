@@ -2,7 +2,7 @@
 
 ## Approved Profile / Heute / Fortschritt enhancement scope — 22 Oct 2026
 
-Gordon approved the annotated 15-screenshot review and then building items 3/18/19. The stable **1–41 IDs and sub-items** are the decision ledger in [tasks.md](tasks.md); design, implementation and flow documents share the same statuses. Personal Details is implemented and locally verified; other enhancement batches remain upcoming.
+Gordon approved the annotated 15-screenshot review and then building items 3/18/19. The stable **1–41 IDs and sub-items** are the decision ledger in [tasks.md](tasks.md); design, implementation and flow documents share the same statuses. Personal Details and Preferences are implemented and locally verified; nutrition goals and subsequent enhancement batches remain upcoming.
 
 - **Keep current:** 1 header, 2 referrals (no cash rewards), 5 language, 10 reminders, 28 explicit goal recalculation, 34 Today macro presentation.
 - **Ignore:** 6 family plan, 9 duplicate goal/weight row, 12 extra Profile ring-guide link, 13 native home-widget carousel on web, 16 logout redesign. Existing guide and sign-out remain.
