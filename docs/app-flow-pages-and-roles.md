@@ -24,7 +24,8 @@ Apple sign-in is reserved for native iOS. Google OAuth is wired through Supabase
 | `/auth` | Google/email sign-in/signup, disabled Apple placeholder, email reset request and public Google return; validated plan continuation |
 | `/reset-password` | Password reset completion |
 | `/paywall` | Signed-out visitors return to account stage; Free continuation to Today; Premium explains unavailability |
-| `/heute` | Daily calories/macros and grouped meals; delete and saved meal-score review/edit |
+| `/heute` | Daily calories/macros and grouped meals; delete and saved meal-score review/edit; compact „Wasserkonsum“ tab links to `/wasser` |
+| `/wasser` | Detailed water page: big blue ring, glass drops, goal explanation, −/+250/+500/+1.000 ml buttons and „Letzte 7 Tage“ with real local dates; back arrow returns to Heute |
 | `/erfassen` | Photo/camera upload, barcode camera or typed lookup, local food search and manual input; editable meal review/score before logging |
 | `/fortschritt` | Compact streak and earned-badge shield/count side by side; shield links to `/erfolge`. Weight log/chart, period filters, start/current/goal, dated coloured rings, seven-day calorie bars and weigh-in edit/delete remain |
 | `/erfolge` | All 28 achievable badges immediately visible, earned or locked; grouped flame shields with hover/focus explanations above each badge and tap details; back arrow returns to Fortschritt |
