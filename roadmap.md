@@ -1,5 +1,8 @@
 # Current task
 
+- [x] Build and verify historical weekly calorie averages (39) and informational adult BMI (41) before Weight History; 78 tests, DE/EN browser/reload/weight-edit checks pass, targets unchanged.
+- [ ] Update affected documents, upload to GitHub and verify exact remote matches for items 39/41.
+
 - [x] Link manual nutrition edits: nutrient edits update calorie total; calorie edits scale all nutrients; preview, 69 tests and browser save/reload/invalid checks pass; documentation updated.
 - [x] Upload and verify linked-edit documentation on GitHub; all seven files matched.
 
@@ -21,7 +24,8 @@
 - [x] Nutrition-goal page (8, 27), confirmed recalculation (28) and automatic linked edits (supersedes former item 25 opt-in); 67 tests and guest UI checks pass, cross-device readback unverified.
 - [ ] Weight-history page (11, 29–31), Instagram/TikTok links (15), real account deletion (17).
 - [ ] Heute empty state (35); rollover indicator (33) waits for native accounting (24), not a fabricated web credit.
-- [ ] Progress goal-date estimate (36), private photos/history (38, 30), historical weekly calorie averages (39), BMI view (41).
+- [x] Historical weekly calorie averages (39), BMI view (41).
+- [ ] Progress goal-date estimate (36), private photos/history (38, 30).
 
 ## Previous deliveries
 
