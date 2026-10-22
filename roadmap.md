@@ -1,7 +1,7 @@
 # Current task
 
 - [x] Record the agreed 41-item Profile/Heute/Fortschritt review in tasks, design, masterplan, implementation and flow documents; feature builds remain upcoming.
-- [ ] Upload this review documentation to Kalkumpel main and verify exact remote matches.
+- [x] Upload this review documentation to Kalkumpel main and verify exact remote matches; six files passed fingerprint and decoded-content comparisons (22 Oct 2026), including a follow-up completion-record delivery.
 
 ## Profile review build queue (22 Oct 2026)
 - [ ] Personal details and goal-weight editing (3, 18, 19); preferences and safe health-preparation settings (4, 7, 20, 21, 23–26).

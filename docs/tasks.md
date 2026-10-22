@@ -84,7 +84,7 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 ### Documentation-only delivery and review
 - [x] Recover Gordon's annotated source and preserve all 41 IDs/sub-items; reconcile keep/ignore/park/build decisions and record upcoming batches.
 - [x] Update design, masterplan, implementation and flow documents with the same scope and safety boundaries; no application changes in this delivery.
-- [ ] Upload affected documents and roadmap to `bowerestates/Kalkumpel` main and verify exact remote-file matches.
+- [x] Upload affected documents and roadmap to `bowerestates/Kalkumpel` main and verify exact remote-file matches (22 Oct 2026): all six files passed Git blob fingerprint and decoded-content comparisons in commit `6208a0739f1e85b253d7327f472861923c600d24`; completion record synchronized and checked again before delivery.
 
 **How to check now:** read this ledger alongside Design-guidelines' “Profile reference enhancement design”, Masterplan's review scope, Implementation-plan's build batches and App Flow's planned destinations. Every ID must appear; ignored/parked work must not be marked built. Screens remain unchanged.
 
