@@ -7,7 +7,7 @@ Original **1–41 IDs** and statuses live in [tasks.md](tasks.md); design and im
 | Planned entry | IDs | Planned destination / return |
 |---|---|---|
 | Profil → Persönliche Daten — implemented | 3, 18, 19a–19e | `/profil/daten`: goal weight, current weight, height, birth date/derived age, gender and optional step preference, individual edit/save/cancel; back → `/einstellungen`. All edits preserve targets; weighing upserts today's history. |
-| Profil → Einstellungen / health wishes | 4, 7, 20, 21, 23–26 | Dedicated preferences page (proposed `/profil/einstellungen`): theme, celebration and independent consent switches, saved health wishes, opt-in macro rebalance; back → Profil. No connected status or web energy credit. |
+| Profil → Einstellungen / health wishes — implemented | 4, 7, 20, 21, 23–26 | `/profil/einstellungen`: theme, celebration and independent consent switches, saved health wishes, opt-in macro rebalance; back → Profil. No connected status or web energy credit. |
 | Profil → Ernährungsziele | 8, 27, reuse 28 | Dedicated goals page (proposed `/profil/ziele`): validated calorie/macro edits and explicit recalculation; back → Profil. Weighing never changes targets. |
 | Profil → Gewichtsverlauf | 11, 29–31 | Dedicated weight-history detail view, final path to be set when built; latest weight/date/change and add/edit/delete; back → Profil. Existing Fortschritt history remains available until migration is verified. |
 | Profil → Follow Us | 15 | External Instagram `https://www.instagram.com/kalkumpel/` and TikTok `https://www.tiktok.com/@kalkumpel_ki`; no supplied X destination. |
@@ -44,6 +44,7 @@ Apple sign-in is reserved for native iOS. Google OAuth is wired through Supabase
 | `/auth` | Google/email sign-in/signup, disabled Apple placeholder, email reset request and public Google return; validated plan continuation |
 | `/reset-password` | Password reset completion |
 | `/profil/daten` | Personal Details (3/18/19): real goal-weight summary, five pencil-edit rows, validated save/cancel dialogs and back arrow to Profil; local save/reload verified, account readback remains separate |
+| `/profil/einstellungen` | Preferences: appearance, celebrations, macro opt-in for the upcoming editor, saved health wishes and independent personalisation/marketing consent; back to Profil |
 | `/paywall` | Signed-out visitors return to account stage; Free continuation to Today; Premium explains unavailability |
 | `/heute` | Daily calories/macros and grouped meals; delete and saved meal-score review/edit; compact „Wasserkonsum“ tab links to `/wasser` |
 | `/wasser` | Detailed water page: big blue ring, glass drops, goal explanation, −/+250/+500/+1.000 ml buttons and „Letzte 7 Tage“ with real local dates; back arrow returns to Heute |
