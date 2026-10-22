@@ -114,3 +114,10 @@ Testing: complete onboarding through Thanks, exercise Yes/No, switch Apple Healt
 Implemented: `/konto` and `/auth` show Apple (disabled, future iOS label), Google and email, preserving the white/mint design. On `/konto`, required storage consent gates Google/email and optional personalisation stays separate; choices are saved before leaving for Google. Google uses Gordon’s existing Supabase Auth, not a workspace Google connector. The callback is the same-origin public `/auth?oauth=google`, with `&next=paywall` for onboarding. The SDK establishes its session and `getUser()` validates it; onboarding returns to `/konto` to confirm consent before plan choice, while other accounts continue to Today or onboarding. No paid entitlement is granted and no second auth listener was added.
 
 Upcoming setup: create a Web application OAuth client in Google Cloud; register the callback URL shown in Supabase’s Google provider panel, configure the email/profile/openid scopes and enable Google in Supabase with the client ID/secret. Allow the exact app return URLs for each origin in Supabase Authentication → URL Configuration. Test Google in the published app or preview opened in a new tab, not the editor frame. Real Google login/account sync requires that provider setup; Apple is not a working web sign-in method.
+
+
+## Scan guide placement — 22 Oct 2026
+
+The „So funktioniert's“ trigger is an inline card-style button on Heute, not a floating badge. It sits directly above the „Schnell korrigieren“ card and uses the same `rounded-3xl` border/card treatment, so both share one width and one left edge — the pair reads as two stacked cards in the same column. Mint is used for the icon and label only; no filled background, so the button stays quiet next to the correction card it introduces.
+
+The 4-step guide itself is unchanged: it still opens automatically on the first Heute visit after onboarding, and the step-1 photo still follows the onboarding gender (sporty woman, fit gym man, or both for divers). Removing the fixed position also clears the overlap the floating badge had with the meal „+“ buttons on narrow phones.
