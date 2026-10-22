@@ -43,6 +43,7 @@ Use semantic tokens in `src/styles.css` and existing UI components, not a second
 
 - Standard unselected choice: white, thin mint border, mint icon badge, label and radio.
 - Selected choice: soft mint tint, emerald border and filled radio.
+- Inline dropdowns (Settings profile: goal, activity, diet): compact right-aligned trigger without a box; open list uses a soft-mint panel with centred option rows on white and a mint highlight for the hovered/keyboard-focused row. Native `<select>` lists cannot be styled, so these use the shared Radix select.
 - Chart/comparison sections: white with thin mint border, **not filled green panels**. Chart-area shading can remain where approved.
 - Round soft-mint back arrow; thin progress line; large bold heading, muted subtitle and full-width pill CTA. Required answers keep Continue disabled until chosen.
 - Support touch, mouse and keyboard controls without unstable sizing or clipped German/English labels.
