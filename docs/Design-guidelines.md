@@ -91,7 +91,7 @@ For every agreed coding, behaviour or design change, save the corresponding docu
 
 
 ## Water card (17 Oct 2026)
-The Wasser card on Heute sits below the macro rings and uses the Wasser badge blue (not mint) for its icon, progress bar and filled drops, so it reads as water at a glance. It shows today's amount against the personal goal, one drop per 250 ml glass, and "Ziel erreicht – stark!" once reached.
+Updated 22 Oct 2026: Heute shows a compact „Wasserkonsum“ tab (same card style as the rest of the page): blue droplet icon, title, slim progress bar and today's amount against the goal (e.g. „1,0 L / 2,65 L“) with a chevron. Tapping it opens the dedicated `/wasser` page with the detailed widget: a large blue ring, one drop per 250 ml glass, the goal explanation (35 ml pro kg, mind. 2 L), „Ziel erreicht – stark!“ once reached, remove/„+250 ml“/„+500 ml“/„+1.000 ml“ buttons and a „Letzte 7 Tage“ card with per-day bars, real local dates and „Heute“ highlighted. A round back arrow returns to Heute. The Wasser badge blue (not mint) keeps signalling water.
 
 ## Badges (16 Oct 2026)
 The „Tage in Folge“ summary uses the original Kalkumpel flame silhouette tinted with the existing red/protein token (22 Oct 2026), replacing the generic line flame. This is page-scoped: Welcome branding and badge colours remain unchanged.
