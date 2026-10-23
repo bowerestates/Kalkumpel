@@ -1,5 +1,8 @@
 # Current task
 
+- [x] Align dropdown backgrounds with the mint/emerald palette using dedicated `--dropdown`/`--dropdown-item` tokens plus theme `color-scheme`; light/dark open-list checks pass, 83 tests, documents updated.
+- [x] Upload dropdown palette documentation to GitHub and verify exact copies.
+
 - [x] Make every reminder time visibly editable; all five independent edits/reload and 375 px fit browser-verified, five reminder tests pass; affected documents updated.
 - [x] Upload reminder editability documents to GitHub and verify exact copies; all six files matched, including completion records.
 
