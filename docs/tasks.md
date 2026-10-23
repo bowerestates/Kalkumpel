@@ -10,8 +10,7 @@
 > Legend: `[x]` done · `[~]` partly done / placeholder · `[ ]` upcoming
 
 ## Dark-green preview — 23 Oct 2026
-- [x] Prepare a page-scoped Heute preview: light-appearance darker foreground roles use exact #154701 (replacing the earlier #0d2b01 trial), with mint accents, existing top-left logo/flame and nutrient colours retained. Dark, Welcome and all other pages remain unchanged.
-- [x] Extend the preview to Erfassen: the highlighted meal pill and the „Foto auswählen" button use the same deep green, with the Foto/Barcode/Manuell selector, dashed camera frame, mint accents, Dark and Welcome unchanged; colour readback and screenshot verified with no page errors.
+- [x] Prepare a page-scoped Heute preview: light-appearance darker foreground roles use exact #0d2b01, with mint accents, existing top-left logo/flame and nutrient colours retained. Dark, Welcome and all other pages remain unchanged.
 - [ ] Gordon's visual approval and rollout to remaining light-appearance pages; final design-contract reconciliation, GitHub upload and exact remote verification remain upcoming until approval. This is a preview, not a completed global palette change.
 
 ## Profile reference review — 22 Oct 2026 (Batches A–C and 39/41 implemented; later builds upcoming)
@@ -32,7 +31,7 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 | 8 | Nutrition goals row | Implemented `/profil/ziele`, linked from Profil with back arrow and individual calorie/macro edits. |
 | 9 | Duplicate goals/current-weight row | Ignore duplicate; use 3/18/19 and 8/27. |
 | 10 | Tracking reminders | Keep `/erinnerungen`; local preferences only, native notification delivery deferred. |
-| 11 | Weight history row | Build Profile drill-down, reusing existing real weight history/edit/delete. |
+| 11 | Weight history row | Implemented `/profil/gewicht` from Profil, reusing real saved weigh-ins and existing weight sync. |
 | 12 | Ring-colour row on Profile | Ignore extra row; retain `/ringfarben` via Fortschritt. |
 | 13 | Native home widgets carousel | Ignore on web; no functioning iOS widgets or teaser added. |
 | 14a | Request a feature | Park pending feedback channel/content investigation. |
@@ -61,9 +60,9 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 | 26 | Marketing emails | Implemented separate unchecked opt-in/withdrawal with timestamp; personalisation remains independent. No email delivery service is connected. |
 | 27 | Four nutrition-goal cards | Implemented four vertical cards, real today-consumed/target rings, existing nutrient colours, pencil dialogs, comma/dot decimal input and explicit save/cancel. |
 | 28 | Auto-generate goals | Existing explicit calculation retained; new goals page previews all four calculated targets and requires confirmation before replacing manual goals. |
-| 29 | Weight-history header | Build latest weigh-in date, current weight and real change since baseline month. |
+| 29 | Weight-history header | Implemented latest weigh-in date/weight and signed change since the earliest saved entry, labelled with that entry's month/year and exact baseline date. Empty/single-entry states do not invent change. |
 | 30 | Weigh-in/photo history | Build history presentation and photo association; retain existing edit/delete. Photo indicators require real saved photos (38). |
-| 31 | Fixed log-weight action | Align sticky „Gewicht eintragen“ action and existing validation; no calorie-target changes. |
+| 31 | Fixed log-weight action | Implemented sticky „Gewicht eintragen“ above navigation, validated comma/dot drafts, same-local-day replacement and save/cancel. Add/edit/delete never change calorie/macronutrient targets. |
 | 32 | PDF explainer / generator | Park including report contents, date-range selection and download; no report/workout placeholders claimed delivered. |
 | 33 | Rollover pill on Heute | Align only after real carryover accounting (24); show actual credited amount, not a permanent +200 example. Native/deferred dependency. |
 | 34 | Macro carousel reference | Keep approved Today rings/bars; do not replace with carousel. |
@@ -82,7 +81,9 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 - [ ] **Batch B account verification:** signed-in cross-device readback of preferences/marketing consent remains unverified because this external Supabase project cannot provide an automated session.
 - [x] **Batch C — Nutrition goals (8, 27; reuse 28, complete 25):** `/profil/ziele` built; all four manual saves, comma/dot input, invalid rejection, cancel/reload, automatic linked editing, confirmed recalculation and back navigation browser-checked; actual meal totals populate rings. English 390 px layout checked; 67 tests pass; preview build clean. Existing owner-only target sync reused; no migration.
 - [ ] **Batch C account verification:** signed-in cross-device target readback remains unverified (external unmanaged Supabase).
-- [ ] **Batch D — Weight history (11, 29–31):** real date/weight/change summary, add/edit/delete/reload and back navigation; associate photos only after 38.
+- [x] **Batch D — Weight history (11, 29, 31), 23 Oct 2026:** `/profil/gewicht`, Profile link/back, real latest date/weight and signed change from earliest saved entry (baseline month/year plus exact date), sticky add, historical edit, confirmed delete/cancel, empty/single-entry states; 20–400 kg inclusive validation and same-local-day upsert. Targets unchanged. Guest browser add/invalid/edit/delete/cancel/reload/back and EN 390 px checks pass without page errors; all 90 tests pass and preview build is clean. Existing Fortschritt history and owner-only weight sync retained. Item 30 photo association and parked 37 remain unbuilt.
+- [ ] **Batch D account verification:** signed-in cross-device weight readback remains unverified; external unmanaged Supabase provides no automated signed-in session.
+- [ ] **Batch D documentation delivery:** upload affected documents and verify exact remote copies on Kalkumpel main.
 - [x] **Batch E — Social links (15)** (built 23 Oct 2026: „Folge uns“ card in Profil with Instagram/TikTok opening in a new tab, noopener): Instagram `https://www.instagram.com/kalkumpel/` and TikTok `https://www.tiktok.com/@kalkumpel_ki`; verify safe external opening; no invented X link.
 - [x] **Batch F — Account deletion (17)** (built 23 Oct 2026: signed-in „Konto löschen“ with confirm/cancel; server function verifies the caller's token, removes meal photos, entries, weights, water, badges, scan usage, referrals, profile and the auth user, then signs out, clears local data and returns to Welcome; failure shows a retry message and keeps the account. Hosted readback by Gordon still to verify): verified signed-in owner deletion, confirmation/cancel, retry/error handling, local cache clearing and hosted readback for data/photo/auth removal; legal review remains separate.
 - [ ] **Batch G — Heute (35; dependency 33):** verify illustrated empty state opens Erfassen; do not render rollover credit until 24 has real native accounting.
@@ -99,7 +100,9 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 
 **How to check Preferences:** Profil → Einstellungen; choose Hell/Dunkel/System, toggle each switch, reload and return. Turn celebrations off and confirm earned badges still increase. Withdraw marketing and confirm recommendations remain unchanged.
 
-**Next step:** Items 39/41 delivered first as requested; return to Batch D, Weight History (11/29–31). Batches A–C signed-in cross-device readback remain unverified; later features remain upcoming.
+**Next step:** Batch D items 11/29/31 are locally complete. Next active build: Heute empty-meal state (35), followed by estimated goal arrival (36); photos (38/30) need policy decisions. Signed-in cross-device readback remains unverified.
+
+**How to test Weight History:** Profil → Gewichtshistorie; add a weight, try an out-of-range value, edit an earlier row, cancel/confirm deletion, reload and return using the back arrow. Compare Ernährungsziele before/after: all four targets stay unchanged. „Seit …“ compares against the earliest real saved entry, not a rolling one-month or interval-comparison table.
 
 ### Preferences delivery — 22 Oct 2026
 - [x] Build and locally verify items 4, 7, 20, 21 and 23–26, with item 25 preference saved for Batch C.

@@ -1,7 +1,10 @@
 # Current task
 
-- [x] Prepare a Heute-only light-appearance preview of the darker green #154701 (replacing the earlier #0d2b01 trial); retain mint, flame, nutrient colours, Welcome and Dark.
-- [x] Preview the same deep green on Erfassen's highlighted meal pill and „Foto auswählen" button; mint selector, dashed camera frame, Dark and Welcome retained.
+- [x] Build Batch D items 11, 29 and 31: `/profil/gewicht`, latest real weight/date/earliest-entry baseline change, sticky add, historical edit/confirmed delete and unchanged nutrition goals; item 30 photos and item 37 comparisons remain deferred.
+- [x] Verify guest Weight History add/invalid/edit/delete/cancel/reload/back and English phone layout; 90 tests pass, no page errors, preview build clean; affected documents updated. Cross-device account checks unverified.
+- [ ] Upload Batch D documents and verify exact GitHub copies.
+
+- [x] Prepare a Heute-only light-appearance preview of the darker green #0d2b01; retain mint, flame, nutrient colours, Welcome and Dark.
 - [ ] Apply to remaining light-appearance pages only after Gordon approves the Heute preview; final documentation delivery follows approval.
 
 - [x] Replace the reminders screen's native time picker with a custom always-24-hour popup (`TimePicker`): tapping the time pill opens hour/minute columns that auto-scroll to the stored value, selected values highlighted in emerald instead of system blue, "Fertig" closes; pick/close/reload browser-verified, 83 tests, build OK.
@@ -35,7 +38,7 @@
 - [x] Personal details and goal-weight editing (3, 18, 19).
 - [x] Preferences and safe health-preparation settings (4, 7, 20, 21, 23–26).
 - [x] Nutrition-goal page (8, 27), confirmed recalculation (28) and automatic linked edits (supersedes former item 25 opt-in); 67 tests and guest UI checks pass, cross-device readback unverified.
-- [ ] Weight-history page (11, 29–31), Instagram/TikTok links (15), real account deletion (17).
+- [x] Weight-history page (11, 29, 31), locally verified; supplied social links (15) and account deletion (17) delivered previously (hosted deletion readback remains unverified). Photos (30/38) remain upcoming.
 - [ ] Heute empty state (35); rollover indicator (33) waits for native accounting (24), not a fabricated web credit.
 - [x] Historical weekly calorie averages (39), BMI view (41).
 - [ ] Progress goal-date estimate (36), private photos/history (38, 30).
