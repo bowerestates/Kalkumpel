@@ -1,5 +1,8 @@
 # Current task
 
+- [x] Replace the reminders screen's native time picker with a custom always-24-hour popup (`TimePicker`): tapping the time pill opens hour/minute columns that auto-scroll to the stored value, selected values highlighted in emerald instead of system blue, "Fertig" closes; pick/close/reload browser-verified, 83 tests, build OK.
+- [x] Update Design-guidelines and tasks.md with the picker change, upload to Kalkumpel GitHub and verify exact remote matches.
+
 - [x] Align dropdown backgrounds with the mint/emerald palette using dedicated `--dropdown`/`--dropdown-item` tokens plus theme `color-scheme`; light/dark open-list checks pass, 83 tests, documents updated.
 - [x] Upload dropdown palette documentation to GitHub and verify exact copies.
 
