@@ -270,6 +270,8 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [ ] Units metric / imperial
 - [x] Meal-reminder preferences (17 Oct 2026): `/erinnerungen` from Profil, independent time inputs and switches for breakfast, lunch, snacks, dinner and end of day; defaults 08:30 / 12:30 / 16:00 / 19:00 / 21:00, all off. Saved immediately on this device, validated on reload; no account sync or web notification delivery.
 - [x] Reminder verification: 4 new rule tests; full 36-test suite passes, preview build clean; browser verifies time/switch persistence after reload, DE/EN, navigation from Profil and mobile fit. Times display through selected-language formatting; browser time picker remains native.
+- [x] Reminder time editability (23 Oct 2026): replaced invisible time-input overlays with visible native fields. Breakfast/lunch/snacks/dinner/end-of-day times are editable even with switches off; all five real UI edits persist after reload, 375 px fit checked, no page errors. Five reminder tests pass. Native field display follows browser locale; stored times remain HH:mm, device-only saving/native-only notification boundaries unchanged.
+- [ ] Upload and verify reminder editability documentation on Kalkumpel main (23 Oct 2026).
 - [ ] Native iOS/Android reminder delivery (Gordon deferred 17 Oct 2026): implement permission request, recurring local notifications in the device time zone, rescheduling after time/zone changes, disabling/cancellation, and tap-to-log; notification permission remains separate from saved preferences.
 - [ ] AGB, Datenschutz, Konto löschen
 - [x] Sync language to profile (`preferred_language`) through existing account sync; signed-in cross-device verification remains upcoming.

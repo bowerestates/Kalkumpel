@@ -79,6 +79,7 @@ Next implementation task is Batch D (Weight History); Batch B preferences reuse 
 ## Phase 7 — Settings
 - [x] Language change and profile language sync, profile editing/recalculated targets, local reset and optional personalisation withdrawal.
 - [x] Meal-reminder preference page `/erinnerungen` (17 Oct 2026): independently editable local times and switches for four meals and end of day; immediate device-only persistence, validated reload and reset; DE/EN copy. No timers, push services, account sync or permission requests.
+- [x] Reminder editability clarification (23 Oct 2026): visible native time fields replace hidden overlays; all five times can be changed with switches off and persist after reload. Five reminder tests pass; browser checks cover all five edits and 375 px fit. Storage/notification boundaries unchanged.
 - [ ] Native iOS/Android notification delivery explicitly deferred by Gordon; add permission, device-local recurring scheduling, time-zone rescheduling and cancellation in native apps.
 - [ ] App-wide metric/imperial preference, approved legal pages and account deletion/export. Local reset is not server account deletion.
 

@@ -58,6 +58,8 @@ Apple sign-in is reserved for native iOS. Google OAuth is wired through Supabase
 | `/einladen` | Personal invite link with copy/share and friends-joined count; guests are asked to create an account first |
 | `/erinnerungen` | Five independent meal/end-of-day time inputs and switches; immediate device-only saving, all off by default; notifications deferred to native iOS/Android |
 
+Reminder editing (23 Oct 2026): select the visible time field for any meal or end of day → type a time or use the native picker → valid time saves immediately → reopen/reload retains it. The switch can remain off throughout; other times and switches are unchanged. Native input presentation follows the browser locale, while saved wall-clock values remain HH:mm. All five edits/reload and phone fit verified; no notification or account-sync claim.
+
 | `/einstellungen` | Profile editing/target calculation, language, account controls, link to reminder settings, optional personalisation withdrawal and local reset |
 
 `/mahlzeit/$id` is the meal detail page: tapping a meal on Today opens it to view meal type/date, edit evidence and nutrients, reassess the score on request, save or delete. Unknown or deleted meals show a friendly message with a way back to Today.
