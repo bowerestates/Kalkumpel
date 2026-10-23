@@ -1,6 +1,7 @@
 # Current task
 
 - [x] Prepare a Heute-only light-appearance preview of the darker green #154701 (replacing the earlier #0d2b01 trial); retain mint, flame, nutrient colours, Welcome and Dark.
+- [x] Preview the same deep green on Erfassen's highlighted meal pill and „Foto auswählen" button; mint selector, dashed camera frame, Dark and Welcome retained.
 - [ ] Apply to remaining light-appearance pages only after Gordon approves the Heute preview; final documentation delivery follows approval.
 
 - [x] Replace the reminders screen's native time picker with a custom always-24-hour popup (`TimePicker`): tapping the time pill opens hour/minute columns that auto-scroll to the stored value, selected values highlighted in emerald instead of system blue, "Fertig" closes; pick/close/reload browser-verified, 83 tests, build OK.

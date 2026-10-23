@@ -11,6 +11,7 @@
 
 ## Dark-green preview — 23 Oct 2026
 - [x] Prepare a page-scoped Heute preview: light-appearance darker foreground roles use exact #154701 (replacing the earlier #0d2b01 trial), with mint accents, existing top-left logo/flame and nutrient colours retained. Dark, Welcome and all other pages remain unchanged.
+- [x] Extend the preview to Erfassen: the highlighted meal pill and the „Foto auswählen" button use the same deep green, with the Foto/Barcode/Manuell selector, dashed camera frame, mint accents, Dark and Welcome unchanged; colour readback and screenshot verified with no page errors.
 - [ ] Gordon's visual approval and rollout to remaining light-appearance pages; final design-contract reconciliation, GitHub upload and exact remote verification remain upcoming until approval. This is a preview, not a completed global palette change.
 
 ## Profile reference review — 22 Oct 2026 (Batches A–C and 39/41 implemented; later builds upcoming)
