@@ -1,7 +1,7 @@
 # Current task
 
 - [x] Make every reminder time visibly editable; all five independent edits/reload and 375 px fit browser-verified, five reminder tests pass; affected documents updated.
-- [ ] Upload reminder editability documents to GitHub and verify exact copies.
+- [x] Upload reminder editability documents to GitHub and verify exact copies; all six files matched, including completion records.
 
 - [x] Build and verify historical weekly calorie averages (39) and informational adult BMI (41) before Weight History; 82 tests, DE/EN browser/reload/weight-edit checks pass, targets unchanged.
 - [x] Update affected documents, upload to GitHub and verify exact remote matches for items 39/41; all seven files verified including the completion record.
