@@ -403,3 +403,5 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - **How to test:** Fortschritt → select each historical week, check dates/average and open its information icon. Check BMI and its information icon; edit weight under Profil → Persönliche Daten, return/reload, and confirm BMI changes but calorie/macronutrient targets do not. Switch English to verify numbers/dates.
 - **Next:** Weight History (11/29–31); 36/38 remain upcoming. Documentation GitHub delivery is tracked in tasks/roadmap.
 - [x] Upload items 39/41 documentation to GitHub and verify exact matching contents; all seven product/architecture/roadmap files verified, including the completion record.
+
+- [x] Profile account actions as separate tabs (23 Oct 2026, Gordon): at the bottom of Profil, in order **Alles zurücksetzen** (device-only reset, confirm question), **Abmelden** (signed-in only, confirm question, data stays in account) and **Konto löschen** last (signed-in only, red card, "Bist Du sicher…?" confirmation). The small sign-out link in the Konto card was removed.
