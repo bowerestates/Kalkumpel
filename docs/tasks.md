@@ -9,6 +9,10 @@
 >
 > Legend: `[x]` done · `[~]` partly done / placeholder · `[ ]` upcoming
 
+## Dark-green preview — 23 Oct 2026
+- [x] Prepare a page-scoped Heute preview: light-appearance darker foreground roles use exact #154701 (replacing the earlier #0d2b01 trial), with mint accents, existing top-left logo/flame and nutrient colours retained. Dark, Welcome and all other pages remain unchanged.
+- [ ] Gordon's visual approval and rollout to remaining light-appearance pages; final design-contract reconciliation, GitHub upload and exact remote verification remain upcoming until approval. This is a preview, not a completed global palette change.
+
 ## Profile reference review — 22 Oct 2026 (Batches A–C and 39/41 implemented; later builds upcoming)
 
 Gordon's annotated 15-screenshot review is catalogued below with the original **1–41 IDs**. Quote an ID to change scope. Personal Details, Preferences, Nutrition Goals (Batches A–C) and Progress insights (39/41) are implemented and locally verified; other enhancements remain upcoming. This ledger governs the enhancement queue; existing phase records remain delivery history.
