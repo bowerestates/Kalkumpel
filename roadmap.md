@@ -2,7 +2,7 @@
 
 - [x] Build Batch D items 11, 29 and 31: `/profil/gewicht`, latest real weight/date/earliest-entry baseline change, sticky add, historical edit/confirmed delete and unchanged nutrition goals; item 30 photos and item 37 comparisons remain deferred.
 - [x] Verify guest Weight History add/invalid/edit/delete/cancel/reload/back and English phone layout; 90 tests pass, no page errors, preview build clean; affected documents updated. Cross-device account checks unverified.
-- [ ] Upload Batch D documents and verify exact GitHub copies.
+- [x] Upload Batch D documents and verify exact GitHub copies; all seven affected files match on Kalkumpel main, including completion records.
 
 - [x] Prepare a Heute-only light-appearance preview of the darker green #0d2b01; retain mint, flame, nutrient colours, Welcome and Dark.
 - [ ] Apply to remaining light-appearance pages only after Gordon approves the Heute preview; final documentation delivery follows approval.
