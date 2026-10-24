@@ -1,5 +1,10 @@
 # Kalkumpel — App Flow, Pages & Roles (Web)
 
+## Progress Photos preview — 24 Oct 2026
+Fortschritt → compact Fortschrittsfotos row → `/fortschrittsfotos` → back to Fortschritt. Labelled generated sample tiles open a large viewer; „Foto hinzufügen“ opens sample/date/optional weigh-in selection and acknowledgement, with „Beispiel übernehmen“ explicitly not a real save. Confirmed sample deletion affects memory only; reload restores the sample. No personal uploads or weight-history photo indicators are active.
+
+Approved future access: new uploads require a signed-in verified Pro account. Guests sign in first; free/expired Pro cannot add photos, while owners retain view/delete of existing photos after Pro expiry. Local plan choices grant nothing. Owner-only storage, temporary viewing links, photo/account deletion and real weight associations remain upcoming, with legal and signed-in verification open. Online-only initially, no guest/offline photo queue or persistent photo cache.
+
 ## Profile review navigation — 22 Oct 2026 (Personal Details live, remainder planned)
 
 Original **1–41 IDs** and statuses live in [tasks.md](tasks.md); design and implementation briefs share that scope. Personal Details, Preferences, Nutrition Goals and Progress insights (39/41) are live; other destinations are planned, not existing routes.

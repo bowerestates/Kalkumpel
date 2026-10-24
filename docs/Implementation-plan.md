@@ -1,5 +1,10 @@
 # Kalkumpel — Implementation Plan (Web)
 
+## 38/30 approved preview delivery — 24 Oct 2026
+Stage 1 delivered: `/fortschrittsfotos`, labelled generated samples with component-local add/view/confirmed-delete state and optional selection of existing weigh-in dates; no photo storage, persisted consent, entitlement or target writes. Fortschritt link and unique page metadata included. Sample lifecycle/back/phone fit verified; 13 existing weight/progress rule tests passed; preview build clean.
+
+Stage 2 remains upcoming: private bucket and owner-only metadata, authenticated server functions/temporary URLs, optimised location-metadata-free supported image uploads, repeatable cleanup and links across all weight mutation paths. Stage 3 requires genuine server-verified Pro before upload enablement. Account-only online use, retention until deletion, no AI/marketing reuse, weigh-in deletion unlinks without deleting photos and expired-Pro view/delete are approved. Legal review and authenticated owner-isolation/full account deletion checks remain required. Screen approval and verified paid access are outstanding; no production photo claims.
+
 ## Profile review build batches — 22 Oct 2026 (A built, remainder upcoming)
 
 This ledger tracks the approved 41-item review. Batches A–C and Progress insights (39/41) are implemented; other rows are upcoming. Full numbered decisions/acceptance checks are in [tasks.md](tasks.md), design in [Design-guidelines.md](Design-guidelines.md), product boundaries in [Masterplan.md](Masterplan.md).

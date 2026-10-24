@@ -1,5 +1,10 @@
 # Kalkumpel — Masterplan (Web)
 
+## Progress Photos checkpoint — 24 Oct 2026
+Gordon approved the 38/30 plan and reconfirmed Pro-only access. `/fortschrittsfotos` is now a labelled generated-sample screen preview from Fortschritt, with dated tiles, large viewing, sample add/date/optional real weigh-in selection and confirmed sample deletion. Samples and acknowledgement stay in component-local memory; nothing is uploaded, stored as account evidence or used to grant Pro.
+
+Approved live scope remains upcoming: signed-in owner-only private storage, separate first-upload acknowledgement, retention until photo/account deletion (legal review still required), optional existing weight-date association, multiple photos per date, no automatic weigh-in or target changes. Weight edits/replacements preserve links; deleting a weigh-in unlinks but retains photos; deleting photos preserves weights. Guests/offline uploads excluded initially. New uploads require verified Pro; expired Pro retains view/delete. Live storage, association indicators, cleanup and authenticated lifecycle checks are not delivered by this preview. Next: Gordon reviews the screen; live uploads wait on verified paid access.
+
 ## Approved Profile / Heute / Fortschritt enhancement scope — 22 Oct 2026
 
 Gordon approved the annotated 15-screenshot review and then building items 3/18/19. The stable **1–41 IDs and sub-items** are the decision ledger in [tasks.md](tasks.md); design, implementation and flow documents share the same statuses. Personal Details, Preferences, Nutrition Goals and Progress insights (39/41) are implemented and locally verified; other enhancement batches remain upcoming.

@@ -1,5 +1,10 @@
 # Current task
 
+- [x] Review Progress Photos (38) and weigh-in association (30); Gordon confirmed Pro-only access.
+- [x] Approve diary proposal and build Stage 1 labelled sample preview; add/view/cancel/delete/back/phone fit verified, 13 regression tests pass, preview build clean.
+- [ ] Gordon reviews diary preview before live photo delivery; real uploads remain blocked by verified Pro access.
+- [ ] Enable private upload/view/delete and weight-date associations after server-verified Pro access exists; verify owner isolation and account/photo deletion. Full implementation and agreed-document GitHub delivery remain upcoming.
+
 - [x] Build Batch D items 11, 29 and 31: `/profil/gewicht`, latest real weight/date/earliest-entry baseline change, sticky add, historical edit/confirmed delete and unchanged nutrition goals; item 30 photos and item 37 comparisons remain deferred.
 - [x] Verify guest Weight History add/invalid/edit/delete/cancel/reload/back and English phone layout; 90 tests pass, no page errors, preview build clean; affected documents updated. Cross-device account checks unverified.
 - [x] Upload Batch D documents and verify exact GitHub copies; all seven affected files match on Kalkumpel main, including completion records.

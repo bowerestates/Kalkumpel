@@ -1,5 +1,8 @@
 # Kalkumpel — Design Guidelines (Web)
 
+## Progress Photos screen preview — 24 Oct 2026
+`/fortschrittsfotos` opens from a compact camera row on Fortschritt and returns with its back arrow. Two-column dated sample tiles open a larger view; the add dialog previews the sample/date/optional existing weigh-in and a separate acknowledgement, with sample-only save/cancel. Delete asks a question with cancel. Generated example imagery is explicitly labelled, never user evidence. Existing mint/light/dark tokens remain; the pending Heute green preview is not rolled out. Personal uploads remain locked. Owner-only lifecycle, Weight History thumbnails and real access/cleanup remain upcoming. Sample add/view/cancel/delete/back and 390 px no-overflow checks passed, no page errors; 13 weight/progress regression tests passed.
+
 ## Profile reference enhancement design — 22 Oct 2026 (Batch A built, remainder planned)
 
 The approved 15-screenshot review keeps its original 1–41 IDs, fully listed in [tasks.md](tasks.md). Personal Details (3/18/19), Preferences, Nutrition Goals and Progress insights (39/41) are built; other entries below remain the upcoming design brief. Retain Plus Jakarta Sans, existing semantic tokens, white/mint default, nutrient colours and DE/EN formatting. Reuse familiar edit, back, share and delete icons, accessible labels and stable controls; all detail views return to their parent.
