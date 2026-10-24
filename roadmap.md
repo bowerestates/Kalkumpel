@@ -2,6 +2,7 @@
 
 - [x] Review Progress Photos (38) and weigh-in association (30); Gordon confirmed Pro-only access.
 - [x] Approve diary proposal and build Stage 1 labelled sample preview; add/view/cancel/delete/back/phone fit verified, 13 regression tests pass, preview build clean.
+- [x] Upload preview documentation and verify all seven affected files exactly on Kalkumpel GitHub, including final completion records.
 - [ ] Gordon reviews diary preview before live photo delivery; real uploads remain blocked by verified Pro access.
 - [ ] Enable private upload/view/delete and weight-date associations after server-verified Pro access exists; verify owner isolation and account/photo deletion. Full implementation and agreed-document GitHub delivery remain upcoming.
 
