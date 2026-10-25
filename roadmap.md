@@ -1,5 +1,8 @@
 # Current task
 
+- [x] Place the uploaded Kalkumpel wordmark left-aligned on every app page via the shared Shell brand row (25 Oct 2026); onboarding/welcome keep approved branding, dark mode uses a pale-mint chip, favicon regenerated from the same upload; 90 tests pass, browser-verified.
+- [ ] Gordon reviews the wordmark placement; next builds remain item 35 (Heute empty meal state) and item 36 (estimated goal arrival date).
+
 - [x] Review Progress Photos (38) and weigh-in association (30); Gordon confirmed Pro-only access.
 - [x] Approve diary proposal and build Stage 1 labelled sample preview; add/view/cancel/delete/back/phone fit verified, 13 regression tests pass, preview build clean.
 - [x] Upload preview documentation and verify all seven affected files exactly on Kalkumpel GitHub, including final completion records.
