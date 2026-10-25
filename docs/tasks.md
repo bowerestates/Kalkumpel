@@ -418,3 +418,15 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - [x] Upload items 39/41 documentation to GitHub and verify exact matching contents; all seven product/architecture/roadmap files verified, including the completion record.
 
 - [x] Profile account actions as separate tabs (23 Oct 2026, Gordon): at the bottom of Profil, in order **Alles zurücksetzen** (device-only reset, confirm question), **Abmelden** (signed-in only, confirm question, data stays in account) and **Konto löschen** last (signed-in only, red card, "Bist Du sicher…?" confirmation). The small sign-out link in the Konto card was removed.
+
+## Brand wordmark on every page — 25 Oct 2026
+
+- **Scope:** Gordon uploaded the wide Kalkumpel wordmark (scanner-plate icon + dark-green lettering, transparent background) and asked for it left-aligned on every app page, with screen titles repositioned accordingly.
+- **Implementation:** new `BrandLogo` component and a default-on `brand` row in the shared `Shell` layout, so all main tabs and subpages (Heute, Erfassen, Fortschritt, Profil, Wasser, Erfolge, Erinnerungen, Ringfarben, all Profil subpages, Fortschrittsfotos, Mahlzeit detail, Einladen, Auth, Konto, Paywall, Passwort zurücksetzen) show the wordmark top-left above the existing header rows; back arrows and screen titles keep their rows directly below. Onboarding opts out (`brand={false}`) to preserve the approved mint screens, and Welcome keeps its dedicated approved branding. The Heute header lost its separate small square logo (the brand row now covers it); the streak pill and greeting stay. The wordmark is a CDN asset pointer (`src/assets/kalkumpel-logo.png.asset.json`); the favicon was regenerated from the same upload as a square padded `public/favicon.png`.
+- **Dark mode:** the dark-green lettering is unreadable on the dark background, so the wordmark sits on a pale-mint chip via the new `--brand-mark-bg` token (transparent in light, pale mint in dark; `.brand-mark` class).
+- **Verification:** guest browser checks on Heute (light + dark), Wasserkonsum and Fortschritt at 390 px — wordmark left-aligned on every page, back arrows and titles intact, no page errors; 90 tests pass; preview build clean.
+- **How to test:** open any main page — the Kalkumpel wordmark appears at the top left, with the screen title (and back arrow on subpages) directly below. Switch to Dunkel in Preferences: the wordmark stays readable on its pale-mint chip. Check the browser tab shows the new square favicon.
+- **Next:** Gordon reviews; item 35 (Heute empty meal state) and item 36 (estimated goal arrival date) remain next in the queue.
+- [x] Place the brand wordmark left-aligned on every app page and reposition screen titles.
+- [x] Regenerate the favicon from the uploaded wordmark.
+- [x] Update design, tasks and roadmap documents; upload to GitHub and verify exact remote matches.
