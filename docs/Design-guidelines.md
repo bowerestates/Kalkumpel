@@ -35,6 +35,7 @@ The approved 15-screenshot review keeps its original 1–41 IDs, fully listed in
 ## 1. Brand and typography — approved
 
 - **Keep the existing scanner-plate/flame logo permanently** (Gordon, 11 Oct 2026). Welcome uses `src/assets/welcome-logo.png`; favicon uses `public/favicon.png`. Older native `assets/logo.png` and `assets/logo-scanner-plate.png` are not replacements to import.
+- **Brand wordmark on every page** (Gordon, 25 Oct 2026): the wide Kalkumpel wordmark (CDN pointer `src/assets/kalkumpel-logo.png.asset.json`) renders left-aligned at the top of every page through the shared `Shell` brand row (`BrandLogo` component); back arrows and screen titles keep their own rows directly below. Onboarding opts out (`brand={false}`) and Welcome keeps its dedicated branding. Because the lettering is dark green, dark mode places the wordmark on a pale-mint chip via the `--brand-mark-bg` token (transparent in light). The favicon is a square padded copy of the same upload.
 - Welcome alone is near-black with white **Kalkumpel** lettering and green branding. Plate/flame sit inside scan corners; the approved ring simplification and spacing remain.
 - Keep original **Plus Jakarta Sans** typography and approved copy colour roles; do not substitute a rounded wordmark or new font.
 - Every screen after Welcome defaults to white surfaces, readable deep mint/emerald text, muted mint helpers and emerald active states; an explicit Dark or System preference uses the matching contrast tokens. Retain existing nutrient colours as the exception to monochrome mint.
