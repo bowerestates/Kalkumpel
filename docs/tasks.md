@@ -252,7 +252,7 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [x] Open Food Facts lookup (`/api/v2/product/{barcode}.json`)
 - [x] Product sheet (26 Oct 2026): name, brand, Nutri-Score (Open Food Facts), full values per 100 g (unknown shown as „unbekannt“, never 0), portion presets (serving, ½×/1×/2× 100 g), slider and gram input, source attribution.
 - [x] BLS 4.0 staples table (26 Oct 2026): ~490 everyday foods bundled offline from the official Max Rubner-Institut download (kcal, protein, carbs, fat, fibre, sugar, salt, saturated fat per 100 g).
-- [x] USDA fallback (26 Oct 2026): server-side search; runs on the shared DEMO_KEY (low hourly limit) until a free `USDA_API_KEY` is added.
+- [x] USDA fallback (26 Oct 2026): server-side search; runs on the shared DEMO_KEY (low hourly limit) — own `USDA_API_KEY` added and verified 26 Oct 2026.
 - [x] "Open Data & Lizenzen" page `/lizenzen` (26 Oct 2026): BLS citation + DOI (CC BY 4.0), Open Food Facts (ODbL/DbCL), USDA (CC0), AI disclaimer; linked from Einstellungen and every product sheet.
 
 ## Phase 6 – Progress, Streaks & Gamification
@@ -448,3 +448,6 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - [x] Place the brand wordmark left-aligned on every app page and reposition screen titles.
 - [x] Regenerate the favicon from the uploaded wordmark.
 - [x] Update design, tasks and roadmap documents; upload to GitHub and verify exact remote matches.
+
+## Documentation sync – Phase 4 & 5 (26 Oct 2026)
+- [x] Masterplan, Implementation plan and app-flow document updated for BLS staples, photo grounding, product sheet, USDA fallback (own key verified), `/lizenzen`, and the native Apple/Google subscription decision; uploaded to `bowerestates/Kalkumpel` and verified.
