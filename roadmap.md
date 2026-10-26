@@ -1,7 +1,7 @@
 # Current task
 
 - [x] Place the uploaded Kalkumpel wordmark left-aligned on every app page via the shared Shell brand row (25 Oct 2026); onboarding/welcome keep approved branding, dark mode uses a pale-mint chip, favicon regenerated from the same upload; 90 tests pass, browser-verified.
-- [ ] Gordon reviews the wordmark placement; next builds remain item 35 (Heute empty meal state) and item 36 (estimated goal arrival date).
+- [ ] Gordon reviews the wordmark placement; item 35 (Heute empty meal state) is delivered and item 36 (estimated goal arrival date) was dropped 26 Oct 2026.
 - [x] Align the wordmark's left edge with the page titles (Erfassen/Fortschritt/Profil): the transparent border was trimmed from the asset and the chip re-padded, so the lettering now sits on the content margin (ink x 24 vs title x 22) and the dark-mode chip edge lines up with the cards.
 
 - [x] Review Progress Photos (38) and weigh-in association (30); Gordon confirmed Pro-only access.
@@ -51,7 +51,7 @@
 - [x] Weight-history page (11, 29, 31), locally verified; supplied social links (15) and account deletion (17) delivered previously (hosted deletion readback remains unverified). Photos (30/38) remain upcoming.
 - [ ] Heute empty state (35); rollover indicator (33) waits for native accounting (24), not a fabricated web credit.
 - [x] Historical weekly calorie averages (39), BMI view (41).
-- [ ] Progress goal-date estimate (36), private photos/history (38, 30).
+- [x] Private photos/history (38, 30) delivered 26 Oct 2026; goal-date estimate (36) dropped by Gordon.
 
 ## Previous deliveries
 
