@@ -66,13 +66,14 @@ Batch D items 11/29/31 are locally verified; next active task is item 35 (Heute 
 - [x] Camera permission messaging, ingredient/portion edits and private signed-in photo storage.
 - [x] Free photo quota: 3/day; account counts server-side, guests local. Unlimited Pro waits for verified payment access.
 - [x] `meal-quality-v1` for photo/barcode/manual meals, saved evidence/results, no request on reopening, safe reassessment and save-on-failure.
-- [ ] Scan-tips screen, BLS grounding, real photo/barcode example checks and signed-in score sync verification. Provider retention/access claims need independent verification.
+- [x] BLS 4.0 photo grounding (26 Oct 2026).
+- [ ] Scan-tips screen, real photo/barcode example checks and signed-in score sync verification. Provider retention/access claims need independent verification.
 
 ## Phase 5 — Barcode and reference data
 - [x] Browser camera barcode detection via ZXing; typed-code fallback and access/error messages.
 - [x] Open Food Facts product lookup, name/brand, per-100-g nutrients, gram portion scaling and review before logging.
 - [~] General text product search is a local sample catalogue, not a comprehensive online food search.
-- [ ] Fuller product/Nutri-Score sheet, BLS staples, USDA fallback and Open Data & Licenses view.
+- [x] Product/Nutri-Score sheet, ~490 BLS staples, USDA fallback and Open Data & Lizenzen page (26 Oct 2026).
 
 ## Phase 6 — Progress and streaks
 - [x] Weight logging/chart, start/current/goal and streak counter; four calendar-week calorie selections/averages and informational adult BMI delivered (39/41).
@@ -90,7 +91,7 @@ Batch D items 11/29/31 are locally verified; next active task is item 35 (Heute 
 
 ## Phase 8 — Subscriptions
 - [~] Account-gated Free/Premium preview at 5,99 €/week, 11,99 €/month or 34,99 €/year with a proposed 3-day trial on all plans.
-- [ ] Stripe checkout, verified entitlement in separate roles, subscription management and restore flow. Local selection never grants Pro.
+- [ ] Native Apple/Google subscriptions via RevenueCat webhook (on hold; Stripe dropped 26 Oct 2026), verified entitlement in separate roles, subscription management and restore flow. Local selection never grants Pro.
 - [ ] Pro micronutrients, extended analytics, PDF/CSV, macro cycling and unlimited photo scans after entitlement is live.
 
 ## Phase 9 — Community
@@ -113,8 +114,8 @@ Batch D items 11/29/31 are locally verified; next active task is item 35 (Heute 
 | Onboarding | 23 base in-route screens plus up to four optional health-preparation pages after Thanks, followed by the separate account stage | Full order in `Onboarding-progress.md`; remaining reference polish/options in `tasks.md` |
 | Targets | Mifflin-St Jeor-based calories/macros, goal-weight difference, guided pace and estimated target date | Estimates, not guaranteed outcomes; result-screen editing remains upcoming |
 | Accounts | Email/password signup/sign-in/reset plus Google OAuth wiring and a disabled native Apple placeholder, local plan draft, owner-scoped Supabase sync, unchecked storage and optional personalisation consent | Real confirmation delivery and cross-device checks still unverified; legal review, retention, export/deletion and complete consent history required |
-| Photo analysis | Server-side OpenAI via Lovable AI Gateway; configured `AI_VISION_MODEL = "openai/gpt-6-luna"`; ingredient/portion review before saving; signed-in private photos | Model availability/access depends on provider; BLS grounding and scan-tips screen upcoming; no independently verified zero-retention guarantee |
-| Barcode | Browser camera scanning with ZXing, permission messaging, typed-code fallback, Open Food Facts lookup, gram-based nutrient scaling and review | Product coverage varies; fuller product/Nutri-Score sheet, BLS/USDA and attribution page upcoming |
+| Photo analysis | Server-side OpenAI via Lovable AI Gateway; configured `AI_VISION_MODEL = "openai/gpt-6-luna"`; ingredient/portion review before saving; signed-in private photos | Model availability/access depends on provider; BLS 4.0 grounding active (plausible matches use BLS values per gram, tagged „BLS“); scan-tips screen upcoming; no independently verified zero-retention guarantee |
+| Barcode | Browser camera scanning with ZXing, permission messaging, typed-code fallback, Open Food Facts lookup, gram-based nutrient scaling and review | Product coverage varies; product sheet with Nutri-Score, ~490 offline BLS staples, USDA online search/GTIN fallback and /lizenzen attribution page delivered |
 | Meal score | Photo/barcode/manual evidence, versioned estimated 1–10 score or null, independent confidence, saved explanation and failure-tolerant logging | No personal health score; real photo/barcode examples and signed-in cross-device verification remain upcoming |
 | Daily app | Remaining/eaten calories, nutrient rings, grouped meals, manual logging, delete, saved meal-score review/edit, weight chart, historical-week calorie bars/averages, informational adult BMI, compact streak and earned-badge count linking to `/erfolge` | Paywall audit remains; streak grace, weight periods, weigh-in edit/delete and 28 badges built; cross-device checks remain separate |
 | Language/formatting | Complete Phase 0 web rollout: selected-language `Intl` numbers, dates and EUR prices across Today, Progress, Capture/review, onboarding and Settings; comma/dot weight, nutrition and portion input; profile language sync implemented | 11 regression tests pass; guest browser checks pass in DE/EN for Today, Progress, Settings, annual price and weight saving; authenticated cross-device checks remain separate |
