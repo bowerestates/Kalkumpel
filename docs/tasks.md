@@ -244,16 +244,16 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [x] Guide button placement (22 Oct 2026): the „So funktioniert's“ trigger is no longer a floating badge — it is a full-width card-style button placed directly above the „Schnell korrigieren“ card on Heute, sharing that card's exact width and left edge (verified byte-aligned at preview and 390 px phone widths).
 - [x] Daily quota 3/day free: signed-in users counted server-side (`meal_analysis_usage`), guests counted in browser storage; friendly "aufgebraucht" card links to paywall
 - [x] Pro scan quota — unlimited scans/day (confirmed 10 Oct 2026; enforced once native subscription entitlements exist — until then everyone gets 3/day)
-- [ ] Ground AI results against BLS reference values
+- [x] Ground AI results against BLS reference values (26 Oct 2026) — photo items whose name plausibly matches a BLS 4.0 staple (energy density within 0.5–2×) use BLS values per gram; portions stay AI-estimated; matched items show a „BLS“ tag on the review screen.
 
 ## Phase 5 – Barcode & Nutrition Data
-- [~] General text product search uses a local sample catalogue; numeric barcode lookup uses live Open Food Facts. Comprehensive online food search remains upcoming.
+- [x] Food search (26 Oct 2026): text search over ~490 offline BLS 4.0 staples, plus optional online USDA FoodData Central search; numeric barcodes use live Open Food Facts, then USDA branded GTIN as fallback. The old sample catalogue with invented barcodes was removed.
 - [x] Camera barcode scanning in browser
 - [x] Open Food Facts lookup (`/api/v2/product/{barcode}.json`)
-- [ ] Product sheet: brand, name, Nutri-Score, macros per 100 g, portion multiplier
-- [ ] BLS 4.0 staples table/cache (Magerquark, Vollkornbrot, Spätzle …)
-- [ ] USDA fallback
-- [ ] "Open Data & Lizenzen" page (Max Rubner-Institut CC BY 4.0, Open Food Facts ODbL, AI disclaimer)
+- [x] Product sheet (26 Oct 2026): name, brand, Nutri-Score (Open Food Facts), full values per 100 g (unknown shown as „unbekannt“, never 0), portion presets (serving, ½×/1×/2× 100 g), slider and gram input, source attribution.
+- [x] BLS 4.0 staples table (26 Oct 2026): ~490 everyday foods bundled offline from the official Max Rubner-Institut download (kcal, protein, carbs, fat, fibre, sugar, salt, saturated fat per 100 g).
+- [x] USDA fallback (26 Oct 2026): server-side search; runs on the shared DEMO_KEY (low hourly limit) until a free `USDA_API_KEY` is added.
+- [x] "Open Data & Lizenzen" page `/lizenzen` (26 Oct 2026): BLS citation + DOI (CC BY 4.0), Open Food Facts (ODbL/DbCL), USDA (CC0), AI disclaimer; linked from Einstellungen and every product sheet.
 
 ## Phase 6 – Progress, Streaks & Gamification
 - [x] Streak counter
