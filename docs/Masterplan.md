@@ -34,7 +34,7 @@ Weight History verification (23 Oct 2026): guest Profile navigation, signed base
 
 Reduce the friction of logging food through photo estimates, barcode nutrition and editable manual entries. Users remain in control of ingredients and portions. Weight trends and calculated targets support habits without promising a result or offering medical advice.
 
-Authoritative German/international nutrition grounding is a **future goal**. Current photos use AI estimates; packaged products use Open Food Facts when available. The app does not yet cross-reference every photo against BLS or USDA.
+Since 26 Oct 2026, photo items whose name plausibly matches one of ~490 bundled BLS 4.0 staples (energy density within 0.5–2×) use BLS values per gram; portions stay AI-estimated and unmatched items remain AI estimates. Packaged products use Open Food Facts, then USDA FoodData Central (server-side key) as fallback.
 
 ## 2. Approved product decisions
 
@@ -67,9 +67,9 @@ TanStack server functions are used for internal web AI calls, not the original n
 | Source | Current status | Requirements |
 |---|---|---|
 | OpenAI via Lovable AI Gateway | Photo item/portion/calorie/macro estimates and shared meal scoring; configured model `openai/gpt-6-luna` | Model constant is the code checkpoint, not a claim of cheapest pricing or perpetual availability; provider privacy settings need verification |
-| Open Food Facts | Live barcode lookup and portion scaling implemented | Coverage varies; ODbL attribution/reuse review and in-app sources page upcoming |
-| BLS 4.0 | Planned ingredient grounding/staples cache, not integrated | CC BY 4.0 attribution when used |
-| USDA FoodData Central | Planned fallback, not integrated | Source attribution and integration review |
+| Open Food Facts | Live barcode lookup, product sheet and portion scaling implemented | Coverage varies; ODbL/DbCL attribution on /lizenzen |
+| BLS 4.0 | ~490 staples bundled offline; search and photo grounding | CC BY 4.0 citation + DOI on /lizenzen |
+| USDA FoodData Central | Online search and branded GTIN fallback via server function (own API key) | CC0 attribution on /lizenzen |
 
 Meal scoring uses `meal-quality-v1`, not a personal health score or calorie-based penalty. Evidence, confidence, explanation, rubric version and input fingerprint persist with each meal. Unknown nutrients stay unknown. Reopening a saved meal does not request AI; edits or explicit reassessment can recalculate. Failure must never block logging. See [Meal-score-rubric.md](Meal-score-rubric.md).
 
@@ -81,7 +81,7 @@ Meal-reminder settings are implemented (17 Oct 2026) at `/erinnerungen`, reached
 
 Reminder editing clarified (23 Oct 2026): each row now has a visible native time input instead of an invisible overlay. Users can edit every meal and end-of-day time even while its switch is off. Valid minute-level edits save immediately on this device; the native field uses the browser's time presentation while stored times remain HH:mm. All five edits and reload were browser-verified; five reminder rule tests pass.
 
-The paywall is a preview, not a purchase or active trial. Stripe checkout, verified subscription roles, cancellation/manage/restore flows and paid features remain upcoming. RevenueCat is a future native billing plan, not an installed web dependency. BLS micronutrients, extended analytics, reports/export, macro cycling, reminder notification delivery and community features must not be described as delivered. Badge delivery status is tracked in tasks.md.
+The paywall is a preview, not a purchase or active trial. Subscriptions will be sold via Apple App Store / Google Play in the native apps, unified via RevenueCat webhook into server-written entitlements (Phase 8, on hold; Stripe/Paddle web checkout dropped 26 Oct 2026). The web app only reads the verified entitlement. BLS micronutrients, extended analytics, reports/export, macro cycling, reminder notification delivery and community features must not be described as delivered. Badge delivery status is tracked in tasks.md.
 
 Legal-reviewed privacy/terms, sensitive-data lawful basis, retention, full consent withdrawal/history and deletion/export are required before launch. Existing optional personalisation withdrawal is not full account deletion. Real signup delivery and signed-in cross-device meal/profile checks remain unverified.
 
@@ -93,8 +93,8 @@ Legal-reviewed privacy/terms, sensitive-data lawful basis, retention, full conse
 | Onboarding | 23 base in-route screens plus up to four optional health-preparation pages after Thanks, followed by the separate account stage | Full order in `Onboarding-progress.md`; remaining reference polish/options in `tasks.md` |
 | Targets | Mifflin-St Jeor-based calories/macros, goal-weight difference, guided pace and estimated target date | Estimates, not guaranteed outcomes; result-screen editing remains upcoming |
 | Accounts | Email/password signup/sign-in/reset plus Google OAuth wiring and a disabled native Apple placeholder, local plan draft, owner-scoped Supabase sync, unchecked storage and optional personalisation consent | Real confirmation delivery and cross-device checks still unverified; legal review, retention, export/deletion and complete consent history required |
-| Photo analysis | Server-side OpenAI via Lovable AI Gateway; configured `AI_VISION_MODEL = "openai/gpt-6-luna"`; ingredient/portion review before saving; signed-in private photos | Model availability/access depends on provider; BLS grounding and scan-tips screen upcoming; no independently verified zero-retention guarantee |
-| Barcode | Browser camera scanning with ZXing, permission messaging, typed-code fallback, Open Food Facts lookup, gram-based nutrient scaling and review | Product coverage varies; fuller product/Nutri-Score sheet, BLS/USDA and attribution page upcoming |
+| Photo analysis | Server-side OpenAI via Lovable AI Gateway; configured `AI_VISION_MODEL = "openai/gpt-6-luna"`; ingredient/portion review before saving; signed-in private photos | Model availability/access depends on provider; BLS 4.0 grounding active (plausible matches use BLS values per gram, tagged „BLS“); scan-tips screen upcoming; no independently verified zero-retention guarantee |
+| Barcode | Browser camera scanning with ZXing, permission messaging, typed-code fallback, Open Food Facts lookup, gram-based nutrient scaling and review | Product coverage varies; product sheet with Nutri-Score, ~490 offline BLS staples, USDA online search/GTIN fallback and /lizenzen attribution page delivered |
 | Meal score | Photo/barcode/manual evidence, versioned estimated 1–10 score or null, independent confidence, saved explanation and failure-tolerant logging | No personal health score; real photo/barcode examples and signed-in cross-device verification remain upcoming |
 | Daily app | Remaining/eaten calories, nutrient rings, grouped meals, manual logging, delete, saved meal-score review/edit, weight chart, seven-day bars and streak counter | Screen-by-screen logic review still upcoming; no claim that all screenshot features or streak grace rules are built |
 | Language/formatting | Complete Phase 0 web rollout: selected-language `Intl` numbers, dates and EUR prices across Today, Progress, Capture/review, onboarding and Settings; comma/dot weight, nutrition and portion input; profile language sync implemented | 11 regression tests pass; guest browser checks pass in DE/EN for Today, Progress, Settings, annual price and weight saving; authenticated cross-device checks remain separate |
