@@ -451,3 +451,8 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 
 ## Documentation sync – Phase 4 & 5 (26 Oct 2026)
 - [x] Masterplan, Implementation plan and app-flow document updated for BLS staples, photo grounding, product sheet, USDA fallback (own key verified), `/lizenzen`, and the native Apple/Google subscription decision; uploaded to `bowerestates/Kalkumpel` and verified.
+
+## Phase 10 – Legal pages (drafts, 26 Oct 2026)
+- [x] German draft pages `/impressum`, `/datenschutz`, `/agb`, linked from Einstellungen; red "ENTWURF – nicht rechtsgeprüft" banner; every missing detail shown as a highlighted placeholder.
+- [ ] Gordon: fill in placeholders (name/address, contact, register/USt-ID, Supabase region, hosting, AI provider retention, third-country basis, supervisory authority, minimum age, Widerrufsbelehrung).
+- [ ] Legal review by a lawyer or generator service before launch; link Datenschutz/AGB from the paywall and sign-up once final.
