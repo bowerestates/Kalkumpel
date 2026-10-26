@@ -3,7 +3,7 @@
 > Source of truth: `docs/Masterplan.md` for current product decisions and this task list for completion/verification, supported by `app-flow-pages-and-roles.md`, `Design-guidelines.md` and `Implementation-plan.md`. Harmonized web checkpoint: 11 Oct 2026. `prompt.md` and `Provider-Recommendations.md` retain historical native proposals; they do not override current web decisions.
 >
 > **Stack translation:** The GitHub repo specifies Expo / React Native. This Lovable project is the **web version** (TanStack Start + Tailwind). Mapping used here:
-> Expo Router → TanStack file routes · Supabase → Gordon's own Supabase · `analyze-meal` Edge Function → server function via Lovable AI · RevenueCat → Stripe (web) · AsyncStorage → localStorage + profile sync.
+> Expo Router → TanStack file routes · Supabase → Gordon's own Supabase · `analyze-meal` Edge Function → server function via Lovable AI · RevenueCat retained for native Apple/Google subscriptions (web reads the entitlement only) · AsyncStorage → localStorage + profile sync.
 >
 > **Current accounts status:** Email/password accounts, saved profiles, meals, weights and private meal photos use Gordon's connected Supabase project. Browser storage remains the guest/offline store; Lovable Cloud must not be enabled.
 >
@@ -129,7 +129,7 @@ Gordon's annotated 15-screenshot review is catalogued below with the original **
 - [x] Goal labels: **"Abnehmen / Muskeln aufbauen"** (keep current build).
 - [x] Macro colours: **keep the current build colours** (do not switch to Design-guidelines palette).
 - [x] Free AI scan quota: **3 scans/day** on the free tier.
-- [x] Paid tier (Kumpel+ Pro) scan quota: **unlimited scans/day** (confirmed 10 Oct 2026). Enforcement starts once Stripe/Pro roles exist — until then everyone gets the free limit of 3/day.
+- [x] Paid tier (Kumpel+ Pro) scan quota: **unlimited scans/day** (confirmed 10 Oct 2026). Enforcement starts once native subscription entitlements exist — until then everyone gets the free limit of 3/day.
 - [x] AI scan model: OpenAI `openai/gpt-6-luna` (chosen 10 Oct 2026, see Phase 4).
 - [x] Background decision (10 Oct 2026): black Welcome only; white onboarding and daily app with readable mint/emerald copy and monochrome mint icons. Existing macro colours stay unchanged.
 - [x] Accounts: hold lifted – use **Gordon's own Supabase project** (not Lovable Cloud) for sign-in, data and photos (see Phase 2).
@@ -217,7 +217,7 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [x] Private `meal-photos` storage, per-user folders — photos uploaded by the AI scanner
 - [x] Sign-in / sign-up / password reset (E-Mail + Passwort) without revealing whether an email exists
 - [x] Move app data from browser storage to the database on first sign-in; browser storage stays as the offline cache
-- [ ] Roles: Anonymous · Free · Kumpel+ Pro — upcoming (Pro status must be set server-side once Stripe exists)
+- [ ] Roles: Anonymous · Free · Kumpel+ Pro — upcoming (Pro status must be set server-side once native subscriptions via RevenueCat exist)
 - [x] Google OAuth wired on `/konto` and `/auth` with a same-origin public return and a disabled native Apple placeholder (19 Oct 2026).
 - [x] Activate Google in Gordon’s Supabase/Google Cloud settings (Testing mode) and verify real Google sign-in — confirmed by Gordon 21 Oct 2026; Apple OAuth remains native-only.
 - [ ] Google OAuth production (upcoming): publish legal privacy policy + terms URLs, add support email/logo/authorised domain, switch the Google Cloud consent screen from "Testing" to "In production", complete Google brand verification, then re-test with a non-test Google account.
@@ -243,7 +243,7 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [x] Scan tips screen — built 21 Oct 2026 as the 4-step „So funktioniert's“ guide on Heute (best scan, AI analysis, adjust results, barcode/label/manual for accuracy; final „Jetzt scannen“ opens Erfassen). Opens automatically on the first Heute visit after onboarding, then via its own button. Step-1 photo matches the onboarding gender: sporty woman, fit gym man, or both together for divers.
 - [x] Guide button placement (22 Oct 2026): the „So funktioniert's“ trigger is no longer a floating badge — it is a full-width card-style button placed directly above the „Schnell korrigieren“ card on Heute, sharing that card's exact width and left edge (verified byte-aligned at preview and 390 px phone widths).
 - [x] Daily quota 3/day free: signed-in users counted server-side (`meal_analysis_usage`), guests counted in browser storage; friendly "aufgebraucht" card links to paywall
-- [x] Pro scan quota — unlimited scans/day (confirmed 10 Oct 2026; enforced once Stripe/Pro roles exist — until then everyone gets 3/day)
+- [x] Pro scan quota — unlimited scans/day (confirmed 10 Oct 2026; enforced once native subscription entitlements exist — until then everyone gets 3/day)
 - [ ] Ground AI results against BLS reference values
 
 ## Phase 5 – Barcode & Nutrition Data
@@ -294,12 +294,22 @@ Go screen by screen through Heute, Erfassen, Fortschritt, Profil/Einstellungen a
 - [ ] AGB, Datenschutz, Konto löschen
 - [x] Sync language to profile (`preferred_language`) through existing account sync; signed-in cross-device verification remains upcoming.
 
-## Phase 8 – Subscriptions (Kumpel+)
-- [~] Paywall screen (no real payment)
-- [ ] Stripe checkout for weekly 5,99 €, monthly 11,99 € and yearly 34,99 €, each with a 3-day trial; server-verified entitlement. Premium button currently explains unavailability and never grants local paid status.
-- [ ] Implement separate server-verified subscription roles/entitlements and mirror only verified access for display; editable profiles and local plan selection must not grant Pro. Accounts hold is lifted.
-- [ ] Restore / manage subscription, terms links
-- [ ] Pro features: unlimited scans/day (confirmed 10 Oct 2026), micronutrients (BLS), 30/90-day analytics, PDF/CSV export, macro cycling
+## Phase 8 – Subscriptions (Kumpel+) — Native In-App Subscriptions
+> **Decision 26 Oct 2026 (Gordon):** Kumpel+ is sold through Apple App Store (StoreKit) and Google Play Billing in the native apps, unified via **RevenueCat**. Direct web checkout (Stripe/Paddle) is **dropped** for the initial launch. The web app only reads the server-verified entitlement; Pro bought in the app unlocks Pro on web too.
+
+- [x] Payment setup preflight (26 Oct 2026): no existing payment code, secrets or connection found.
+- [x] Provider decision (26 Oct 2026): Apple/Google in-app subscriptions via RevenueCat webhook; Stripe/Paddle web checkout dropped.
+- [ ] **Store accounts (Gordon):** Apple Developer Program + Paid Applications Agreement, bank and tax forms; Google Play Console + payments merchant profile.
+- [ ] **Store products (Gordon):** product IDs `kalkumpel_pro_weekly` (5,99 €), `kalkumpel_pro_monthly` (11,99 €), `kalkumpel_pro_yearly` (34,99 €), each with a 3-day free-trial introductory offer, in App Store Connect and Google Play.
+- [ ] **RevenueCat project (Gordon):** connect both stores, create entitlement `pro` containing the three products, configure webhook URL + shared authorization secret.
+- [ ] **Entitlement schema:** extend server-written `user_entitlements` with store, product, original transaction ID, status (trialing/active/canceled/past_due/expired), auto-renew; `has_pro()` keeps checking `pro_until > now()`.
+- [ ] **Webhook endpoint:** public server route verifies the RevenueCat authorization secret, maps `app_user_id` (= Supabase user ID) and upserts `user_entitlements` via the service role for purchase, renewal, cancellation, expiration and billing-issue events; idempotent, tested.
+- [ ] **Native app:** RevenueCat SDK, `logIn(supabaseUserId)` after sign-in, native paywall with the three plans, purchase, „Käufe wiederherstellen“, store subscription-management link.
+- [~] Web paywall screen (no real payment): show active Kumpel+ status (store + renewal date) from the verified entitlement; for free users explain that subscriptions are purchased in the iOS/Android app. Never grants local paid status.
+- [ ] Separate server-verified entitlements only; editable profiles and local plan selection must never grant Pro. Accounts hold is lifted.
+- [ ] Store review requirements: trial length, price per period and auto-renew terms shown before purchase; links to Nutzungsbedingungen (EULA) and Datenschutzerklärung; restore button.
+- [ ] Pro features: unlimited scans/day (confirmed 10 Oct 2026), private progress photos (delivered, gated by `has_pro()`), micronutrients (BLS), 30/90-day analytics, PDF/CSV export, macro cycling.
+- [ ] Optional later: web checkout under Apple guideline 3.1.3(b) multiplatform services — not planned for launch.
 
 ## Phase 9 – Community (later)
 - [ ] Community rules page (7 Regeln)
