@@ -456,3 +456,10 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - [x] German draft pages `/impressum`, `/datenschutz`, `/agb`, linked from Einstellungen; red "ENTWURF – nicht rechtsgeprüft" banner; every missing detail shown as a highlighted placeholder.
 - [ ] Gordon: fill in placeholders (name/address, contact, register/USt-ID, Supabase region, hosting, AI provider retention, third-country basis, supervisory authority, minimum age, Widerrufsbelehrung).
 - [ ] Legal review by a lawyer or generator service before launch; link Datenschutz/AGB from the paywall and sign-up once final.
+
+## Anonymous device identity (27 Oct 2026)
+- [x] Decision (Gordon): no account or email; records are linked to a randomly generated device identifier (Supabase anonymous sign-in, enabled in the dashboard by Gordon).
+- [x] App signs in anonymously on first launch; sign-in, password-reset, Google and sign-out screens removed; `/konto` is now a consent-only step.
+- [x] Settings shows the short device ID and a warning that data is lost when the app is deleted or the device changes; "Konto löschen" still erases all server data.
+- [ ] Upcoming: update the Datenschutzerklärung draft and Masterplan to describe the device identifier instead of e-mail accounts.
+- [ ] Upcoming (native): Apple/Google "Restore Purchases" must re-link Pro to a new device ID.
