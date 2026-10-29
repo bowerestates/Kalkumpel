@@ -147,3 +147,6 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - **Verification:** 82 tests pass (including 13 new insight tests; local DST week checked in Europe/Berlin); German desktop and English 390 px browser checks verified all four averages, info dialogs, empty/minor states, weight edit → BMI 25.0 to 30.0, reload and unchanged targets, with no page errors. Existing local/account data paths are reused; authenticated cross-device checks remain unverified (external unmanaged Supabase).
 - **How to test:** Fortschritt → select each historical week, check dates/average and open its information icon. Check BMI and its information icon; edit weight under Profil → Persönliche Daten, return/reload, and confirm BMI changes but calorie/macronutrient targets do not. Switch English to verify numbers/dates.
 - **Next:** Weight History (11/29–31) and photos (38/30) delivered; item 36 dropped. Documentation GitHub delivery is tracked in tasks/roadmap.
+
+## Minimum age (29 Oct 2026)
+Kalkumpel is for users aged 18 and over. Onboarding requires an explicit 18+ confirmation on the birthday screen and blocks under-18 birth dates; profile edits enforce the same 18–100 range.
