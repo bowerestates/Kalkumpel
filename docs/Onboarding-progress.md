@@ -19,7 +19,7 @@ The progress bar covers steps 1–20; the setup animation, plan result and featu
 |---|---|---|
 | 1 | Wähle Dein Geschlecht | Männlich / Weiblich / Divers; required. |
 | 2 | Wie oft trainierst Du pro Woche? | 0–2 / 3–5 / 6+; sets the activity level. |
-| 3 | Wann bist Du geboren? | Month/day/year wheels; works out age for calculations. |
+| 3 | Wann bist Du geboren? | Month/day/year wheels; works out age for calculations. Users must be 18+: required confirmation checkbox, and an under-18 date opens a notice ("Datum anpassen" / "Onboarding verlassen") and blocks the next page (29 Oct 2026). |
 | 4 | Wie hast Du von uns erfahren? | 7 sources; required. |
 | 5 | Hast Du schon andere Kalorien-Apps ausprobiert? | Ja / Nein; required. |
 | 6 | Gemacht, damit Du dranbleibst | Illustrative weight-trend chart (not a forecast). |
