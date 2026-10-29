@@ -463,3 +463,10 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - [x] Settings shows the short device ID and a warning that data is lost when the app is deleted or the device changes; "Konto löschen" still erases all server data.
 - [ ] Upcoming: update the Datenschutzerklärung draft and Masterplan to describe the device identifier instead of e-mail accounts.
 - [ ] Upcoming (native): Apple/Google "Restore Purchases" must re-link Pro to a new device ID.
+
+## Minimum age 18 — 29 Oct 2026
+- [x] Birthday onboarding screen: required „Ich bestätige, dass ich mindestens 18 Jahre alt bin.“ checkbox; „Weiter“ stays disabled until checked.
+- [x] Under-18 date (or ticking the box with one) shows „Du musst mindestens 18 Jahre alt sein, um Kalkumpel nutzen zu können.“ with „Datum anpassen“ (stay, untick) or „Onboarding verlassen“ (back to Welcome); the next page is blocked.
+- [x] Same 18–100 rule in Profil → Meine Daten and Einstellungen profile edit; AGB draft §3 now states 18. Test added (94 tests pass); browser-checked at 390 px.
+- [ ] Legal review of the age rule and Datenschutz wording (with the other legal drafts).
+
