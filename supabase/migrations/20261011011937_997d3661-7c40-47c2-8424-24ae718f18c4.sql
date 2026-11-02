@@ -1,0 +1,1 @@
+CREATE POLICY "Service manages meal AI access" ON public.meal_ai_access_state FOR ALL TO service_role USING (true) WITH CHECK (true);
