@@ -1,5 +1,16 @@
 # Current task
 
+## Supabase source upload — 2 Nov 2026
+- [x] Upload the ten current SQL migrations and current project configuration to `bowerestates/Kalkumpel`; preserve historical repository files and document that the two migration histories must not be run together. Commit `528e0ebd47f594d524ceaba7e4d88311c4763cdd`; README added.
+- [x] Verify every uploaded file against the local copy: all twelve Git blob fingerprints and exact remote downloads match. Completion recorded in `docs/tasks.md`; ledger upload/verification follows.
+
+## Phase 8 — started 26 Oct 2026
+- [x] Check subscription requirements, existing integrations, Pro plan and payment eligibility.
+- [x] Provider decided: native Apple/Google subscriptions via RevenueCat webhook; Stripe/Paddle dropped (26 Oct 2026).
+- [ ] Store accounts, products and RevenueCat project (waiting on Gordon).
+- [ ] Entitlement schema, webhook endpoint and web paywall status (next build step).
+- [ ] Upload the Phase 8 checkpoint to GitHub and verify exact matches.
+
 - [x] Place the uploaded Kalkumpel wordmark left-aligned on every app page via the shared Shell brand row (25 Oct 2026); onboarding/welcome keep approved branding, dark mode uses a pale-mint chip, favicon regenerated from the same upload; 90 tests pass, browser-verified.
 - [ ] Gordon reviews the wordmark placement; item 35 (Heute empty meal state) is delivered and item 36 (estimated goal arrival date) was dropped 26 Oct 2026.
 - [x] Align the wordmark's left edge with the page titles (Erfassen/Fortschritt/Profil): the transparent border was trimmed from the asset and the chip re-padded, so the lettering now sits on the content margin (ink x 24 vs title x 22) and the dark-mode chip edge lines up with the cards.

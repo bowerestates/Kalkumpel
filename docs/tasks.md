@@ -470,3 +470,13 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - [x] Same 18–100 rule in Profil → Meine Daten and Einstellungen profile edit; AGB draft §3 now states 18. Test added (94 tests pass); browser-checked at 390 px.
 - [ ] Legal review of the age rule and Datenschutz wording (with the other legal drafts).
 
+## Supabase source upload — 2 Nov 2026
+- [x] Uploaded the ten current web SQL migrations unchanged, current `supabase/config.toml` (connected project ID) and `supabase/README.md` to `bowerestates/Kalkumpel` main in commit `528e0ebd47f594d524ceaba7e4d88311c4763cdd`.
+- [x] Verified all twelve files by Git blob fingerprints and byte-for-byte downloads of the exact committed remote contents. No database migration was applied, no function deployed, and no secrets, user-data dumps or private photos uploaded.
+- [x] Preserved the historical native migrations and `supabase/functions/analyze-meal/index.ts`; README explicitly distinguishes those from current web server functions in `src/lib/`. This upload does not synchronize the web application's source.
+- [ ] Upcoming before database reconstruction: reconcile the legacy and current migration histories (overlapping definitions), capture hosted settings/bucket provisioning separately, and test a clean restore. The combined GitHub migration folder is not a verified executable chain or complete backup.
+
+**How to check:** open `https://github.com/bowerestates/Kalkumpel/tree/main/supabase`, read README and locate the ten October migration filenames from this project. Configuration contains `project_id = "ujsnkoklseseposwfibz"`.
+
+**Next step:** reconcile migration histories before using these files to rebuild a database; do not run the combined folder against production. Privacy/anonymous-identity and Texas business legal updates remain separate upcoming work.
+
