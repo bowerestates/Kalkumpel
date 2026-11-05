@@ -1,5 +1,10 @@
 # Current task
 
+## Migration reconciliation — 3 Nov 2026
+- [x] Compare historical and current migrations with read-only production schema metadata; document a single authoritative rebuild approach without applying SQL or changing production data.
+- [x] Record exact conflicts, isolated rebuild steps and remaining test requirements in documentation; delivery includes GitHub upload and exact verification.
+- [ ] Isolated rebuild/testing waits for a separate development project and test-only configuration; production remains untouched. Analysis/scoring authentication and atomic quota hardening are separate upcoming work.
+
 ## Supabase source upload — 2 Nov 2026
 - [x] Upload the ten current SQL migrations and current project configuration to `bowerestates/Kalkumpel`; preserve historical repository files and document that the two migration histories must not be run together. Commit `528e0ebd47f594d524ceaba7e4d88311c4763cdd`; README added.
 - [x] Verify every uploaded file against the local copy: all twelve Git blob fingerprints and exact remote downloads match. Completion recorded in `docs/tasks.md`; ledger upload/verification follows.

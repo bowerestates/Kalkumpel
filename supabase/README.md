@@ -6,6 +6,8 @@ This folder contains the current web project's `config.toml` and ten saved Octob
 
 The GitHub repository also contains historical June/July migrations and an older October migration from the native proposal. Those files are preserved for history, not validated as a single executable chain with the current web migrations. **Do not run the combined folder against a new or existing database without first reconciling the histories.** The two histories may create overlapping tables, functions and policies.
 
+Read-only reconciliation now confirms that production's migration ledger contains only the ten current October web migrations. Use only that candidate chain in a separate empty development target, with explicit bucket/Auth provisioning and validation. See [the reconciliation and rebuild runbook](../docs/Supabase-rebuild.md) for conflicts, live grant differences and untested acceptance checks; no production rebuild has been performed.
+
 Uploading these files does not apply migrations or alter the live database. These source files are not a complete database backup: they do not include user records, photo objects, hosted authentication settings, secrets, or all storage-bucket provisioning. A clean restore has not been tested.
 
 ## Function locations

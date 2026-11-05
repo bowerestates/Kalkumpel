@@ -474,9 +474,19 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - [x] Uploaded the ten current web SQL migrations unchanged, current `supabase/config.toml` (connected project ID) and `supabase/README.md` to `bowerestates/Kalkumpel` main in commit `528e0ebd47f594d524ceaba7e4d88311c4763cdd`.
 - [x] Verified all twelve files by Git blob fingerprints and byte-for-byte downloads of the exact committed remote contents. No database migration was applied, no function deployed, and no secrets, user-data dumps or private photos uploaded.
 - [x] Preserved the historical native migrations and `supabase/functions/analyze-meal/index.ts`; README explicitly distinguishes those from current web server functions in `src/lib/`. This upload does not synchronize the web application's source.
-- [ ] Upcoming before database reconstruction: reconcile the legacy and current migration histories (overlapping definitions), capture hosted settings/bucket provisioning separately, and test a clean restore. The combined GitHub migration folder is not a verified executable chain or complete backup.
+- [x] Reconciled the legacy/current histories against read-only production metadata; production ledger contains only the ten current October migrations. See `Supabase-rebuild.md`.
+- [ ] Before database reconstruction: provision a separate development target, capture remaining hosted settings, recreate measured private bucket settings and test a clean isolated replay. The combined GitHub migration folder is not a verified executable chain or complete backup.
 
 **How to check:** open `https://github.com/bowerestates/Kalkumpel/tree/main/supabase`, read README and locate the ten October migration filenames from this project. Configuration contains `project_id = "ujsnkoklseseposwfibz"`.
 
 **Next step:** reconcile migration histories before using these files to rebuild a database; do not run the combined folder against production. Privacy/anonymous-identity and Texas business legal updates remain separate upcoming work.
+
+## Migration reconciliation — investigated 3 Nov; documented 4 Nov 2026
+- [x] Read production migration history, tables/keys/indexes/triggers, RLS policies, function definitions/execution grants and bucket settings; compared all eight legacy and ten current migrations. No production writes or user-data exports.
+- [x] Documented incompatible columns/keys, duplicate creation statements, obsolete deletion/email/quota functions and storage/Auth prerequisites in `Supabase-rebuild.md`. Candidate rebuild history is the ten current migrations only; use a separate empty development project, not production.
+- [x] Recorded drift: live effective table privileges are broader than explicit migration grants; RLS remains enabled. Both private buckets have 10 MiB limits and no MIME allowlist. Numeric checks from the legacy schema are absent in current production; do not reintroduce incompatible checks silently.
+- [ ] Isolated replay and hosted acceptance checks remain upcoming: no separate development target/configuration is available. Verify synthetic-user isolation, signup, private photos/Pro, deletion and repeatability before claiming a successful rebuild.
+- [ ] Separate security follow-up: require verified callers for analysis/scoring and atomic, error-checked scan accounting; nullable-token bypass and concurrent read/upsert risks found in `meal-ai.functions.ts`. No exploit test or server-code change performed.
+
+**How to test:** follow the synthetic-data acceptance checklist in `Supabase-rebuild.md`, only in a new development project. **Next:** provision the isolated target and test the ten-file chain; leave production connection, data and ledger unchanged.
 

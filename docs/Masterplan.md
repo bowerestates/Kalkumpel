@@ -150,3 +150,6 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 
 ## Minimum age (29 Oct 2026)
 Kalkumpel is for users aged 18 and over. Onboarding requires an explicit 18+ confirmation on the birthday screen and blocks under-18 birth dates; profile edits enforce the same 18–100 range.
+
+## Database reconstruction checkpoint — 4 Nov 2026
+Read-only reconciliation confirms production's migration ledger contains the ten current October web migrations, not the eight historical native migrations preserved on GitHub. Rebuild only a separate empty development project using the current chain, plus separately provisioned private buckets/Auth settings; never replay the combined folder or repair production history. `Supabase-rebuild.md` records exact schema conflicts, live grant differences, source security follow-ups and acceptance tests. No production changes or isolated restore tests were performed; a development target is still required.
