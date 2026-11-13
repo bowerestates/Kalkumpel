@@ -1,6 +1,7 @@
 # Current task
 
 ## Supplied privacy policy — 13 Nov 2026
+- [x] Remove the withdrawal-form placeholder copy from AGB § 5 Widerrufsrecht; section now states the statutory right and Apple/Google refund procedures only (13 Nov 2026).
 - [x] Remove the telephone number from Datenschutzerklärung only; retain email contacts and unchanged Impressum.
 - [x] Uploaded and verified the telephone-removal documentation revision on GitHub.
 - [x] Adapt the supplied policy to the German legal page, anonymous identity, 18+ eligibility and actual services; fill matching business details in Impressum/AGB without changing data handling.
