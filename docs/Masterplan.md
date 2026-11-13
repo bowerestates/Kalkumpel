@@ -1,5 +1,15 @@
 # Kalkumpel — Masterplan (Web)
 
+## Privacy/operator checkpoint — 13 Nov 2026
+The German privacy draft now uses Gordon’s supplied policy (1 Nov 2026) and identifies Centro Holdings LLC, 1200 Tipps Road, Cross Roads, Texas 76227, USA; privacy email kalkumpel@outlook.com and supplied Gordon Rae contacts. Matching operator/contact details are filled in Impressum and AGB. Formal representation/DPO appointment, EU representative, Texas filing information, supplier regions/contracts, transfer safeguards and retention remain highlighted for confirmation and legal review.
+
+Current identity supersedes historical email/Google/Apple descriptions below: first online launch creates a Supabase anonymous identity; no email, password or user sign-in screen. Browser cache and owner-scoped Supabase sync are not anonymous data, guaranteed cross-device recovery or subscription entitlements. `/konto` collects consent before plan selection. Minimum age is 18 with required birthday confirmation; source-policy 13–17 permissions were not adopted. No auth, consent, storage, payment or analytics behaviour changed in this text delivery.
+
+Published-site settings read 13 Nov 2026: Visitor analytics and Click tracking on; not published yet, preview not counted. No Consent Mode banner in current source. Privacy draft describes Lovable’s cookie-free/device-storage-free/IP-free/non-identifying page/referrer/country/browser/OS/device/duration/speed/error/click statistics (90-day details, one-year summaries), privacy-policy link, Google Fonts, direct Open Food Facts browser requests, server-proxied USDA, AI Gateway/OpenAI and Supabase. No zero-retention promise or automatic transfer consent. Native billing/Health/notifications remain deferred; web paywall messaging remains parked.
+
+Review at `/datenschutz`, `/impressum`, `/agb` via Profil → Rechtliches. Confirm highlighted gaps with Gordon/legal adviser; full consent timing/withdrawal, provider retention/transfers, Texas rights and live deletion verification remain launch checks. GitHub delivery and browser checks are tracked in tasks.md.
+
+
 ## Progress Photos checkpoint — 24 Oct 2026
 Gordon approved the 38/30 plan and reconfirmed Pro-only access. `/fortschrittsfotos` is now a labelled generated-sample screen preview from Fortschritt, with dated tiles, large viewing, sample add/date/optional real weigh-in selection and confirmed sample deletion. Samples and acknowledgement stay in component-local memory; nothing is uploaded, stored as account evidence or used to grant Pro.
 
@@ -54,8 +64,8 @@ Since 26 Oct 2026, photo items whose name plausibly matches one of ~490 bundled 
 | Framework/routing | React 19, TypeScript, TanStack Start v1 / TanStack file routes, Vite |
 | Styling | Tailwind v4, semantic tokens in `src/styles.css`, existing UI components |
 | Local state | `src/lib/store.ts` uses localStorage for guests and offline records |
-| Account sync | `src/lib/sync.ts` mirrors profiles, meals, weights and language to Supabase; guest upload on sign-in, local data cleared on sign-out |
-| Auth/storage | Supabase email/password and Google OAuth wiring; owner-only records and private per-user meal photos |
+| Account sync | `src/lib/sync.ts` mirrors local records to the anonymous owner identity in Supabase |
+| Auth/storage | Supabase anonymous first-launch identity; owner-only records and private per-user photos; no email registration |
 | AI | `meal-ai.functions.ts` calls server-only `meal-ai.server.ts`; one `AI_VISION_MODEL` constant for photo analysis and meal scoring; secrets and signed-in quota writes stay server-side |
 | Localization | `src/lib/i18n.ts` dictionaries; `src/lib/format.ts` shared locale formatting and decimal parser |
 | Verification | Vitest tests and browser checks; an implemented mapping is not proof of cross-device behaviour |

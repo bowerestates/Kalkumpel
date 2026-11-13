@@ -1,5 +1,15 @@
 # Kalkumpel — Implementation Plan (Web)
 
+## Privacy/operator checkpoint — 13 Nov 2026
+The German privacy draft now uses Gordon’s supplied policy (1 Nov 2026) and identifies Centro Holdings LLC, 1200 Tipps Road, Cross Roads, Texas 76227, USA; privacy email kalkumpel@outlook.com and supplied Gordon Rae contacts. Matching operator/contact details are filled in Impressum and AGB. Formal representation/DPO appointment, EU representative, Texas filing information, supplier regions/contracts, transfer safeguards and retention remain highlighted for confirmation and legal review.
+
+Current identity supersedes historical email/Google/Apple descriptions below: first online launch creates a Supabase anonymous identity; no email, password or user sign-in screen. Browser cache and owner-scoped Supabase sync are not anonymous data, guaranteed cross-device recovery or subscription entitlements. `/konto` collects consent before plan selection. Minimum age is 18 with required birthday confirmation; source-policy 13–17 permissions were not adopted. No auth, consent, storage, payment or analytics behaviour changed in this text delivery.
+
+Published-site settings read 13 Nov 2026: Visitor analytics and Click tracking on; not published yet, preview not counted. No Consent Mode banner in current source. Privacy draft describes Lovable’s cookie-free/device-storage-free/IP-free/non-identifying page/referrer/country/browser/OS/device/duration/speed/error/click statistics (90-day details, one-year summaries), privacy-policy link, Google Fonts, direct Open Food Facts browser requests, server-proxied USDA, AI Gateway/OpenAI and Supabase. No zero-retention promise or automatic transfer consent. Native billing/Health/notifications remain deferred; web paywall messaging remains parked.
+
+Review at `/datenschutz`, `/impressum`, `/agb` via Profil → Rechtliches. Confirm highlighted gaps with Gordon/legal adviser; full consent timing/withdrawal, provider retention/transfers, Texas rights and live deletion verification remain launch checks. GitHub delivery and browser checks are tracked in tasks.md.
+
+
 ## 38/30 approved preview delivery — 24 Oct 2026
 Stage 1 delivered: `/fortschrittsfotos`, labelled generated samples with component-local add/view/confirmed-delete state and optional selection of existing weigh-in dates; no photo storage, persisted consent, entitlement or target writes. Fortschritt link and unique page metadata included. Sample lifecycle/back/phone fit verified; 13 existing weight/progress rule tests passed; preview build clean.
 

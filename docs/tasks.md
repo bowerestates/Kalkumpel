@@ -5,7 +5,7 @@
 > **Stack translation:** The GitHub repo specifies Expo / React Native. This Lovable project is the **web version** (TanStack Start + Tailwind). Mapping used here:
 > Expo Router → TanStack file routes · Supabase → Gordon's own Supabase · `analyze-meal` Edge Function → server function via Lovable AI · RevenueCat retained for native Apple/Google subscriptions (web reads the entitlement only) · AsyncStorage → localStorage + profile sync.
 >
-> **Current accounts status:** Email/password accounts, saved profiles, meals, weights and private meal photos use Gordon's connected Supabase project. Browser storage remains the guest/offline store; Lovable Cloud must not be enabled.
+> **Current accounts status:** First-launch anonymous device identities, saved profiles, meals, weights and private photos use Gordon's connected Supabase project. No email registration or sign-in screen; browser storage remains the local/offline store. Historical email/OAuth checkpoints below are superseded; Lovable Cloud must not be enabled.
 >
 > Legend: `[x]` done · `[~]` partly done / placeholder · `[ ]` upcoming
 
@@ -461,7 +461,7 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - [x] Decision (Gordon): no account or email; records are linked to a randomly generated device identifier (Supabase anonymous sign-in, enabled in the dashboard by Gordon).
 - [x] App signs in anonymously on first launch; sign-in, password-reset, Google and sign-out screens removed; `/konto` is now a consent-only step.
 - [x] Settings shows the short device ID and a warning that data is lost when the app is deleted or the device changes; "Konto löschen" still erases all server data.
-- [ ] Upcoming: update the Datenschutzerklärung draft and Masterplan to describe the device identifier instead of e-mail accounts.
+- [x] Updated the Datenschutzerklärung draft and Masterplan for anonymous device identity instead of email accounts (13 Nov 2026).
 - [ ] Upcoming (native): Apple/Google "Restore Purchases" must re-link Pro to a new device ID.
 
 ## Minimum age 18 — 29 Oct 2026
@@ -490,3 +490,14 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 
 **How to test:** follow the synthetic-data acceptance checklist in `Supabase-rebuild.md`, only in a new development project. **Next:** provision the isolated target and test the ten-file chain; leave production connection, data and ledger unchanged.
 
+
+## Supplied privacy policy — 13 Nov 2026
+- [x] Adapted Gordon’s 1 Nov policy into the German privacy draft; filled Centro Holdings LLC/Texas address and supplied contact details in Datenschutz, Impressum and AGB. Retained explicit draft banner and highlighted unresolved details.
+- [x] Reconciled anonymous identity (pseudonymous, not anonymous data), 18+ rule, offline/cache/server distinctions, actual data categories and services. Removed obsolete email/password/Google sign-in, public posting, active-subscription retention, mail-forwarding and automatic transfer-consent claims. No data-handling behaviour changed.
+- [x] Read full root and service references plus hosted publication settings: analytics/clicks on; disclosed cookie-free Lovable statistics, retention/privacy link, Google Fonts, Open Food Facts, USDA, AI Gateway/OpenAI and Supabase. No banner/settings change or launch/compliance claim.
+- [x] Verified all three legal pages, operator details, 18+/pseudonymous wording, Profile/back navigation and Lovable privacy link; desktop and 390 px layouts checked, long title wrapping corrected. No page errors.
+- [x] Uploaded affected documentation to bowerestates/Kalkumpel and verified exact remote copies (13 Nov 2026).
+- [ ] Gordon/legal adviser: confirm formal representative/DPO/EU-representative roles, Texas filing, provider locations/contracts, transfer basis, retention/inactivity/backup rules and US/Texas rights. Review sensitive-data consent timing and withdrawal against actual sync before launch; live deletion remains unverified.
+
+**How to test:** Profil → Rechtliches → Datenschutzerklärung; check Centro Holdings LLC/address, 18+, device identity, services/statistics, clickable Lovable privacy link and highlighted review gaps. Open Impressum/AGB to confirm the same operator; back returns to Profil.
+**Next:** complete highlighted legal/provider gaps and obtain legal review; web paywall messaging stays parked.

@@ -1,5 +1,10 @@
 # Current task
 
+## Supplied privacy policy — 13 Nov 2026
+- [x] Adapt the supplied policy to the German legal page, anonymous identity, 18+ eligibility and actual services; fill matching business details in Impressum/AGB without changing data handling.
+- [x] Verified legal-page rendering and navigation; updated affected documentation, uploaded to GitHub and verified exact remote copies (13 Nov 2026).
+- [ ] Legal approval and provider transfer/retention details await Gordon and his legal adviser.
+
 ## Migration reconciliation — 3 Nov 2026
 - [x] Compare historical and current migrations with read-only production schema metadata; document a single authoritative rebuild approach without applying SQL or changing production data.
 - [x] Record exact conflicts, isolated rebuild steps and remaining test requirements in documentation; delivery includes GitHub upload and exact verification.
