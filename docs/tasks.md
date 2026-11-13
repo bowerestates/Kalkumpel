@@ -504,3 +504,9 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 
 **How to test:** Profil → Rechtliches → Datenschutzerklärung; check Centro Holdings LLC/address, 18+, device identity, services/statistics, clickable Lovable privacy link and highlighted review gaps. Open Impressum/AGB to confirm the same operator; back returns to Profil.
 **Next:** complete highlighted legal/provider gaps and obtain legal review; web paywall messaging stays parked.
+
+## Direct OpenAI provider & native scan endpoint (13 Nov 2026)
+- [x] Provider switch in `src/lib/meal-ai.server.ts`: default Lovable AI Gateway; `AI_PROVIDER=openai` + `OPENAI_API_KEY` (optional `OPENAI_MODEL`, default `gpt-5-mini`) calls OpenAI directly.
+- [x] Shared scan flow `src/lib/meal-scan.server.ts` (token check + 3/day quota) used by web and native.
+- [x] Native endpoint `POST /api/public/meal-scan` (Bearer anonymous-device token required; 401/429/422/402 statuses). Verified 401 without/with invalid token.
+- [ ] Upcoming: add `OPENAI_API_KEY` + `AI_PROVIDER=openai` secrets and run a live scan through OpenAI.
