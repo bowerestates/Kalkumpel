@@ -454,7 +454,8 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 
 ## Phase 10 – Legal pages (drafts, 26 Oct 2026)
 - [x] German draft pages `/impressum`, `/datenschutz`, `/agb`, linked from Einstellungen; red "ENTWURF – nicht rechtsgeprüft" banner; every missing detail shown as a highlighted placeholder.
-- [ ] Gordon: fill in placeholders (name/address, contact, register/USt-ID, Supabase region, hosting, AI provider retention, third-country basis, supervisory authority, minimum age, Widerrufsbelehrung).
+- [ ] Gordon: fill in placeholders (name/address, contact, register/USt-ID, Supabase region, hosting, AI provider retention, third-country basis, supervisory authority, minimum age).
+- [x] AGB § 5 Widerrufsrecht: removed the placeholder instruction "Widerrufsbelehrung und Muster-Widerrufsformular rechtlich prüfen und ergänzen" (13 Nov 2026); the section now states the statutory withdrawal right and the Apple/Google refund procedures only.
 - [ ] Legal review by a lawyer or generator service before launch; link Datenschutz/AGB from the paywall and sign-up once final.
 
 ## Anonymous device identity (27 Oct 2026)
