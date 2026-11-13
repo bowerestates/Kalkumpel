@@ -1,6 +1,7 @@
 # Kalkumpel — Masterplan (Web)
 
 ## Privacy/operator checkpoint — 13 Nov 2026
+Privacy-page contact revision: telephone number removed at Gordon's request; email contacts retained. Impressum is unchanged.
 The German privacy draft now uses Gordon’s supplied policy (1 Nov 2026) and identifies Centro Holdings LLC, 1200 Tipps Road, Cross Roads, Texas 76227, USA; privacy email kalkumpel@outlook.com and supplied Gordon Rae contacts. Matching operator/contact details are filled in Impressum and AGB. Formal representation/DPO appointment, EU representative, Texas filing information, supplier regions/contracts, transfer safeguards and retention remain highlighted for confirmation and legal review.
 
 Current identity supersedes historical email/Google/Apple descriptions below: first online launch creates a Supabase anonymous identity; no email, password or user sign-in screen. Browser cache and owner-scoped Supabase sync are not anonymous data, guaranteed cross-device recovery or subscription entitlements. `/konto` collects consent before plan selection. Minimum age is 18 with required birthday confirmation; source-policy 13–17 permissions were not adopted. No auth, consent, storage, payment or analytics behaviour changed in this text delivery.

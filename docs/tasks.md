@@ -492,6 +492,8 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 
 
 ## Supplied privacy policy — 13 Nov 2026
+- [x] Removed the telephone number from Datenschutzerklärung only at Gordon's request; email contacts and Impressum remain unchanged. Verified rendered page without the number.
+- [x] Uploaded and verified the telephone-removal documentation revision on GitHub.
 - [x] Adapted Gordon’s 1 Nov policy into the German privacy draft; filled Centro Holdings LLC/Texas address and supplied contact details in Datenschutz, Impressum and AGB. Retained explicit draft banner and highlighted unresolved details.
 - [x] Reconciled anonymous identity (pseudonymous, not anonymous data), 18+ rule, offline/cache/server distinctions, actual data categories and services. Removed obsolete email/password/Google sign-in, public posting, active-subscription retention, mail-forwarding and automatic transfer-consent claims. No data-handling behaviour changed.
 - [x] Read full root and service references plus hosted publication settings: analytics/clicks on; disclosed cookie-free Lovable statistics, retention/privacy link, Google Fonts, Open Food Facts, USDA, AI Gateway/OpenAI and Supabase. No banner/settings change or launch/compliance claim.
