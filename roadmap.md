@@ -1,5 +1,10 @@
 # Current task
 
+## Privacy section revisions — 13 Nov 2026
+- [x] Updated supplied contact/removal/AI-transfer sections and GA4 disclosure for Gordon's Framer website; separately scoped actual Lovable development publication statistics.
+- [x] Verified privacy text/links/back navigation and phone fit with no page errors; updated affected documentation, uploaded and verified exact GitHub matches.
+- [ ] Framer analytics/consent/retention and AI transfer contracts require external confirmation before publication.
+
 ## Direct OpenAI provider activation — 13 Nov 2026
 - [x] Add `OPENAI_API_KEY` (secure form), `AI_PROVIDER=openai` and `OPENAI_MODEL=gpt-4o-mini` secrets; `gpt-5-mini` needs OpenAI organization verification.
 - [x] Send reasoning parameters only to reasoning-capable models; key the access-state blocklist to the active model.

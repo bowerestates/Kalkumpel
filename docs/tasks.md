@@ -512,3 +512,15 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - [x] Secrets added: `OPENAI_API_KEY` (via secure form), `AI_PROVIDER=openai`, `OPENAI_MODEL=gpt-4o-mini` (`gpt-5-mini` requires OpenAI organization verification, so the verified-available vision model is used).
 - [x] Reasoning parameters (`reasoning.effort`, `reasoning.encrypted_content`) are now sent only to reasoning-capable models (o1/o3/gpt-5/gpt-6 families); direct OpenAI rejects them on chat models such as `gpt-4o-mini`. Access-state blocklist rows are keyed to the active model instead of the gateway constant.
 - [x] Live end-to-end scan verified through direct OpenAI (13 Nov 2026): anonymous device token → `POST /api/public/meal-scan` → HTTP 200 with German meal analysis ("Gegrilltes Hähnchen mit Salat und Kartoffeln", 5 items, BLS grounding, confidence high) and quota counter `used: 1, limit: 3`. 94 tests pass, typecheck clean, build OK.
+
+
+## Requested privacy section revisions — 13 Nov 2026
+- [x] Set privacy contact to Gordon Rae, kalkumpel@outlook.com; remove requested DPO/EU-representative, provider-log, lawful-basis and transfer checklist instructions. Impressum is unchanged.
+- [x] Translate supplied EEA/Swiss AI-transfer terms with an explicit requirement to confirm applicable agreements; reflect direct OpenAI instead of gateway routing.
+- [x] Replace section 8 with supplied GA4 disclosure scoped to Gordon's Framer website; preserve actual enabled Lovable publication analytics in separate development-only section 8a. No tracking or consent settings changed.
+- [x] Verified rendered privacy page, contact/removals, Google links, transfer wording, 390 px fit and back navigation; no page errors, preview build OK.
+- [x] Uploaded affected privacy revision documentation and verified exact GitHub matches (13 Nov 2026).
+- [ ] Upcoming, external confirmation: Framer GA4 installation, consent behaviour, retention/property settings, contracts and AI transfer safeguards; legal approval remains required.
+
+**How to test:** open Profil → Rechtliches → Datenschutzerklärung; check sections 1, 4, 5, 6, 8/8a and 9, Google links and draft warning.
+**Next:** confirm Framer tracking and provider contracts before publishing the legal text; removing checklist copy does not resolve the underlying legal review.
