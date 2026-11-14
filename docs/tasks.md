@@ -524,3 +524,10 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 
 **How to test:** open Profil → Rechtliches → Datenschutzerklärung; check sections 1, 4, 5, 6, 8/8a and 9, Google links and draft warning.
 **Next:** confirm Framer tracking and provider contracts before publishing the legal text; removing checklist copy does not resolve the underlying legal review.
+
+- [x] (14 Nov 2026) OpenAI region decision: keep the standard US endpoint (api.openai.com). EU endpoint requires an EU-residency OpenAI project; the app can switch later by setting OPENAI_BASE_URL=https://eu.api.openai.com/v1 with an EU project key.
+
+## Datenschutzerklärung section 6 — OpenAI processing details (14 Nov 2026)
+- [x] Added Gordon's supplied OpenAI processing details (translated to German) to section 6 "KI-Analyse und Lebensmittelquellen": operator/contractual partner (Centro Holdings LLC ↔ OpenAI OpCo, LLC, entity to be confirmed against account records), transmitted data and purpose, processing on behalf under OpenAI's DPA, regional processing and international transfers (OpenAI Ireland Ltd., SCCs/adequacy; no Germany/EU-only guarantee), retention and deletion (abuse-monitoring logs up to 30 days, Responses API storage, store=false caveat, child-safety review), and model training / no zero-data-retention guarantee.
+- [x] Removed the highlighted OpenAI placeholder paragraph from section 6; verified rendered page shows the new paragraphs with no remaining `[[...]]` marks in that section. 94 tests pass.
+- [ ] Upcoming: confirm the applicable OpenAI contracting entity, DPA retention records and regional/endpoint configuration before legal sign-off; draft banner remains.
