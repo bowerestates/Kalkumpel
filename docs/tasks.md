@@ -595,3 +595,8 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - [x] Removed the "Umsatzsteuer-ID" section and its highlighted placeholder from the Impressum in `src/lib/legal.ts`; the page now runs Angaben gemäß § 5 DDG → Kontakt → Registereintrag → § 18 MStV → Verbraucherstreitbeilegung → Haftung.
 - [x] Verified in the browser: no "Umsatzsteuer-ID" heading and no "§ 27a UStG" text remain, 2 highlighted marks left on the page, no page errors. 94 tests pass, typecheck clean, build OK.
 - [ ] Impressum still has two highlighted placeholders (verantwortliche Person nach § 18 Abs. 2 MStV, Streitbeilegungs-Bestätigung) that need Gordon's business details.
+
+## Impressum "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV" section deleted (14 Nov 2026)
+- [x] Removed the section and its highlighted placeholder from the Impressum in `src/lib/legal.ts`; the page now runs Angaben gemäß § 5 DDG → Kontakt → Registereintrag → Verbraucherstreitbeilegung → Haftung.
+- [x] Verified in the browser: no "§ 18 Abs. 2 MStV" heading and no "Name und Anschrift der verantwortlichen Person" text remain, 1 highlighted mark left on the page, no page errors. 94 tests pass, typecheck clean, build OK.
+- [ ] Impressum still has one highlighted placeholder (Verbraucherstreitbeilegung – "Bitte bestätigen oder anpassen") that needs Gordon's confirmation.
