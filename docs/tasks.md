@@ -574,3 +574,9 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - [x] Removed the red "ENTWURF – nicht rechtsgeprüft" banner from `src/components/legal-page.tsx` and deleted the now-unused `legalDraftBanner`/`legalGermanOnly` dictionary keys (de + en) from `src/lib/i18n.ts`; the banner is gone from Datenschutzerklärung, Impressum and AGB.
 - [x] Verified all three legal pages render without the banner and without page errors. 94 tests pass, typecheck clean, build OK.
 - [ ] Note: the pages are still unreviewed drafts — removing the banner was a presentation change only; legal review is still required before publishing.
+
+## Legal publication date set to November 2026 (14 Nov 2026)
+- [x] Filled the publication-date placeholders in `src/lib/legal.ts`: Impressum `updated` was `[[Datum der Veröffentlichung]]` and AGB `updated` was `[[Datum]]`; both now read "November 2026".
+- [x] Verified in the browser: Impressum and AGB both show "November 2026", no date placeholder remains, no page errors. 94 tests pass, typecheck clean, build OK.
+- [x] Left the Datenschutzerklärung date line untouched — it already reads "01.11.2026 (Vorlage); für die aktuelle Web-App angepasst am 13.11.2026", matching Gordon's supplied policy ("Last Updated: November 1, 2026").
+- [ ] Impressum still has six highlighted placeholders (vertretungsberechtigte Person, Registerangaben, Filing-Nummer, USt-IdNr., verantwortliche Person nach § 18 Abs. 2 MStV, Streitbeilegungs-Bestätigung) that need Gordon's business details.
