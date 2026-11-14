@@ -580,3 +580,8 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - [x] Verified in the browser: Impressum and AGB both show "November 2026", no date placeholder remains, no page errors. 94 tests pass, typecheck clean, build OK.
 - [x] Left the Datenschutzerklärung date line untouched — it already reads "01.11.2026 (Vorlage); für die aktuelle Web-App angepasst am 13.11.2026", matching Gordon's supplied policy ("Last Updated: November 1, 2026").
 - [ ] Impressum still has six highlighted placeholders (vertretungsberechtigte Person, Registerangaben, Filing-Nummer, USt-IdNr., verantwortliche Person nach § 18 Abs. 2 MStV, Streitbeilegungs-Bestätigung) that need Gordon's business details.
+
+## Impressum "Vertreten durch" section deleted (14 Nov 2026)
+- [x] Removed the "Vertreten durch" section and its highlighted placeholder from the Impressum in `src/lib/legal.ts`; the page now runs Angaben gemäß § 5 DDG → Kontakt → Registereintrag → Umsatzsteuer-ID → § 18 MStV → Verbraucherstreitbeilegung → Haftung.
+- [x] Verified in the browser: no "Vertreten durch" heading and no placeholder text remain, "November 2026" still shows, no page errors. 94 tests pass, typecheck clean, build OK.
+- [ ] Impressum still has five highlighted placeholders (Registerangaben, Filing-/Registernummer, USt-IdNr., verantwortliche Person nach § 18 Abs. 2 MStV, Streitbeilegungs-Bestätigung) that need Gordon's business details.
