@@ -542,3 +542,8 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - [x] Removed the section 10 cross-reference to 8a; that sentence now reads only "Angaben zu Google Analytics stehen in Abschnitt 8."
 - [x] Verified the rendered page: no "8a." heading, no Lovable visitor-statistics paragraph, no "Abschnitt 8a" reference; sections 8 and 9 render in order, no page errors. 94 tests pass, typecheck clean, build OK.
 - [ ] Note for legal review: this is a text-only removal — no Lovable statistics or consent setting was changed, so Lovable visitor statistics and click capture remain undisclosed in the draft. Confirm with the reviewing lawyer whether that disclosure must be reinstated or moved before publishing.
+
+## Datenschutzerklärung section 10 highlighted note removed (14 Nov 2026)
+- [x] Removed the highlighted note "Aufbewahrungs-/Inaktivitätsfristen für Geräteidentitäten und App-Daten, Scan-/Sicherheitsprotokolle, Supportanfragen sowie Löschfristen in Backups und gesetzliche Aufbewahrungspflichten festlegen." from section 10 in `src/lib/i18n.ts`; that paragraph now reads only "Angaben zu Google Analytics stehen in Abschnitt 8."
+- [x] Verified the rendered page: section 10 shows no highlighted note and the analytics cross-reference remains; the three remaining highlights sit in sections 7, 11 and 12. 94 tests pass, typecheck clean, build OK.
+- [ ] Note for legal review: retention/inactivity periods for device identities and app data, scan/security logs, support requests, backup deletion and statutory retention duties are now nowhere stated in the draft; confirm with the reviewing lawyer before publishing.
