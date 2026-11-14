@@ -600,3 +600,7 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - [x] Removed the section and its highlighted placeholder from the Impressum in `src/lib/legal.ts`; the page now runs Angaben gemäß § 5 DDG → Kontakt → Registereintrag → Verbraucherstreitbeilegung → Haftung.
 - [x] Verified in the browser: no "§ 18 Abs. 2 MStV" heading and no "Name und Anschrift der verantwortlichen Person" text remain, 1 highlighted mark left on the page, no page errors. 94 tests pass, typecheck clean, build OK.
 - [ ] Impressum still has one highlighted placeholder (Verbraucherstreitbeilegung – "Bitte bestätigen oder anpassen") that needs Gordon's confirmation.
+
+## Impressum "Verbraucherstreitbeilegung" section deleted (14 Nov 2026)
+- [x] Removed the section and its highlighted confirmation note from the Impressum in `src/lib/legal.ts`; the page now runs Angaben gemäß § 5 DDG → Kontakt → Registereintrag → Haftung für Inhalte und Links.
+- [x] Verified in the browser: no "Verbraucherstreitbeilegung" heading and no arbitration sentence remain, 0 highlighted marks on the page — the Impressum is placeholder-free, no page errors. 94 tests pass, typecheck clean, build OK.
