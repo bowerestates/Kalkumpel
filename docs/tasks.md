@@ -569,3 +569,8 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 
 ## Datenschutzerklärung section header styling (14 Nov 2026)
 - [x] Restyled the collapsible section headers in `src/components/legal-page.tsx`: removed bold weight and switched the header text and chevron from foreground/muted to the app's primary green (`text-primary`). Verified in the browser: computed font-weight 400, color oklch(0.6 0.13 163), no page errors. 94 tests pass, typecheck clean, build OK.
+
+## Legal pages draft banner removed (14 Nov 2026)
+- [x] Removed the red "ENTWURF – nicht rechtsgeprüft" banner from `src/components/legal-page.tsx` and deleted the now-unused `legalDraftBanner`/`legalGermanOnly` dictionary keys (de + en) from `src/lib/i18n.ts`; the banner is gone from Datenschutzerklärung, Impressum and AGB.
+- [x] Verified all three legal pages render without the banner and without page errors. 94 tests pass, typecheck clean, build OK.
+- [ ] Note: the pages are still unreviewed drafts — removing the banner was a presentation change only; legal review is still required before publishing.
