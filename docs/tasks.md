@@ -536,3 +536,9 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - [x] Removed the two requested paragraphs from section 7 "Empfänger, Hosting und weitere Dienste": the Framer/Lovable hosting statement with its hosting-provider confirmation placeholder, and the Google Fonts loading statement with its Google contract/third-country placeholder. Section 7 now contains only the Supabase, no-ad-pixels and no-payment-processing paragraphs.
 - [x] Verified the rendered page: section 7 contains no "Framer" or "Google Fonts" text and no highlighted placeholder from those paragraphs; 94 tests pass.
 - [ ] Note for legal review: the app still loads Google Fonts from Google's servers, so the removal leaves that transfer undisclosed in this section; confirm with the reviewing lawyer whether it must be reinstated or moved.
+
+## Datenschutzerklärung section 8a removed (14 Nov 2026)
+- [x] Removed section 8a "Besucherstatistik einer bei Lovable veröffentlichten Entwicklungs-Webversion" in full from the privacy policy text in `src/lib/i18n.ts`, including its five paragraphs, the Lovable privacy-policy link and the highlighted legal-review placeholder; the policy now runs 1 → 12 with no subsection lettering.
+- [x] Removed the section 10 cross-reference to 8a; that sentence now reads only "Angaben zu Google Analytics stehen in Abschnitt 8."
+- [x] Verified the rendered page: no "8a." heading, no Lovable visitor-statistics paragraph, no "Abschnitt 8a" reference; sections 8 and 9 render in order, no page errors. 94 tests pass, typecheck clean, build OK.
+- [ ] Note for legal review: this is a text-only removal — no Lovable statistics or consent setting was changed, so Lovable visitor statistics and click capture remain undisclosed in the draft. Confirm with the reviewing lawyer whether that disclosure must be reinstated or moved before publishing.
