@@ -547,3 +547,8 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - [x] Removed the highlighted note "Aufbewahrungs-/Inaktivitätsfristen für Geräteidentitäten und App-Daten, Scan-/Sicherheitsprotokolle, Supportanfragen sowie Löschfristen in Backups und gesetzliche Aufbewahrungspflichten festlegen." from section 10 in `src/lib/i18n.ts`; that paragraph now reads only "Angaben zu Google Analytics stehen in Abschnitt 8."
 - [x] Verified the rendered page: section 10 shows no highlighted note and the analytics cross-reference remains; the three remaining highlights sit in sections 7, 11 and 12. 94 tests pass, typecheck clean, build OK.
 - [ ] Note for legal review: retention/inactivity periods for device identities and app data, scan/security logs, support requests, backup deletion and statutory retention duties are now nowhere stated in the draft; confirm with the reviewing lawyer before publishing.
+
+## Datenschutzerklärung section 11 highlighted note removed (14 Nov 2026)
+- [x] Removed the highlighted note "Anwendbarkeit und Verfahren für weitere US-/Texas-Datenschutzrechte einschließlich zulässiger Identitätsprüfung, Widerspruchs- und Beschwerdeverfahren rechtlich prüfen und ergänzen." from section 11 in `src/lib/i18n.ts`; the section now runs three paragraphs (DSGVO rights, consent withdrawal, application handling).
+- [x] Verified the rendered page: section 11 shows no highlighted note; only two highlights remain, in sections 7 and 12. 94 tests pass, typecheck clean, build OK.
+- [ ] Note for legal review: applicability and procedure for further US/Texas privacy rights — permissible identity verification, objection and complaint routes — are now nowhere described in the draft; confirm with the reviewing lawyer before publishing.
