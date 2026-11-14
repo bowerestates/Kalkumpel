@@ -566,3 +566,6 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 ## Datenschutzerklärung collapsible sections (14 Nov 2026)
 - [x] Added an optional `collapsible` mode to `LegalPage` (`src/components/legal-page.tsx`) using native `<details>/<summary>` elements with a rotating chevron; enabled it only on the Datenschutzerklärung route (`src/routes/datenschutz.tsx`), so Impressum and AGB still render fully expanded.
 - [x] Browser-tested at phone size: all 12 section headers render as tappable rows, all bodies hidden on load, tapping a header opens its content below, tapping again closes it; Impressum and AGB unchanged (0 collapsible elements), no page errors. 94 tests pass, typecheck clean, build OK.
+
+## Datenschutzerklärung section header styling (14 Nov 2026)
+- [x] Restyled the collapsible section headers in `src/components/legal-page.tsx`: removed bold weight and switched the header text and chevron from foreground/muted to the app's primary green (`text-primary`). Verified in the browser: computed font-weight 400, color oklch(0.6 0.13 163), no page errors. 94 tests pass, typecheck clean, build OK.
