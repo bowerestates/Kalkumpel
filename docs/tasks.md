@@ -590,3 +590,8 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 - [x] Filled the Registereintrag section in `src/lib/legal.ts`: "Register: Texas Secretary of State" and "Filing-/Registernummer: 41-3073081"; both highlighted placeholders there are gone.
 - [x] Verified in the browser: both lines render exactly as supplied, no old placeholder text remains, 3 highlighted marks left on the page, no page errors. 94 tests pass, typecheck clean, build OK.
 - [ ] Impressum still has three highlighted placeholders (USt-IdNr., verantwortliche Person nach § 18 Abs. 2 MStV, Streitbeilegungs-Bestätigung) that need Gordon's business details.
+
+## Impressum "Umsatzsteuer-ID" section deleted (14 Nov 2026)
+- [x] Removed the "Umsatzsteuer-ID" section and its highlighted placeholder from the Impressum in `src/lib/legal.ts`; the page now runs Angaben gemäß § 5 DDG → Kontakt → Registereintrag → § 18 MStV → Verbraucherstreitbeilegung → Haftung.
+- [x] Verified in the browser: no "Umsatzsteuer-ID" heading and no "§ 27a UStG" text remain, 2 highlighted marks left on the page, no page errors. 94 tests pass, typecheck clean, build OK.
+- [ ] Impressum still has two highlighted placeholders (verantwortliche Person nach § 18 Abs. 2 MStV, Streitbeilegungs-Bestätigung) that need Gordon's business details.
