@@ -604,3 +604,5 @@ Verified: all four real UI edits, dependent previews, invalid rejection, cancel 
 ## Impressum "Verbraucherstreitbeilegung" section deleted (14 Nov 2026)
 - [x] Removed the section and its highlighted confirmation note from the Impressum in `src/lib/legal.ts`; the page now runs Angaben gemäß § 5 DDG → Kontakt → Registereintrag → Haftung für Inhalte und Links.
 - [x] Verified in the browser: no "Verbraucherstreitbeilegung" heading and no arbitration sentence remain, 0 highlighted marks on the page — the Impressum is placeholder-free, no page errors. 94 tests pass, typecheck clean, build OK.
+
+- [x] 17 Nov 2026 — Welcome direct view mode: `/?ansicht=true` shows the start screen without redirecting onboarded users; link "Startbildschirm ansehen" under Profil → Einstellungen → Darstellung with "Zurück zur App" button. Typecheck clean, browser-tested.
